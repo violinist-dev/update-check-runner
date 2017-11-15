@@ -1,0 +1,8 @@
+{
+  "name": "violinist-dev/update-check-runner",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "eiriksm/cosy-composer": "dev-master"
+  }
+}
