@@ -15,4 +15,16 @@ $cosy->setForkUser($fork_to);
 $cosy->setGithubForkAuth($fork_user, $token, $fork_mail);
 $cosy->setTmpDir(sprintf('/tmp/violinist-%d-%s-%s', 8, date('Y.m.d-H.i.s', time()), uniqid()));
 $cosy->run();
-print_r($cosy->getOutput());
+$data = [];
+$output = $cosy->getOutput();
+$json = [];
+foreach ($output as $type => $message) {
+  if (empty($message)) {
+    continue;
+  }
+  $json[] = [
+    'message' => $message->getMessage(),
+    'timestamp' => $message->getTimestamp(),
+  ];
+}
+print json_encode($json);
