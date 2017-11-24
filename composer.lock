@@ -323,20 +323,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "6a75aa9a5512934c519b10f274ec964804ffc1df"
+                "reference": "8b2f26899bcdaa516915570639725d8eec89ad73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/6a75aa9a5512934c519b10f274ec964804ffc1df",
-                "reference": "6a75aa9a5512934c519b10f274ec964804ffc1df",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/8b2f26899bcdaa516915570639725d8eec89ad73",
+                "reference": "8b2f26899bcdaa516915570639725d8eec89ad73",
                 "shasum": ""
             },
             "require": {
                 "composer/composer": "^1.4",
-                "eiriksm/git-log-format": "dev-master",
-                "eiriksm/violinist-messages": "dev-master",
                 "knplabs/github-api": "^2.0",
-                "php-http/guzzle6-adapter": "^1.1"
+                "php-http/guzzle6-adapter": "^1.1",
+                "violinist-dev/git-log-format": "dev-master",
+                "violinist-dev/violinist-messages": "dev-master"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.7",
@@ -350,61 +350,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2017-11-10T18:28:33+00:00"
-        },
-        {
-            "name": "eiriksm/git-log-format",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/eiriksm/git-log-format.git",
-                "reference": "12a67c3fe31b364ebc0d5ba20215c78ca28eed3a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/git-log-format/zipball/12a67c3fe31b364ebc0d5ba20215c78ca28eed3a",
-                "reference": "12a67c3fe31b364ebc0d5ba20215c78ca28eed3a",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "eiriksm\\GitLogFormat\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Format changelog-like git logs",
-            "time": "2017-07-23T08:38:23+00:00"
-        },
-        {
-            "name": "eiriksm/violinist-messages",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "971664fa68748c3feb8ae78efee1d861f5e80b30"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/971664fa68748c3feb8ae78efee1d861f5e80b30",
-                "reference": "971664fa68748c3feb8ae78efee1d861f5e80b30",
-                "shasum": ""
-            },
-            "require": {
-                "twig/twig": "^1.23.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "eiriksm\\ViolinistMessages\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2017-07-23T08:37:10+00:00"
+            "time": "2017-11-24T15:30:26+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1475,16 +1421,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "099302cc53e57cbb7414fd9f3ace40e5e2767c0b"
+                "reference": "63cd7960a0a522c3537f6326706d7f3b8de65805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/099302cc53e57cbb7414fd9f3ace40e5e2767c0b",
-                "reference": "099302cc53e57cbb7414fd9f3ace40e5e2767c0b",
+                "url": "https://api.github.com/repos/symfony/console/zipball/63cd7960a0a522c3537f6326706d7f3b8de65805",
+                "reference": "63cd7960a0a522c3537f6326706d7f3b8de65805",
                 "shasum": ""
             },
             "require": {
@@ -1539,11 +1485,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-12T16:53:41+00:00"
+            "time": "2017-11-16T15:24:32+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -1599,7 +1545,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -1648,7 +1594,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -1697,7 +1643,7 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -1810,7 +1756,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -1921,6 +1867,61 @@
                 "templating"
             ],
             "time": "2017-09-27T18:06:46+00:00"
+        },
+        {
+            "name": "violinist-dev/git-log-format",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/git-log-format.git",
+                "reference": "05ac0a8acdc707bda7e75f18c7ae7c2e65940e99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/05ac0a8acdc707bda7e75f18c7ae7c2e65940e99",
+                "reference": "05ac0a8acdc707bda7e75f18c7ae7c2e65940e99",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "eiriksm\\GitLogFormat\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Format changelog-like git logs",
+            "time": "2017-11-23T15:34:15+00:00"
+        },
+        {
+            "name": "violinist-dev/violinist-messages",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/violinist-messages.git",
+                "reference": "7d3d276d96e273ce0521498c7d2fc9325a2dee01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/7d3d276d96e273ce0521498c7d2fc9325a2dee01",
+                "reference": "7d3d276d96e273ce0521498c7d2fc9325a2dee01",
+                "shasum": ""
+            },
+            "require": {
+                "twig/twig": "^1.23.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "eiriksm\\ViolinistMessages\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Template(s) for the pull requests that violinist.io sends on updates.",
+            "time": "2017-11-23T15:43:42+00:00"
         }
     ],
     "packages-dev": [],
