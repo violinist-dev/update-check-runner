@@ -1,5 +1,6 @@
 FROM drupaldocker/php:7.0-alpine-cli
 MAINTAINER eiriksm <eirik@morland.no>
+RUN composer install --no-dev --optimize-autoloader
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 CMD ["php", "runner.php"]
