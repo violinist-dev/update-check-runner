@@ -1,0 +1,6 @@
+FROM drupaldocker/php:7.1-alpine-cli
+MAINTAINER eiriksm <eirik@morland.no>
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+CMD ["php", "runner.php"]
+
