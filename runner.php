@@ -16,6 +16,7 @@ $cosy->setForkUser($fork_to);
 $cosy->setGithubForkAuth($fork_user, $token, $fork_mail);
 $cosy->setTmpDir(sprintf('/tmp/violinist-%d-%s-%s', 8, date('Y.m.d-H.i.s', time()), uniqid()));
 $cosy->setCacheDir('/tmp/cosy-cache');
+$code = 0;
 try {
   $cosy->run();
   $output = $cosy->getOutput();
@@ -23,6 +24,7 @@ try {
 catch (Exception $e) {
   $output = $cosy->getOutput();
   $output[] = new Message('Caught Exception: ' . $e->getMessage());
+  $code = 1;
 }
 $json = [];
 foreach ($output as $type => $message) {
@@ -36,3 +38,4 @@ foreach ($output as $type => $message) {
   ];
 }
 print json_encode($json);
+exit($code);
