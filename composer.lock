@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e8bfbb0e7b5a9bc33826fd58632091b",
+    "content-hash": "6828ace0b7935b6854e422903e893e4b",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -320,12 +320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "b79286381a0d413c561ab475aa0f15bbd78cfd1f"
+                "reference": "1ff67c9d6f3d7df660d3be44067993ad17ec1df0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/b79286381a0d413c561ab475aa0f15bbd78cfd1f",
-                "reference": "b79286381a0d413c561ab475aa0f15bbd78cfd1f",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/1ff67c9d6f3d7df660d3be44067993ad17ec1df0",
+                "reference": "1ff67c9d6f3d7df660d3be44067993ad17ec1df0",
                 "shasum": ""
             },
             "require": {
@@ -348,7 +348,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2017-12-14T16:49:43+00:00"
+            "time": "2018-01-09T15:43:37+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
