@@ -320,12 +320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "fa1d19dd53681d4eaedf637c911dc8ee06da2ae6"
+                "reference": "8cfb5b5db8d20f20807be52719cb1a583f52d83e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/fa1d19dd53681d4eaedf637c911dc8ee06da2ae6",
-                "reference": "fa1d19dd53681d4eaedf637c911dc8ee06da2ae6",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/8cfb5b5db8d20f20807be52719cb1a583f52d83e",
+                "reference": "8cfb5b5db8d20f20807be52719cb1a583f52d83e",
                 "shasum": ""
             },
             "require": {
@@ -348,7 +348,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2018-02-06T20:17:38+00:00"
+            "time": "2018-02-07T09:13:46+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -784,16 +784,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "7b50ab4d6c9fdaa1ed53ae310c955900af6e3372"
+                "reference": "9a6cb24de552bfe1aa9d7d1569e2d49c5b169a33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/7b50ab4d6c9fdaa1ed53ae310c955900af6e3372",
-                "reference": "7b50ab4d6c9fdaa1ed53ae310c955900af6e3372",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/9a6cb24de552bfe1aa9d7d1569e2d49c5b169a33",
+                "reference": "9a6cb24de552bfe1aa9d7d1569e2d49c5b169a33",
                 "shasum": ""
             },
             "require": {
@@ -842,7 +842,7 @@
                 "message",
                 "psr7"
             ],
-            "time": "2017-08-03T10:12:53+00:00"
+            "time": "2018-02-06T10:55:24+00:00"
         },
         {
             "name": "php-http/guzzle6-adapter",
