@@ -1,6 +1,7 @@
 <?php
-use eiriksm\CosyComposer\CosyComposer;
 use eiriksm\CosyComposer\Message;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 
 require_once "vendor/autoload.php";
 
@@ -10,7 +11,16 @@ $user_token = $_SERVER['user_token'];
 $fork_to = $_SERVER['fork_to'];
 $fork_user = $_SERVER['fork_user'];
 $fork_mail = $_SERVER['fork_mail'];
-$cosy = new CosyComposer($token, $slug);
+$container = new ContainerBuilder();
+$container->register('app', 'Composer\Console\Application');
+$container->register('output', 'eiriksm\CosyComposer\ArrayOutput');
+$container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
+  ->addArgument($token)
+  ->addArgument($slug)
+  ->addArgument(new Reference('app'))
+  ->addArgument(new Reference('output'));
+
+$cosy = $container->get('cosy');
 $cosy->setGithubAuth($user_token, 'x-oauth-basic');
 $cosy->setForkUser($fork_to);
 $cosy->setGithubForkAuth($fork_user, $token, $fork_mail);

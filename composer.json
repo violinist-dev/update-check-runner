@@ -3,6 +3,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "eiriksm/cosy-composer": "dev-master"
+    "eiriksm/cosy-composer": "dev-master",
+    "symfony/dependency-injection": "^3.4"
   }
 }
