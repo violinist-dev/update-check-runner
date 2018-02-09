@@ -320,12 +320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "2663575cbd227a7855956108f097441cabca8577"
+                "reference": "2c0621dca49c4559ca843739197da073b0e37874"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/2663575cbd227a7855956108f097441cabca8577",
-                "reference": "2663575cbd227a7855956108f097441cabca8577",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/2c0621dca49c4559ca843739197da073b0e37874",
+                "reference": "2c0621dca49c4559ca843739197da073b0e37874",
                 "shasum": ""
             },
             "require": {
@@ -348,7 +348,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2018-02-08T09:49:09+00:00"
+            "time": "2018-02-09T08:02:39+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
