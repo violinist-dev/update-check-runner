@@ -12,14 +12,21 @@ $fork_to = $_SERVER['fork_to'];
 $fork_user = $_SERVER['fork_user'];
 $fork_mail = $_SERVER['fork_mail'];
 $container = new ContainerBuilder();
-$container->register('app', 'Composer\Console\Application');
-$container->register('output', 'eiriksm\CosyComposer\ArrayOutput');
+$container->register('app', \Composer\Console\Application::class);
+$container->register('output', \eiriksm\ArrayOutput\ArrayOutput::class);
+$container->register('logger', 'Wa72\SimpleLogger\ArrayLogger');
+$container->register('process.factory', 'eiriksm\CosyComposer\ProcessFactory');
+$container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
+  ->addArgument(new Reference('logger'))
+  ->addArgument(new Reference('process.factory'));
 $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
   ->addArgument($token)
   ->addArgument($slug)
   ->addArgument(new Reference('app'))
-  ->addArgument(new Reference('output'));
+  ->addArgument(new Reference('output'))
+  ->addArgument(new Reference('command'));
 
+/** @var \eiriksm\CosyComposer\CosyComposer $cosy */
 $cosy = $container->get('cosy');
 $cosy->setGithubAuth($user_token, 'x-oauth-basic');
 $cosy->setForkUser($fork_to);

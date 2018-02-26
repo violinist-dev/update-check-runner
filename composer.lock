@@ -320,25 +320,29 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "2c0621dca49c4559ca843739197da073b0e37874"
+                "reference": "d642ef19f86426cc456a518367f2ac652e3a54e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/2c0621dca49c4559ca843739197da073b0e37874",
-                "reference": "2c0621dca49c4559ca843739197da073b0e37874",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/d642ef19f86426cc456a518367f2ac652e3a54e8",
+                "reference": "d642ef19f86426cc456a518367f2ac652e3a54e8",
                 "shasum": ""
             },
             "require": {
                 "composer/composer": "^1.4",
+                "eiriksm/symfony-console-array-output": "^1.0",
                 "knplabs/github-api": "^2.0",
+                "league/flysystem": "^1.0",
                 "php-http/guzzle6-adapter": "^1.1",
                 "violinist-dev/git-log-format": "dev-master",
-                "violinist-dev/violinist-messages": "dev-master"
+                "violinist-dev/slug-from-url": "dev-master",
+                "violinist-dev/violinist-messages": "dev-master",
+                "wa72/simplelogger": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "^1.0"
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.2"
             },
             "type": "library",
             "autoload": {
@@ -348,7 +352,39 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2018-02-09T08:02:39+00:00"
+            "time": "2018-02-26T17:51:17+00:00"
+        },
+        {
+            "name": "eiriksm/symfony-console-array-output",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/symfony-console-array-output.git",
+                "reference": "4592fe211bd4a4c622c67de7b67f9f1e58ed959c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/symfony-console-array-output/zipball/4592fe211bd4a4c622c67de7b67f9f1e58ed959c",
+                "reference": "4592fe211bd4a4c622c67de7b67f9f1e58ed959c",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "^3.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "eiriksm\\ArrayOutput\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Array output for console commands",
+            "time": "2018-02-26T15:46:09+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -533,16 +569,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.6",
+            "version": "5.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd"
+                "reference": "8560d4314577199ba51bf2032f02cd1315587c23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d283e11b6e14c6f4664cf080415c4341293e5bbd",
-                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/8560d4314577199ba51bf2032f02cd1315587c23",
+                "reference": "8560d4314577199ba51bf2032f02cd1315587c23",
                 "shasum": ""
             },
             "require": {
@@ -551,7 +587,7 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.1",
                 "json-schema/json-schema-test-suite": "1.2.0",
-                "phpunit/phpunit": "^4.8.22"
+                "phpunit/phpunit": "^4.8.35"
             },
             "bin": [
                 "bin/validate-json"
@@ -595,7 +631,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2017-10-21T13:15:38+00:00"
+            "time": "2018-02-14T22:26:30+00:00"
         },
         {
             "name": "knplabs/github-api",
@@ -664,6 +700,90 @@
                 "github"
             ],
             "time": "2017-12-12T20:14:04+00:00"
+        },
+        {
+            "name": "league/flysystem",
+            "version": "1.0.42",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "09eabc54e199950041aef258a85847676496fe8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/09eabc54e199950041aef258a85847676496fe8e",
+                "reference": "09eabc54e199950041aef258a85847676496fe8e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
+            },
+            "require-dev": {
+                "ext-fileinfo": "*",
+                "phpspec/phpspec": "^3.4",
+                "phpunit/phpunit": "^5.7"
+            },
+            "suggest": {
+                "ext-fileinfo": "Required for MimeType",
+                "ext-ftp": "Allows you to use FTP server storage",
+                "ext-openssl": "Allows you to use FTPS server storage",
+                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
+                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
+                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
+                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
+                "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
+                "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Filesystem abstraction: Many filesystems, one API.",
+            "keywords": [
+                "Cloud Files",
+                "WebDAV",
+                "abstraction",
+                "aws",
+                "cloud",
+                "copy.com",
+                "dropbox",
+                "file systems",
+                "files",
+                "filesystem",
+                "filesystems",
+                "ftp",
+                "rackspace",
+                "remote",
+                "s3",
+                "sftp",
+                "storage"
+            ],
+            "time": "2018-01-27T16:03:56+00:00"
         },
         {
             "name": "php-http/cache-plugin",
@@ -2015,6 +2135,47 @@
             "time": "2017-11-23T15:34:15+00:00"
         },
         {
+            "name": "violinist-dev/slug-from-url",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/slug-from-url.git",
+                "reference": "9ee1fccff8cb6380411ca75b3a16d3306dc05229"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/slug-from-url/zipball/9ee1fccff8cb6380411ca75b3a16d3306dc05229",
+                "reference": "9ee1fccff8cb6380411ca75b3a16d3306dc05229",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Violinist\\Slug\\": "src"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eirik S. Morland",
+                    "email": "eirik@morland.no"
+                }
+            ],
+            "description": "Get a slug from a URL",
+            "time": "2018-02-12T16:02:43+00:00"
+        },
+        {
             "name": "violinist-dev/violinist-messages",
             "version": "dev-master",
             "source": {
@@ -2040,6 +2201,56 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
             "time": "2017-11-23T15:43:42+00:00"
+        },
+        {
+            "name": "wa72/simplelogger",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wasinger/simplelogger.git",
+                "reference": "4af160807cd3c939cbb64d410e53934c0df0737e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wasinger/simplelogger/zipball/4af160807cd3c939cbb64d410e53934c0df0737e",
+                "reference": "4af160807cd3c939cbb64d410e53934c0df0737e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "psr/log": "1.*"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "suggest": {
+                "symfony/console": "If you want to log to the Symfony console using Wa72ConsoleLogger"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Wa72\\SimpleLogger": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Singer",
+                    "email": "singer@webagentur72.de",
+                    "homepage": "http://www.webagentur72.de"
+                }
+            ],
+            "description": "Wa72SimpleLogger is a collection of very simple loggers implementing \\Psr\\Log\\LoggerInterface (PSR-3)",
+            "homepage": "http://github.com/wasinger/simplelogger",
+            "keywords": [
+                "log",
+                "logger",
+                "psr-3"
+            ],
+            "time": "2015-03-06T19:17:01+00:00"
         }
     ],
     "packages-dev": [],
