@@ -32,7 +32,11 @@ $cosy->setGithubAuth($user_token, 'x-oauth-basic');
 $cosy->setForkUser($fork_to);
 $cosy->setGithubForkAuth($fork_user, $token, $fork_mail);
 $cosy->setTmpDir(sprintf('/tmp/violinist-%d-%s-%s', 8, date('Y.m.d-H.i.s', time()), uniqid()));
-$cosy->setCacheDir('/tmp/cosy-cache');
+$cache_dir = $_SERVER['HOME'] . '/.cosy-cache';
+if (!file_exists($cache_dir)) {
+    mkdir($cache_dir);
+}
+$cosy->setCacheDir($cache_dir);
 $code = 0;
 try {
   $cosy->run();
