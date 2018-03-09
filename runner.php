@@ -20,11 +20,12 @@ $container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
   ->addArgument(new Reference('logger'))
   ->addArgument(new Reference('process.factory'));
 $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
-  ->addArgument($token)
-  ->addArgument($slug)
-  ->addArgument(new Reference('app'))
-  ->addArgument(new Reference('output'))
-  ->addArgument(new Reference('command'));
+    ->addArgument($token)
+    ->addArgument($slug)
+    ->addArgument(new Reference('app'))
+    ->addArgument(new Reference('output'))
+    ->addArgument(new Reference('command'))
+    ->addMethodCall('setLogger', [new Reference('logger')]);
 
 /** @var \eiriksm\CosyComposer\CosyComposer $cosy */
 $cosy = $container->get('cosy');
