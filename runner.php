@@ -54,9 +54,10 @@ foreach ($output as $type => $message) {
     continue;
   }
   $json[] = [
-    'message' => $message->getMessage(),
-    'timestamp' => $message->getTimestamp(),
-    'type' => $message->getType(),
+      'message' => $message->getMessage(),
+      'context' => $message->getContext(),
+      'timestamp' => $message->getTimestamp(),
+      'type' => $message->getType(),
   ];
 }
 print json_encode($json);
