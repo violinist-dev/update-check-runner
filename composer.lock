@@ -320,12 +320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "b9a40241f446473620b77da530917502356381ed"
+                "reference": "5d6d799ff7496470c36012c6309d9dca003a80f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/b9a40241f446473620b77da530917502356381ed",
-                "reference": "b9a40241f446473620b77da530917502356381ed",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/5d6d799ff7496470c36012c6309d9dca003a80f4",
+                "reference": "5d6d799ff7496470c36012c6309d9dca003a80f4",
                 "shasum": ""
             },
             "require": {
@@ -352,7 +352,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2018-03-22T11:07:50+00:00"
+            "time": "2018-03-25T17:24:01+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
