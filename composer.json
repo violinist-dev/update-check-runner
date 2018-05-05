@@ -4,6 +4,7 @@
   "prefer-stable": true,
   "require": {
     "eiriksm/cosy-composer": "dev-master",
-    "symfony/dependency-injection": "^3.4"
+    "symfony/dependency-injection": "^3.4",
+    "violinist-dev/project-data": "dev-master"
   }
 }
