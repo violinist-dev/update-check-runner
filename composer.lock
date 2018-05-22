@@ -1716,16 +1716,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.4.9",
+            "version": "v3.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "54ff9d78b56429f9a1ac12e60bfb6d169c0468e3"
+                "reference": "c2741b26377804e3d70775a3ef29335685ee9b71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/54ff9d78b56429f9a1ac12e60bfb6d169c0468e3",
-                "reference": "54ff9d78b56429f9a1ac12e60bfb6d169c0468e3",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/c2741b26377804e3d70775a3ef29335685ee9b71",
+                "reference": "c2741b26377804e3d70775a3ef29335685ee9b71",
                 "shasum": ""
             },
             "require": {
@@ -1783,7 +1783,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-29T14:04:08+00:00"
+            "time": "2018-05-18T01:58:36+00:00"
         },
         {
             "name": "symfony/filesystem",
