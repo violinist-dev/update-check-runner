@@ -5,6 +5,8 @@
   "require": {
     "eiriksm/cosy-composer": "dev-master",
     "symfony/dependency-injection": "^3.4",
-    "violinist-dev/project-data": "dev-master"
+    "violinist-dev/project-data": "dev-master",
+    "m4tthumphrey/php-gitlab-api": "^9.10",
+    "php-http/guzzle6-adapter": "^1.1"
   }
 }
