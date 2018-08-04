@@ -20,8 +20,12 @@ $fork_user = $_SERVER['fork_user'];
 $fork_mail = $_SERVER['fork_mail'];
 $token_url = $_SERVER['token_url'];
 $project = null;
+$url = null;
 if (!empty($_SERVER['project'])) {
     $project = @unserialize(@json_decode($_SERVER['project']));
+}
+if (!empty($_SERVER['project_url'])) {
+    $url = $_SERVER['project_url'];
 }
 $container = new ContainerBuilder();
 $container->register('app', \Composer\Console\Application::class);
@@ -36,11 +40,13 @@ $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
     ->addArgument(new Reference('app'))
     ->addArgument(new Reference('output'))
     ->addArgument(new Reference('command'))
-    ->addMethodCall('setLogger', [new Reference('logger')]);
+    ->addMethodCall('setLogger', [new Reference('logger')])
+    ->addMethodCall('setUrl', [$url]);
 
 /* @var \eiriksm\CosyComposer\CosyComposer $cosy */
 $cosy = $container->get('cosy');
 $cosy->setGithubAuth($user_token, 'x-oauth-basic');
+$cosy->setUserToken($user_token);
 $cosy->setForkUser($fork_to);
 $cosy->setProject($project);
 $cosy->setGithubForkAuth($fork_user, $fork_mail);
