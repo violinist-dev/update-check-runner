@@ -323,12 +323,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "07cd7a757c6dd90a1268d30d0b58b082e3aa0603"
+                "reference": "a5b8e9ffa9921353558d694b2f625c5a82efd0b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/07cd7a757c6dd90a1268d30d0b58b082e3aa0603",
-                "reference": "07cd7a757c6dd90a1268d30d0b58b082e3aa0603",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/a5b8e9ffa9921353558d694b2f625c5a82efd0b7",
+                "reference": "a5b8e9ffa9921353558d694b2f625c5a82efd0b7",
                 "shasum": ""
             },
             "require": {
@@ -336,6 +336,7 @@
                 "eiriksm/symfony-console-array-output": "^1.0",
                 "knplabs/github-api": "^2.0",
                 "league/flysystem": "^1.0",
+                "m4tthumphrey/php-gitlab-api": "^9.10",
                 "php-http/guzzle6-adapter": "^1.1",
                 "violinist-dev/git-log-format": "dev-master",
                 "violinist-dev/project-data": "dev-master",
@@ -356,7 +357,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2018-08-04T13:55:33+00:00"
+            "time": "2018-08-04T18:44:05+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
