@@ -72,7 +72,7 @@ try {
 }
 catch (Exception $e) {
     $output = $cosy->getOutput();
-    $output[] = new Message('Caught Exception: ' . $e->getMessage());
+    $output[] = new Message('Caught Exception: ' . $e->getMessage(), Message::ERROR);
     $code = 1;
 }
 $json = [];
