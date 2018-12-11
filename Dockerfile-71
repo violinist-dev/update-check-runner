@@ -3,7 +3,7 @@ MAINTAINER eiriksm <eirik@morland.no>
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 RUN composer install --no-dev --optimize-autoloader && composer global require hirak/prestissimo
-RUN wget https://get.symfony.com/cli/v4.0.4/symfony_linux_amd64 -O /tmp/symfony.gz
+RUN wget https://get.symfony.com/cli/v4.0.5/symfony_linux_amd64 -O /tmp/symfony.gz
 RUN gzip -d /tmp/symfony.gz
 RUN chmod 755 /tmp/symfony
 RUN mv /tmp/symfony /usr/local/bin/symfony
