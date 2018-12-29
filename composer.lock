@@ -367,12 +367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "22436383ea5a960ddf81dec6962c2025e2b4c79d"
+                "reference": "3441fb7970f961396bf62b4be215d6b2f4558d73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/22436383ea5a960ddf81dec6962c2025e2b4c79d",
-                "reference": "22436383ea5a960ddf81dec6962c2025e2b4c79d",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/3441fb7970f961396bf62b4be215d6b2f4558d73",
+                "reference": "3441fb7970f961396bf62b4be215d6b2f4558d73",
                 "shasum": ""
             },
             "require": {
@@ -403,7 +403,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2018-12-06T21:25:12+00:00"
+            "time": "2018-12-29T00:03:14+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
@@ -998,16 +998,16 @@
         },
         {
             "name": "php-http/client-common",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/client-common.git",
-                "reference": "0b9ce659aa46aee106f8c66597ea0c070fcd9dff"
+                "reference": "efe327f4305813aa9025662259b78323d25b9948"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/client-common/zipball/0b9ce659aa46aee106f8c66597ea0c070fcd9dff",
-                "reference": "0b9ce659aa46aee106f8c66597ea0c070fcd9dff",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/efe327f4305813aa9025662259b78323d25b9948",
+                "reference": "efe327f4305813aa9025662259b78323d25b9948",
                 "shasum": ""
             },
             "require": {
@@ -1055,7 +1055,7 @@
                 "http",
                 "httplug"
             ],
-            "time": "2018-10-09T06:46:29+00:00"
+            "time": "2018-12-14T22:12:45+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -2266,16 +2266,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.35.4",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "7e081e98378a1e78c29cc9eba4aefa5d78a05d2a"
+                "reference": "730c9c4471b5152d23061feb02b03382264c8a15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7e081e98378a1e78c29cc9eba4aefa5d78a05d2a",
-                "reference": "7e081e98378a1e78c29cc9eba4aefa5d78a05d2a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/730c9c4471b5152d23061feb02b03382264c8a15",
+                "reference": "730c9c4471b5152d23061feb02b03382264c8a15",
                 "shasum": ""
             },
             "require": {
@@ -2285,12 +2285,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "^2.7",
-                "symfony/phpunit-bridge": "^3.3"
+                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.35-dev"
+                    "dev-master": "1.36-dev"
                 }
             },
             "autoload": {
@@ -2328,7 +2328,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2018-07-13T07:12:17+00:00"
+            "time": "2018-12-16T10:34:11+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
@@ -2438,24 +2438,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/symfony-cloud-security-checker.git",
-                "reference": "7b1bcf90399c4acf874a56c5f425b97a156b3357"
+                "reference": "2f1066dec2580510c55e90c5d1ca04b868a63f54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/symfony-cloud-security-checker/zipball/7b1bcf90399c4acf874a56c5f425b97a156b3357",
-                "reference": "7b1bcf90399c4acf874a56c5f425b97a156b3357",
+                "url": "https://api.github.com/repos/violinist-dev/symfony-cloud-security-checker/zipball/2f1066dec2580510c55e90c5d1ca04b868a63f54",
+                "reference": "2f1066dec2580510c55e90c5d1ca04b868a63f54",
                 "shasum": ""
             },
             "require": {
                 "symfony/process": "^2.7 || ^3.0 || ^4.0"
             },
             "require-dev": {
-                "composer/composer": "dev-master"
+                "composer/composer": "dev-master",
+                "phpunit/phpunit": "^6.5",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.3"
             },
             "type": "library",
-            "extra": {
-                "class": "Violinist\\CachedRemoteFilesystem\\EventSubscriber"
-            },
             "autoload": {
                 "psr-4": {
                     "Violinist\\SymfonyCloudSecurityChecker\\": "src"
@@ -2471,7 +2471,7 @@
                     "email": "eirik@morland.no"
                 }
             ],
-            "time": "2018-12-12T14:41:07+00:00"
+            "time": "2018-12-28T23:50:26+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
