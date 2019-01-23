@@ -2,7 +2,12 @@ FROM drupaldocker/php:7.2-cli-2.x
 MAINTAINER eiriksm <eirik@morland.no>
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN composer install --no-dev --optimize-autoloader && composer global require hirak/prestissimo
+RUN composer install --no-dev --optimize-autoloader \
+    && composer global require hirak/prestissimo \
+    && apk add --no-cache autoconf g++ make \
+    && yes | pecl install apcu \
+    && docker-php-ext-enable apcu
+
 RUN wget https://get.symfony.com/cli/v4.0.5/symfony_linux_amd64 -O /tmp/symfony.gz
 RUN gzip -d /tmp/symfony.gz
 RUN chmod 755 /tmp/symfony
