@@ -367,12 +367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "25a758a41e3283f746b0602bcc026eafba8eb2fe"
+                "reference": "57ec9471e8392e40fd5a3ea42310790382a664a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/25a758a41e3283f746b0602bcc026eafba8eb2fe",
-                "reference": "25a758a41e3283f746b0602bcc026eafba8eb2fe",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/57ec9471e8392e40fd5a3ea42310790382a664a0",
+                "reference": "57ec9471e8392e40fd5a3ea42310790382a664a0",
                 "shasum": ""
             },
             "require": {
@@ -384,14 +384,14 @@
                 "peterpostmann/parse_uri": "^1.0",
                 "php-http/guzzle6-adapter": "^1.1",
                 "violinist-dev/git-log-format": "dev-master",
-                "violinist-dev/project-data": "dev-master",
+                "violinist-dev/project-data": "^1",
                 "violinist-dev/slug-from-url": "dev-master",
                 "violinist-dev/symfony-cloud-security-checker": "dev-master",
-                "violinist-dev/violinist-messages": "dev-master",
+                "violinist-dev/violinist-messages": "^1",
                 "wa72/simplelogger": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7",
+                "phpunit/phpunit": "^6",
                 "satooshi/php-coveralls": "^2.0",
                 "squizlabs/php_codesniffer": "^3.2"
             },
@@ -403,7 +403,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2019-01-24T15:33:41+00:00"
+            "time": "2019-01-25T19:36:43+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
@@ -942,21 +942,21 @@
         },
         {
             "name": "php-http/cache-plugin",
-            "version": "v1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/cache-plugin.git",
-                "reference": "c573ac6ea9b4e33fad567f875b844229d18000b9"
+                "reference": "8e2505d2090316fac7cce637b39b6bbb5249c5a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/cache-plugin/zipball/c573ac6ea9b4e33fad567f875b844229d18000b9",
-                "reference": "c573ac6ea9b4e33fad567f875b844229d18000b9",
+                "url": "https://api.github.com/repos/php-http/cache-plugin/zipball/8e2505d2090316fac7cce637b39b6bbb5249c5a8",
+                "reference": "8e2505d2090316fac7cce637b39b6bbb5249c5a8",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.4 || ^7.0",
-                "php-http/client-common": "^1.1",
+                "php-http/client-common": "^1.9 || ^2.0",
                 "php-http/message-factory": "^1.0",
                 "psr/cache": "^1.0",
                 "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0"
@@ -968,7 +968,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -994,7 +994,7 @@
                 "httplug",
                 "plugin"
             ],
-            "time": "2017-11-29T20:45:41+00:00"
+            "time": "2019-01-23T16:51:58+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -1059,16 +1059,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.5.2",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "ffef11d54171336d841a34816a35bc035fb8cef0"
+                "reference": "02b7ea21eafa0757af04140890a67d8ed45f83b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/ffef11d54171336d841a34816a35bc035fb8cef0",
-                "reference": "ffef11d54171336d841a34816a35bc035fb8cef0",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/02b7ea21eafa0757af04140890a67d8ed45f83b2",
+                "reference": "02b7ea21eafa0757af04140890a67d8ed45f83b2",
                 "shasum": ""
             },
             "require": {
@@ -1078,8 +1078,7 @@
                 "nyholm/psr7": "<1.0"
             },
             "require-dev": {
-                "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "php-http/httplug": "^1.0|^2.0",
+                "php-http/httplug": "^1.0 || ^2.0",
                 "php-http/message-factory": "^1.0",
                 "phpspec/phpspec": "^2.4",
                 "puli/composer-plugin": "1.0.0-beta10"
@@ -1120,7 +1119,7 @@
                 "message",
                 "psr7"
             ],
-            "time": "2018-12-31T07:31:26+00:00"
+            "time": "2019-01-23T12:41:22+00:00"
         },
         {
             "name": "php-http/guzzle6-adapter",
@@ -2363,7 +2362,7 @@
         },
         {
             "name": "violinist-dev/project-data",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/project-data.git",
@@ -2483,20 +2482,25 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "f8595f35cf8eb99fa2d7cfb9b4f029872f9998ee"
+                "reference": "41b0be3aec3ea55f119c60a306ce163b05cf6345"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/f8595f35cf8eb99fa2d7cfb9b4f029872f9998ee",
-                "reference": "f8595f35cf8eb99fa2d7cfb9b4f029872f9998ee",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/41b0be3aec3ea55f119c60a306ce163b05cf6345",
+                "reference": "41b0be3aec3ea55f119c60a306ce163b05cf6345",
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "^1.23.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.4"
             },
             "type": "library",
             "autoload": {
@@ -2506,7 +2510,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "time": "2018-11-11T08:27:05+00:00"
+            "time": "2019-01-25T17:00:59+00:00"
         },
         {
             "name": "wa72/simplelogger",
