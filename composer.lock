@@ -2482,12 +2482,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "f8595f35cf8eb99fa2d7cfb9b4f029872f9998ee"
+                "reference": "deaccebe04f0f66de54ca21313467d1323cb7aa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/f8595f35cf8eb99fa2d7cfb9b4f029872f9998ee",
-                "reference": "f8595f35cf8eb99fa2d7cfb9b4f029872f9998ee",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/deaccebe04f0f66de54ca21313467d1323cb7aa2",
+                "reference": "deaccebe04f0f66de54ca21313467d1323cb7aa2",
                 "shasum": ""
             },
             "require": {
@@ -2501,7 +2501,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "time": "2018-11-11T08:27:05+00:00"
+            "time": "2019-01-25T14:53:45+00:00"
         },
         {
             "name": "wa72/simplelogger",
