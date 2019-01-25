@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7636f621ed9807a382ab41272ae045c",
+    "content-hash": "7c2c8f44ae6b189689703e9a8fc1588e",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -2367,18 +2367,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/project-data.git",
-                "reference": "75a6c495a65681d6df7e62a0bda3381d9e237b16"
+                "reference": "a67e5cce1fdd3860458bac4d47b44375d7cd83bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/project-data/zipball/75a6c495a65681d6df7e62a0bda3381d9e237b16",
-                "reference": "75a6c495a65681d6df7e62a0bda3381d9e237b16",
+                "url": "https://api.github.com/repos/violinist-dev/project-data/zipball/a67e5cce1fdd3860458bac4d47b44375d7cd83bc",
+                "reference": "a67e5cce1fdd3860458bac4d47b44375d7cd83bc",
                 "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.4"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "violinist\\ProjectData\\": "src"
+                    "Violinist\\ProjectData\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2392,7 +2397,7 @@
                 }
             ],
             "description": "Project data object for storing project info when sending to workers.",
-            "time": "2019-01-25T13:04:56+00:00"
+            "time": "2019-01-25T17:59:08+00:00"
         },
         {
             "name": "violinist-dev/slug-from-url",
@@ -2555,8 +2560,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "eiriksm/cosy-composer": 20,
-        "violinist-dev/project-data": 20
+        "eiriksm/cosy-composer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
