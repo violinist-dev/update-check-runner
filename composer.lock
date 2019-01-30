@@ -837,16 +837,16 @@
         },
         {
             "name": "m4tthumphrey/php-gitlab-api",
-            "version": "9.10.0",
+            "version": "9.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/m4tthumphrey/php-gitlab-api.git",
-                "reference": "c946569ae75eff6317a5691ab590b6eb071bdb26"
+                "reference": "3c7f6f6f7c2c561fff6d94d2ffb120289fa8f825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/m4tthumphrey/php-gitlab-api/zipball/c946569ae75eff6317a5691ab590b6eb071bdb26",
-                "reference": "c946569ae75eff6317a5691ab590b6eb071bdb26",
+                "url": "https://api.github.com/repos/m4tthumphrey/php-gitlab-api/zipball/3c7f6f6f7c2c561fff6d94d2ffb120289fa8f825",
+                "reference": "3c7f6f6f7c2c561fff6d94d2ffb120289fa8f825",
                 "shasum": ""
             },
             "require": {
@@ -863,7 +863,7 @@
                 "guzzlehttp/psr7": "^1.2",
                 "php-http/guzzle6-adapter": "^1.0",
                 "php-http/mock-client": "^1.0",
-                "phpunit/phpunit": "^5.0"
+                "phpunit/phpunit": "^5.7.27 || ^6.5"
             },
             "type": "library",
             "extra": {
@@ -901,7 +901,7 @@
                 "api",
                 "gitlab"
             ],
-            "time": "2018-06-15T13:59:39+00:00"
+            "time": "2018-11-16T21:05:00+00:00"
         },
         {
             "name": "peterpostmann/parse_uri",
