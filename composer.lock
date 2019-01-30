@@ -60,16 +60,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "8afa52cd417f4ec417b4bfe86b68106538a87660"
+                "reference": "558f321c52faeb4828c03e7dc0cfe39a09e09a2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/8afa52cd417f4ec417b4bfe86b68106538a87660",
-                "reference": "8afa52cd417f4ec417b4bfe86b68106538a87660",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/558f321c52faeb4828c03e7dc0cfe39a09e09a2d",
+                "reference": "558f321c52faeb4828c03e7dc0cfe39a09e09a2d",
                 "shasum": ""
             },
             "require": {
@@ -112,20 +112,20 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2018-10-18T06:09:13+00:00"
+            "time": "2019-01-28T09:30:10+00:00"
         },
         {
             "name": "composer/composer",
-            "version": "1.8.0",
+            "version": "1.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "d8aef3af866b28786ce9b8647e52c42496436669"
+                "reference": "a6a3b44581398b7135c7baa0557b7c5b10808b47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/d8aef3af866b28786ce9b8647e52c42496436669",
-                "reference": "d8aef3af866b28786ce9b8647e52c42496436669",
+                "url": "https://api.github.com/repos/composer/composer/zipball/a6a3b44581398b7135c7baa0557b7c5b10808b47",
+                "reference": "a6a3b44581398b7135c7baa0557b7c5b10808b47",
                 "shasum": ""
             },
             "require": {
@@ -192,7 +192,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2018-12-03T09:31:16+00:00"
+            "time": "2019-01-30T07:31:34+00:00"
         },
         {
             "name": "composer/semver",
@@ -319,16 +319,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "dc523135366eb68f22268d069ea7749486458562"
+                "reference": "d17708133b6c276d6e42ef887a877866b909d892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/dc523135366eb68f22268d069ea7749486458562",
-                "reference": "dc523135366eb68f22268d069ea7749486458562",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/d17708133b6c276d6e42ef887a877866b909d892",
+                "reference": "d17708133b6c276d6e42ef887a877866b909d892",
                 "shasum": ""
             },
             "require": {
@@ -359,7 +359,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-11-29T10:59:02+00:00"
+            "time": "2019-01-28T20:25:53+00:00"
         },
         {
             "name": "eiriksm/cosy-composer",
@@ -367,12 +367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "57ec9471e8392e40fd5a3ea42310790382a664a0"
+                "reference": "a3491e0a90d2112c1a4d79580ca55e68a68e488e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/57ec9471e8392e40fd5a3ea42310790382a664a0",
-                "reference": "57ec9471e8392e40fd5a3ea42310790382a664a0",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/a3491e0a90d2112c1a4d79580ca55e68a68e488e",
+                "reference": "a3491e0a90d2112c1a4d79580ca55e68a68e488e",
                 "shasum": ""
             },
             "require": {
@@ -383,7 +383,7 @@
                 "m4tthumphrey/php-gitlab-api": "^9.10",
                 "peterpostmann/parse_uri": "^1.0",
                 "php-http/guzzle6-adapter": "^1.1",
-                "violinist-dev/git-log-format": "dev-master",
+                "violinist-dev/git-log-format": "^1",
                 "violinist-dev/project-data": "^1",
                 "violinist-dev/slug-from-url": "dev-master",
                 "violinist-dev/symfony-cloud-security-checker": "dev-master",
@@ -403,7 +403,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2019-01-25T19:36:43+00:00"
+            "time": "2019-01-30T14:50:36+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
@@ -686,16 +686,16 @@
         },
         {
             "name": "knplabs/github-api",
-            "version": "2.10.1",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "493423ae7ad1fa9075924cdfb98537828b9e80b5"
+                "reference": "7e67b4ccf9ef62fbd6321a314c61d3202c07b855"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/493423ae7ad1fa9075924cdfb98537828b9e80b5",
-                "reference": "493423ae7ad1fa9075924cdfb98537828b9e80b5",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/7e67b4ccf9ef62fbd6321a314c61d3202c07b855",
+                "reference": "7e67b4ccf9ef62fbd6321a314c61d3202c07b855",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +718,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.10.x-dev"
+                    "dev-master": "2.11.x-dev"
                 }
             },
             "autoload": {
@@ -749,7 +749,7 @@
                 "gist",
                 "github"
             ],
-            "time": "2018-09-05T19:12:14+00:00"
+            "time": "2019-01-28T19:31:35+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2334,31 +2334,32 @@
         },
         {
             "name": "violinist-dev/git-log-format",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/git-log-format.git",
-                "reference": "05ac0a8acdc707bda7e75f18c7ae7c2e65940e99"
+                "reference": "4b829aa411646aa50ea76e88aaa1f73cbed8df0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/05ac0a8acdc707bda7e75f18c7ae7c2e65940e99",
-                "reference": "05ac0a8acdc707bda7e75f18c7ae7c2e65940e99",
+                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/4b829aa411646aa50ea76e88aaa1f73cbed8df0b",
+                "reference": "4b829aa411646aa50ea76e88aaa1f73cbed8df0b",
                 "shasum": ""
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "^1.0"
+                "phpunit/phpunit": "^6",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.4"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "eiriksm\\GitLogFormat\\": "src"
+                    "Violinist\\GitLogFormat\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Format changelog-like git logs",
-            "time": "2017-11-23T15:34:15+00:00"
+            "time": "2019-01-29T20:52:36+00:00"
         },
         {
             "name": "violinist-dev/project-data",
