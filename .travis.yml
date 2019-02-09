@@ -1,14 +1,22 @@
 language: php
 php:
-  - "7.0"
-  - "7.1"
-  - "7.2"
-  - "7.3"
+- '7.0'
+- '7.1'
+- '7.2'
+- '7.3'
 services:
-  - docker
+- docker
 script:
-  - composer install
-  - if [ $(phpenv version-name) = "7.0" ]; then docker build -t update-check-runner . -f Dockerfile-70; fi
-  - if [ $(phpenv version-name) = "7.1" ]; then docker build -t update-check-runner . -f Dockerfile-71; fi
-  - if [ $(phpenv version-name) = "7.2" ]; then docker build -t update-check-runner . -f Dockerfile-72; fi
-  - if [ $(phpenv version-name) = "7.3" ]; then docker build -t update-check-runner . -f Dockerfile-73; fi
+- composer install
+- if [ $(phpenv version-name) = "7.0" ]; then docker build -t update-check-runner
+  . -f Dockerfile-70; fi
+- if [ $(phpenv version-name) = "7.1" ]; then docker build -t update-check-runner
+  . -f Dockerfile-71; fi
+- if [ $(phpenv version-name) = "7.2" ]; then docker build -t update-check-runner
+  . -f Dockerfile-72; fi
+- if [ $(phpenv version-name) = "7.3" ]; then docker build -t update-check-runner
+  . -f Dockerfile-73; fi
+env:
+  global:
+  - secure: uS+CgQCBA4UOrgRx8Byg7S42YRjuu+dLumm2qquN9l3lqzQ4ok7XKAxS7pREmT1kEOAHRHi+ObIkG83NNUzAkhrRKT2qbIgR+aFeF69xPOJw4ZlS4DavKvFKQmmbHubNh3DIeh4z7hI8k2zx+dJ3fD/QkMZFgH5nK6wLOP+GCQNupDeqTMbYRho9QS1pgAw5mKTtAl3CtRMPUV80pS8Me+q0LTs//sRkms8kdlY+tm2Ul6/91wYqLCYuyl1CPuYCf0fskBmb5bPVLdGEtllNUFpUk8/6u80Ie6uUda04lR6EXk5SXHfPQl0fNosNoQofOUxgi2937FoeNX5uNORQnp3WGLD8l6b9smIsr+KrB0t4044AvehCYelHvblf+K/iKMQeZlhqz1Z5H5Z2YwWuDDPeylIiMlibPUr/mX41ty5EFw5fIXLcKpS2SljpZci0VfTr8NuatVDAV0BFSAEyvwOMaujIB8LkTNsadjBKNWFuBr2NzXy4m0wF4MbwWgbI5+H5j1zOHv1IJBhBKm8rEebyqfh49nKTKxXvaQ68H9Ng0wWHCY5Kx4y+aRAjArQWheHvP41XbBgTQmM5tZyUR/ovu9jB1MnA1WUu64hvYTJgdWbqb5L9XPXf0GpsEif+UGNCyw/V3qFf1XejCInG3f9CNZ4z2FwLGirHOCmLFKQ=
+  - secure: I4thSpAylK43rjUP4pgqEAkeRqhrQi+QGlbnGC+h9Byzu1g6hRxJJ9GL7a9s1j6247tXuWp7hpJDemQHQw6sN4nKXm1+kqEW/EdQJOsweASU74alWuXmSShApxrv02cUvwvxl2ULLB72LGSy8fCzQxOjOP4odwskhCE4YKY+MJ0gviOdz86iJToJCQyDxAnuLJZ9WUrYJ/qxNRRU5ZvQdPgKrJTL1pbJCqknuVLfFTlZxwiY1phHBxEn85Bv8vRCFJgKjljHs7PVmxlkYxDeF46PQcd59Gd7TYqLCE9mlsdRKw9S/loh3+2e4yaw7zbv02tA1HxjU1SLVsu1WF0BuXjiBRiZQGLz9mcx8fZoezPi2Cn33jDxA6/ecps0gJ5pgdNC/hpNQCVOOGbwONd27YlIy0NS6WB0UfwoZx0i+3XWn1mcf6gtsOF4EK3/2EXXzMDk18LR6zVrwG+1X9y0BoWgOLjjROieujidrbkhd88rYFq4cqFkoN40FjudIjIa6pTXyVtoFSYybRQYNnJegiLI9A+juV82PVNs/SdDAgWn6OciNdeUq8ZOCpbaCk65+ETpf1KkQNnuguydFPDUN7Wol9vP6HQ76PKntkDWroije5lAhxxiV0h3Lp9+PATzrTIEYWnafJ53CrZtAExTMSmZoVnYqhLQts/Tlo2y9hE=
