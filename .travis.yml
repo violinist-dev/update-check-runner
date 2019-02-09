@@ -8,14 +8,11 @@ services:
 - docker
 script:
 - composer install
-- if [ $(phpenv version-name) = "7.0" ]; then docker build -t update-check-runner
-  . -f Dockerfile-70; fi
-- if [ $(phpenv version-name) = "7.1" ]; then docker build -t update-check-runner
-  . -f Dockerfile-71; fi
-- if [ $(phpenv version-name) = "7.2" ]; then docker build -t update-check-runner
-  . -f Dockerfile-72; fi
-- if [ $(phpenv version-name) = "7.3" ]; then docker build -t update-check-runner
-  . -f Dockerfile-73; fi
+- if [ $(phpenv version-name) = "7.0" ]; then docker build -t update-check-runner . -f Dockerfile-70; fi
+- if [ $(phpenv version-name) = "7.1" ]; then docker build -t update-check-runner . -f Dockerfile-71; fi
+- if [ $(phpenv version-name) = "7.2" ]; then docker build -t update-check-runner . -f Dockerfile-72; fi
+- if [ $(phpenv version-name) = "7.3" ]; then docker build -t update-check-runner . -f Dockerfile-73; fi
+- ./vendor/bin/phpunit
 env:
   global:
   - secure: uS+CgQCBA4UOrgRx8Byg7S42YRjuu+dLumm2qquN9l3lqzQ4ok7XKAxS7pREmT1kEOAHRHi+ObIkG83NNUzAkhrRKT2qbIgR+aFeF69xPOJw4ZlS4DavKvFKQmmbHubNh3DIeh4z7hI8k2zx+dJ3fD/QkMZFgH5nK6wLOP+GCQNupDeqTMbYRho9QS1pgAw5mKTtAl3CtRMPUV80pS8Me+q0LTs//sRkms8kdlY+tm2Ul6/91wYqLCYuyl1CPuYCf0fskBmb5bPVLdGEtllNUFpUk8/6u80Ie6uUda04lR6EXk5SXHfPQl0fNosNoQofOUxgi2937FoeNX5uNORQnp3WGLD8l6b9smIsr+KrB0t4044AvehCYelHvblf+K/iKMQeZlhqz1Z5H5Z2YwWuDDPeylIiMlibPUr/mX41ty5EFw5fIXLcKpS2SljpZci0VfTr8NuatVDAV0BFSAEyvwOMaujIB8LkTNsadjBKNWFuBr2NzXy4m0wF4MbwWgbI5+H5j1zOHv1IJBhBKm8rEebyqfh49nKTKxXvaQ68H9Ng0wWHCY5Kx4y+aRAjArQWheHvP41XbBgTQmM5tZyUR/ovu9jB1MnA1WUu64hvYTJgdWbqb5L9XPXf0GpsEif+UGNCyw/V3qFf1XejCInG3f9CNZ4z2FwLGirHOCmLFKQ=
