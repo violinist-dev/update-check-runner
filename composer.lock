@@ -116,16 +116,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.8.3",
+            "version": "1.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "a6a3b44581398b7135c7baa0557b7c5b10808b47"
+                "reference": "bc364c2480c17941e2135cfc568fa41794392534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/a6a3b44581398b7135c7baa0557b7c5b10808b47",
-                "reference": "a6a3b44581398b7135c7baa0557b7c5b10808b47",
+                "url": "https://api.github.com/repos/composer/composer/zipball/bc364c2480c17941e2135cfc568fa41794392534",
+                "reference": "bc364c2480c17941e2135cfc568fa41794392534",
                 "shasum": ""
             },
             "require": {
@@ -192,7 +192,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2019-01-30T07:31:34+00:00"
+            "time": "2019-02-11T09:52:10+00:00"
         },
         {
             "name": "composer/semver",
@@ -367,12 +367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "085d2e18eab53ad4bb0b24aba659b03b92f856d0"
+                "reference": "c940b53399f7b9dccf375bd58a494f7d8fb4d3a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/085d2e18eab53ad4bb0b24aba659b03b92f856d0",
-                "reference": "085d2e18eab53ad4bb0b24aba659b03b92f856d0",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/c940b53399f7b9dccf375bd58a494f7d8fb4d3a3",
+                "reference": "c940b53399f7b9dccf375bd58a494f7d8fb4d3a3",
                 "shasum": ""
             },
             "require": {
@@ -384,6 +384,7 @@
                 "m4tthumphrey/php-gitlab-api": "^9.10",
                 "peterpostmann/parse_uri": "^1.0",
                 "php-http/guzzle6-adapter": "^1.1",
+                "violinist-dev/composer-updater": "dev-master",
                 "violinist-dev/git-log-format": "^1",
                 "violinist-dev/project-data": "^1",
                 "violinist-dev/slug-from-url": "^1",
@@ -404,7 +405,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2019-02-09T16:16:18+00:00"
+            "time": "2019-02-14T17:02:02+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
@@ -2337,6 +2338,88 @@
             "time": "2019-01-14T14:59:29+00:00"
         },
         {
+            "name": "violinist-dev/composer-lock-data",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/composer-lock-data.git",
+                "reference": "9e55db1b98fe285045655c560a945e8834fa4583"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/composer-lock-data/zipball/9e55db1b98fe285045655c560a945e8834fa4583",
+                "reference": "9e55db1b98fe285045655c560a945e8834fa4583",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Violinist\\ComposerLockData\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eirik S. Morland",
+                    "email": "eirik@morland.no"
+                }
+            ],
+            "time": "2019-02-11T15:58:18+00:00"
+        },
+        {
+            "name": "violinist-dev/composer-updater",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/composer-updater.git",
+                "reference": "5a0ea287fc2561481c16edccb3866f35e9121740"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/5a0ea287fc2561481c16edccb3866f35e9121740",
+                "reference": "5a0ea287fc2561481c16edccb3866f35e9121740",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/process": "^2.7 || ^3.0 || ^4.0",
+                "violinist-dev/composer-lock-data": "^1.0",
+                "violinist-dev/process-factory": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Violinist\\ComposerUpdater\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eirik S. Morland",
+                    "email": "eirik@morland.no"
+                }
+            ],
+            "time": "2019-02-13T15:54:04+00:00"
+        },
+        {
             "name": "violinist-dev/git-log-format",
             "version": "1.0.0",
             "source": {
@@ -2364,6 +2447,45 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "Format changelog-like git logs",
             "time": "2019-01-29T20:52:36+00:00"
+        },
+        {
+            "name": "violinist-dev/process-factory",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/process-factory.git",
+                "reference": "7185877c8e061a417cd22ac1a25bbc92e2126a1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/process-factory/zipball/7185877c8e061a417cd22ac1a25bbc92e2126a1a",
+                "reference": "7185877c8e061a417cd22ac1a25bbc92e2126a1a",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/process": "^2.7 || ^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Violinist\\ProcessFactory\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eirik S. Morland",
+                    "email": "eirik@morland.no"
+                }
+            ],
+            "time": "2019-02-12T17:29:51+00:00"
         },
         {
             "name": "violinist-dev/project-data",
