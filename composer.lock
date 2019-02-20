@@ -367,12 +367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "c5cbe07461123f86ff624e84a101627253648a75"
+                "reference": "43ee460484baf22c3926d933dddd95619f57e439"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/c5cbe07461123f86ff624e84a101627253648a75",
-                "reference": "c5cbe07461123f86ff624e84a101627253648a75",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/43ee460484baf22c3926d933dddd95619f57e439",
+                "reference": "43ee460484baf22c3926d933dddd95619f57e439",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2019-02-17T20:22:21+00:00"
+            "time": "2019-02-20T15:51:49+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
@@ -2386,12 +2386,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "f1de254ae5ad044d09d87814afe888e71af38a9a"
+                "reference": "b6c5c99329219296a938d2ac94b939051414ddd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/f1de254ae5ad044d09d87814afe888e71af38a9a",
-                "reference": "f1de254ae5ad044d09d87814afe888e71af38a9a",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/b6c5c99329219296a938d2ac94b939051414ddd8",
+                "reference": "b6c5c99329219296a938d2ac94b939051414ddd8",
                 "shasum": ""
             },
             "require": {
@@ -2420,7 +2420,7 @@
                     "email": "eirik@morland.no"
                 }
             ],
-            "time": "2019-02-19T06:17:47+00:00"
+            "time": "2019-02-20T15:47:24+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
