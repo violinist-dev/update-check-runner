@@ -13,27 +13,54 @@ class IntegrationTest extends TestCase
      */
     public function testOutput()
     {
-        $process = new Process(sprintf(
-            'docker run -i --rm -e user_token=%s -e project_url=%s update-check-runner',
-            getenv('user_token'),
-            getenv('project_url')
-        ), null, null, null, 600);
-        $process->run();
-        $this->assertEquals(0, $process->getExitCode());
-        $json = @json_decode($process->getOutput());
-        $this->assertEquals(sprintf('Starting update check for %s', Slug::createFromUrl(getenv('project_url'))->getSlug()), $json[0]->message);
+        $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url'));
+        $this->assertProjectStarting(getenv('project_url'), $json);
+        $this->assertRepoCloned($json);
+        $this->assertComposerInstalled($json);
     }
 
     public function testGitlabOutput()
     {
+        $json = $this->getProcessAndRunWithoutError(getenv('user_gitlab_token'), getenv('gitlab_project_url'));
+        $this->assertProjectStarting(getenv('gitlab_project_url'), $json);
+        $this->assertRepoCloned($json);
+        $this->assertComposerInstalled($json);
+    }
+
+    public function testGitlabSelfhostedOutput()
+    {
+        $json = $this->getProcessAndRunWithoutError(getenv('user_token_self_hosted'), getenv('project_url_self_hosted'));
+        $this->assertProjectStarting(getenv('project_url_self_hosted'), $json);
+        $this->assertRepoCloned($json);
+        $this->assertComposerInstalled($json);
+    }
+
+    protected function assertProjectStarting($url, $json)
+    {
+        $this->assertEquals(sprintf('Starting update check for %s', Slug::createFromUrl($url)->getSlug()), $json[0]->message);
+    }
+
+    protected function assertRepoCloned($json)
+    {
+        $this->assertEquals('Repository cloned', $json[3]->message);
+    }
+
+    protected function assertComposerInstalled($json)
+    {
+        $this->assertEquals('composer install completed successfully', $json[7]->message);
+    }
+
+    protected function getProcessAndRunWithoutError($token, $url)
+    {
         $process = new Process(sprintf(
             'docker run -i --rm -e user_token=%s -e project_url=%s update-check-runner',
-            getenv('user_gitlab_token'),
-            getenv('gitlab_project_url')
+            $token,
+            $url
         ), null, null, null, 600);
         $process->run();
         $this->assertEquals(0, $process->getExitCode());
         $json = @json_decode($process->getOutput());
-        $this->assertEquals(sprintf('Starting update check for %s', Slug::createFromUrl(getenv('gitlab_project_url'))->getSlug()), $json[0]->message);
+        $this->assertFalse(empty($json));
+        return $json;
     }
 }
