@@ -8,6 +8,7 @@
  */
 
 use eiriksm\CosyComposer\Message;
+use eiriksm\GitInfo\GitInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -63,6 +64,10 @@ $cosy
 $cache_dir = $_SERVER['HOME'] . '/.cosy-cache';
 if (!file_exists($cache_dir)) {
     mkdir($cache_dir);
+}
+$git = new GitInfo();
+if ($hash = $git->getShortHash()) {
+    $_SERVER['queue_runner_revision'] = $hash;
 }
 $cosy->setCacheDir($cache_dir);
 $code = 0;

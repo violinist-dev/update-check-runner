@@ -31,15 +31,16 @@ class IntegrationTest extends TestCase
 
     protected function assertStandardOutput($url, $json)
     {
+        $this->assertHashLogged($json);
         $this->assertProjectStarting($url, $json);
         $this->assertRepoCloned($json);
         $this->assertComposerInstalled($json);
-        $this->assertHashLogged($json);
     }
 
-    protected function assertHashLogged()
+    protected function assertHashLogged($json)
     {
-        $message = $this->findMessage()
+        $expected_message = sprintf('Queue runner revision %s', getenv('TRAVIS_COMMIT'));
+        $this->findMessage($expected_message, $json);
     }
 
     protected function findMessage($message, $json)
@@ -49,22 +50,22 @@ class IntegrationTest extends TestCase
                 return $item;
             }
         }
-        $this->assertTrue(FALSE, 'The message ' . $message . ' was not found in the output.');
+        $this->assertTrue(false, 'The message ' . $message . ' was not found in the output.');
     }
 
     protected function assertProjectStarting($url, $json)
     {
-        $this->assertEquals(sprintf('Starting update check for %s', Slug::createFromUrl($url)->getSlug()), $json[0]->message);
+        $this->findMessage(sprintf('Starting update check for %s', Slug::createFromUrl($url)->getSlug()), $json);
     }
 
     protected function assertRepoCloned($json)
     {
-        $this->assertEquals('Repository cloned', $json[3]->message);
+        $this->findMessage('Repository cloned', $json[3]->message);
     }
 
     protected function assertComposerInstalled($json)
     {
-        $this->assertEquals('composer install completed successfully', $json[7]->message);
+        $this->findMessage('composer install completed successfully', $json);
     }
 
     protected function getProcessAndRunWithoutError($token, $url)
