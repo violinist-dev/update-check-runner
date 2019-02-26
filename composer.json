@@ -3,6 +3,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
+    "ext-json": "*",
     "eiriksm/cosy-composer": "dev-master",
     "symfony/dependency-injection": "^3.4",
     "php-http/guzzle6-adapter": "^1.1",
