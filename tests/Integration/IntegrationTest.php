@@ -14,25 +14,42 @@ class IntegrationTest extends TestCase
     public function testOutput()
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url'));
-        $this->assertProjectStarting(getenv('project_url'), $json);
-        $this->assertRepoCloned($json);
-        $this->assertComposerInstalled($json);
+        $this->assertStandardOutput(getenv('project_url'), $json);
     }
 
     public function testGitlabOutput()
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_gitlab_token'), getenv('gitlab_project_url'));
-        $this->assertProjectStarting(getenv('gitlab_project_url'), $json);
-        $this->assertRepoCloned($json);
-        $this->assertComposerInstalled($json);
+        $this->assertStandardOutput(getenv('gitlab_project_url'), $json);
     }
 
     public function testGitlabSelfhostedOutput()
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_token_self_hosted'), getenv('project_url_self_hosted'));
-        $this->assertProjectStarting(getenv('project_url_self_hosted'), $json);
+        $this->assertStandardOutput(getenv('project_url_self_hosted'), $json);
+    }
+
+    protected function assertStandardOutput($url, $json)
+    {
+        $this->assertProjectStarting($url, $json);
         $this->assertRepoCloned($json);
         $this->assertComposerInstalled($json);
+        $this->assertHashLogged($json);
+    }
+
+    protected function assertHashLogged()
+    {
+        $message = $this->findMessage()
+    }
+
+    protected function findMessage($message, $json)
+    {
+        foreach ($json as $item) {
+            if ($item->message === $message) {
+                return $item;
+            }
+        }
+        $this->assertTrue(FALSE, 'The message ' . $message . ' was not found in the output.');
     }
 
     protected function assertProjectStarting($url, $json)
