@@ -39,7 +39,7 @@ class IntegrationTest extends TestCase
 
     protected function assertHashLogged($json)
     {
-        $expected_message = sprintf('Queue runner revision %s', getenv('TRAVIS_COMMIT'));
+        $expected_message = sprintf('Queue runner revision %s', substr(getenv('TRAVIS_COMMIT'), 0, 7));
         $this->findMessage($expected_message, $json);
     }
 
