@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4cdeb187623e5a199bafe870c9fbc01e",
+    "content-hash": "ab67799da5d83c34c343f6b63a12c25a",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -409,6 +409,37 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
             "time": "2019-02-23T07:33:39+00:00"
+        },
+        {
+            "name": "eiriksm/gitinfo",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/php-app-git-version.git",
+                "reference": "56e9d5c79167b6f5637c39a4a44c196939719c0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/php-app-git-version/zipball/56e9d5c79167b6f5637c39a4a44c196939719c0c",
+                "reference": "56e9d5c79167b6f5637c39a4a44c196939719c0c",
+                "shasum": ""
+            },
+            "require": {
+                "pastuhov/php-exec-command": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7.21",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "eiriksm\\GitInfo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Get some git info about your application",
+            "time": "2017-11-14T13:14:50+00:00"
         },
         {
             "name": "eiriksm/symfony-console-array-output",
@@ -907,6 +938,59 @@
                 "gitlab"
             ],
             "time": "2019-02-03T22:34:20+00:00"
+        },
+        {
+            "name": "pastuhov/php-exec-command",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pastuhov/php-exec-command.git",
+                "reference": "5c7a7187724ee58b4742c89c02f3bab52f690211"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pastuhov/php-exec-command/zipball/5c7a7187724ee58b4742c89c02f3bab52f690211",
+                "reference": "5c7a7187724ee58b4742c89c02f3bab52f690211",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "pastuhov\\Command\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Pastukhov",
+                    "email": "kirill@pastukhov.su",
+                    "homepage": "https://github.com/pastuhov/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple php command executor with param binding.",
+            "homepage": "https://github.com/pastuhov/php-exec-command",
+            "keywords": [
+                "command",
+                "exec",
+                "system"
+            ],
+            "time": "2016-08-27T09:07:48+00:00"
         },
         {
             "name": "peterpostmann/parse_uri",

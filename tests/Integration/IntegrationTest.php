@@ -14,40 +14,58 @@ class IntegrationTest extends TestCase
     public function testOutput()
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url'));
-        $this->assertProjectStarting(getenv('project_url'), $json);
-        $this->assertRepoCloned($json);
-        $this->assertComposerInstalled($json);
+        $this->assertStandardOutput(getenv('project_url'), $json);
     }
 
     public function testGitlabOutput()
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_gitlab_token'), getenv('gitlab_project_url'));
-        $this->assertProjectStarting(getenv('gitlab_project_url'), $json);
-        $this->assertRepoCloned($json);
-        $this->assertComposerInstalled($json);
+        $this->assertStandardOutput(getenv('gitlab_project_url'), $json);
     }
 
     public function testGitlabSelfhostedOutput()
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_token_self_hosted'), getenv('project_url_self_hosted'));
-        $this->assertProjectStarting(getenv('project_url_self_hosted'), $json);
+        $this->assertStandardOutput(getenv('project_url_self_hosted'), $json);
+    }
+
+    protected function assertStandardOutput($url, $json)
+    {
+        $this->assertHashLogged($json);
+        $this->assertProjectStarting($url, $json);
         $this->assertRepoCloned($json);
         $this->assertComposerInstalled($json);
     }
 
+    protected function assertHashLogged($json)
+    {
+        $expected_message = sprintf('Queue runner revision %s', substr(getenv('TRAVIS_COMMIT'), 0, 7));
+        $this->findMessage($expected_message, $json);
+    }
+
+    protected function findMessage($message, $json)
+    {
+        foreach ($json as $item) {
+            if ($item->message === $message) {
+                return $item;
+            }
+        }
+        $this->assertTrue(false, 'The message ' . $message . ' was not found in the output.');
+    }
+
     protected function assertProjectStarting($url, $json)
     {
-        $this->assertEquals(sprintf('Starting update check for %s', Slug::createFromUrl($url)->getSlug()), $json[0]->message);
+        $this->findMessage(sprintf('Starting update check for %s', Slug::createFromUrl($url)->getSlug()), $json);
     }
 
     protected function assertRepoCloned($json)
     {
-        $this->assertEquals('Repository cloned', $json[3]->message);
+        $this->findMessage('Repository cloned', $json);
     }
 
     protected function assertComposerInstalled($json)
     {
-        $this->assertEquals('composer install completed successfully', $json[7]->message);
+        $this->findMessage('composer install completed successfully', $json);
     }
 
     protected function getProcessAndRunWithoutError($token, $url)
