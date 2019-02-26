@@ -60,7 +60,7 @@ class IntegrationTest extends TestCase
 
     protected function assertRepoCloned($json)
     {
-        $this->findMessage('Repository cloned', $json[3]->message);
+        $this->findMessage('Repository cloned', $json);
     }
 
     protected function assertComposerInstalled($json)
