@@ -367,12 +367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "77a612aff94fa4e30cb28f9bc8a58c93320ca576"
+                "reference": "552cd47a05f497d6eb497633618c71547ec5fb23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/77a612aff94fa4e30cb28f9bc8a58c93320ca576",
-                "reference": "77a612aff94fa4e30cb28f9bc8a58c93320ca576",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/552cd47a05f497d6eb497633618c71547ec5fb23",
+                "reference": "552cd47a05f497d6eb497633618c71547ec5fb23",
                 "shasum": ""
             },
             "require": {
@@ -409,7 +409,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2019-03-13T16:08:02+00:00"
+            "time": "2019-03-18T21:12:26+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
