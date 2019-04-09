@@ -2553,16 +2553,16 @@
         },
         {
             "name": "violinist-dev/git-log-format",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/git-log-format.git",
-                "reference": "dc8d4c35e615fa4c13ac90cf57ad9818b01d505f"
+                "reference": "6a3c57db78cf81f1a30c80b03b89a15ab3aef688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/dc8d4c35e615fa4c13ac90cf57ad9818b01d505f",
-                "reference": "dc8d4c35e615fa4c13ac90cf57ad9818b01d505f",
+                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/6a3c57db78cf81f1a30c80b03b89a15ab3aef688",
+                "reference": "6a3c57db78cf81f1a30c80b03b89a15ab3aef688",
                 "shasum": ""
             },
             "require-dev": {
@@ -2578,7 +2578,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Format changelog-like git logs",
-            "time": "2019-02-27T07:05:15+00:00"
+            "time": "2019-04-09T14:18:21+00:00"
         },
         {
             "name": "violinist-dev/process-factory",
