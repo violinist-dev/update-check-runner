@@ -4,7 +4,7 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 RUN composer install --no-dev --optimize-autoloader \
     && composer global require hirak/prestissimo \
-    && apk add --no-cache autoconf bzip2-dev g++ make \
+    && apk add --no-cache autoconf bzip2-dev g++ make libzip-dev \
     && yes | pecl install apcu \
     && docker-php-ext-install bz2 pcntl \
     && docker-php-ext-enable apcu
