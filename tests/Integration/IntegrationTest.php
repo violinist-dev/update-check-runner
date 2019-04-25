@@ -15,6 +15,12 @@ class IntegrationTest extends TestCase
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url'));
         $this->assertStandardOutput(getenv('project_url'), $json);
+        // Test for error messages of the type "PHP Warning".
+        foreach ($json as $item) {
+            if (strpos($item->message, 'PHP Warning') === 0) {
+                $this->assertTrue(false, 'The update run contained PHP warnings');
+            }
+        }
     }
 
     public function testGitlabOutput()
