@@ -366,12 +366,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "53e114558a33acbf65759118066b5ee95ea1f1d9"
+                "reference": "2f10fe37538895a6723ca57e53935148139942c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/53e114558a33acbf65759118066b5ee95ea1f1d9",
-                "reference": "53e114558a33acbf65759118066b5ee95ea1f1d9",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/2f10fe37538895a6723ca57e53935148139942c7",
+                "reference": "2f10fe37538895a6723ca57e53935148139942c7",
                 "shasum": ""
             },
             "require": {
@@ -388,9 +388,10 @@
                 "violinist-dev/composer-updater": "dev-master",
                 "violinist-dev/git-log-format": "^1",
                 "violinist-dev/process-factory": "^1.0",
-                "violinist-dev/project-data": "^1",
+                "violinist-dev/project-data": "^1.1.0",
                 "violinist-dev/slug-from-url": "^1",
                 "violinist-dev/symfony-cloud-security-checker": "^1",
+                "violinist-dev/violinist-config": "dev-master",
                 "violinist-dev/violinist-messages": "^1",
                 "wa72/simplelogger": "^1.0"
             },
@@ -408,7 +409,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2019-04-26T07:24:44+00:00"
+            "time": "2019-05-01T19:17:58+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -1842,7 +1843,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -1914,32 +1915,32 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.26",
+            "version": "v4.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "681afbb26488903c5ac15e63734f1d8ac430c9b9"
+                "reference": "2d279b6bb1d582dd5740d4d3251ae8c18812ed37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/681afbb26488903c5ac15e63734f1d8ac430c9b9",
-                "reference": "681afbb26488903c5ac15e63734f1d8ac430c9b9",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/2d279b6bb1d582dd5740d4d3251ae8c18812ed37",
+                "reference": "2d279b6bb1d582dd5740d4d3251ae8c18812ed37",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^7.1.3",
                 "psr/log": "~1.0"
             },
             "conflict": {
-                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+                "symfony/http-kernel": "<3.4"
             },
             "require-dev": {
-                "symfony/http-kernel": "~2.8|~3.0|~4.0"
+                "symfony/http-kernel": "~3.4|~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -1966,7 +1967,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-04-11T09:48:14+00:00"
+            "time": "2019-04-11T11:27:41+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -2041,26 +2042,26 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.4.26",
+            "version": "v4.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "acf99758b1df8e9295e6b85aa69f294565c9fedb"
+                "reference": "e16b9e471703b2c60b95f14d31c1239f68f11601"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/acf99758b1df8e9295e6b85aa69f294565c9fedb",
-                "reference": "acf99758b1df8e9295e6b85aa69f294565c9fedb",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/e16b9e471703b2c60b95f14d31c1239f68f11601",
+                "reference": "e16b9e471703b2c60b95f14d31c1239f68f11601",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^7.1.3",
                 "symfony/polyfill-ctype": "~1.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -2087,29 +2088,29 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2019-02-04T21:34:32+00:00"
+            "time": "2019-02-07T11:40:08+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.26",
+            "version": "v4.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "61af5ce0b34b942d414fe8f1b11950d0e9a90e98"
+                "reference": "e45135658bd6c14b61850bf131c4f09a55133f69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/61af5ce0b34b942d414fe8f1b11950d0e9a90e98",
-                "reference": "61af5ce0b34b942d414fe8f1b11950d0e9a90e98",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/e45135658bd6c14b61850bf131c4f09a55133f69",
+                "reference": "e45135658bd6c14b61850bf131c4f09a55133f69",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -2136,29 +2137,29 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-04-02T19:54:57+00:00"
+            "time": "2019-04-06T13:51:08+00:00"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v3.4.26",
+            "version": "v4.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "ed3b397f9c07c8ca388b2a1ef744403b4d4ecc44"
+                "reference": "fd4a5f27b7cd085b489247b9890ebca9f3e10044"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/ed3b397f9c07c8ca388b2a1ef744403b4d4ecc44",
-                "reference": "ed3b397f9c07c8ca388b2a1ef744403b4d4ecc44",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/fd4a5f27b7cd085b489247b9890ebca9f3e10044",
+                "reference": "fd4a5f27b7cd085b489247b9890ebca9f3e10044",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -2190,7 +2191,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2019-04-10T16:00:48+00:00"
+            "time": "2019-04-10T16:20:36+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2311,7 +2312,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -2360,16 +2361,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.39.1",
+            "version": "v1.40.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "23e7b6f0cfa1d7ba3de69f30d8e05cf957412fec"
+                "reference": "35889516bbd6bbe46a600c2c33b03515df4a076e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/23e7b6f0cfa1d7ba3de69f30d8e05cf957412fec",
-                "reference": "23e7b6f0cfa1d7ba3de69f30d8e05cf957412fec",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/35889516bbd6bbe46a600c2c33b03515df4a076e",
+                "reference": "35889516bbd6bbe46a600c2c33b03515df4a076e",
                 "shasum": ""
             },
             "require": {
@@ -2384,7 +2385,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.39-dev"
+                    "dev-master": "1.40-dev"
                 }
             },
             "autoload": {
@@ -2422,7 +2423,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-04-16T17:12:57+00:00"
+            "time": "2019-04-29T14:12:28+00:00"
         },
         {
             "name": "violinist-dev/composer-changelog-fetcher",
@@ -2515,12 +2516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "b6c5c99329219296a938d2ac94b939051414ddd8"
+                "reference": "5b712c72eca9cd8445c33eec16889b56951dcdf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/b6c5c99329219296a938d2ac94b939051414ddd8",
-                "reference": "b6c5c99329219296a938d2ac94b939051414ddd8",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/5b712c72eca9cd8445c33eec16889b56951dcdf8",
+                "reference": "5b712c72eca9cd8445c33eec16889b56951dcdf8",
                 "shasum": ""
             },
             "require": {
@@ -2549,7 +2550,7 @@
                     "email": "eirik@morland.no"
                 }
             ],
-            "time": "2019-02-20T15:47:24+00:00"
+            "time": "2019-04-26T15:02:43+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
@@ -2737,6 +2738,44 @@
                 }
             ],
             "time": "2019-02-02T15:19:27+00:00"
+        },
+        {
+            "name": "violinist-dev/violinist-config",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/violinist-config.git",
+                "reference": "477c6bf7466027896a03d6be0e0dc39fc3f29d40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/477c6bf7466027896a03d6be0e0dc39fc3f29d40",
+                "reference": "477c6bf7466027896a03d6be0e0dc39fc3f29d40",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Violinist\\Config\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eirik S. Morland",
+                    "email": "eirik@morland.no"
+                }
+            ],
+            "description": "Get violinist config from composer.json",
+            "time": "2019-05-01T19:06:56+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
