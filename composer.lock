@@ -366,12 +366,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "138a7b0e383732117e4630e6ddcdb09aa15c64e5"
+                "reference": "fa14c754b8d0942ee8e297c9321fe1e5bf30c8dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/138a7b0e383732117e4630e6ddcdb09aa15c64e5",
-                "reference": "138a7b0e383732117e4630e6ddcdb09aa15c64e5",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/fa14c754b8d0942ee8e297c9321fe1e5bf30c8dd",
+                "reference": "fa14c754b8d0942ee8e297c9321fe1e5bf30c8dd",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2019-04-26T09:00:09+00:00"
+            "time": "2019-05-01T06:54:34+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -2360,16 +2360,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.39.1",
+            "version": "v1.40.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "23e7b6f0cfa1d7ba3de69f30d8e05cf957412fec"
+                "reference": "35889516bbd6bbe46a600c2c33b03515df4a076e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/23e7b6f0cfa1d7ba3de69f30d8e05cf957412fec",
-                "reference": "23e7b6f0cfa1d7ba3de69f30d8e05cf957412fec",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/35889516bbd6bbe46a600c2c33b03515df4a076e",
+                "reference": "35889516bbd6bbe46a600c2c33b03515df4a076e",
                 "shasum": ""
             },
             "require": {
@@ -2384,7 +2384,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.39-dev"
+                    "dev-master": "1.40-dev"
                 }
             },
             "autoload": {
@@ -2422,7 +2422,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-04-16T17:12:57+00:00"
+            "time": "2019-04-29T14:12:28+00:00"
         },
         {
             "name": "violinist-dev/composer-changelog-fetcher",
@@ -2515,12 +2515,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "b6c5c99329219296a938d2ac94b939051414ddd8"
+                "reference": "5b712c72eca9cd8445c33eec16889b56951dcdf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/b6c5c99329219296a938d2ac94b939051414ddd8",
-                "reference": "b6c5c99329219296a938d2ac94b939051414ddd8",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/5b712c72eca9cd8445c33eec16889b56951dcdf8",
+                "reference": "5b712c72eca9cd8445c33eec16889b56951dcdf8",
                 "shasum": ""
             },
             "require": {
@@ -2549,7 +2549,7 @@
                     "email": "eirik@morland.no"
                 }
             ],
-            "time": "2019-02-20T15:47:24+00:00"
+            "time": "2019-04-26T15:02:43+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
