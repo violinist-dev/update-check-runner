@@ -4,10 +4,11 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 RUN composer install --no-dev --optimize-autoloader \
     && composer global require hirak/prestissimo \
-    && apk add --no-cache autoconf bzip2-dev g++ make libzip-dev \
+    && apk add --no-cache autoconf bzip2-dev g++ make libzip-dev icu-dev \
     && yes | pecl install apcu \
-    && docker-php-ext-install bz2 pcntl \
-    && docker-php-ext-enable apcu
+    && docker-php-ext-configure intl --enable-intl \
+    && docker-php-ext-install bz2 pcntl intl \
+    && docker-php-ext-enable apcu intl
 
 RUN wget https://get.symfony.com/cli/v4.2.8/symfony_linux_amd64 -O /tmp/symfony.gz
 RUN gzip -d /tmp/symfony.gz
