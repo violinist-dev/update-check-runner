@@ -3,6 +3,7 @@
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
 use PHPUnit\Framework\TestCase;
+use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Symfony\Component\Process\Process;
 use Violinist\Slug\Slug;
 
@@ -33,6 +34,24 @@ class IntegrationTest extends TestCase
     {
         $json = $this->getProcessAndRunWithoutError(getenv('user_token_self_hosted'), getenv('project_url_self_hosted'));
         $this->assertStandardOutput(getenv('project_url_self_hosted'), $json);
+    }
+
+    public function testBitbucketOutput()
+    {
+        if (version_compare(phpversion(), "7.1.0", "<=")) {
+            $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
+            return;
+        }
+        $provider = new Bitbucket([
+            'clientId' => getenv('bitbucket_client_id'),
+            'clientSecret' => getenv('bitbucket_client_secret'),
+            'redirectUri' => 'http://violinist.localhost/league_oauth_login/login/bitbucket',
+        ]);
+        $new_token = $provider->getAccessToken('refresh_token', [
+            'refresh_token' => getenv('bitbucket_refresh_token'),
+        ]);
+        $json = $this->getProcessAndRunWithoutError($new_token->getToken(), getenv('project_url_bitbucket'));
+        $this->assertStandardOutput(getenv('project_url_bitbucket'), $json);
     }
 
     protected function assertStandardOutput($url, $json)
