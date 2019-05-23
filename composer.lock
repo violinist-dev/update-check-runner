@@ -790,16 +790,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.51",
+            "version": "1.0.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396"
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/755ba7bf3fb9031e6581d091db84d78275874396",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c5a5097156387970e6f0ccfcdf03f752856f3391",
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391",
                 "shasum": ""
             },
             "require": {
@@ -870,7 +870,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-03-30T13:22:34+00:00"
+            "time": "2019-05-20T20:21:14+00:00"
         },
         {
             "name": "m4tthumphrey/php-gitlab-api",
@@ -2660,16 +2660,16 @@
         },
         {
             "name": "violinist-dev/slug-from-url",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/slug-from-url.git",
-                "reference": "b59414f34eeb9ac97272a4663ba3bfbe9c79a212"
+                "reference": "0571c5b7efa4b84c2ae1b0bda3a80560a2f369d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/slug-from-url/zipball/b59414f34eeb9ac97272a4663ba3bfbe9c79a212",
-                "reference": "b59414f34eeb9ac97272a4663ba3bfbe9c79a212",
+                "url": "https://api.github.com/repos/violinist-dev/slug-from-url/zipball/0571c5b7efa4b84c2ae1b0bda3a80560a2f369d8",
+                "reference": "0571c5b7efa4b84c2ae1b0bda3a80560a2f369d8",
                 "shasum": ""
             },
             "require-dev": {
@@ -2697,7 +2697,7 @@
                 }
             ],
             "description": "Get a slug from a URL",
-            "time": "2019-05-02T16:15:56+00:00"
+            "time": "2019-05-16T13:52:59+00:00"
         },
         {
             "name": "violinist-dev/symfony-cloud-security-checker",
@@ -2779,16 +2779,16 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "41b0be3aec3ea55f119c60a306ce163b05cf6345"
+                "reference": "740b9d46d72d8c79b59cb46553cd453a29feb9a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/41b0be3aec3ea55f119c60a306ce163b05cf6345",
-                "reference": "41b0be3aec3ea55f119c60a306ce163b05cf6345",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/740b9d46d72d8c79b59cb46553cd453a29feb9a2",
+                "reference": "740b9d46d72d8c79b59cb46553cd453a29feb9a2",
                 "shasum": ""
             },
             "require": {
@@ -2807,7 +2807,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "time": "2019-01-25T17:00:59+00:00"
+            "time": "2019-05-21T09:08:54+00:00"
         },
         {
             "name": "wa72/simplelogger",

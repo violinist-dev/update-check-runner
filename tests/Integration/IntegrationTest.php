@@ -45,7 +45,7 @@ class IntegrationTest extends TestCase
         $provider = new Bitbucket([
             'clientId' => getenv('bitbucket_client_id'),
             'clientSecret' => getenv('bitbucket_client_secret'),
-            'redirectUri' => 'http://violinist.localhost/league_oauth_login/login/bitbucket',
+            'redirectUri' => getenv('bitbucket_redirect_uri'),
         ]);
         $new_token = $provider->getAccessToken('refresh_token', [
             'refresh_token' => getenv('bitbucket_refresh_token'),
