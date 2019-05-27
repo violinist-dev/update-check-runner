@@ -116,7 +116,7 @@ class IntegrationTest extends TestCase
             $url
         ), null, null, null, 600);
         $process->run();
-        if (!$process->getExitCode()) {
+        if ($process->getExitCode()) {
             var_export($process->getOutput());
         }
         $this->assertEquals(0, $process->getExitCode());
