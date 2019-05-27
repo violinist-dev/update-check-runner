@@ -54,6 +54,21 @@ class IntegrationTest extends TestCase
         $this->assertStandardOutput(getenv('project_url_bitbucket'), $json);
     }
 
+    public function testDrupalContribDrupal8()
+    {
+        $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url_contrib_drupal_8'));
+        $this->assertStandardOutput(getenv('project_url_contrib_drupal_8'), $json);
+        $found_sa = false;
+        foreach ($json as $item) {
+            if (strpos($item->message, 'security advisories for packages installed')) {
+                if (!empty($item->context->result->{'drupal/metatag'})) {
+                    $found_sa = true;
+                }
+            }
+        }
+        $this->assertTrue($found_sa, 'Could not find the expected SA for drupal/metatag package (drupal 8) in output');
+    }
+
     protected function assertStandardOutput($url, $json)
     {
         $this->assertHashLogged($json);
@@ -101,6 +116,9 @@ class IntegrationTest extends TestCase
             $url
         ), null, null, null, 600);
         $process->run();
+        if ($process->getExitCode()) {
+            var_export($process->getOutput());
+        }
         $this->assertEquals(0, $process->getExitCode());
         $json = @json_decode($process->getOutput());
         $this->assertFalse(empty($json));

@@ -11,6 +11,7 @@ use eiriksm\CosyComposer\Message;
 use eiriksm\GitInfo\GitInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\Dotenv\Dotenv;
 
 require_once "vendor/autoload.php";
 
@@ -71,6 +72,13 @@ if ($hash = $git->getShortHash()) {
 }
 $cosy->setCacheDir($cache_dir);
 $code = 0;
+try {
+    $env = new Dotenv();
+    $env->load(__DIR__ . '/.env');
+}
+catch (Throwable $e) {
+    // We tried.
+}
 try {
     $cosy->run();
     $output = $cosy->getOutput();
