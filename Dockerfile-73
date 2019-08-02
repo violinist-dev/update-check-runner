@@ -5,11 +5,11 @@ WORKDIR /usr/src/myapp
 RUN composer install --no-dev --optimize-autoloader \
     && composer require bitbucket/client \
     && composer global require hirak/prestissimo \
-    && apk add --no-cache autoconf bzip2-dev g++ make libzip-dev icu-dev \
-    && yes | pecl install apcu mongodb \
+    && apk add --no-cache imagemagick imagemagick-libs imagemagick-dev autoconf bzip2-dev g++ make libzip-dev icu-dev \
+    && yes | pecl install apcu mongodb imagick \
     && docker-php-ext-configure intl --enable-intl \
     && docker-php-ext-install bz2 pcntl intl \
-    && docker-php-ext-enable apcu intl mongodb
+    && docker-php-ext-enable apcu intl mongodb imagick
 
 RUN git clone https://github.com/FriendsOfPHP/security-advisories /root/.symfony/cache/security-advisories
 RUN git clone https://github.com/violinist-dev/drupal-contrib-sa /root/drupal-contrib-sa
