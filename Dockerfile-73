@@ -2,6 +2,11 @@ FROM drupaldocker/php:7.3-cli-2.x
 MAINTAINER eiriksm <eirik@morland.no>
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
+
+ENV COMPOSER_DISCARD_CHANGES=1
+ENV COMPOSER_MEMORY_LIMIT=-1
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 RUN composer install --no-dev --optimize-autoloader \
     && composer require bitbucket/client \
     && composer global require hirak/prestissimo \
