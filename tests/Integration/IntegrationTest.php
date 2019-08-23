@@ -78,13 +78,13 @@ class IntegrationTest extends TestCase
         $project = new ProjectData();
         $project->setUpdateAll(true);
         $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url_contrib_drupal_8'), [
-            'project' => json_encode(serialize($project)),
+            'project' => sprintf("'%s'", json_encode(serialize($project))),
         ]);
         // So here is a message I would only find if the "update all" sequence would not run:
         $message = 'Running composer update for package webflo/drupal-finder';
         $found_message = false;
         foreach ($json as $item) {
-            if ($item->message === $message) {
+            if (!empty($item->message) && $item->message === $message) {
                 $found_message = true;
             }
         }
