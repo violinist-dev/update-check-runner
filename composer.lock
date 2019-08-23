@@ -2679,16 +2679,16 @@
         },
         {
             "name": "violinist-dev/project-data",
-            "version": "1.1.0",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/project-data.git",
-                "reference": "1d0ebfa2b80e875f3f827e213b747dba51db1009"
+                "reference": "b2abc5018ab72459430d8db4b252ff25acb1ff28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/project-data/zipball/1d0ebfa2b80e875f3f827e213b747dba51db1009",
-                "reference": "1d0ebfa2b80e875f3f827e213b747dba51db1009",
+                "url": "https://api.github.com/repos/violinist-dev/project-data/zipball/b2abc5018ab72459430d8db4b252ff25acb1ff28",
+                "reference": "b2abc5018ab72459430d8db4b252ff25acb1ff28",
                 "shasum": ""
             },
             "require-dev": {
@@ -2713,7 +2713,7 @@
                 }
             ],
             "description": "Project data object for storing project info when sending to workers.",
-            "time": "2019-04-01T15:09:44+00:00"
+            "time": "2019-08-14T19:17:00+00:00"
         },
         {
             "name": "violinist-dev/slug-from-url",
