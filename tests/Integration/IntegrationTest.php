@@ -5,6 +5,7 @@ namespace Violinist\UpdateCheckRunner\Tests\Integration;
 use PHPUnit\Framework\TestCase;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Symfony\Component\Process\Process;
+use Violinist\ProjectData\ProjectData;
 use Violinist\Slug\Slug;
 
 class IntegrationTest extends TestCase
@@ -69,6 +70,27 @@ class IntegrationTest extends TestCase
         $this->assertTrue($found_sa, 'Could not find the expected SA for drupal/metatag package (drupal 8) in output');
     }
 
+    /**
+     * A test to make sure we are not merging something we are still not ready to take on.
+     */
+    public function testUpdateAllNotReady()
+    {
+        $project = new ProjectData();
+        $project->setUpdateAll(true);
+        $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url_contrib_drupal_8'), [
+            'project' => sprintf("'%s'", json_encode(serialize($project))),
+        ]);
+        // So here is a message I would only find if the "update all" sequence would not run:
+        $message = 'Running composer update for package webflo/drupal-finder';
+        $found_message = false;
+        foreach ($json as $item) {
+            if (!empty($item->message) && $item->message === $message) {
+                $found_message = true;
+            }
+        }
+        $this->assertTrue($found_message, 'Could not find the expected update separate message in a test run');
+    }
+
     protected function assertStandardOutput($url, $json)
     {
         $this->assertHashLogged($json);
@@ -108,12 +130,15 @@ class IntegrationTest extends TestCase
         $this->findMessage('composer install completed successfully', $json);
     }
 
-    protected function getProcessAndRunWithoutError($token, $url)
+    protected function getProcessAndRunWithoutError($token, $url, $other_env = [])
     {
+        $env_part = sprintf('-e user_token=%s -e project_url=%s', $token, $url);
+        foreach ($other_env as $var => $value) {
+            $env_part .= sprintf(' -e %s=%s', $var, $value);
+        }
         $process = new Process(sprintf(
-            'docker run -i --rm -e user_token=%s -e project_url=%s update-check-runner',
-            $token,
-            $url
+            'docker run -i --rm %s update-check-runner',
+            $env_part
         ), null, null, null, 600);
         $process->run();
         if ($process->getExitCode()) {
