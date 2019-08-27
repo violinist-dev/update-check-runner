@@ -2042,16 +2042,16 @@
         },
         {
             "name": "symfony/dotenv",
-            "version": "v3.4.29",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
-                "reference": "3f4fdfb551bf36f2017d75cd2e6490fbe67f9d2d"
+                "reference": "a61b9b493b0c92a789642201f96e1a5264f57a8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/3f4fdfb551bf36f2017d75cd2e6490fbe67f9d2d",
-                "reference": "3f4fdfb551bf36f2017d75cd2e6490fbe67f9d2d",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/a61b9b493b0c92a789642201f96e1a5264f57a8d",
+                "reference": "a61b9b493b0c92a789642201f96e1a5264f57a8d",
                 "shasum": ""
             },
             "require": {
@@ -2095,7 +2095,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-06-23T08:10:04+00:00"
+            "time": "2019-08-14T11:59:53+00:00"
         },
         {
             "name": "symfony/filesystem",
