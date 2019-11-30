@@ -25,4 +25,3 @@ RUN gzip -d /tmp/symfony.gz
 RUN chmod 755 /tmp/symfony
 RUN mv /tmp/symfony /usr/local/bin/symfony
 CMD ["php", "runner.php"]
-
