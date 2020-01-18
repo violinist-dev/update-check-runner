@@ -116,16 +116,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.9.1",
+            "version": "1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "bb01f2180df87ce7992b8331a68904f80439dd2f"
+                "reference": "7a04aa0201ddaa0b3cf64d41022bd8cdcd7fafeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/bb01f2180df87ce7992b8331a68904f80439dd2f",
-                "reference": "bb01f2180df87ce7992b8331a68904f80439dd2f",
+                "url": "https://api.github.com/repos/composer/composer/zipball/7a04aa0201ddaa0b3cf64d41022bd8cdcd7fafeb",
+                "reference": "7a04aa0201ddaa0b3cf64d41022bd8cdcd7fafeb",
                 "shasum": ""
             },
             "require": {
@@ -192,7 +192,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2019-11-01T16:20:17+00:00"
+            "time": "2020-01-14T15:30:32+00:00"
         },
         {
             "name": "composer/semver",
@@ -365,12 +365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "aa8a4008eb26d839e1e639a2264a0c785e0d964b"
+                "reference": "682bdf289a8e552249ec92c0d2b960b514e99834"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/aa8a4008eb26d839e1e639a2264a0c785e0d964b",
-                "reference": "aa8a4008eb26d839e1e639a2264a0c785e0d964b",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/682bdf289a8e552249ec92c0d2b960b514e99834",
+                "reference": "682bdf289a8e552249ec92c0d2b960b514e99834",
                 "shasum": ""
             },
             "require": {
@@ -401,6 +401,13 @@
                 "squizlabs/php_codesniffer": "^3.2"
             },
             "type": "library",
+            "extra": {
+                "patches": {
+                    "phpunit/phpunit-mock-objects": {
+                        "Fix things on php 7.4": "./patches/mock-obj.patch"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "eiriksm\\CosyComposer\\": "src"
@@ -408,7 +415,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2020-01-13T15:29:30+00:00"
+            "time": "2020-01-18T20:28:29+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -2678,16 +2685,16 @@
         },
         {
             "name": "violinist-dev/project-data",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/project-data.git",
-                "reference": "b2abc5018ab72459430d8db4b252ff25acb1ff28"
+                "reference": "1f498b15ad179d2b9886bf3f21aaab85b86e7686"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/project-data/zipball/b2abc5018ab72459430d8db4b252ff25acb1ff28",
-                "reference": "b2abc5018ab72459430d8db4b252ff25acb1ff28",
+                "url": "https://api.github.com/repos/violinist-dev/project-data/zipball/1f498b15ad179d2b9886bf3f21aaab85b86e7686",
+                "reference": "1f498b15ad179d2b9886bf3f21aaab85b86e7686",
                 "shasum": ""
             },
             "require-dev": {
@@ -2712,7 +2719,7 @@
                 }
             ],
             "description": "Project data object for storing project info when sending to workers.",
-            "time": "2019-08-14T19:17:00+00:00"
+            "time": "2020-01-17T18:57:14+00:00"
         },
         {
             "name": "violinist-dev/slug-from-url",
