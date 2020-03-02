@@ -6,6 +6,7 @@ WORKDIR /usr/src/myapp
 ENV COMPOSER_DISCARD_CHANGES=1
 ENV COMPOSER_MEMORY_LIMIT=-1
 ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_PROCESS_TIMEOUT=1200
 
 RUN composer self-update \
     && composer install --no-dev --optimize-autoloader \
