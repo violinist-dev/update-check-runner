@@ -14,7 +14,7 @@ script:
 - if [ $(phpenv version-name) = "7.1" ]; then docker build -t update-check-runner . -f Dockerfile-71; fi
 - if [ $(phpenv version-name) = "7.2" ]; then docker build -t update-check-runner . -f Dockerfile-72; fi
 - if [ $(phpenv version-name) = "7.3" ]; then docker build -t update-check-runner . -f Dockerfile-73; fi
-- if [ $(phpenv version-name) = "7.4snapshot" ]; then docker build -t update-check-runner . -f Dockerfile-74; fi
+- if [ $(phpenv version-name) = "7.4" ]; then docker build -t update-check-runner . -f Dockerfile-74; fi
 - "./vendor/bin/phpunit"
 env:
   global:
