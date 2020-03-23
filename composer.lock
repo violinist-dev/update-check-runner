@@ -2577,12 +2577,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "adf3e76dc3a38c6e459d5dac6f4d8ff411c28e83"
+                "reference": "a6257a377b14feac4c378bae2adbdcf5451639b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/adf3e76dc3a38c6e459d5dac6f4d8ff411c28e83",
-                "reference": "adf3e76dc3a38c6e459d5dac6f4d8ff411c28e83",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/a6257a377b14feac4c378bae2adbdcf5451639b9",
+                "reference": "a6257a377b14feac4c378bae2adbdcf5451639b9",
                 "shasum": ""
             },
             "require": {
@@ -2591,7 +2591,7 @@
                 "violinist-dev/process-factory": "^1.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.17",
+                "phpstan/phpstan": "^0.9.3",
                 "phpunit/phpunit": "^6.5",
                 "satooshi/php-coveralls": "^2.0",
                 "squizlabs/php_codesniffer": "^3.3"
@@ -2619,7 +2619,7 @@
                     "email": "eirik@morland.no"
                 }
             ],
-            "time": "2020-03-22T10:12:39+00:00"
+            "time": "2020-03-23T06:39:55+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
