@@ -2577,12 +2577,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "a6257a377b14feac4c378bae2adbdcf5451639b9"
+                "reference": "6fedfa32a68feefed2984e5dbd42cc13beb7d97a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/a6257a377b14feac4c378bae2adbdcf5451639b9",
-                "reference": "a6257a377b14feac4c378bae2adbdcf5451639b9",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/6fedfa32a68feefed2984e5dbd42cc13beb7d97a",
+                "reference": "6fedfa32a68feefed2984e5dbd42cc13beb7d97a",
                 "shasum": ""
             },
             "require": {
@@ -2619,7 +2619,7 @@
                     "email": "eirik@morland.no"
                 }
             ],
-            "time": "2020-03-23T06:39:55+00:00"
+            "time": "2020-03-23T06:47:21+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
