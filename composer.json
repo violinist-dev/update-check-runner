@@ -4,11 +4,12 @@
   "prefer-stable": true,
   "require": {
     "ext-json": "*",
-    "eiriksm/cosy-composer": "dev-master",
+    "eiriksm/cosy-composer": "dev-feat/2.x-support",
     "symfony/dependency-injection": "^3.4",
     "php-http/guzzle6-adapter": "^1.1",
     "eiriksm/gitinfo": "^1.1",
-    "symfony/dotenv": "^3"
+    "symfony/dotenv": "^3",
+    "composer/composer": "^2"
   },
   "require-dev": {
     "phpunit/phpunit": "^6.5",
