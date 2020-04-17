@@ -16,6 +16,7 @@ RUN composer self-update \
     && docker-php-ext-configure intl --enable-intl \
     && docker-php-ext-install bz2 pcntl intl \
     && docker-php-ext-enable apcu intl mongodb imagick \
+    && mkdir /.ssh/ \
     && ssh-keyscan -t rsa,dsa git.drupal.org >> ~/.ssh/known_hosts \
     && ssh-keyscan -t rsa,dsa gitlab.com >> ~/.ssh/known_hosts \
     && ssh-keyscan -t rsa,dsa bitbucket.org >> ~/.ssh/known_hosts \
