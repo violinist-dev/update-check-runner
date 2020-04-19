@@ -14,7 +14,7 @@ RUN composer self-update \
     && apk add --no-cache imagemagick imagemagick-libs imagemagick-dev autoconf bzip2-dev g++ make icu-dev \
     && yes | pecl install apcu mongodb imagick \
     && docker-php-ext-configure intl --enable-intl \
-    && docker-php-ext-install bz2 pcntl intl \
+    && docker-php-ext-install exif bz2 pcntl intl \
     && docker-php-ext-enable apcu intl mongodb imagick \
     && mkdir ~/.ssh/ \
     && ssh-keyscan -t rsa,dsa git.drupal.org >> ~/.ssh/known_hosts \
