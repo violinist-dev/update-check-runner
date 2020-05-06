@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f07286f055c20769160b586430b1826",
+    "content-hash": "7338848c9e69bbb8846ebca34bce7a3c",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -365,12 +365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "007aa68181b76c872cec82e47cedc6912e27668e"
+                "reference": "a02b524355024c8716554afbddca53c820a0c25b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/007aa68181b76c872cec82e47cedc6912e27668e",
-                "reference": "007aa68181b76c872cec82e47cedc6912e27668e",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/a02b524355024c8716554afbddca53c820a0c25b",
+                "reference": "a02b524355024c8716554afbddca53c820a0c25b",
                 "shasum": ""
             },
             "require": {
@@ -415,7 +415,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2020-03-22T09:50:43+00:00"
+            "time": "2020-05-06T05:29:51+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -4590,7 +4590,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-exif": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
