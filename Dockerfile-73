@@ -9,8 +9,6 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_PROCESS_TIMEOUT=1200
 
 RUN composer self-update \
-    && composer install --no-dev --optimize-autoloader \
-    && composer require bitbucket/client \
     && composer global require hirak/prestissimo \
     && apk add --no-cache imagemagick imagemagick-libs imagemagick-dev autoconf bzip2-dev g++ make libzip-dev icu-dev \
     && yes | pecl install apcu mongodb imagick \
@@ -18,6 +16,8 @@ RUN composer self-update \
     && docker-php-ext-install exif bz2 pcntl intl \
     && docker-php-ext-enable apcu intl mongodb imagick \
     && mkdir ~/.ssh/ \
+    && composer install --no-dev --optimize-autoloader \
+    && composer require bitbucket/client \
     && ssh-keyscan -t rsa,dsa git.drupal.org >> ~/.ssh/known_hosts \
     && ssh-keyscan -t rsa,dsa gitlab.com >> ~/.ssh/known_hosts \
     && ssh-keyscan -t rsa,dsa bitbucket.org >> ~/.ssh/known_hosts \
