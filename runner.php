@@ -23,6 +23,10 @@ $fork_mail = $_SERVER['fork_mail'];
 $token_url = $_SERVER['token_url'];
 $project = null;
 $url = null;
+$tokens = [];
+if (!empty($_SERVER['tokens'])) {
+    $tokens = @json_decode($_SERVER['tokens'], true);
+}
 if (!empty($_SERVER['project'])) {
     $project = @unserialize(@json_decode($_SERVER['project']));
 }
@@ -53,6 +57,7 @@ $cosy->setForkUser($fork_to);
 $cosy->setProject($project);
 $cosy->setGithubForkAuth($fork_user, $fork_mail);
 $cosy->setTokenUrl($token_url);
+$cosy->setTokens($tokens);
 $cosy
     ->setTmpDir(
         sprintf(
