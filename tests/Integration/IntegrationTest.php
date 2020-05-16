@@ -82,6 +82,30 @@ class IntegrationTest extends TestCase
         $this->assertTrue($found_sa, 'Could not find the expected SA for drupal/metatag package (drupal 8) in output');
     }
 
+    /**
+     * A test to make sure we are not merging something we are still not ready to take on.
+     *
+     * This test just makes sure the feature we want in the future might trigger an update all. So this will fail
+     * once that is the case. So when we actually implement it, we also have to update this test.
+     */
+    public function testUpdateAllNotReady()
+    {
+        $project = new ProjectData();
+        $project->setUpdateAll(true);
+        $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url_contrib_drupal_8'), [
+            'project' => sprintf("'%s'", json_encode(serialize($project))),
+        ]);
+        // So here is a message I would only find if the "update all" sequence would not run:
+        $message = 'Running composer update for package webflo/drupal-finder';
+        $found_message = false;
+        foreach ($json as $item) {
+            if (!empty($item->message) && $item->message === $message) {
+                $found_message = true;
+            }
+        }
+        $this->assertTrue($found_message, 'Could not find the expected update separate message in a test run');
+    }
+
     protected function assertStandardOutput($url, $json)
     {
         $this->assertHashLogged($json);
