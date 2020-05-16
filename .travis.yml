@@ -9,6 +9,7 @@ php:
 services:
 - docker
 script:
+- export MY_COMMIT=$(git log --no-merges --format=format:%H -n1)
 - composer install
 - if [ $(phpenv version-name) = "7.0" ]; then docker build -t update-check-runner . -f Dockerfile-70; fi
 - if [ $(phpenv version-name) = "7.1" ]; then docker build -t update-check-runner . -f Dockerfile-71; fi
