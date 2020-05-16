@@ -93,7 +93,18 @@ class IntegrationTest extends TestCase
     protected function assertHashLogged($json)
     {
         $expected_message = sprintf('Queue runner revision %s', substr(getenv('MY_COMMIT'), 0, 7));
-        $this->findMessage($expected_message, $json);
+        foreach ($json as $item) {
+            if ($item->message === $expected_message) {
+                return;
+            }
+        }
+        // So it was not found. Let's look at what we actually have.
+        foreach ($json as $item) {
+            if (strpos($item->message, 'Queue runner revision') === 0) {
+                print_r("POSSIBLE HASH MSG: " . $item->message . "\n");
+            }
+        }
+        $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
     }
 
     protected function findMessage($message, $json)
