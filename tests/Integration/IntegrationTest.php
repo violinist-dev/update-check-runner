@@ -4,19 +4,31 @@ namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
 use PHPUnit\Framework\TestCase;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
+use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Process\Process;
 use Violinist\ProjectData\ProjectData;
 use Violinist\Slug\Slug;
 
 class IntegrationTest extends TestCase
 {
+
+    public function setUp()
+    {
+        try {
+            $env = new Dotenv();
+            $env->load(__DIR__ . '/../../.env');
+        } catch (\Throwable $e) {
+            // We tried.
+        }
+    }
+
     /**
      * This is so not the way phpunit is supposed to be used.
      */
-    public function testOutput()
+    public function testGithubOutput()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url'));
-        $this->assertStandardOutput(getenv('project_url'), $json);
+        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PRIVATE_REPO'));
+        $this->assertStandardOutput(getenv('GITHUB_PRIVATE_REPO'), $json);
         // Test for error messages of the type "PHP Warning".
         foreach ($json as $item) {
             if (strpos($item->message, 'PHP Warning') === 0) {
@@ -27,14 +39,14 @@ class IntegrationTest extends TestCase
 
     public function testGitlabOutput()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('user_gitlab_token'), getenv('gitlab_project_url'));
-        $this->assertStandardOutput(getenv('gitlab_project_url'), $json);
+        $json = $this->getProcessAndRunWithoutError(getenv('GITLAB_PRIVATE_USER_TOKEN'), getenv('GITLAB_PRIVATE_REPO'));
+        $this->assertStandardOutput(getenv('GITLAB_PRIVATE_REPO'), $json);
     }
 
     public function testGitlabSelfhostedOutput()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('user_token_self_hosted'), getenv('project_url_self_hosted'));
-        $this->assertStandardOutput(getenv('project_url_self_hosted'), $json);
+        $json = $this->getProcessAndRunWithoutError(getenv('SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN'), getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'));
+        $this->assertStandardOutput(getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'), $json);
     }
 
     public function testBitbucketOutput()
@@ -44,21 +56,21 @@ class IntegrationTest extends TestCase
             return;
         }
         $provider = new Bitbucket([
-            'clientId' => getenv('bitbucket_client_id'),
-            'clientSecret' => getenv('bitbucket_client_secret'),
-            'redirectUri' => getenv('bitbucket_redirect_uri'),
+            'clientId' => getenv('BITBUCKET_CLIENT_ID'),
+            'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
+            'redirectUri' => getenv('BITBUCKET_REDIRECT_URI'),
         ]);
         $new_token = $provider->getAccessToken('refresh_token', [
-            'refresh_token' => getenv('bitbucket_refresh_token'),
+            'refresh_token' => getenv('BITBUCKET_REFRESH_TOKEN'),
         ]);
-        $json = $this->getProcessAndRunWithoutError($new_token->getToken(), getenv('project_url_bitbucket'));
-        $this->assertStandardOutput(getenv('project_url_bitbucket'), $json);
+        $json = $this->getProcessAndRunWithoutError($new_token->getToken(), getenv('BITBUCKET_PRIVATE_REPO'));
+        $this->assertStandardOutput(getenv('BITBUCKET_PRIVATE_REPO'), $json);
     }
 
     public function testDrupalContribDrupal8()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url_contrib_drupal_8'));
-        $this->assertStandardOutput(getenv('project_url_contrib_drupal_8'), $json);
+        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'));
+        $this->assertStandardOutput(getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'), $json);
         $found_sa = false;
         foreach ($json as $item) {
             if (strpos($item->message, 'security advisories for packages installed')) {
@@ -72,12 +84,15 @@ class IntegrationTest extends TestCase
 
     /**
      * A test to make sure we are not merging something we are still not ready to take on.
+     *
+     * This test just makes sure the feature we want in the future might trigger an update all. So this will fail
+     * once that is the case. So when we actually implement it, we also have to update this test.
      */
     public function testUpdateAllNotReady()
     {
         $project = new ProjectData();
         $project->setUpdateAll(true);
-        $json = $this->getProcessAndRunWithoutError(getenv('user_token'), getenv('project_url_contrib_drupal_8'), [
+        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'), [
             'project' => sprintf("'%s'", json_encode(serialize($project))),
         ]);
         // So here is a message I would only find if the "update all" sequence would not run:
@@ -101,8 +116,19 @@ class IntegrationTest extends TestCase
 
     protected function assertHashLogged($json)
     {
-        $expected_message = sprintf('Queue runner revision %s', substr(getenv('TRAVIS_COMMIT'), 0, 7));
-        $this->findMessage($expected_message, $json);
+        $expected_message = sprintf('Queue runner revision %s', substr(getenv('MY_COMMIT'), 0, 7));
+        foreach ($json as $item) {
+            if ($item->message === $expected_message) {
+                return;
+            }
+        }
+        // So it was not found. Let's look at what we actually have.
+        foreach ($json as $item) {
+            if (strpos($item->message, 'Queue runner revision') === 0) {
+                print_r("POSSIBLE HASH MSG: " . $item->message . "\n");
+            }
+        }
+        $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
     }
 
     protected function findMessage($message, $json)
@@ -144,7 +170,7 @@ class IntegrationTest extends TestCase
         if ($process->getExitCode()) {
             var_export($process->getOutput());
         }
-        $this->assertEquals(0, $process->getExitCode());
+        $this->assertEquals(0, $process->getExitCode(), 'Docker did not exit with exit code 0');
         $json = @json_decode($process->getOutput());
         $this->assertFalse(empty($json));
         return $json;
