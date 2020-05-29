@@ -37,6 +37,24 @@ class IntegrationTest extends TestCase
         }
     }
 
+    public function testGithubPublicOutput()
+    {
+        $project = new ProjectData();
+        $project->setNid(getenv('GITHUB_PUBLIC_PROJECT_NID'));
+        // First make sure we have created PRs for all of them.
+        $extra_params = [
+            'project' => sprintf("'%s'", json_encode(serialize($project))),
+            'fork_to' => getenv('GITHUB_FORK_TO'),
+            'token_url' => getenv('TOKEN_URL'),
+            'fork_user' => getenv('FORK_USER'),
+            'fork_mail' => getenv('FORK_MAIL'),
+        ];
+        $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PUBLIC_REPO'), $extra_params);
+        // Then make sure we are not pushing over and over again.
+        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PUBLIC_REPO'), $extra_params);
+        $this->findMessage('Skipping symfony/polyfill-mbstring because a pull request already exists', $json);
+    }
+
     public function testGitlabOutput()
     {
         $json = $this->getProcessAndRunWithoutError(getenv('GITLAB_PRIVATE_USER_TOKEN'), getenv('GITLAB_PRIVATE_REPO'));
