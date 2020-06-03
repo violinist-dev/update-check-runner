@@ -7,7 +7,7 @@ php:
 - '7.3'
 - '7.4'
 env:
-  - COMPOSER_VERSION_SUFFIX=""
+  - COMPOSER_VERSION_SUFFIX=1
   - COMPOSER_VERSION_SUFFIX=2
 services:
 - docker

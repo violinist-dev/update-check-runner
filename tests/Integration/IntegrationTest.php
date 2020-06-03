@@ -116,7 +116,7 @@ class IntegrationTest extends TestCase
     {
         $project = new ProjectData();
         $project->setUpdateAll(true);
-        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'), [
+        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PRIVATE_REPO'), [
             'project' => sprintf("'%s'", json_encode(serialize($project))),
         ]);
         // So here is a message I would only find if the "update all" sequence would not run:
