@@ -2,6 +2,8 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
+use eiriksm\CosyComposer\Providers\Github;
+use Github\Client;
 use PHPUnit\Framework\TestCase;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Symfony\Component\Dotenv\Dotenv;
@@ -114,13 +116,26 @@ class IntegrationTest extends TestCase
      */
     public function testUpdateAllNotReady()
     {
+        // First just make sure that all PRs all closed.
+        $client = new Client();
+        $provider = new Github($client);
+        $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
+        $provider->authenticate($token, '');
+        $url = getenv('GITHUB_PRIVATE_REPO');
+        $slug = Slug::createFromUrl($url);
+        $prs = $provider->getPrsNamed($slug);
+        foreach ($prs as $pr) {
+            $client->pullRequests()->update($slug->getUserName(), $slug->getUserRepo(), $pr['number'], [
+                'state' => 'closed',
+            ]);
+        }
         $project = new ProjectData();
         $project->setUpdateAll(true);
-        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PRIVATE_REPO'), [
+        $json = $this->getProcessAndRunWithoutError($token, $url, [
             'project' => sprintf("'%s'", json_encode(serialize($project))),
         ]);
         // So here is a message I would only find if the "update all" sequence would not run:
-        $message = 'Running composer update for package webflo/drupal-finder';
+        $message = 'Successfully ran command composer update for package psr/log';
         $found_message = false;
         foreach ($json as $item) {
             if (!empty($item->message) && $item->message === $message) {
