@@ -9,6 +9,7 @@ ENV COMPOSER_DISCARD_CHANGES=1
 ENV COMPOSER_MEMORY_LIMIT=-1
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_PROCESS_TIMEOUT=1200
+ENV PATH="/usr/src/myapp/vendor/bin:${PATH}"
 
 RUN composer self-update \
     && composer global require hirak/prestissimo \
@@ -18,6 +19,7 @@ RUN composer self-update \
     && docker-php-ext-install exif bz2 pcntl intl \
     && docker-php-ext-enable apcu intl mongodb imagick \
     && mkdir ~/.ssh/ \
+    && composer require composer/composer:^$COMPOSER_VERSION --update-with-dependencies
     && composer install --no-dev --optimize-autoloader \
     && ssh-keyscan -t rsa,dsa git.drupal.org >> ~/.ssh/known_hosts \
     && ssh-keyscan -t rsa,dsa gitlab.com >> ~/.ssh/known_hosts \
@@ -30,7 +32,6 @@ RUN composer self-update \
     && gzip -d /tmp/symfony.gz \
     && chmod 755 /tmp/symfony \
     && mv /tmp/symfony /usr/local/bin/symfony \
-    && rm -rf /usr/local/bin/composer \
-    && cd /usr/src/myapp \
-    && ./vendor/bin/composer require composer/composer:^$COMPOSER_VERSION --update-with-dependencies
+    && rm -rf /usr/local/bin/composer
+
 CMD ["php", "runner.php"]
