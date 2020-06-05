@@ -155,6 +155,18 @@ class IntegrationTest extends TestCase
         $this->assertProjectStarting($url, $json);
         $this->assertRepoCloned($json);
         $this->assertComposerInstalled($json);
+        $this->assertComposerVersion($json);
+    }
+
+    protected function assertComposerVersion($json)
+    {
+        $expected_message = sprintf('Composer %d', getenv('COMPOSER_VERSION'));
+        foreach ($json as $item) {
+            if (strpos($item->message, $expected_message) === 0) {
+                return;
+            }
+        }
+        $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
     }
 
     protected function assertHashLogged($json)
