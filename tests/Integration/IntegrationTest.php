@@ -95,7 +95,7 @@ class IntegrationTest extends TestCase
 
     public function testDrupalContribDrupal8()
     {
-        if (getenv('COMPOSER_VERSION_SUFFIX') == 2) {
+        if (getenv('COMPOSER_VERSION') == 2) {
             $this->assertTrue(true, 'Skipping Drupal contrib test for composer version 2');
             return;
         }
