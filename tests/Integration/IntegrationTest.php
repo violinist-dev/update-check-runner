@@ -64,6 +64,10 @@ class IntegrationTest extends TestCase
      */
     public function testBundledOutput()
     {
+        if (getenv('COMPOSER_VERSION') == 2) {
+            $this->assertTrue(true, 'Bundled packages test for composer version 2');
+            return;
+        }
         // Close all of the pull requests, so we can actually see that we update bundled.
         $client = new Client();
         $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
