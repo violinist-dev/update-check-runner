@@ -1,0 +1,13 @@
+FROM violinist/php-base:7.0
+MAINTAINER eiriksm <eirik@morland.no>
+
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+
+ENV COMPOSER_VERSION=2
+
+RUN composer require composer/composer:^2 --update-with-dependencies \
+    && composer install --no-dev --optimize-autoloader \
+    && rm -rf /usr/local/bin/composer
+
+CMD ["php", "runner.php"]
