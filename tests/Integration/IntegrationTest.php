@@ -130,10 +130,6 @@ class IntegrationTest extends TestCase
 
     public function testDrupalContribDrupal8()
     {
-        if (getenv('COMPOSER_VERSION') == 2) {
-            $this->assertTrue(true, 'Skipping Drupal contrib test for composer version 2');
-            return;
-        }
         $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'));
         $this->assertStandardOutput(getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'), $json);
         $found_sa = false;
