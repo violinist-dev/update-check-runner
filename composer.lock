@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7338848c9e69bbb8846ebca34bce7a3c",
+    "content-hash": "ec811e0153750491c6d1f02cce419a22",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -4729,7 +4729,20 @@
     "prefer-lowest": false,
     "platform": {
         "ext-json": "*",
-        "ext-exif": "*"
+        "ext-exif": "*",
+        "ext-gd": "*",
+        "ext-soap": "*",
+        "ext-mongodb": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-pdo_mysql": "*",
+        "ext-pdo_pgsql": "*",
+        "ext-zip": "*",
+        "ext-bcmath": "*",
+        "ext-bz2": "*",
+        "ext-pcntl": "*",
+        "ext-redis": "*",
+        "ext-imagick": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
