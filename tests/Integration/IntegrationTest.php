@@ -156,7 +156,7 @@ class IntegrationTest extends TestCase
             'project' => sprintf("'%s'", json_encode(serialize($project))),
         ]);
         // So here is a message I would only find if the "update all" sequence would not run:
-        $message = 'Running composer update for package webflo/drupal-finder';
+        $message = 'Successfully ran command composer update for package drupal/metatag';
         $found_message = false;
         foreach ($json as $item) {
             if (!empty($item->message) && $item->message === $message) {
