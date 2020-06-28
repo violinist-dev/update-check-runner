@@ -1,10 +1,12 @@
-FROM violinist/php-base:7.4-multi
+FROM violinist/php-base:7.0-multi
 MAINTAINER eiriksm <eirik@morland.no>
 
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
-RUN composer require bitbucket/client \
+ENV COMPOSER_VERSION=2
+
+RUN composer require composer/composer:^2 --update-with-dependencies \
     && composer install --no-dev --optimize-autoloader \
     && rm -rf /usr/local/bin/composer
 
