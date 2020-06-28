@@ -1,0 +1,53 @@
+name: buildx 7.2
+
+on:
+  schedule:
+    - cron: '0 10 * * *' # everyday at 10am
+  push:
+    branches: master
+
+jobs:
+  buildx:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Prepare
+        id: prepare
+        run: |
+          DOCKER_IMAGE=violinist/update-check-runner
+          DOCKER_PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+
+          echo ::set-output name=docker_image::${DOCKER_IMAGE}
+          echo ::set-output name=buildx_args::--platform ${DOCKER_PLATFORMS} \
+            --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
+            --build-arg VCS_REF=${GITHUB_SHA::8}
+      -
+        name: Set up Docker Buildx
+        uses: crazy-max/ghaction-docker-buildx@v3
+      -
+            name: Docker Login
+            if: success() && github.event_name != 'pull_request'
+            env:
+              DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+              DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+            run: |
+              echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+      -
+        name: Docker Buildx (build)
+        run: |
+          docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }} -t violinist/update-check-runner:7.2-multi-composer-1 -f Dockerfile-72-composer-1 .
+          docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }} -t violinist/update-check-runner:7.2-multi-composer-2 -f Dockerfile-72-composer-2 .
+      -
+        name: Docker Check Manifest
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          docker run --rm mplatform/mquery ${{ steps.prepare.outputs.docker_image }}:7.2-multi-composer-2
+          docker run --rm mplatform/mquery ${{ steps.prepare.outputs.docker_image }}:7.2-multi-composer-1
+      -
+        name: Clear
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          rm -f ${HOME}/.docker/config.json
