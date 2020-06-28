@@ -1,10 +1,10 @@
 name: buildx 7.3
 
 on:
-  #schedule:
-  #  - cron: '0 10 * * *' # everyday at 10am
-  - push
-  #  branches: master
+  schedule:
+    - cron: '0 10 * * *' # everyday at 10am
+  push:
+    branches: master
 
 jobs:
   buildx:
