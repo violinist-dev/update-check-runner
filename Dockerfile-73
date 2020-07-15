@@ -4,7 +4,7 @@ MAINTAINER eiriksm <eirik@morland.no>
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
-RUN composer require bitbucket/client \
+RUN composer require bitbucket/client:^2 \
     && composer install --no-dev --optimize-autoloader \
     && rm -rf /usr/local/bin/composer
 
