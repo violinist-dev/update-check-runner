@@ -143,6 +143,20 @@ class IntegrationTest extends TestCase
         $this->assertTrue($found_sa, 'Could not find the expected SA for drupal/metatag package (drupal 8) in output');
     }
 
+    public function testSecurityOnly()
+    {
+        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_SECURITY_ONLY_REPO'));
+        $this->assertStandardOutput(getenv('GITHUB_SECURITY_ONLY_REPO'), $json);
+        $found_update = false;
+        $this->findMessage('Running composer update for package twig/twig', $json);
+        foreach ($json as $item) {
+            if ($item->message === 'Running composer update for package psr/log') {
+                $found_update = true;
+            }
+        }
+        $this->assertFalse($found_update, 'psr/log was updated when it should not');
+    }
+
     /**
      * A test to make sure we are not merging something we are still not ready to take on.
      *
