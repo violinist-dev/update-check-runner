@@ -43,33 +43,11 @@ class IntegrationTest extends TestCase
 
     public function testConcurrentPrs()
     {
-        // Close all of the pull requests, so we can actually see that we limit the update.
-        $client = new Client();
         $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
-        $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
-        $pager = new ResultPager($client);
-        /** @var PullRequest $api */
-        $api = $client->api('pr');
-        $method = 'all';
         $url = getenv('GITHUB_CONCURRENT_REPO');
-        $slug = Slug::createFromUrl($url);
-        $prs = $pager->fetchAll($api, $method, [$slug->getUserName(), $slug->getUserRepo()]);
-        foreach ($prs as $pr) {
-            $api->update($slug->getUserName(), $slug->getUserRepo(), $pr['number'], [
-                'state' => 'closed',
-            ]);
-        }
-        // We need this to be able to commit things.
-        $extra_params = [
-            'fork_user' => getenv('FORK_USER'),
-            'fork_mail' => getenv('FORK_MAIL'),
-        ];
         $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
         $this->assertStandardOutput($url, $json);
         $this->findMessage('Skipping twig/twig because the number of max concurrent PRs (1) seems to have been reached', $json);
-        $prs = $pager->fetchAll($api, $method, [$slug->getUserName(), $slug->getUserRepo()]);
-        $this->assertEquals(count($prs), 1, 'Expected 1 PR to be there, but there is ' . count($prs));
-        $this->findMessage('Successfully ran command composer update for package psr/log', $json);
     }
 
     public function testGithubPublicOutput()
