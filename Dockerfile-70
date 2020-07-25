@@ -5,6 +5,8 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 RUN composer install --no-dev --optimize-autoloader \
+    # Make sure our php is always used.
+    && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer
 
 CMD ["php", "runner.php"]
