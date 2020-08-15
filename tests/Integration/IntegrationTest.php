@@ -2,10 +2,13 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
+use eiriksm\CosyComposer\ProviderFactory;
 use eiriksm\CosyComposer\Providers\Github;
+use eiriksm\CosyComposer\Providers\Gitlab;
 use Github\Api\PullRequest;
 use Github\Client;
 use Github\ResultPager;
+use Gitlab\Client as GitlabClient;
 use PHPUnit\Framework\TestCase;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Symfony\Component\Dotenv\Dotenv;
@@ -164,6 +167,58 @@ class IntegrationTest extends TestCase
             }
         }
         $this->assertFalse($found_update, 'psr/log was updated when it should not');
+    }
+
+    public function testAssigneesGitlab(&$count = 0)
+    {
+        // This is the ID of the violinist bot user on gitlab. Since this is pretty public knowledge, let's
+        // leave it actually here in the tests.
+        $violinist_bot_id = 2775347;
+        $project = new ProjectData();
+        $project->setRoles(['agency']);
+        $extra_params = [
+            'project' => sprintf("'%s'", json_encode(serialize($project))),
+            'fork_to' => getenv('GITHUB_FORK_TO'),
+            'token_url' => getenv('TOKEN_URL'),
+            'fork_user' => getenv('FORK_USER'),
+            'fork_mail' => getenv('FORK_MAIL'),
+        ];
+        // Close all PRs. Since this will run in parallel with many php versions, we might get the PR from
+        // somewhere else. In fact, someone might close it after we open in here. So we need to check the API
+        // for this specific one.
+        $token = getenv('GITLAB_PRIVATE_USER_TOKEN');
+        $url = getenv('GITLAB_ASSIGNEE_REPO');
+        $client = new GitlabClient();
+        $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
+        $id = Gitlab::getProjectId($url);
+        $params = ['state' => 'opened'];
+        $mrs = $client->mergeRequests()->all($id, $params);
+        foreach ($mrs as $mr) {
+            $mr['state_event'] = 'close';
+            $client->mergeRequests()->update($id, $mr['iid'], $mr);
+        }
+        $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
+        $this->assertStandardOutput($url, $json);
+        $mrs = $client->mergeRequests()->all($id, $params);
+        $has_assignee = false;
+        foreach ($mrs as $mr) {
+            if (empty($mr['assignees'])) {
+                continue;
+            }
+            foreach ($mr['assignees'] as $assignee) {
+                if ($assignee['id'] == $violinist_bot_id) {
+                    $has_assignee = true;
+                }
+            }
+        }
+        if ($has_assignee) {
+            return $this->assertTrue(true, 'Found the assignee');
+        }
+        $count++;
+        if ($count > 10 ) {
+            throw new \Exception('I dont think I should do this anymore');
+        }
+        return $this->testAssigneesGitlab($count);
     }
 
     /**
