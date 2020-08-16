@@ -169,7 +169,7 @@ class IntegrationTest extends TestCase
         $this->assertFalse($found_update, 'psr/log was updated when it should not');
     }
 
-    public function testAssigneesGitlab(&$count = 0)
+    public function testUpdateAssigneesGitlab(&$count = 0)
     {
         // This is the ID of the violinist bot user on gitlab. Since this is pretty public knowledge, let's
         // leave it actually here in the tests.
@@ -194,7 +194,7 @@ class IntegrationTest extends TestCase
         $params = ['state' => 'opened'];
         $mrs = $client->mergeRequests()->all($id, $params);
         foreach ($mrs as $mr) {
-            $mr['state_event'] = 'close';
+            $mr["title"] = md5($mr["title"]);
             $client->mergeRequests()->update($id, $mr['iid'], $mr);
         }
         $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
