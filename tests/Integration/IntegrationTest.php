@@ -169,7 +169,7 @@ class IntegrationTest extends TestCase
         $this->assertFalse($found_update, 'psr/log was updated when it should not');
     }
 
-    public function testAssigneesGitlab(&$count = 0)
+    public function testUpdateAssigneesGitlab(&$count = 0)
     {
         // This is the ID of the violinist bot user on gitlab. Since this is pretty public knowledge, let's
         // leave it actually here in the tests.
@@ -194,13 +194,18 @@ class IntegrationTest extends TestCase
         $params = ['state' => 'opened'];
         $mrs = $client->mergeRequests()->all($id, $params);
         foreach ($mrs as $mr) {
-            $mr['state_event'] = 'close';
-            $client->mergeRequests()->update($id, $mr['iid'], $mr);
+            // Garble the title, so our runner picks it up.
+            $new_mr_data = [
+                'assignee_ids' => 0,
+                'title' => md5($mr['title']),
+            ];
+            $data = $client->mergeRequests()->update($id, $mr['iid'], $new_mr_data);
         }
         $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
         $this->assertStandardOutput($url, $json);
         $mrs = $client->mergeRequests()->all($id, $params);
         $has_assignee = false;
+        $has_updated = false;
         foreach ($mrs as $mr) {
             if (empty($mr['assignees'])) {
                 continue;
@@ -211,14 +216,22 @@ class IntegrationTest extends TestCase
                 }
             }
         }
-        if ($has_assignee) {
+        foreach ($json as $message) {
+            if (empty($message->message)) {
+                continue;
+            }
+            if ($message->message === 'Will try to update the PR based on settings.') {
+                $has_updated = true;
+            }
+        }
+        if ($has_assignee && $has_updated) {
             return $this->assertTrue(true, 'Found the assignee');
         }
         $count++;
-        if ($count > 10 ) {
-            throw new \Exception('I dont think I should do this anymore');
+        if ($count > 10) {
+            throw new \Exception('More than 10 retries for testing assignee on update. Aborting');
         }
-        return $this->testAssigneesGitlab($count);
+        return $this->testUpdateAssigneesGitlab($count);
     }
 
     /**
