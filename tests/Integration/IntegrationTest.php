@@ -229,7 +229,7 @@ class IntegrationTest extends TestCase
         }
         $count++;
         if ($count > 10) {
-            throw new \Exception('I dont think I should do this anymore');
+            throw new \Exception('More than 10 retries for testing assignee on update. Aborting');
         }
         return $this->testUpdateAssigneesGitlab($count);
     }
