@@ -126,16 +126,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.9",
+            "version": "1.10.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "83c3250093d5491600a822e176b107a945baf95a"
+                "reference": "32966a3b1d48bc01472a8321fd6472b44fad033a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/83c3250093d5491600a822e176b107a945baf95a",
-                "reference": "83c3250093d5491600a822e176b107a945baf95a",
+                "url": "https://api.github.com/repos/composer/composer/zipball/32966a3b1d48bc01472a8321fd6472b44fad033a",
+                "reference": "32966a3b1d48bc01472a8321fd6472b44fad033a",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-16T10:57:00+00:00"
+            "time": "2020-08-03T09:35:19+00:00"
         },
         {
             "name": "composer/semver",
@@ -417,12 +417,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "ca53559822b19e9004a94c5d203aa127716757e0"
+                "reference": "39c0893c00a92bee1ee3a36a5690f69a9dd8b20f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/ca53559822b19e9004a94c5d203aa127716757e0",
-                "reference": "ca53559822b19e9004a94c5d203aa127716757e0",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/39c0893c00a92bee1ee3a36a5690f69a9dd8b20f",
+                "reference": "39c0893c00a92bee1ee3a36a5690f69a9dd8b20f",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +466,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "I will probably use this for something",
-            "time": "2020-08-15T16:29:56+00:00"
+            "time": "2020-08-17T06:46:23+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -1819,16 +1819,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1"
+                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1",
-                "reference": "ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/3d5eb71705adfa34bd34b993400622932b2f62fd",
+                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd",
                 "shasum": ""
             },
             "require": {
@@ -1874,7 +1874,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-04-30T19:05:18+00:00"
+            "time": "2020-08-13T09:07:59+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -2415,7 +2415,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -2491,7 +2491,7 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -2784,12 +2784,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "fb62b7df270e90e3825011df1977f4a2f59ac581"
+                "reference": "6dff406c7d724f30e1df6e23c8227e4c5aa5c937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/fb62b7df270e90e3825011df1977f4a2f59ac581",
-                "reference": "fb62b7df270e90e3825011df1977f4a2f59ac581",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/6dff406c7d724f30e1df6e23c8227e4c5aa5c937",
+                "reference": "6dff406c7d724f30e1df6e23c8227e4c5aa5c937",
                 "shasum": ""
             },
             "require": {
@@ -2826,7 +2826,7 @@
                     "email": "eirik@morland.no"
                 }
             ],
-            "time": "2020-05-10T18:25:04+00:00"
+            "time": "2020-07-28T20:10:23+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
