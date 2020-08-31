@@ -421,12 +421,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "570beffe18b6680953c919ae8c093aa326052ca4"
+                "reference": "cbb5cc0a8ac2a0ef8dec1cf4e82c25919aff0055"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/570beffe18b6680953c919ae8c093aa326052ca4",
-                "reference": "570beffe18b6680953c919ae8c093aa326052ca4",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/cbb5cc0a8ac2a0ef8dec1cf4e82c25919aff0055",
+                "reference": "cbb5cc0a8ac2a0ef8dec1cf4e82c25919aff0055",
                 "shasum": ""
             },
             "require": {
@@ -447,7 +447,7 @@
                 "violinist-dev/slug-from-url": "^1",
                 "violinist-dev/symfony-cloud-security-checker": "^1",
                 "violinist-dev/violinist-config": "dev-master",
-                "violinist-dev/violinist-messages": "^1.1.0",
+                "violinist-dev/violinist-messages": "^1.1.1",
                 "wa72/simplelogger": "^1.0"
             },
             "require-dev": {
@@ -469,8 +469,11 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "description": "I will probably use this for something",
-            "time": "2020-08-29T19:19:24+00:00"
+            "time": "2020-08-30T17:35:40+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3059,16 +3062,16 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "89c1d7074dd747b61e7b84ebf635cfcd4151f541"
+                "reference": "e560517e7c782dc39b24c9ea6ef54a3a4962eb1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/89c1d7074dd747b61e7b84ebf635cfcd4151f541",
-                "reference": "89c1d7074dd747b61e7b84ebf635cfcd4151f541",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/e560517e7c782dc39b24c9ea6ef54a3a4962eb1e",
+                "reference": "e560517e7c782dc39b24c9ea6ef54a3a4962eb1e",
                 "shasum": ""
             },
             "require": {
@@ -3087,7 +3090,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "time": "2020-08-29T15:29:56+00:00"
+            "time": "2020-08-30T17:14:28+00:00"
         },
         {
             "name": "wa72/simplelogger",
