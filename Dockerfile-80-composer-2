@@ -1,0 +1,15 @@
+FROM violinist/php-base:8.0-multi
+MAINTAINER eiriksm <eirik@morland.no>
+
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+
+ENV COMPOSER_VERSION=2
+
+RUN composer require composer/composer:^2 bitbucket/client:^2 --update-with-dependencies \
+    && composer install --no-dev --optimize-autoloader \
+    # Make sure our php is always used.
+    && ln -s /usr/local/bin/php vendor/bin/php \
+    && rm -rf /usr/local/bin/composer
+
+CMD ["php", "runner.php"]
