@@ -76,6 +76,10 @@ class IntegrationTest extends TestCase
      */
     public function testBundledOutput()
     {
+        if (version_compare(phpversion(), "8.0.0", ">=")) {
+            $this->assertTrue(true, 'Skipping bundled test for version ' . phpversion());
+            return;
+        }
         // Close all of the pull requests, so we can actually see that we update bundled.
         $client = new Client();
         $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
@@ -128,6 +132,10 @@ class IntegrationTest extends TestCase
             $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
             return;
         }
+        if (version_compare(phpversion(), "8.0.0", ">=")) {
+            $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
+            return;
+        }
         $provider = new Bitbucket([
             'clientId' => getenv('BITBUCKET_CLIENT_ID'),
             'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
@@ -142,6 +150,10 @@ class IntegrationTest extends TestCase
 
     public function testDrupalContribDrupal8()
     {
+        if (version_compare(phpversion(), "8.0.0", ">=")) {
+            $this->assertTrue(true, 'Skipping Drupal 8 contrib test for version ' . phpversion());
+            return;
+        }
         $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'));
         $this->assertStandardOutput(getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'), $json);
         $found_sa = false;
