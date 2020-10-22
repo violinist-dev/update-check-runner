@@ -76,7 +76,7 @@ class IntegrationTest extends TestCase
      */
     public function testBundledOutput()
     {
-        if (version_compare(phpversion(), "8.0.0", ">=")) {
+        if (version_compare(phpversion(), "7.99.0", ">=")) {
             $this->assertTrue(true, 'Skipping bundled test for version ' . phpversion());
             return;
         }
