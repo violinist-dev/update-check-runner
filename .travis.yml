@@ -13,7 +13,8 @@ env:
 services:
 - docker
 script:
-- yes | pecl install apcu imagick
+- yes | pecl install apcu
+- if [ $(phpenv version-name) != "nightly" ]; then yes | pecl install imagick; fi
 - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 - echo "extension = mongodb.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 - export MY_COMMIT=$(git log --format=format:%H -n1)
