@@ -132,7 +132,7 @@ class IntegrationTest extends TestCase
             $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
             return;
         }
-        if (version_compare(phpversion(), "8.0.0", ">=")) {
+        if (version_compare(phpversion(), "7.99.0", ">=")) {
             $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
             return;
         }
@@ -150,7 +150,7 @@ class IntegrationTest extends TestCase
 
     public function testDrupalContribDrupal8()
     {
-        if (version_compare(phpversion(), "8.0.0", ">=")) {
+        if (version_compare(phpversion(), "7.99.0", ">=")) {
             $this->assertTrue(true, 'Skipping Drupal 8 contrib test for version ' . phpversion());
             return;
         }
