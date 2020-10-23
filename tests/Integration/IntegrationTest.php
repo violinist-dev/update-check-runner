@@ -286,6 +286,7 @@ class IntegrationTest extends TestCase
     protected function assertStandardOutput($url, $json)
     {
         $this->assertHashLogged($json);
+        $this->assertPhpVersionLogged($json);
         $this->assertProjectStarting($url, $json);
         $this->assertRepoCloned($json);
         $this->assertComposerInstalled($json);
@@ -301,6 +302,16 @@ class IntegrationTest extends TestCase
             }
         }
         $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
+    }
+
+    protected function assertPhpVersionLogged($json)
+    {
+        foreach ($json as $item) {
+            if (preg_match('/^PHP \d.\d.\d/', $item->message)) {
+                return;
+            }
+        }
+        $this->assertTrue(false, 'The php version was not found in the output');
     }
 
     protected function assertHashLogged($json)
