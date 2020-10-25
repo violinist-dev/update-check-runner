@@ -131,10 +131,6 @@ class IntegrationTest extends TestCase
             $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
             return;
         }
-        if (version_compare(phpversion(), "7.99.0", ">=")) {
-            $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
-            return;
-        }
         $provider = new Bitbucket([
             'clientId' => getenv('BITBUCKET_CLIENT_ID'),
             'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
