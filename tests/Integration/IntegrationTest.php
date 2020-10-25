@@ -2,7 +2,6 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use eiriksm\CosyComposer\ProviderFactory;
 use eiriksm\CosyComposer\Providers\Github;
 use eiriksm\CosyComposer\Providers\Gitlab;
 use Github\Api\PullRequest;
