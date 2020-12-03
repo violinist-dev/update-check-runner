@@ -5,7 +5,7 @@ shared: &shared
         name: Install Docker client
         command: apk add --no-cache docker-cli
     - setup_remote_docker:
-      version: 19.03.13
+        version: 19.03.13
     - run: docker build -t update-check-runner . -f Dockerfile-{{ .Environment.PHP_VERSION }}-composer-{{ .Environment.COMPOSER_VERSION }}
     - restore_cache:
         keys:
