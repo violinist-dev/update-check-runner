@@ -1,6 +1,7 @@
 shared: &shared
   steps:
     - checkout
+    - run: export MY_COMMIT=$(git log --format=format:%H -n1)
     - run:
         name: Install Docker client
         command: apk add --no-cache docker-cli
