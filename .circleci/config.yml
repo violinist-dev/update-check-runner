@@ -2,11 +2,14 @@ shared: &shared
   steps:
     - checkout
     - run: export MY_COMMIT=$(git log --format=format:%H -n1)
-    - run:
-        name: Install Docker client
-        command: apk add --no-cache docker-cli
     - setup_remote_docker:
         version: 19.03.13
+    - run:
+        name: Install Docker client
+        command: if [ $PHP_VERSION != "70" ]; then apk add --no-cache docker-cli; fi
+    - run:
+        name: Install Docker client
+        command: if [ $PHP_VERSION = "70" ]; then apk add --no-cache docker; fi
     - run: docker build -t update-check-runner . -f Dockerfile-$PHP_VERSION-composer-$COMPOSER_VERSION
     - restore_cache:
         keys:
