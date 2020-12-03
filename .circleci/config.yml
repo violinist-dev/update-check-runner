@@ -44,10 +44,24 @@ jobs:
     docker:
       - image: violinist/php-base:7.1-multi
     <<: *shared
+  "php71-2":
+    environment:
+      PHP_VERSION: 71
+      COMPOSER_VERSION: 2
+    docker:
+      - image: violinist/php-base:7.1-multi
+    <<: *shared
   "php72":
     environment:
       PHP_VERSION: 72
       COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:7.2-multi
+    <<: *shared
+  "php72-2":
+    environment:
+      PHP_VERSION: 72
+      COMPOSER_VERSION: 2
     docker:
       - image: violinist/php-base:7.2-multi
     <<: *shared
@@ -58,6 +72,41 @@ jobs:
     docker:
       - image: violinist/php-base:7.3-multi
     <<: *shared
+  "php73-2":
+    environment:
+      PHP_VERSION: 73
+      COMPOSER_VERSION: 2
+    docker:
+      - image: violinist/php-base:7.3-multi
+    <<: *shared
+  "php74":
+    environment:
+      PHP_VERSION: 74
+      COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:7.4-multi
+    <<: *shared
+  "php74-2":
+    environment:
+      PHP_VERSION: 74
+      COMPOSER_VERSION: 2
+    docker:
+      - image: violinist/php-base:7.4-multi
+    <<: *shared
+  "php80":
+    environment:
+      PHP_VERSION: 80
+      COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:8.0-multi
+    <<: *shared
+  "php80-2":
+    environment:
+      PHP_VERSION: 80
+      COMPOSER_VERSION: 2
+    docker:
+      - image: violinist/php-base:8.0-multi
+    <<: *shared
 
 workflows:
   version: 2
@@ -66,5 +115,12 @@ workflows:
       - "php70"
       - "php70-2"
       - "php71"
+      - "php71-2"
       - "php72"
+      - "php72-2"
       - "php73"
+      - "php73-2"
+      - "php74"
+      - "php74-2"
+      - "php80"
+      - "php80-2"
