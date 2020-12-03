@@ -6,7 +6,7 @@ shared: &shared
         command: apk add --no-cache docker-cli
     - setup_remote_docker:
         version: 19.03.13
-    - run: docker build -t update-check-runner . -f Dockerfile-$PHP_VERSION-composer-$COMPOSER_VERSION }}
+    - run: docker build -t update-check-runner . -f Dockerfile-$PHP_VERSION-composer-$COMPOSER_VERSION
     - restore_cache:
         keys:
             - v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
