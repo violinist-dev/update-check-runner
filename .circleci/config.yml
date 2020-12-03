@@ -23,35 +23,35 @@ jobs:
       PHP_VERSION: 70
       COMPOSER_VERSION: 1
     docker:
-      - image: violinist/php-base:7.0
+      - image: violinist/php-base:7.0-multi
     <<: *shared
   "php70-2":
     environment:
       COMPOSER_VERSION: 2
       PHP_VERSION: 70
     docker:
-      - image: violinist/php-base:7.0
+      - image: violinist/php-base:7.0-multi
     <<: *shared
   "php71":
     environment:
       PHP_VERSION: 71
       COMPOSER_VERSION: 1
     docker:
-      - image: violinist/php-base:7.1
+      - image: violinist/php-base:7.1-multi
     <<: *shared
   "php72":
     environment:
       PHP_VERSION: 72
       COMPOSER_VERSION: 1
     docker:
-      - image: violinist/php-base:7.2
+      - image: violinist/php-base:7.2-multi
     <<: *shared
   "php73":
     environment:
       PHP_VERSION: 73
       COMPOSER_VERSION: 1
     docker:
-      - image: violinist/php-base:7.3
+      - image: violinist/php-base:7.3-multi
     <<: *shared
 
 workflows:
