@@ -1,7 +1,8 @@
 shared: &shared
   steps:
     - checkout
-    - run: export MY_COMMIT=$(git log --format=format:%H -n1)
+    - run: echo 'export MY_COMMIT=$(git log --format=format:%H -n1)' >> $BASH_ENV
+    - run: echo MY_COMMIT
     - setup_remote_docker:
         version: 19.03.13
     - run:
