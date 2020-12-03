@@ -3,7 +3,7 @@ shared: &shared
     - checkout
     - setup_remote_docker:
           version: 19.03.13
-    - run: docker build -t update-check-runner . -f Dockerfile-72-composer-1
+    - run: docker build -t update-check-runner . -f Dockerfile-{{ .Environment.PHP_VERSION }}-composer-{{ .Environment.COMPOSER_VERSION }}
     - restore_cache:
         keys:
             - v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
