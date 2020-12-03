@@ -12,7 +12,6 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: 19.03.13
-          docker_layer_caching: true
       - run: docker build -t update-check-runner . -f Dockerfile-72-composer-1
       - run: composer install -n --prefer-dist
       - run: ./vendor/bin/phpunit
