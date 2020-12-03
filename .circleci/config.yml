@@ -1,17 +1,62 @@
-# PHP CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-php/ for more details
-#
-version: 2
-jobs:
-  build:
-    docker:
-      # Specify the version you desire here
-      - image: circleci/php:7.1-node-browsers
-    steps:
-      - checkout
-      - setup_remote_docker:
+shared: &shared
+  steps:
+    - checkout
+    - setup_remote_docker:
           version: 19.03.13
-      - run: docker build -t update-check-runner . -f Dockerfile-72-composer-1
-      - run: composer install -n --prefer-dist
-      - run: ./vendor/bin/phpunit
+    - run: docker build -t update-check-runner . -f Dockerfile-72-composer-1
+    - restore_cache:
+        keys:
+            - v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
+    - run: composer install -n --prefer-dist
+    - save_cache:
+          key: v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
+          paths:
+              - ./vendor
+    - run: ./vendor/bin/phpunit
+
+jobs:
+  "php70":
+    environment:
+      PHP_VERSION: 70
+      COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:7.0
+    <<: *shared
+  "php70-2":
+    environment:
+      COMPOSER_VERSION: 2
+      PHP_VERSION: 70
+    docker:
+      - image: violinist/php-base:7.0
+    <<: *shared
+  "php71":
+    environment:
+      PHP_VERSION: 71
+      COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:7.1
+    <<: *shared
+  "php72":
+    environment:
+      PHP_VERSION: 72
+      COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:7.2
+    <<: *shared
+  "php73":
+    environment:
+      PHP_VERSION: 73
+      COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:7.3
+    <<: *shared
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "php70"
+      - "php70-2"
+      - "php71"
+      - "php72"
+      - "php73"
