@@ -140,16 +140,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "cbee637510037f293e641857b2a6223d0ea8008d"
+                "reference": "62139b2806178adb979d76bd3437534a1a9fd490"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/cbee637510037f293e641857b2a6223d0ea8008d",
-                "reference": "cbee637510037f293e641857b2a6223d0ea8008d",
+                "url": "https://api.github.com/repos/composer/composer/zipball/62139b2806178adb979d76bd3437534a1a9fd490",
+                "reference": "62139b2806178adb979d76bd3437534a1a9fd490",
                 "shasum": ""
             },
             "require": {
@@ -228,7 +228,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-13T16:31:06+00:00"
+            "time": "2020-12-03T16:20:39+00:00"
         },
         {
             "name": "composer/semver",
@@ -308,16 +308,16 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "6946f785871e2314c60b4524851f3702ea4f2223"
+                "reference": "de30328a7af8680efdc03e396aad24befd513200"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/6946f785871e2314c60b4524851f3702ea4f2223",
-                "reference": "6946f785871e2314c60b4524851f3702ea4f2223",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/de30328a7af8680efdc03e396aad24befd513200",
+                "reference": "de30328a7af8680efdc03e396aad24befd513200",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-main": "1.x-dev"
                 }
             },
             "autoload": {
@@ -378,7 +378,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-15T15:35:07+00:00"
+            "time": "2020-12-03T16:04:16+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -444,12 +444,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "b25aae91a45d951a8ec909e8c2a75db2d8249d45"
+                "reference": "095835653a1da8030f2bf4007b6e0b5be5c0dbd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/b25aae91a45d951a8ec909e8c2a75db2d8249d45",
-                "reference": "b25aae91a45d951a8ec909e8c2a75db2d8249d45",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/095835653a1da8030f2bf4007b6e0b5be5c0dbd2",
+                "reference": "095835653a1da8030f2bf4007b6e0b5be5c0dbd2",
                 "shasum": ""
             },
             "require": {
@@ -470,7 +470,7 @@
                 "violinist-dev/slug-from-url": "^1",
                 "violinist-dev/symfony-cloud-security-checker": "^1",
                 "violinist-dev/violinist-config": "dev-master",
-                "violinist-dev/violinist-messages": "^1.1.1",
+                "violinist-dev/violinist-messages": "^1.2.0",
                 "wa72/simplelogger": "^1.0"
             },
             "require-dev": {
@@ -496,7 +496,7 @@
                 "MIT"
             ],
             "description": "I will probably use this for something",
-            "time": "2020-11-27T15:49:23+00:00"
+            "time": "2020-12-21T16:42:51+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3105,16 +3105,16 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "e560517e7c782dc39b24c9ea6ef54a3a4962eb1e"
+                "reference": "b050800328b50b75e859f7cb837e4ef68b652b32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/e560517e7c782dc39b24c9ea6ef54a3a4962eb1e",
-                "reference": "e560517e7c782dc39b24c9ea6ef54a3a4962eb1e",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/b050800328b50b75e859f7cb837e4ef68b652b32",
+                "reference": "b050800328b50b75e859f7cb837e4ef68b652b32",
                 "shasum": ""
             },
             "require": {
@@ -3132,8 +3132,11 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "time": "2020-08-30T17:14:28+00:00"
+            "time": "2020-12-21T15:26:11+00:00"
         },
         {
             "name": "wa72/simplelogger",
