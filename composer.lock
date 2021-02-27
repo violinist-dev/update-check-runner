@@ -141,16 +141,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.0.9",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "591c2c155cac0d2d7f34af41d3b1e29bcbfc685e"
+                "reference": "a5a5632da0b1c2d6fa9a3b65f1f4e90d1f04abb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/591c2c155cac0d2d7f34af41d3b1e29bcbfc685e",
-                "reference": "591c2c155cac0d2d7f34af41d3b1e29bcbfc685e",
+                "url": "https://api.github.com/repos/composer/composer/zipball/a5a5632da0b1c2d6fa9a3b65f1f4e90d1f04abb9",
+                "reference": "a5a5632da0b1c2d6fa9a3b65f1f4e90d1f04abb9",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +229,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T15:09:27+00:00"
+            "time": "2021-02-24T13:57:23+00:00"
         },
         {
             "name": "composer/semver",
@@ -445,12 +445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "2ee4baa723115e85f09d6880ed6e2250e61b68a9"
+                "reference": "fffb94a68a37154eff56ff45504e5ecf25f13889"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/2ee4baa723115e85f09d6880ed6e2250e61b68a9",
-                "reference": "2ee4baa723115e85f09d6880ed6e2250e61b68a9",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/fffb94a68a37154eff56ff45504e5ecf25f13889",
+                "reference": "fffb94a68a37154eff56ff45504e5ecf25f13889",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +497,7 @@
                 "MIT"
             ],
             "description": "I will probably use this for something",
-            "time": "2021-02-08T06:54:33+00:00"
+            "time": "2021-02-27T21:49:50+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
