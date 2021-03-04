@@ -445,12 +445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "fffb94a68a37154eff56ff45504e5ecf25f13889"
+                "reference": "7c2a8d2914d4d7ee579849f40adf141252d141a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/fffb94a68a37154eff56ff45504e5ecf25f13889",
-                "reference": "fffb94a68a37154eff56ff45504e5ecf25f13889",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/7c2a8d2914d4d7ee579849f40adf141252d141a1",
+                "reference": "7c2a8d2914d4d7ee579849f40adf141252d141a1",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +497,7 @@
                 "MIT"
             ],
             "description": "I will probably use this for something",
-            "time": "2021-02-27T21:49:50+00:00"
+            "time": "2021-03-04T19:41:06+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3072,12 +3072,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "31bccb1862b490911d5cea0114cfdbba9fe6dbdb"
+                "reference": "26d9dd3e70bea238d84f77d36288254ca47705d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/31bccb1862b490911d5cea0114cfdbba9fe6dbdb",
-                "reference": "31bccb1862b490911d5cea0114cfdbba9fe6dbdb",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/26d9dd3e70bea238d84f77d36288254ca47705d2",
+                "reference": "26d9dd3e70bea238d84f77d36288254ca47705d2",
                 "shasum": ""
             },
             "require-dev": {
@@ -3102,7 +3102,7 @@
                 }
             ],
             "description": "Get violinist config from composer.json",
-            "time": "2020-07-10T15:45:33+00:00"
+            "time": "2021-03-04T19:13:30+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
