@@ -47,7 +47,12 @@ class IntegrationTest extends TestCase
     {
         $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
         $url = getenv('GITHUB_CONCURRENT_REPO');
-        $json = $this->getProcessAndRunWithoutError($token, $url);
+        $extra = [
+            'fork_to' => getenv('GITHUB_FORK_TO'),
+            'fork_user' => getenv('FORK_USER'),
+            'fork_mail' => getenv('FORK_MAIL'),
+        ];
+        $json = $this->getProcessAndRunWithoutError($token, $url, $extra);
         $this->assertStandardOutput($url, $json);
         $this->findMessage('Skipping twig/twig because the number of max concurrent PRs (1) seems to have been reached', $json);
     }
