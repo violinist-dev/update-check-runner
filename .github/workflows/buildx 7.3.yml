@@ -40,7 +40,7 @@ jobs:
       -
         name: Docker Buildx (build)
         run: |
-          docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }} -t violinist/update-check-runner:7.3 -f Dockerfile-72-composer-1 .
+          docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }} -t violinist/update-check-runner:7.3 -f Dockerfile-73-composer-1 .
           docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }} -t violinist/update-check-runner:7.3-multi-composer-1 -f Dockerfile-73-composer-1 .
           docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }} -t violinist/update-check-runner:7.3-multi-composer-2 -f Dockerfile-73-composer-2 .
       -
