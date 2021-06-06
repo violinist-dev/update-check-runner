@@ -111,6 +111,27 @@ jobs:
 
 workflows:
   version: 2
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - "php70"
+      - "php70-2"
+      - "php71"
+      - "php71-2"
+      - "php72"
+      - "php72-2"
+      - "php73"
+      - "php73-2"
+      - "php74"
+      - "php74-2"
+      - "php80"
+      - "php80-2"
   build:
     jobs:
       - "php70"
