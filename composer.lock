@@ -141,16 +141,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "1845e6854aa3f37f2c6c24bc525541b00b8b28e4"
+                "reference": "fc5c4573aafce3a018eb7f1f8f91cea423970f2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/1845e6854aa3f37f2c6c24bc525541b00b8b28e4",
-                "reference": "1845e6854aa3f37f2c6c24bc525541b00b8b28e4",
+                "url": "https://api.github.com/repos/composer/composer/zipball/fc5c4573aafce3a018eb7f1f8f91cea423970f2e",
+                "reference": "fc5c4573aafce3a018eb7f1f8f91cea423970f2e",
                 "shasum": ""
             },
             "require": {
@@ -230,7 +230,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-07T14:03:06+00:00"
+            "time": "2021-06-09T14:31:20+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -512,12 +512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "bea36a1e7a4a14e2d84452690bd71db9065ca56a"
+                "reference": "0ac3e01422b5ecaff0e1ee59408b007357874d25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/bea36a1e7a4a14e2d84452690bd71db9065ca56a",
-                "reference": "bea36a1e7a4a14e2d84452690bd71db9065ca56a",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/0ac3e01422b5ecaff0e1ee59408b007357874d25",
+                "reference": "0ac3e01422b5ecaff0e1ee59408b007357874d25",
                 "shasum": ""
             },
             "require": {
@@ -564,7 +564,7 @@
                 "MIT"
             ],
             "description": "I will probably use this for something",
-            "time": "2021-06-08T07:51:27+00:00"
+            "time": "2021-07-07T04:46:51+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3140,12 +3140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "26d9dd3e70bea238d84f77d36288254ca47705d2"
+                "reference": "cec54b008500c8ecf58b08261db027ef3069dbcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/26d9dd3e70bea238d84f77d36288254ca47705d2",
-                "reference": "26d9dd3e70bea238d84f77d36288254ca47705d2",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/cec54b008500c8ecf58b08261db027ef3069dbcc",
+                "reference": "cec54b008500c8ecf58b08261db027ef3069dbcc",
                 "shasum": ""
             },
             "require-dev": {
@@ -3170,7 +3170,7 @@
                 }
             ],
             "description": "Get violinist config from composer.json",
-            "time": "2021-03-04T19:13:30+00:00"
+            "time": "2021-07-06T04:25:40+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
