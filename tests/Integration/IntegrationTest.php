@@ -183,6 +183,7 @@ class IntegrationTest extends TestCase
 
     public function testUpdateAssigneesGitlab(&$count = 0)
     {
+        try {
         // This is the ID of the violinist bot user on gitlab. Since this is pretty public knowledge, let's
         // leave it actually here in the tests.
         $violinist_bot_id = 2775347;
@@ -239,6 +240,8 @@ class IntegrationTest extends TestCase
         if ($has_assignee && $has_updated) {
             return $this->assertTrue(true, 'Found the assignee');
         }
+        }
+        catch (\Throwable $e) {}
         $count++;
         if ($count > 10) {
             throw new \Exception('More than 10 retries for testing assignee on update. Aborting');
