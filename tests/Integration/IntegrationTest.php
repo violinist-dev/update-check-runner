@@ -183,62 +183,64 @@ class IntegrationTest extends TestCase
 
     public function testUpdateAssigneesGitlab(&$count = 0)
     {
-        // This is the ID of the violinist bot user on gitlab. Since this is pretty public knowledge, let's
-        // leave it actually here in the tests.
-        $violinist_bot_id = 2775347;
-        $project = new ProjectData();
-        $project->setRoles(['agency']);
-        $extra_params = [
-            'project' => sprintf("'%s'", json_encode(serialize($project))),
-            'fork_to' => getenv('GITHUB_FORK_TO'),
-            'token_url' => getenv('TOKEN_URL'),
-            'fork_user' => getenv('FORK_USER'),
-            'fork_mail' => getenv('FORK_MAIL'),
-        ];
-        // Close all PRs. Since this will run in parallel with many php versions, we might get the PR from
-        // somewhere else. In fact, someone might close it after we open in here. So we need to check the API
-        // for this specific one.
-        $token = getenv('GITLAB_PRIVATE_USER_TOKEN');
-        $url = getenv('GITLAB_ASSIGNEE_REPO');
-        $client = new GitlabClient();
-        $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
-        $id = Gitlab::getProjectId($url);
-        $params = ['state' => 'opened'];
-        $mrs = $client->mergeRequests()->all($id, $params);
-        foreach ($mrs as $mr) {
-            // Garble the title, so our runner picks it up.
-            $new_mr_data = [
-                'assignee_ids' => 0,
-                'title' => md5($mr['title']),
+        try {
+            // This is the ID of the violinist bot user on gitlab. Since this is pretty public knowledge, let's
+            // leave it actually here in the tests.
+            $violinist_bot_id = 2775347;
+            $project = new ProjectData();
+            $project->setRoles(['agency']);
+            $extra_params = [
+                'project' => sprintf("'%s'", json_encode(serialize($project))),
+                'fork_to' => getenv('GITHUB_FORK_TO'),
+                'token_url' => getenv('TOKEN_URL'),
+                'fork_user' => getenv('FORK_USER'),
+                'fork_mail' => getenv('FORK_MAIL'),
             ];
-            $data = $client->mergeRequests()->update($id, $mr['iid'], $new_mr_data);
-        }
-        $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
-        $this->assertStandardOutput($url, $json);
-        $mrs = $client->mergeRequests()->all($id, $params);
-        $has_assignee = false;
-        $has_updated = false;
-        foreach ($mrs as $mr) {
-            if (empty($mr['assignees'])) {
-                continue;
+            // Close all PRs. Since this will run in parallel with many php versions, we might get the PR from
+            // somewhere else. In fact, someone might close it after we open in here. So we need to check the API
+            // for this specific one.
+            $token = getenv('GITLAB_PRIVATE_USER_TOKEN');
+            $url = getenv('GITLAB_ASSIGNEE_REPO');
+            $client = new GitlabClient();
+            $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
+            $id = Gitlab::getProjectId($url);
+            $params = ['state' => 'opened'];
+            $mrs = $client->mergeRequests()->all($id, $params);
+            foreach ($mrs as $mr) {
+                // Garble the title, so our runner picks it up.
+                $new_mr_data = [
+                    'assignee_ids' => 0,
+                    'title' => md5($mr['title']),
+                ];
+                $data = $client->mergeRequests()->update($id, $mr['iid'], $new_mr_data);
             }
-            foreach ($mr['assignees'] as $assignee) {
-                if ($assignee['id'] == $violinist_bot_id) {
-                    $has_assignee = true;
+            $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
+            $this->assertStandardOutput($url, $json);
+            $mrs = $client->mergeRequests()->all($id, $params);
+            $has_assignee = false;
+            $has_updated = false;
+            foreach ($mrs as $mr) {
+                if (empty($mr['assignees'])) {
+                    continue;
+                }
+                foreach ($mr['assignees'] as $assignee) {
+                    if ($assignee['id'] == $violinist_bot_id) {
+                        $has_assignee = true;
+                    }
                 }
             }
-        }
-        foreach ($json as $message) {
-            if (empty($message->message)) {
-                continue;
+            foreach ($json as $message) {
+                if (empty($message->message)) {
+                    continue;
+                }
+                if ($message->message === 'Will try to update the PR based on settings.') {
+                    $has_updated = true;
+                }
             }
-            if ($message->message === 'Will try to update the PR based on settings.') {
-                $has_updated = true;
+            if ($has_assignee && $has_updated) {
+                return $this->assertTrue(true, 'Found the assignee');
             }
-        }
-        if ($has_assignee && $has_updated) {
-            return $this->assertTrue(true, 'Found the assignee');
-        }
+        } catch (\Throwable $e) {}
         $count++;
         if ($count > 10) {
             throw new \Exception('More than 10 retries for testing assignee on update. Aborting');
