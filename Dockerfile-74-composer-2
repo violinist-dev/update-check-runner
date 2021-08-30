@@ -6,8 +6,8 @@ WORKDIR /usr/src/myapp
 
 ENV COMPOSER_VERSION=2
 
-RUN composer require composer/composer:^2 bitbucket/client:^2 --update-with-dependencies \
-    && composer install --no-dev --optimize-autoloader \
+RUN composer install --no-dev --optimize-autoloader && \
+    composer require composer/composer:^2 bitbucket/client:^2 --update-with-dependencies \
     # Make sure our php is always used.
     && composer global remove hirak/prestissimo \
     && ln -s /usr/local/bin/php vendor/bin/php \
