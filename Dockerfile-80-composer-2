@@ -6,7 +6,7 @@ WORKDIR /usr/src/myapp
 
 ENV COMPOSER_VERSION=2
 
-RUN composer install --no-dev --optimize-autoloader && \
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs && \
     composer require composer/composer:^2 bitbucket/client:^2 --update-with-dependencies --ignore-platform-reqs \
     # Make sure our php is always used.
     && composer global remove hirak/prestissimo \
