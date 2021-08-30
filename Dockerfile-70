@@ -4,8 +4,8 @@ MAINTAINER eiriksm <eirik@morland.no>
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
-RUN composer require composer/composer:^1 --update-with-dependencies \
-    && composer install --no-dev --optimize-autoloader \
+RUN composer install --no-dev --optimize-autoloader && \
+    composer require composer/composer:^1 --update-with-dependencies \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer

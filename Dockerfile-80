@@ -4,9 +4,9 @@ MAINTAINER eiriksm <eirik@morland.no>
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
-RUN composer require composer/composer:^1 --update-with-dependencies --ignore-platform-reqs \
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs && \
+    composer require composer/composer:^1 --update-with-dependencies --ignore-platform-reqs \
     && composer require bitbucket/client:^2 --ignore-platform-reqs \
-    && composer install --ignore-platform-reqs --no-dev --optimize-autoloader \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer

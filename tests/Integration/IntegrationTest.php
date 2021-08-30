@@ -248,6 +248,36 @@ class IntegrationTest extends TestCase
         return $this->testUpdateAssigneesGitlab($count);
     }
 
+    public function testWhyNot()
+    {
+        $repo = getenv('GITLAB_REPO_GITHUB_DEP');
+        $json = $this->getProcessAndRunWithoutError(getenv('GITLAB_PRIVATE_USER_TOKEN'), $repo, [
+            'tokens' => sprintf("'%s'", json_encode([
+                'github.com' => getenv('GITHUB_PRIVATE_USER_TOKEN'),
+            ])),
+        ]);
+        $has_reason = FALSE;
+        foreach ($json as $message) {
+            if (empty($message->context)) {
+                continue;
+            }
+            if (empty($message->context->command)) {
+                continue;
+            }
+            if (strpos($message->context->command, 'composer why-not psr/log') === false) {
+                continue;
+            }
+            // The reason should be something along these lines:
+            // vendor/other-private-dep  9999999-dev  requires  psr/log (1.0.0)
+            $matches = [];
+            if (!preg_match('/\S+\s.*requires.*psr\/log.*1\.0\.0/', $message->message, $matches)) {
+                continue;
+            }
+            $has_reason = TRUE;
+        }
+        self::assertTrue($has_reason);
+    }
+
     /**
      * A test to make sure we are not merging something we are still not ready to take on.
      *
