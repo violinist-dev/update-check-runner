@@ -126,7 +126,17 @@ class IntegrationTest extends TestCase
 
     public function testGitlabSelfhostedOutput()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN'), getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'));
+        $this->runSelfHostedTest(getenv('SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN'));
+    }
+
+    public function testGitlabSelfhostedOutputPat()
+    {
+        $this->runSelfHostedTest(getenv('GITLAB_PERSONAL_ACCESS_TOKEN'));
+    }
+
+    protected function runSelfHostedTest($token)
+    {
+        $json = $this->getProcessAndRunWithoutError($token, getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'));
         $this->assertStandardOutput(getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'), $json);
     }
 
