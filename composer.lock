@@ -512,12 +512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "4041e63116458be3d24640da6dcd52408daebdf5"
+                "reference": "44e03bfd75f7d36e93c74fa8b894d4c9d8d8c01e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4041e63116458be3d24640da6dcd52408daebdf5",
-                "reference": "4041e63116458be3d24640da6dcd52408daebdf5",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/44e03bfd75f7d36e93c74fa8b894d4c9d8d8c01e",
+                "reference": "44e03bfd75f7d36e93c74fa8b894d4c9d8d8c01e",
                 "shasum": ""
             },
             "require": {
@@ -547,7 +547,6 @@
                 "phpunit/phpunit": "^6",
                 "squizlabs/php_codesniffer": "^3.2"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -566,11 +565,7 @@
                 "MIT"
             ],
             "description": "I will probably use this for something",
-            "support": {
-                "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/master"
-            },
-            "time": "2021-09-05T04:39:05+00:00"
+            "time": "2021-09-08T08:05:02+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -4957,5 +4952,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "1.1.0"
 }
