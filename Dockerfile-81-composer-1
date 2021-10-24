@@ -1,4 +1,4 @@
-FROM violinist/php-base:8.0-multi
+FROM violinist/php-base:8.1-multi
 MAINTAINER eiriksm <eirik@morland.no>
 
 COPY . /usr/src/myapp
