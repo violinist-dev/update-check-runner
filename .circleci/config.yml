@@ -22,6 +22,7 @@ shared: &shared
           paths:
               - ./vendor
     - run: ./vendor/bin/phpunit
+      no_output_timeout: 30m
 
 jobs:
   "php70":
