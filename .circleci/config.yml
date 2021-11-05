@@ -15,8 +15,8 @@ shared: &shared
     - restore_cache:
         keys:
             - v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
-    - run: if [ $PHP_VERSION != "80" ]; then composer install --prefer-dist; fi
-    - run: if [ $PHP_VERSION = "80" ]; then composer install --ignore-platform-reqs --prefer-dist; fi
+    - run: if [ $PHP_VERSION != "80" ] && [ $PHP_VERSION != "81" ]; then composer install --prefer-dist; fi
+    - run: if [ $PHP_VERSION = "80" ] || [ $PHP_VERSION = "81" ]; then composer install --ignore-platform-reqs --prefer-dist; fi
     - save_cache:
           key: v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -148,8 +148,8 @@ workflows:
       - "php74-2"
       - "php80"
       - "php80-2"
-      - "php81"
-      - "php81-2"
+  #    - "php81"
+ #     - "php81-2"
   build:
     jobs:
       - "php70"
@@ -164,5 +164,5 @@ workflows:
       - "php74-2"
       - "php80"
       - "php80-2"
-      - "php81"
-      - "php81-2"
+  #    - "php81"
+  #    - "php81-2"
