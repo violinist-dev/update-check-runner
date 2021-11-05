@@ -146,6 +146,8 @@ workflows:
       - "php74-2"
       - "php80"
       - "php80-2"
+      - "php81"
+      - "php81-2"
   build:
     jobs:
       - "php70"
@@ -160,3 +162,5 @@ workflows:
       - "php74-2"
       - "php80"
       - "php80-2"
+      - "php81"
+      - "php81-2"
