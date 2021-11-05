@@ -21,7 +21,9 @@ shared: &shared
           key: v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
               - ./vendor
-    - run: ./vendor/bin/phpunit
+    - run: 
+        command: ./vendor/bin/phpunit
+        no_output_timeout: 30m
 
 jobs:
   "php70":

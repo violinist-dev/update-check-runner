@@ -65,38 +65,48 @@ class IntegrationTest extends IntegrationBase
     /**
      * Test that when we indicate bundled packages, we get that as updates.
      */
-    public function testBundledOutput()
+    public function testBundledOutput(&$count = 0)
     {
-        if (version_compare(phpversion(), "7.99.0", ">=")) {
-            $this->assertTrue(true, 'Skipping bundled test for version ' . phpversion());
-            return;
-        }
-        // Close all of the pull requests, so we can actually see that we update bundled.
-        $client = new Client();
-        $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
-        $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
-        $pager = new ResultPager($client);
-        /** @var PullRequest $api */
-        $api = $client->api('pr');
-        $method = 'all';
-        $url = getenv('GITHUB_BUNDLED_REPO');
-        $slug = Slug::createFromUrl($url);
-        $prs = $pager->fetchAll($api, $method, [$slug->getUserName(), $slug->getUserRepo()]);
-        foreach ($prs as $pr) {
-            $api->update($slug->getUserName(), $slug->getUserRepo(), $pr['number'], [
-                'state' => 'closed',
-            ]);
-        }
-        $json = $this->getProcessAndRunWithoutError($token, $url);
-        $this->assertStandardOutput(getenv('GITHUB_BUNDLED_REPO'), $json);
-        // Check that the bundle thing ran.
-        $found_bundle_command = false;
-        foreach ($json as $item) {
-            if (strpos($item->message, 'Creating command composer update -n --no-ansi drupal/core-recommended drupal/core-composer-scaffold --with-dependencies') === 0) {
-                $found_bundle_command = true;
+        try {
+            if (version_compare(phpversion(), "7.99.0", ">=")) {
+                $this->assertTrue(true, 'Skipping bundled test for version ' . phpversion());
+                return;
             }
+            // Close all of the pull requests, so we can actually see that we update bundled.
+            $client = new Client();
+            $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
+            $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+            $pager = new ResultPager($client);
+            /** @var PullRequest $api */
+            $api = $client->api('pr');
+            $method = 'all';
+            $url = getenv('GITHUB_BUNDLED_REPO');
+            $slug = Slug::createFromUrl($url);
+            $prs = $pager->fetchAll($api, $method, [$slug->getUserName(), $slug->getUserRepo()]);
+            foreach ($prs as $pr) {
+                $api->update($slug->getUserName(), $slug->getUserRepo(), $pr['number'], [
+                    'state' => 'closed',
+                ]);
+            }
+
+            $json = $this->getProcessAndRunWithoutError($token, $url);
+            $this->assertStandardOutput(getenv('GITHUB_BUNDLED_REPO'), $json);
+            // Check that the bundle thing ran.
+            $found_bundle_command = false;
+            foreach ($json as $item) {
+                if (strpos($item->message, 'Creating command composer update -n --no-ansi drupal/core-recommended drupal/core-composer-scaffold --with-dependencies') === 0) {
+                    $found_bundle_command = true;
+                }
+            }
+            $this->assertTrue($found_bundle_command, 'The bundled command was not found');
+            return;
+        } catch (\Throwable $e) {
+            $count++;
+            if ($count > 20) {
+                throw new \Exception('More than 20 retries to find bundled output');
+            }
+            $this->testBundledOutput($count);
         }
-        $this->assertTrue($found_bundle_command, 'The bundled command was not found');
     }
 
     public function testGitlabOutput()
@@ -239,8 +249,8 @@ class IntegrationTest extends IntegrationBase
             }
         } catch (\Throwable $e) {}
         $count++;
-        if ($count > 10) {
-            throw new \Exception('More than 10 retries for testing assignee on update. Aborting');
+        if ($count > 20) {
+            throw new \Exception('More than 20 retries for testing assignee on update. Aborting');
         }
         return $this->testUpdateAssigneesGitlab($count);
     }
