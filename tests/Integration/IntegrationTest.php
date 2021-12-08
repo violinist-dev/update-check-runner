@@ -131,10 +131,18 @@ class IntegrationTest extends IntegrationBase
         $this->runSelfHostedTest(getenv('GITLAB_PERSONAL_ACCESS_TOKEN'));
     }
 
-    protected function runSelfHostedTest($token)
+    protected function runSelfHostedTest($token, $retry = 0)
     {
-        $json = $this->getProcessAndRunWithoutError($token, getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'));
-        $this->assertStandardOutput(getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'), $json);
+        try {
+            $json = $this->getProcessAndRunWithoutError($token, getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'));
+            $this->assertStandardOutput(getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'), $json);
+        } catch (\Throwable $e) {
+            $retry++;
+            if ($retry > 20) {
+                throw new \Exception('More than 20 retries for testing self hosted. Aborting');
+            }
+            return $this->runSelfHostedTest($token, $retry);
+        }
     }
 
     public function testBitbucketOutput()
