@@ -299,7 +299,7 @@ class IntegrationTest extends IntegrationBase
      * This test just makes sure the feature we want in the future might trigger an update all. So this will fail
      * once that is the case. So when we actually implement it, we also have to update this test.
      */
-    public function testUpdateAllNotReady()
+    public function testUpdateAllFromProject()
     {
         // First just make sure that all PRs all closed.
         $client = new Client();
@@ -327,7 +327,7 @@ class IntegrationTest extends IntegrationBase
                 $found_message = true;
             }
         }
-        $this->assertTrue($found_message, 'Could not find the expected update separate message in a test run');
+        $this->assertFalse($found_message, 'Could find the unexpected update separate message in a test run');
     }
 
 }
