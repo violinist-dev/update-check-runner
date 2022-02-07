@@ -19,7 +19,6 @@ class UpdateAllTest extends IntegrationBase
             }
             $found_update_all_type = true;
         }
-        // There should for sure be updates. Just on the default branch of the repo, there are none.
         self::assertTrue($found_update_all_type);
     }
 
