@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83de4901d2d409309a54149d4aeb4ea6",
+    "content-hash": "ec811e0153750491c6d1f02cce419a22",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -616,16 +616,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-feat/update-all",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "03583ae734a8bc579c5a0d9ea6512ef8fcf54a75"
+                "reference": "25195fa6c0789947ec6dd1c4545453720afa0a7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/03583ae734a8bc579c5a0d9ea6512ef8fcf54a75",
-                "reference": "03583ae734a8bc579c5a0d9ea6512ef8fcf54a75",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/25195fa6c0789947ec6dd1c4545453720afa0a7d",
+                "reference": "25195fa6c0789947ec6dd1c4545453720afa0a7d",
                 "shasum": ""
             },
             "require": {
@@ -656,6 +656,7 @@
                 "phpunit/phpunit": "^6",
                 "squizlabs/php_codesniffer": "^3.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -676,9 +677,9 @@
             "description": "I will probably use this for something",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/feat/update-all"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/master"
             },
-            "time": "2022-02-07T01:37:27+00:00"
+            "time": "2022-02-16T07:26:39+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
