@@ -7,6 +7,10 @@ class UpdateIndirectWithDirectTest extends IntegrationBase
 
     public function testUpdateIndirect()
     {
+        if (version_compare(phpversion(), "7.1.0", "<=")) {
+            $this->assertTrue(true, 'Skipping direct-indirect test for version ' . phpversion());
+            return;
+        }
         $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PRIVATE_INDIRECT_WITH_DIRECT'), [
             'fork_to' => getenv('GITHUB_FORK_TO'),
             'fork_user' => getenv('FORK_USER'),
