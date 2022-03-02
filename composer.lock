@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec811e0153750491c6d1f02cce419a22",
+    "content-hash": "5168a965c74a77d637c3e8b2f5011916",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -616,16 +616,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-master",
+            "version": "dev-fix/indirect-through-direct",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "25195fa6c0789947ec6dd1c4545453720afa0a7d"
+                "reference": "f23c0187cebc824a0b2d362157b3a89c57f2e0db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/25195fa6c0789947ec6dd1c4545453720afa0a7d",
-                "reference": "25195fa6c0789947ec6dd1c4545453720afa0a7d",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/f23c0187cebc824a0b2d362157b3a89c57f2e0db",
+                "reference": "f23c0187cebc824a0b2d362157b3a89c57f2e0db",
                 "shasum": ""
             },
             "require": {
@@ -656,7 +656,6 @@
                 "phpunit/phpunit": "^6",
                 "squizlabs/php_codesniffer": "^3.2"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -677,9 +676,9 @@
             "description": "I will probably use this for something",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/master"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/fix/indirect-through-direct"
             },
-            "time": "2022-02-16T07:26:39+00:00"
+            "time": "2022-02-22T18:58:03+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3778,12 +3777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "a03cbba77e85e6701408670d01a23f12c1573adb"
+                "reference": "be7fd822933d7304cef49a7db8bd43637bcca8eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/a03cbba77e85e6701408670d01a23f12c1573adb",
-                "reference": "a03cbba77e85e6701408670d01a23f12c1573adb",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/be7fd822933d7304cef49a7db8bd43637bcca8eb",
+                "reference": "be7fd822933d7304cef49a7db8bd43637bcca8eb",
                 "shasum": ""
             },
             "require": {
@@ -3826,7 +3825,7 @@
                 "issues": "https://github.com/violinist-dev/composer-updater/issues",
                 "source": "https://github.com/violinist-dev/composer-updater/tree/master"
             },
-            "time": "2021-05-06T19:14:30+00:00"
+            "time": "2022-02-21T11:42:47+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
