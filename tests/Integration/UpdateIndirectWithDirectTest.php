@@ -7,7 +7,7 @@ class UpdateIndirectWithDirectTest extends IntegrationBase
 
     public function testUpdateIndirect()
     {
-        if (version_compare(phpversion(), "7.1.0", "<=")) {
+        if (version_compare(phpversion(), "7.2.0", "<=")) {
             $this->assertTrue(true, 'Skipping direct-indirect test for version ' . phpversion());
             return;
         }
