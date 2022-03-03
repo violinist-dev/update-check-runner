@@ -3777,12 +3777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "a03cbba77e85e6701408670d01a23f12c1573adb"
+                "reference": "be7fd822933d7304cef49a7db8bd43637bcca8eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/a03cbba77e85e6701408670d01a23f12c1573adb",
-                "reference": "a03cbba77e85e6701408670d01a23f12c1573adb",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/be7fd822933d7304cef49a7db8bd43637bcca8eb",
+                "reference": "be7fd822933d7304cef49a7db8bd43637bcca8eb",
                 "shasum": ""
             },
             "require": {
@@ -3825,7 +3825,7 @@
                 "issues": "https://github.com/violinist-dev/composer-updater/issues",
                 "source": "https://github.com/violinist-dev/composer-updater/tree/master"
             },
-            "time": "2021-05-06T19:14:30+00:00"
+            "time": "2022-02-21T11:42:47+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
