@@ -606,12 +606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "7b75f2588d30c61a2b6c7d45102963298bbf1e2d"
+                "reference": "e4fa118cbb6ee51f2a0bac2f2c977897411c7da3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/7b75f2588d30c61a2b6c7d45102963298bbf1e2d",
-                "reference": "7b75f2588d30c61a2b6c7d45102963298bbf1e2d",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/e4fa118cbb6ee51f2a0bac2f2c977897411c7da3",
+                "reference": "e4fa118cbb6ee51f2a0bac2f2c977897411c7da3",
                 "shasum": ""
             },
             "require": {
@@ -660,7 +660,7 @@
                 "MIT"
             ],
             "description": "I will probably use this for something",
-            "time": "2022-03-03T13:49:41+00:00"
+            "time": "2022-03-06T15:48:15+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
