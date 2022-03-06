@@ -5,6 +5,8 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 ENV COMPOSER_VERSION=2
+ENV VIOLINIST=1
+ENV CI=1
 
 RUN composer install --no-dev --optimize-autoloader && \
     composer require composer/composer:^2 --update-with-dependencies \
