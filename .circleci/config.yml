@@ -23,7 +23,7 @@ shared: &shared
               - ./vendor
     - run: 
         command: ./vendor/bin/phpunit
-        no_output_timeout: 30m
+        no_output_timeout: 50m
 
 jobs:
   "php70":
