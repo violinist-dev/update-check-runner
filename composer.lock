@@ -150,16 +150,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.2.7",
+            "version": "2.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "061d154dfdde157cbf453c4695e6af21c0e93903"
+                "reference": "07eccf080ad63d55d95a7c9133506db7d9029264"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/061d154dfdde157cbf453c4695e6af21c0e93903",
-                "reference": "061d154dfdde157cbf453c4695e6af21c0e93903",
+                "url": "https://api.github.com/repos/composer/composer/zipball/07eccf080ad63d55d95a7c9133506db7d9029264",
+                "reference": "07eccf080ad63d55d95a7c9133506db7d9029264",
                 "shasum": ""
             },
             "require": {
@@ -226,11 +226,6 @@
                 "dependency",
                 "package"
             ],
-            "support": {
-                "irc": "ircs://irc.libera.chat:6697/composer",
-                "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.2.7"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -245,7 +240,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-25T10:12:27+00:00"
+            "time": "2022-03-15T21:13:37+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -389,16 +384,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.2.9",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "a951f614bd64dcd26137bc9b7b2637ddcfc57649"
+                "reference": "5d8e574bb0e69188786b8ef77d43341222a41a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/a951f614bd64dcd26137bc9b7b2637ddcfc57649",
-                "reference": "a951f614bd64dcd26137bc9b7b2637ddcfc57649",
+                "url": "https://api.github.com/repos/composer/semver/zipball/5d8e574bb0e69188786b8ef77d43341222a41a71",
+                "reference": "5d8e574bb0e69188786b8ef77d43341222a41a71",
                 "shasum": ""
             },
             "require": {
@@ -447,11 +442,6 @@
                 "validation",
                 "versioning"
             ],
-            "support": {
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.2.9"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -466,7 +456,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-04T13:58:43+00:00"
+            "time": "2022-03-16T11:22:07+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -620,12 +610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "9a2a586e8e88016a2a04fb88789190a47e4abd66"
+                "reference": "47a78fed736515be13497b2caacac7daaef4d480"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/9a2a586e8e88016a2a04fb88789190a47e4abd66",
-                "reference": "9a2a586e8e88016a2a04fb88789190a47e4abd66",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/47a78fed736515be13497b2caacac7daaef4d480",
+                "reference": "47a78fed736515be13497b2caacac7daaef4d480",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +629,7 @@
                 "php-http/guzzle6-adapter": "^1.1",
                 "symfony/process": "^3",
                 "violinist-dev/allow-list-handler": "^1.0",
-                "violinist-dev/commit-message-creator": "^1.1",
+                "violinist-dev/commit-message-creator": "^1.2",
                 "violinist-dev/composer-changelog-fetcher": "dev-master",
                 "violinist-dev/composer-updater": "dev-master",
                 "violinist-dev/git-log-format": "^1.1.2",
@@ -656,7 +646,6 @@
                 "phpunit/phpunit": "^6",
                 "squizlabs/php_codesniffer": "^3.2"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -675,11 +664,7 @@
                 "MIT"
             ],
             "description": "I will probably use this for something",
-            "support": {
-                "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/master"
-            },
-            "time": "2022-03-10T08:44:57+00:00"
+            "time": "2022-03-21T08:14:09+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3684,12 +3669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-changelog-fetcher.git",
-                "reference": "1d0b2cb921ff3ca612e9894793b5266143a2df24"
+                "reference": "9c8bf90fecdd78508bbbc35531fc7cb9c473ca16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/1d0b2cb921ff3ca612e9894793b5266143a2df24",
-                "reference": "1d0b2cb921ff3ca612e9894793b5266143a2df24",
+                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/9c8bf90fecdd78508bbbc35531fc7cb9c473ca16",
+                "reference": "9c8bf90fecdd78508bbbc35531fc7cb9c473ca16",
                 "shasum": ""
             },
             "require": {
@@ -3697,7 +3682,7 @@
                 "symfony/console": "^3.4",
                 "symfony/dependency-injection": "^3.4",
                 "violinist-dev/composer-lock-data": "^1.1",
-                "violinist-dev/git-log-format": "^1.1",
+                "violinist-dev/git-log-format": "^1.1.2",
                 "violinist-dev/process-factory": "^1.0"
             },
             "require-dev": {
@@ -3707,7 +3692,6 @@
                 "phpunit/phpunit": "^6.5",
                 "squizlabs/php_codesniffer": "^3.4"
             },
-            "default-branch": true,
             "bin": [
                 "changelog-fetcher"
             ],
@@ -3722,11 +3706,7 @@
                 "MIT"
             ],
             "description": "Fetch changelog for a given composer update",
-            "support": {
-                "issues": "https://github.com/violinist-dev/composer-changelog-fetcher/issues",
-                "source": "https://github.com/violinist-dev/composer-changelog-fetcher/tree/master"
-            },
-            "time": "2019-03-13T07:04:40+00:00"
+            "time": "2022-03-18T06:45:35+00:00"
         },
         {
             "name": "violinist-dev/composer-lock-data",
@@ -3797,7 +3777,6 @@
                 "satooshi/php-coveralls": "^2.0",
                 "squizlabs/php_codesniffer": "^3.3"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -5898,5 +5877,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "1.1.0"
 }
