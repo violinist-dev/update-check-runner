@@ -260,7 +260,7 @@ class IntegrationTest extends IntegrationBase
         if ($count > 40) {
             throw new \Exception('More than 20 retries for testing assignee on update. Aborting');
         }
-        sleep(3);
+        sleep(rand(1, 10));
         return $this->testUpdateAssigneesGitlab($count);
     }
 
