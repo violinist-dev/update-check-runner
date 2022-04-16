@@ -150,16 +150,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.2.11",
+            "version": "2.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "2f5bcf0480c13b4fa1ac490aa9344e4402507538"
+                "reference": "ba61e768b410736efe61df01b61f1ec44f51474f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/2f5bcf0480c13b4fa1ac490aa9344e4402507538",
-                "reference": "2f5bcf0480c13b4fa1ac490aa9344e4402507538",
+                "url": "https://api.github.com/repos/composer/composer/zipball/ba61e768b410736efe61df01b61f1ec44f51474f",
+                "reference": "ba61e768b410736efe61df01b61f1ec44f51474f",
                 "shasum": ""
             },
             "require": {
@@ -240,7 +240,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-01T20:00:52+00:00"
+            "time": "2022-04-13T14:42:25+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -610,12 +610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "87a1794413e63220d0e529a820835a4578cc76fd"
+                "reference": "ef52ac9863d4958b10da14c7a8d5216c33d33acb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/87a1794413e63220d0e529a820835a4578cc76fd",
-                "reference": "87a1794413e63220d0e529a820835a4578cc76fd",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/ef52ac9863d4958b10da14c7a8d5216c33d33acb",
+                "reference": "ef52ac9863d4958b10da14c7a8d5216c33d33acb",
                 "shasum": ""
             },
             "require": {
@@ -663,8 +663,8 @@
             "license": [
                 "MIT"
             ],
-            "description": "I will probably use this for something",
-            "time": "2022-04-11T18:20:39+00:00"
+            "description": "Library that runs updates for Violinist",
+            "time": "2022-04-16T10:32:21+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -1004,16 +1004,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.11",
+            "version": "5.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa"
+                "reference": "ad87d5a5ca981228e0e205c2bc7dfb8e24559b60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2ab6744b7296ded80f8cc4f9509abbff393399aa",
-                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
+                "reference": "ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
                 "shasum": ""
             },
             "require": {
@@ -1066,11 +1066,7 @@
                 "json",
                 "schema"
             ],
-            "support": {
-                "issues": "https://github.com/justinrainbow/json-schema/issues",
-                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.11"
-            },
-            "time": "2021-07-22T09:24:00+00:00"
+            "time": "2022-04-13T08:02:27+00:00"
         },
         {
             "name": "knplabs/github-api",
@@ -3755,12 +3751,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "be7fd822933d7304cef49a7db8bd43637bcca8eb"
+                "reference": "b70c49a2c3c92f7f23bf23798b80422a2095b024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/be7fd822933d7304cef49a7db8bd43637bcca8eb",
-                "reference": "be7fd822933d7304cef49a7db8bd43637bcca8eb",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/b70c49a2c3c92f7f23bf23798b80422a2095b024",
+                "reference": "b70c49a2c3c92f7f23bf23798b80422a2095b024",
                 "shasum": ""
             },
             "require": {
@@ -3798,11 +3794,7 @@
                 }
             ],
             "description": "Updater package",
-            "support": {
-                "issues": "https://github.com/violinist-dev/composer-updater/issues",
-                "source": "https://github.com/violinist-dev/composer-updater/tree/master"
-            },
-            "time": "2022-02-21T11:42:47+00:00"
+            "time": "2022-04-16T04:59:46+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
