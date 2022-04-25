@@ -610,12 +610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "ef52ac9863d4958b10da14c7a8d5216c33d33acb"
+                "reference": "29dde6bb1e7d097b3073d277465981cdb7dc304f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/ef52ac9863d4958b10da14c7a8d5216c33d33acb",
-                "reference": "ef52ac9863d4958b10da14c7a8d5216c33d33acb",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/29dde6bb1e7d097b3073d277465981cdb7dc304f",
+                "reference": "29dde6bb1e7d097b3073d277465981cdb7dc304f",
                 "shasum": ""
             },
             "require": {
@@ -664,7 +664,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2022-04-16T10:32:21+00:00"
+            "time": "2022-04-24T13:46:00+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3751,12 +3751,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "b70c49a2c3c92f7f23bf23798b80422a2095b024"
+                "reference": "9354e2e68f4743d968a27dd224a920cea25eeaab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/b70c49a2c3c92f7f23bf23798b80422a2095b024",
-                "reference": "b70c49a2c3c92f7f23bf23798b80422a2095b024",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/9354e2e68f4743d968a27dd224a920cea25eeaab",
+                "reference": "9354e2e68f4743d968a27dd224a920cea25eeaab",
                 "shasum": ""
             },
             "require": {
@@ -3794,7 +3794,7 @@
                 }
             ],
             "description": "Updater package",
-            "time": "2022-04-16T04:59:46+00:00"
+            "time": "2022-04-17T11:18:00+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
