@@ -8,6 +8,8 @@ use Github\Api\PullRequest;
 use Github\Client;
 use Github\ResultPager;
 use Gitlab\Client as GitlabClient;
+use GuzzleHttp\Psr7\Request;
+use Http\Adapter\Guzzle6\Client as HttpClient;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\ProjectData\ProjectData;
 use Violinist\Slug\Slug;
@@ -111,13 +113,14 @@ class IntegrationTest extends IntegrationBase
 
     public function testGitlabOutput()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('GITLAB_PRIVATE_USER_TOKEN'), getenv('GITLAB_PRIVATE_REPO'));
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), getenv('GITLAB_PRIVATE_REPO'));
         $this->assertStandardOutput(getenv('GITLAB_PRIVATE_REPO'), $json);
     }
 
     public function testGitlabNestedGroupOutput()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('GITLAB_PRIVATE_USER_TOKEN'), getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'));
+
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'));
         $this->assertStandardOutput(getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'), $json);
     }
 
@@ -214,7 +217,7 @@ class IntegrationTest extends IntegrationBase
             // Close all PRs. Since this will run in parallel with many php versions, we might get the PR from
             // somewhere else. In fact, someone might close it after we open in here. So we need to check the API
             // for this specific one.
-            $token = getenv('GITLAB_PRIVATE_USER_TOKEN');
+            $token = $this->getGitlabToken();
             $url = getenv('GITLAB_ASSIGNEE_REPO');
             $client = new GitlabClient();
             $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
@@ -264,10 +267,22 @@ class IntegrationTest extends IntegrationBase
         return $this->testUpdateAssigneesGitlab($count);
     }
 
+    protected function getGitlabToken()
+    {
+        $client = new HttpClient();
+        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN'));
+        $response = $client->sendRequest($request);
+        $json = json_decode($response->getBody());
+        if (empty($json->token)) {
+            throw new \Exception('No token found for this test to run');
+        }
+        return $json->token;
+    }
+
     public function testWhyNot()
     {
         $repo = getenv('GITLAB_REPO_GITHUB_DEP');
-        $json = $this->getProcessAndRunWithoutError(getenv('GITLAB_PRIVATE_USER_TOKEN'), $repo, [
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), $repo, [
             'tokens' => sprintf("'%s'", json_encode([
                 'github.com' => getenv('GITHUB_PRIVATE_USER_TOKEN'),
             ])),
