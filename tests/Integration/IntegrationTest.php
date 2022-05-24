@@ -131,7 +131,7 @@ class IntegrationTest extends IntegrationBase
 
     public function testGitlabSelfhostedOutputPat()
     {
-        $this->runSelfHostedTest(getenv('GITLAB_PERSONAL_ACCESS_TOKEN'));
+        $this->runSelfHostedTest(getenv('SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN'));
     }
 
     protected function runSelfHostedTest($token, $retry = 0)
