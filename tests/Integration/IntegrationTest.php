@@ -218,8 +218,8 @@ class IntegrationTest extends IntegrationBase
             // Close all PRs. Since this will run in parallel with many php versions, we might get the PR from
             // somewhere else. In fact, someone might close it after we open in here. So we need to check the API
             // for this specific one.
-            $token = $this->getGitlabToken();
             $url = getenv('GITLAB_ASSIGNEE_REPO');
+            $token = $this->getGitlabToken($url);
             $client = new GitlabClient();
             $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
             $id = Gitlab::getProjectId($url);
@@ -283,7 +283,7 @@ class IntegrationTest extends IntegrationBase
     public function testWhyNot()
     {
         $repo = getenv('GITLAB_REPO_GITHUB_DEP');
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), $repo, [
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($repo), $repo, [
             'tokens' => sprintf("'%s'", json_encode([
                 'github.com' => getenv('GITHUB_PRIVATE_USER_TOKEN'),
             ])),
