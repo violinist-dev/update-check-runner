@@ -267,10 +267,10 @@ class IntegrationTest extends IntegrationBase
         return $this->testUpdateAssigneesGitlab($count);
     }
 
-    protected function getGitlabToken()
+    protected function getGitlabToken($url)
     {
         $client = new HttpClient();
-        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN'));
+        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN') . '&url=' . $url);
         $response = $client->sendRequest($request);
         $json = json_decode($response->getBody());
         if (empty($json->token)) {
