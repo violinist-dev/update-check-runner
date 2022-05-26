@@ -113,15 +113,16 @@ class IntegrationTest extends IntegrationBase
 
     public function testGitlabOutput()
     {
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), getenv('GITLAB_PRIVATE_REPO'));
-        $this->assertStandardOutput(getenv('GITLAB_PRIVATE_REPO'), $json);
+        $url = getenv('GITLAB_PRIVATE_REPO');
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), getenv('GITLAB_PRIVATE_REPO'));
+        $this->assertStandardOutput($url, $json);
     }
 
     public function testGitlabNestedGroupOutput()
     {
-
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'));
-        $this->assertStandardOutput(getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'), $json);
+        $url = getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP');
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'));
+        $this->assertStandardOutput($url, $json);
     }
 
     public function testGitlabSelfhostedOutput()
