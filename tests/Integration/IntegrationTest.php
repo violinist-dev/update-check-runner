@@ -113,20 +113,23 @@ class IntegrationTest extends IntegrationBase
 
     public function testGitlabOutput()
     {
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), getenv('GITLAB_PRIVATE_REPO'));
-        $this->assertStandardOutput(getenv('GITLAB_PRIVATE_REPO'), $json);
+        $url = getenv('GITLAB_PRIVATE_REPO');
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), getenv('GITLAB_PRIVATE_REPO'));
+        $this->assertStandardOutput($url, $json);
     }
 
     public function testGitlabNestedGroupOutput()
     {
-
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'));
-        $this->assertStandardOutput(getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'), $json);
+        $url = getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP');
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'));
+        $this->assertStandardOutput($url, $json);
     }
 
     public function testGitlabSelfhostedOutput()
     {
-        $this->runSelfHostedTest(getenv('SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN'));
+        $url = getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO');
+        $token = $this->getGitlabToken($url);
+        $this->runSelfHostedTest($token);
     }
 
     public function testGitlabSelfhostedOutputPat()
@@ -217,8 +220,8 @@ class IntegrationTest extends IntegrationBase
             // Close all PRs. Since this will run in parallel with many php versions, we might get the PR from
             // somewhere else. In fact, someone might close it after we open in here. So we need to check the API
             // for this specific one.
-            $token = $this->getGitlabToken();
             $url = getenv('GITLAB_ASSIGNEE_REPO');
+            $token = $this->getGitlabToken($url);
             $client = new GitlabClient();
             $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
             $id = Gitlab::getProjectId($url);
@@ -267,10 +270,10 @@ class IntegrationTest extends IntegrationBase
         return $this->testUpdateAssigneesGitlab($count);
     }
 
-    protected function getGitlabToken()
+    protected function getGitlabToken($url)
     {
         $client = new HttpClient();
-        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN'));
+        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN') . '&url=' . $url);
         $response = $client->sendRequest($request);
         $json = json_decode($response->getBody());
         if (empty($json->token)) {
@@ -282,7 +285,7 @@ class IntegrationTest extends IntegrationBase
     public function testWhyNot()
     {
         $repo = getenv('GITLAB_REPO_GITHUB_DEP');
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken(), $repo, [
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($repo), $repo, [
             'tokens' => sprintf("'%s'", json_encode([
                 'github.com' => getenv('GITHUB_PRIVATE_USER_TOKEN'),
             ])),
