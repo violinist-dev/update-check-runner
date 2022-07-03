@@ -9,7 +9,7 @@ use Violinist\Slug\Slug;
 
 class CloseOnUpdateTest extends IntegrationBase
 {
-    public function testPrsClosed()
+    public function testPrsClosed(&$retries = 0)
     {
         if (version_compare(phpversion(), "7.1.0", "<=")) {
             $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
@@ -73,6 +73,10 @@ class CloseOnUpdateTest extends IntegrationBase
             $client->repositories()->users($slug->getUserName())->refs($slug->getUserRepo())->branches()->remove($branch_name);
         } catch (\Throwable $e) {
             // Probably nothing to remove?
+        }
+        if ($retries < 20 && (!$pr_closed_success_found || !$pr_closed_found)) {
+            $retries++;
+            return $this->testPrsClosed($retries);
         }
         self::assertTrue($pr_closed_found && $pr_closed_success_found, 'PR was not both attempted and succeeded with being closed');
     }
