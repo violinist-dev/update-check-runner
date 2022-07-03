@@ -61,7 +61,7 @@ class IntegrationTest extends IntegrationBase
         $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PUBLIC_REPO'), $extra_params);
         // Then make sure we are not pushing over and over again.
         $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PUBLIC_REPO'), $extra_params);
-        $this->findMessage('Skipping par/log because a pull request already exists', $json);
+        $this->findMessage('Skipping psr/log because a pull request already exists', $json);
     }
 
     /**
