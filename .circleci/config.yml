@@ -17,7 +17,7 @@ shared: &shared
             - v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
     - run: if [ $PHP_VERSION != "80" ] && [ $PHP_VERSION != "81" ]; then composer install --prefer-dist; fi
     - run: if [ $PHP_VERSION = "80" ] || [ $PHP_VERSION = "81" ]; then composer install --ignore-platform-reqs --prefer-dist; fi
-    - run: if [ $PHP_VERSION != "70" ]; then composer require bitbucket/client; fi
+    - run: if [ $PHP_VERSION != "70" ]; then composer require bitbucket/client --update-with-dependencies; fi
     - save_cache:
           key: v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
