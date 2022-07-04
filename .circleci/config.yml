@@ -150,8 +150,6 @@ workflows:
               only:
                 - master
     jobs:
-      - "php70"
-      - "php70-2"
       - "php71"
       - "php71-2"
       - "php72"
@@ -166,8 +164,6 @@ workflows:
  #     - "php81-2"
   build:
     jobs:
-      - "php70"
-      - "php70-2"
       - "php71"
       - "php71-2"
       - "php72"
