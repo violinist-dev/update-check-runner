@@ -2,14 +2,13 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use Bitbucket\Client;
-use Bitbucket\HttpClient\Message\FileResource;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\Slug\Slug;
 
 class CloseOnUpdateTest extends IntegrationBase
 {
-    public function testPrsClosed(&$retries = 0)
+
+    public function testPrsClosedBitbucket(&$retries = 0)
     {
         if (version_compare(phpversion(), "7.1.0", "<=")) {
             $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
@@ -25,38 +24,53 @@ class CloseOnUpdateTest extends IntegrationBase
         ]);
         $url = getenv('BITBUCKET_PRIVATE_REPO');
         $slug = Slug::createFromUrl($url);
-        $client = new Client();
-        $client->authenticate(Client::AUTH_OAUTH_TOKEN, $new_token->getToken());
-
         $branch_name = 'psrlog100' . random_int(400, 999);
+        $client = new \GuzzleHttp\Client();
+        $access_token = $new_token->getToken();
+        $headers = [
+            'Authorization' => "Bearer $access_token",
+        ];
         try {
-            $client->repositories()->users($slug->getUserName())->refs($slug->getUserRepo())->branches()->remove($branch_name);
+            $client->request('DELETE', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches/%s', $slug->getUserName(), $slug->getUserRepo(), $branch_name), [
+                'headers' => $headers,
+            ]);
         } catch (\Throwable $e) {
             // Probably nothing to remove?
         }
-        $client->repositories()->users($slug->getUserName())->refs($slug->getUserRepo())->branches()->create([
-            'name' => $branch_name,
-            'target' => [
-                'hash' => 'master',
-            ],
-        ]);
-        $files = [new FileResource('test.txt', 'almost empty file')];
-        $client->repositories()->users($slug->getUserName())->src($slug->getUserRepo())->createWithFiles($files, [
-            'branch' => $branch_name,
-        ]);
-        $client->repositories()->users($slug->getUserName())->pullRequests($slug->getUserRepo())->create([
-            'title' => 'temp pr',
-            'source' => [
-                'branch' => [
-                    'name' => $branch_name,
-                ]
-            ],
-            'destination' => [
-                'branch' => [
-                    'name' => 'master',
+        $client->request('POST', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches', $slug->getUserName(), $slug->getUserRepo()), [
+            'json' => [
+                'name' => $branch_name,
+                'target' => [
+                    'hash' => 'master',
                 ],
             ],
-            'description' => 'test will be closed',
+            'headers' => $headers + [
+                'Accept' => 'application/json',
+            ],
+        ]);
+        $data = $client->request('POST', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/src?branch=%s', $slug->getUserName(), $slug->getUserRepo(), $branch_name), [
+            'form_params' => [
+                'branch' => $branch_name,
+                'test.txt' => 'almost empty file',
+            ],
+            'headers' => $headers,
+        ]);
+        $client->request('POST', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/pullrequests', $slug->getUserName(), $slug->getUserRepo()), [
+            'json' => [
+                'title' => 'temp pr',
+                'source' => [
+                    'branch' => [
+                        'name' => $branch_name,
+                    ]
+                ],
+                'destination' => [
+                    'branch' => [
+                        'name' => 'master',
+                    ],
+                ],
+                'description' => 'test will be closed',
+            ],
+            'headers' => $headers,
         ]);
         $json = $this->getProcessAndRunWithoutError($new_token->getToken(), $url);
         $pr_closed_found = false;
@@ -76,7 +90,7 @@ class CloseOnUpdateTest extends IntegrationBase
         }
         if ($retries < 20 && (!$pr_closed_success_found || !$pr_closed_found)) {
             $retries++;
-            return $this->testPrsClosed($retries);
+            return $this->testPrsClosedBitbucket($retries);
         }
         self::assertTrue($pr_closed_found && $pr_closed_success_found, 'PR was not both attempted and succeeded with being closed');
     }
