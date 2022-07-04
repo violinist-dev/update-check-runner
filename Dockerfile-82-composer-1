@@ -1,0 +1,17 @@
+FROM violinist/php-base:8.2-multi
+MAINTAINER eiriksm <eirik@morland.no>
+
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+
+ENV VIOLINIST=1
+ENV CI=1
+
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs && \
+    composer require composer/composer:^1 --update-with-dependencies --ignore-platform-reqs \
+    && composer require bitbucket/client:^2 --ignore-platform-reqs \
+    # Make sure our php is always used.
+    && ln -s /usr/local/bin/php vendor/bin/php \
+    && rm -rf /usr/local/bin/composer
+
+CMD ["php", "runner.php"]
