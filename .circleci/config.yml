@@ -124,6 +124,20 @@ jobs:
     docker:
       - image: violinist/php-base:8.1-multi
     <<: *shared
+  "php82":
+    environment:
+      PHP_VERSION: 82
+      COMPOSER_VERSION: 1
+    docker:
+      - image: violinist/php-base:8.2-multi
+    <<: *shared
+  "php82-2":
+    environment:
+      PHP_VERSION: 82
+      COMPOSER_VERSION: 2
+    docker:
+      - image: violinist/php-base:8.2-multi
+    <<: *shared
 
 workflows:
   version: 2
@@ -148,7 +162,7 @@ workflows:
       - "php74-2"
       - "php80"
       - "php80-2"
-  #    - "php81"
+   #   - "php81"
  #     - "php81-2"
   build:
     jobs:
@@ -164,5 +178,7 @@ workflows:
       - "php74-2"
       - "php80"
       - "php80-2"
-  #    - "php81"
-  #    - "php81-2"
+      - "php81"
+      - "php81-2"
+      - "php82"
+      - "php82-2"
