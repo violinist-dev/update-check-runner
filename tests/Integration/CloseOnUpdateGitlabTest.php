@@ -11,13 +11,26 @@ use Violinist\Slug\Slug;
 
 class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
 {
+    protected $url;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->url = getenv('GITLAB_PRIVATE_REPO');
+    }
+
+    protected function handleAfterAuthenticate(GitlabClient $client)
+    {
+    }
+
     public function testPrsClosedGitlab(&$retries = 0)
     {
-        $url = getenv('GITLAB_PRIVATE_REPO');
+        $url = $this->url;
         $token = $this->getGitlabToken($url);
         // We want to just, I guess, open all the PRs again?
         $client = new GitlabClient();
         $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
+        $this->handleAfterAuthenticate($client);
         $pager = new ResultPager($client);
         $api = $client->api('mr');
         $method = 'all';
@@ -25,7 +38,7 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $project_id = ltrim($url_parsed['path'], '/');
         $prs = $pager->fetchAll($api, $method, [$project_id]);
         foreach ($prs as $pr) {
-            if ($pr['state'] == 'opened') {
+            if ($pr['state'] === 'opened') {
                 continue;
             }
             try {
