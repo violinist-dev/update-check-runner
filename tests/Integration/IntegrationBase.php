@@ -10,7 +10,7 @@ use Violinist\Slug\Slug;
 abstract class IntegrationBase extends TestCase
 {
 
-    public function setUp()
+    public function setUp() : void
     {
         try {
             $env = new Dotenv();
