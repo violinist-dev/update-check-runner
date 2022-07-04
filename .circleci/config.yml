@@ -16,7 +16,7 @@ shared: &shared
         keys:
             - v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
     - run: if [ $PHP_VERSION != "80" ] && [ $PHP_VERSION != "81" ] && [ $PHP_VERSION != "82" ]; then composer install --prefer-dist; fi
-    - run: if [ $PHP_VERSION = "80" ] || [ $PHP_VERSION = "81" ] || [ $PHP_VERSION = "82" ]; then composer require phpunit/phpunit:^9 -W --ignore-platform-reqs --prefer-dist; fi
+    - run: if [ $PHP_VERSION = "80" ] || [ $PHP_VERSION = "81" ] || [ $PHP_VERSION = "82" ]; then composer require phpunit/phpunit:^9 --update-with-dependencies --ignore-platform-reqs --prefer-dist; fi
     - save_cache:
           key: v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
