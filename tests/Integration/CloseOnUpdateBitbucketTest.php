@@ -5,7 +5,7 @@ namespace Violinist\UpdateCheckRunner\Tests\Integration;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\Slug\Slug;
 
-class CloseOnUpdateTest extends IntegrationBase
+class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
 {
 
     public function testPrsClosedBitbucket(&$retries = 0)
@@ -73,25 +73,16 @@ class CloseOnUpdateTest extends IntegrationBase
             'headers' => $headers,
         ]);
         $json = $this->getProcessAndRunWithoutError($new_token->getToken(), $url);
-        $pr_closed_found = false;
-        $pr_closed_success_found = false;
-        foreach ($json as $item) {
-            if (strpos($item->message, 'Trying to close PR number') !== false) {
-                $pr_closed_found = true;
-            }
-            if (strpos($item->message, 'Successfully closed PR') !== false) {
-                $pr_closed_success_found = true;
-            }
-        }
+        $closed_with_success = self::hasPrClosedAndPrClosedSuccess($json);
         try {
             $client->repositories()->users($slug->getUserName())->refs($slug->getUserRepo())->branches()->remove($branch_name);
         } catch (\Throwable $e) {
             // Probably nothing to remove?
         }
-        if ($retries < 20 && (!$pr_closed_success_found || !$pr_closed_found)) {
+        if ($retries < 20 && !$closed_with_success) {
             $retries++;
             return $this->testPrsClosedBitbucket($retries);
         }
-        self::assertTrue($pr_closed_found && $pr_closed_success_found, 'PR was not both attempted and succeeded with being closed');
+        self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
     }
 }
