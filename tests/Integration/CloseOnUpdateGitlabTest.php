@@ -24,6 +24,11 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
     {
     }
 
+    protected function createBranchName()
+    {
+        return 'psrlog101' . random_int(400, 999);
+    }
+
     public function testPrsClosedGitlab(&$retries = 0)
     {
         $url = $this->url;
@@ -32,12 +37,9 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $client = new GitlabClient();
         $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
         $this->handleAfterAuthenticate($client);
-        $pager = new ResultPager($client);
-        $api = $client->api('mr');
-        $method = 'all';
         $url_parsed = parse_url($url);
         $project_id = ltrim($url_parsed['path'], '/');
-        $branch_name = 'psrlog101' . random_int(400, 999);
+        $branch_name = $this->createBranchName();
         $client->repositories()->createCommit($project_id, [
             'branch' => $branch_name,
             'start_branch' => 'master',

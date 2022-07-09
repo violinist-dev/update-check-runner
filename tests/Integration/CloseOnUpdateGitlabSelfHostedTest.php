@@ -17,6 +17,11 @@ class CloseOnUpdateGitlabSelfHostedTest extends CloseOnUpdateGitlabTest
         $this->url = getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO');
     }
 
+    protected function createBranchName()
+    {
+        return 'psrlog100' . random_int(400, 999);
+    }
+
     protected function handleAfterAuthenticate(GitlabClient $client)
     {
         $url = parse_url($this->url);
