@@ -76,7 +76,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
                 'title' => 'test temp pr',
                 'body'  => 'test temp pr',
             ]);
-        } (catch \Throwable) {
+        } catch (\Throwable $e) {
         }
         $extra_params = $this->getExtraParams();
         $json = $this->getProcessAndRunWithoutError($token, $slug->getUrl(), $extra_params);
