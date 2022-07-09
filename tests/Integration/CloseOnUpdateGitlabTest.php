@@ -4,6 +4,7 @@ namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
 use Bitbucket\Client;
 use Bitbucket\HttpClient\Message\FileResource;
+use Gitlab\Api\MergeRequests;
 use Gitlab\Client as GitlabClient;
 use Gitlab\ResultPager;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
@@ -37,27 +38,22 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $url_parsed = parse_url($url);
         $project_id = ltrim($url_parsed['path'], '/');
         $branch_name = 'psrlog101' . random_int(400, 999);
-        $client = new \GuzzleHttp\Client();
-        $headers = [
-            'PRIVATE-TOKEN' => $token,
-        ];
-        $client->request('POST', sprintf('https://gitlab.com/api/v4/projects/%s/repository/commits', $project_id), [
-            'json' => [
-                'branch' => $branch_name,
-                'start_branch' => 'master',
-                'commit_message' => 'temp',
-                'actions' => [
-                    [
-                        'action' => 'create',
-                        'file_path' => 'test.txt',
-                        'content' => 'temp',
-                    ]
+        $client->repositories()->createCommit($project_id, [
+            'branch' => $branch_name,
+            'start_branch' => 'master',
+            'commit_message' => 'temp',
+            'actions' => [
+                [
+                    'action' => 'create',
+                    'file_path' => 'test.txt',
+                    'content' => 'temp',
                 ]
-            ],
-            'headers' => $headers + [
-                'Accept' => 'application/json',
-            ],
+            ]
         ]);
+        /** @var MergeRequests $mr */
+        $mr = $client->api('mr');
+        $assignee = null;
+        $data = $mr->create($project_id, $branch_name, 'master', 'test pr', $assignee, null, 'test pr');
         // Now, let's run this stuff. It should certainly contain some closing action.
         $extra_params = [
             'fork_user' => getenv('FORK_USER'),
