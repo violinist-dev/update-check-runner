@@ -22,59 +22,62 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
 
     public function testPrsClosedGithub(&$retries = 0)
     {
-        $client = new Client();
-        $token = $this->token;
-        $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
-        $slug = Slug::createFromUrl($this->url);
-        /** @var Repo $repo */
-        $repo = $client->api('repo');
-        $info = $repo->show($slug->getUserName(), $slug->getUserRepo());
-        $default_branch = $info['default_branch'];
-        $branch = $repo->branches($slug->getUserName(), $slug->getUserRepo(), $default_branch);
-        $sha = $branch["commit"]["sha"];
-        /** @var GitData $api */
-        $api = $client->api('git');
-        $tree = [];
-        $data = $api->blobs()->create($slug->getUserName(), $slug->getUserRepo(), [
-            'content' => 'temp file',
-            'encoding' => 'utf-8',
-        ]);
-        $tree[] = [
-            'sha' => $data["sha"],
-            'mode' => '100644',
-            'type' => 'blob',
-            'path' => 'test.txt',
-        ];
-        $data = $api->trees()->create($slug->getUserName(), $slug->getUserRepo(), [
-            'tree' => $tree,
-            'base_tree' => $sha,
-            'parents' => [
-                $sha,
-            ],
-        ]);
-        $data = $api->commits()->create($slug->getUserName(), $slug->getUserRepo(), [
-            'message' => 'temp commit',
-            'tree' => $data["sha"],
-            'parents' => [
-                $sha,
-            ],
-        ]);
-        $branch_name = $this->createBranchName();
-        $data = $api->references()->create($slug->getUserName(), $slug->getUserRepo(), [
-            'ref' => 'refs/heads/' . $branch_name,
-            'sha' => $data['sha'],
-            'force' => true,
-        ]);
-        $user_name = $slug->getUserName();
-        $user_repo = $slug->getUserRepo();
-        /** @var PullRequest $prs */
-        $prs = $client->api('pull_request');
-        $data = $prs->create($user_name, $user_repo, [
-            'base'  => $default_branch,
-            'head'  => $branch_name,
-            'title' => 'test temp pr',
-            'body'  => 'test temp pr',
-        ]);
+        try {
+            $client = new Client();
+            $token = $this->token;
+            $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+            $slug = Slug::createFromUrl($this->url);
+            /** @var Repo $repo */
+            $repo = $client->api('repo');
+            $info = $repo->show($slug->getUserName(), $slug->getUserRepo());
+            $default_branch = $info['default_branch'];
+            $branch = $repo->branches($slug->getUserName(), $slug->getUserRepo(), $default_branch);
+            $sha = $branch["commit"]["sha"];
+            /** @var GitData $api */
+            $api = $client->api('git');
+            $tree = [];
+            $data = $api->blobs()->create($slug->getUserName(), $slug->getUserRepo(), [
+                'content' => 'temp file',
+                'encoding' => 'utf-8',
+            ]);
+            $tree[] = [
+                'sha' => $data["sha"],
+                'mode' => '100644',
+                'type' => 'blob',
+                'path' => 'test.txt',
+            ];
+            $data = $api->trees()->create($slug->getUserName(), $slug->getUserRepo(), [
+                'tree' => $tree,
+                'base_tree' => $sha,
+                'parents' => [
+                    $sha,
+                ],
+            ]);
+            $data = $api->commits()->create($slug->getUserName(), $slug->getUserRepo(), [
+                'message' => 'temp commit',
+                'tree' => $data["sha"],
+                'parents' => [
+                    $sha,
+                ],
+            ]);
+            $branch_name = $this->createBranchName();
+            $data = $api->references()->create($slug->getUserName(), $slug->getUserRepo(), [
+                'ref' => 'refs/heads/' . $branch_name,
+                'sha' => $data['sha'],
+                'force' => true,
+            ]);
+            $user_name = $slug->getUserName();
+            $user_repo = $slug->getUserRepo();
+            /** @var PullRequest $prs */
+            $prs = $client->api('pull_request');
+            $data = $prs->create($user_name, $user_repo, [
+                'base'  => $default_branch,
+                'head'  => $branch_name,
+                'title' => 'test temp pr',
+                'body'  => 'test temp pr',
+            ]);
+        } (catch \Throwable) {
+        }
         $extra_params = $this->getExtraParams();
         $json = $this->getProcessAndRunWithoutError($token, $slug->getUrl(), $extra_params);
         $closed_with_success = self::hasPrClosedAndPrClosedSuccess($json);
