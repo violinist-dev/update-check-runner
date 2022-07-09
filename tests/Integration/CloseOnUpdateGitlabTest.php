@@ -36,19 +36,25 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $method = 'all';
         $url_parsed = parse_url($url);
         $project_id = ltrim($url_parsed['path'], '/');
-        $prs = $pager->fetchAll($api, $method, [$project_id]);
-        foreach ($prs as $pr) {
-            if ($pr['state'] === 'opened') {
-                continue;
-            }
-            try {
-                $client->mergeRequests()->update($project_id, $pr['iid'], [
-                    'state_event' => 'reopen',
-                ]);
-            } catch (\Throwable $e) {
-                // Meh, what can you do.
-            }
-        }
+        $branch_name = 'psrlog101' . random_int(400, 999);
+        $client = new \GuzzleHttp\Client();
+        $client->request('POST', sprintf('https://gitlab.com/api/v4/projects/%s/repository/commits', $project_id), [
+            'json' => [
+                'branch' => $branch_name,
+                'start_branch' => 'master',
+                'commit_message' => 'temp',
+                'actions' => [
+                    [
+                        'action' => 'create',
+                        'file_path' => 'test.txt',
+                        'content' => 'temp',
+                    ]
+                ]
+            ],
+            'headers' => $headers + [
+                'Accept' => 'application/json',
+            ],
+        ]);
         // Now, let's run this stuff. It should certainly contain some closing action.
         $extra_params = [
             'fork_user' => getenv('FORK_USER'),
