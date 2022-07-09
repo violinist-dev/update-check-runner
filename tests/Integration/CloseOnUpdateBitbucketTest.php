@@ -8,6 +8,13 @@ use Violinist\Slug\Slug;
 class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
 {
 
+    protected function deleteBranch($branch_name)
+    {
+            $this->client->request('DELETE', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches/%s', $slug->getUserName(), $slug->getUserRepo(), $branch_name), [
+                'headers' => $this->headers,
+            ]);
+    }
+
     public function testPrsClosedBitbucket(&$retries = 0)
     {
         if (version_compare(phpversion(), "7.1.0", "<=")) {
@@ -26,10 +33,12 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         $slug = Slug::createFromUrl($url);
         $branch_name = 'psrlog100' . random_int(400, 999);
         $client = new \GuzzleHttp\Client();
+        $this->client = $client;
         $access_token = $new_token->getToken();
         $headers = [
             'Authorization' => "Bearer $access_token",
         ];
+        $this->headers = $headers;
         try {
             $client->request('DELETE', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches/%s', $slug->getUserName(), $slug->getUserRepo(), $branch_name), [
                 'headers' => $headers,
