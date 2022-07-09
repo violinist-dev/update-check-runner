@@ -38,6 +38,9 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $project_id = ltrim($url_parsed['path'], '/');
         $branch_name = 'psrlog101' . random_int(400, 999);
         $client = new \GuzzleHttp\Client();
+        $headers = [
+            'PRIVATE-TOKEN' => $token,
+        ];
         $client->request('POST', sprintf('https://gitlab.com/api/v4/projects/%s/repository/commits', $project_id), [
             'json' => [
                 'branch' => $branch_name,
