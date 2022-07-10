@@ -22,6 +22,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
 
     public function testPrsClosedGithub(&$retries = 0)
     {
+        sleep(random_int(15, 45));
         try {
             $client = new Client();
             $token = $this->token;
@@ -83,7 +84,6 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
         $closed_with_success = self::hasPrClosedAndPrClosedSuccess($json);
         if ($retries < 20 && !$closed_with_success) {
             $retries++;
-            sleep(random_int(5, 25));
             return $this->testPrsClosedGithub($retries);
         }
         self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
