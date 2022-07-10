@@ -19,7 +19,7 @@ class CloseOnUpdateGitlabSelfHostedTest extends CloseOnUpdateGitlabTest
 
     protected function createBranchName()
     {
-        return 'psrlog100' . random_int(400, 999);
+        return 'psrlog100' . random_int(400, 999) . uniqid();
     }
 
     protected function handleAfterAuthenticate(GitlabClient $client)
