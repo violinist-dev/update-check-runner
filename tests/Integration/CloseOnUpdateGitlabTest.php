@@ -26,7 +26,7 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
 
     protected function createBranchName()
     {
-        return 'psrlog101' . random_int(400, 999);
+        return 'psrlog101' . random_int(400, 999) . uniqid();
     }
 
     public function testPrsClosedGitlab(&$retries = 0)
