@@ -141,16 +141,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.2.14",
+            "version": "2.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "8c7a2d200bb0e66d6fafeff2f9c9a27188e52842"
+                "reference": "8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/8c7a2d200bb0e66d6fafeff2f9c9a27188e52842",
-                "reference": "8c7a2d200bb0e66d6fafeff2f9c9a27188e52842",
+                "url": "https://api.github.com/repos/composer/composer/zipball/8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6",
+                "reference": "8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6",
                 "shasum": ""
             },
             "require": {
@@ -231,7 +231,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-06T14:32:50+00:00"
+            "time": "2022-07-05T14:50:29+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -583,12 +583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "265b550f558fd17ad4e12730a9556e369570db69"
+                "reference": "9627bc8548ccc13e29ba23c05331f91307e8c987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/265b550f558fd17ad4e12730a9556e369570db69",
-                "reference": "265b550f558fd17ad4e12730a9556e369570db69",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/9627bc8548ccc13e29ba23c05331f91307e8c987",
+                "reference": "9627bc8548ccc13e29ba23c05331f91307e8c987",
                 "shasum": ""
             },
             "require": {
@@ -637,7 +637,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2022-06-21T18:49:43+00:00"
+            "time": "2022-07-09T05:46:23+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3561,12 +3561,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "9354e2e68f4743d968a27dd224a920cea25eeaab"
+                "reference": "05a22f66af64cd619a8baa2bcf985990e9e05e67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/9354e2e68f4743d968a27dd224a920cea25eeaab",
-                "reference": "9354e2e68f4743d968a27dd224a920cea25eeaab",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/05a22f66af64cd619a8baa2bcf985990e9e05e67",
+                "reference": "05a22f66af64cd619a8baa2bcf985990e9e05e67",
                 "shasum": ""
             },
             "require": {
@@ -3604,7 +3604,7 @@
                 }
             ],
             "description": "Updater package",
-            "time": "2022-04-17T11:18:00+00:00"
+            "time": "2022-07-10T05:21:59+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
@@ -3833,16 +3833,16 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "b4ef8b0341d926c0369674f51a72bca8cd3fd2f7"
+                "reference": "34c87185860e6c9593ba6aa76c438bd05ce7640a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/b4ef8b0341d926c0369674f51a72bca8cd3fd2f7",
-                "reference": "b4ef8b0341d926c0369674f51a72bca8cd3fd2f7",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/34c87185860e6c9593ba6aa76c438bd05ce7640a",
+                "reference": "34c87185860e6c9593ba6aa76c438bd05ce7640a",
                 "shasum": ""
             },
             "require": {
@@ -3864,7 +3864,7 @@
                 "MIT"
             ],
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "time": "2022-03-28T10:54:08+00:00"
+            "time": "2022-06-28T12:40:00+00:00"
         },
         {
             "name": "wa72/simplelogger",
