@@ -44,30 +44,32 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
 
     public function testPrsClosedGitlab(&$retries = 0)
     {
-        $url = $this->url;
-        $token = $this->getGitlabToken($url);
-        // We want to just, I guess, open all the PRs again?
-        $client = $this->client;
-        $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
-        $this->handleAfterAuthenticate($client);
-        $project_id = $this->getProjectId();
-        $branch_name = $this->branchName;
-        $client->repositories()->createCommit($project_id, [
-            'branch' => $branch_name,
-            'start_branch' => 'master',
-            'commit_message' => 'temp',
-            'actions' => [
-                [
-                    'action' => 'create',
-                    'file_path' => 'test.txt',
-                    'content' => 'temp',
+        try {
+            $url = $this->url;
+            $token = $this->getGitlabToken($url);
+            // We want to just, I guess, open all the PRs again?
+            $client = $this->client;
+            $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
+            $this->handleAfterAuthenticate($client);
+            $project_id = $this->getProjectId();
+            $branch_name = $this->branchName;
+            $client->repositories()->createCommit($project_id, [
+                'branch' => $branch_name,
+                'start_branch' => 'master',
+                'commit_message' => 'temp',
+                'actions' => [
+                    [
+                        'action' => 'create',
+                        'file_path' => 'test.txt',
+                        'content' => 'temp',
+                    ]
                 ]
-            ]
-        ]);
-        /** @var MergeRequests $mr */
-        $mr = $client->api('mr');
-        $assignee = null;
-        $data = $mr->create($project_id, $branch_name, 'master', 'test pr', $assignee, null, 'test pr');
+            ]);
+            /** @var MergeRequests $mr */
+            $mr = $client->api('mr');
+            $assignee = null;
+            $data = $mr->create($project_id, $branch_name, 'master', 'test pr', $assignee, null, 'test pr');
+        } catch (\Throwable $e) {}
         // Now, let's run this stuff. It should certainly contain some closing action.
         $extra_params = [
             'fork_user' => getenv('FORK_USER'),
