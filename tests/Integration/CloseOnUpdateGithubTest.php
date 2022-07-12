@@ -40,6 +40,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
         try {
+            $e = null;
             $token = $this->token;
             $this->client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
             $client = $this->client;
