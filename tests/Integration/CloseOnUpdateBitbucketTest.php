@@ -21,6 +21,7 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
             $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
             return;
         }
+        sleep(random_int(15, 45));
         $provider = new Bitbucket([
             'clientId' => getenv('BITBUCKET_CLIENT_ID'),
             'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
