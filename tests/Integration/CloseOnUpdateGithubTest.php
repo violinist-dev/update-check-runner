@@ -37,7 +37,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
     {
         sleep(random_int(15, 45));
         try {
-            $this->deleteBranch();
+            $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
         try {
             $token = $this->token;
