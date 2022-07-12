@@ -11,15 +11,12 @@ use Violinist\Slug\Slug;
 
 class CloseOnUpdateGitlabSelfHostedTest extends CloseOnUpdateGitlabTest
 {
+    protected $psrLogVersion = '100';
+
     public function setUp()
     {
         parent::setUp();
         $this->url = getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO');
-    }
-
-    protected function createBranchName()
-    {
-        return 'psrlog100' . random_int(400, 999) . uniqid();
     }
 
     protected function handleAfterAuthenticate(GitlabClient $client)

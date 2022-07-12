@@ -31,7 +31,7 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         ]);
         $url = getenv('BITBUCKET_PRIVATE_REPO');
         $slug = Slug::createFromUrl($url);
-        $branch_name = 'psrlog100' . random_int(400, 999);
+        $branch_name = $this->branchName;
         $client = new \GuzzleHttp\Client();
         $this->client = $client;
         $access_token = $new_token->getToken();
@@ -40,9 +40,7 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         ];
         $this->headers = $headers;
         try {
-            $client->request('DELETE', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches/%s', $slug->getUserName(), $slug->getUserRepo(), $branch_name), [
-                'headers' => $headers,
-            ]);
+            $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {
             // Probably nothing to remove?
         }
@@ -84,7 +82,7 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         $json = $this->getProcessAndRunWithoutError($new_token->getToken(), $url);
         $closed_with_success = self::hasPrClosedAndPrClosedSuccess($json);
         try {
-            $client->repositories()->users($slug->getUserName())->refs($slug->getUserRepo())->branches()->remove($branch_name);
+            $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {
             // Probably nothing to remove?
         }

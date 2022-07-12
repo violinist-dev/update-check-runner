@@ -12,21 +12,34 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
 {
     protected $token;
     protected $url;
+    /**
+     * @var Client
+     */
+    protected $client;
+
+    protected function deleteBranch($branch_name)
+    {
+        $slug = Slug::createFromUrl($this->url);
+        $token = $this->token;
+        $this->client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+        $this->client->api('git')->references()->remove($slug->getUserName(), $slug->getUserRepo(), sprintf('heads/%s', $branch_name));
+    }
 
     public function setUp()
     {
         parent::setUp();
         $this->token = getenv('GITHUB_PRIVATE_USER_TOKEN');
         $this->url = getenv('GITHUB_PRIVATE_REPO');
+        $this->client = new Client();
     }
 
     public function testPrsClosedGithub(&$retries = 0)
     {
         sleep(random_int(15, 45));
         try {
-            $client = new Client();
             $token = $this->token;
-            $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+            $this->client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+            $client = $this->client;
             $slug = Slug::createFromUrl($this->url);
             /** @var Repo $repo */
             $repo = $client->api('repo');
@@ -61,7 +74,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
                     $sha,
                 ],
             ]);
-            $branch_name = $this->createBranchName();
+            $branch_name = $this->branchName;
             $data = $api->references()->create($slug->getUserName(), $slug->getUserRepo(), [
                 'ref' => 'refs/heads/' . $branch_name,
                 'sha' => $data['sha'],
@@ -87,11 +100,6 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             return $this->testPrsClosedGithub($retries);
         }
         self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
-    }
-
-    protected function createBranchName()
-    {
-        return 'psrlog100' . random_int(400, 999);
     }
 
     protected function getExtraParams()

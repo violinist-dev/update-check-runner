@@ -13,20 +13,33 @@ use Violinist\Slug\Slug;
 class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
 {
     protected $url;
+    protected $psrLogVersion = '101';
+    /**
+     * @var GitlabClient
+     */
+    protected $client;
 
     public function setUp()
     {
         parent::setUp();
         $this->url = getenv('GITLAB_PRIVATE_REPO');
+        $this->client = new GitlabClient();
+    }
+
+    protected function deleteBranch($branch_name)
+    {
+        $this->client->repositories()->deleteBranch($this->getProjectId(), $branch_name);
     }
 
     protected function handleAfterAuthenticate(GitlabClient $client)
     {
     }
 
-    protected function createBranchName()
+    protected function getProjectId()
     {
-        return 'psrlog101' . random_int(400, 999) . uniqid();
+        $url_parsed = parse_url($this->url);
+        $project_id = ltrim($url_parsed['path'], '/');
+        return $project_id;
     }
 
     public function testPrsClosedGitlab(&$retries = 0)
@@ -34,12 +47,11 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $url = $this->url;
         $token = $this->getGitlabToken($url);
         // We want to just, I guess, open all the PRs again?
-        $client = new GitlabClient();
+        $client = $this->client;
         $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
         $this->handleAfterAuthenticate($client);
-        $url_parsed = parse_url($url);
-        $project_id = ltrim($url_parsed['path'], '/');
-        $branch_name = $this->createBranchName();
+        $project_id = $this->getProjectId();
+        $branch_name = $this->branchName;
         $client->repositories()->createCommit($project_id, [
             'branch' => $branch_name,
             'start_branch' => 'master',

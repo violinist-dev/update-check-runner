@@ -7,6 +7,34 @@ use Violinist\Slug\Slug;
 
 abstract class CloseOnUpdateBase extends IntegrationBase
 {
+    protected $branchName;
+    protected $psrLogVersion = '100';
+
+    public function tearDown()
+    {
+        try {
+            $this->deleteBranch($this->branchName);
+        } catch (\Throwable $e) {
+            // That's OK.
+        }
+    }
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->branchName = $this->createBranchName();
+    }
+
+    protected function createBranchName()
+    {
+        return sprintf('psrlog%s%s%s', $this->psrLogVersion, random_int(500, 1500), uniqid());
+    }
+
+    protected function deleteBranch($branch_name)
+    {
+        // Empty default implementation.
+    }
+
     public static function hasPrClosedAndPrClosedSuccess($json)
     {
         $pr_closed_found = false;

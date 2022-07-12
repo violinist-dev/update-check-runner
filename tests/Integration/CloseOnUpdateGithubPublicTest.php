@@ -8,6 +8,8 @@ use Violinist\Slug\Slug;
 
 class CloseOnUpdateGithubPublicTest extends CloseOnUpdateGithubTest
 {
+    protected $psrLogVersion = '101';
+
     public function setUp()
     {
         parent::setUp();
@@ -26,10 +28,5 @@ class CloseOnUpdateGithubPublicTest extends CloseOnUpdateGithubTest
             'token_url' => getenv('TOKEN_URL'),
         ];
         return $extra_params;
-    }
-
-    protected function createBranchName()
-    {
-        return 'psrlog101' . random_int(400, 999);
     }
 }
