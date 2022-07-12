@@ -44,6 +44,7 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
 
     public function testPrsClosedGitlab(&$retries = 0)
     {
+        sleep(random_int(15, 45));
         try {
             $url = $this->url;
             $token = $this->getGitlabToken($url);
