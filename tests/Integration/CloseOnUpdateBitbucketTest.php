@@ -41,6 +41,7 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         ];
         $this->headers = $headers;
         try {
+            $e = null;
             $client->request('POST', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches', $slug->getUserName(), $slug->getUserRepo()), [
                 'json' => [
                     'name' => $branch_name,
@@ -82,6 +83,9 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         if ($retries < 20 && !$closed_with_success) {
             $retries++;
             return $this->testPrsClosedBitbucket($retries);
+        }
+        if ($e) {
+            var_dump([$e->getMessage(), $e->getTraceAsString()]);
         }
         self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
     }
