@@ -28,8 +28,8 @@ abstract class CloseOnUpdateBase extends IntegrationBase
     protected function createBranchName()
     {
         $length = 13;
-        $bytes = random_bytes(ceil($lenght / 2));
-        $id = substr(bin2hex($bytes), 0, $lenght);
+        $bytes = random_bytes(ceil($length / 2));
+        $id = substr(bin2hex($bytes), 0, $length);
         return sprintf('psrlog%s%s%s', $this->psrLogVersion, random_int(500, 1500), $id);
     }
 
