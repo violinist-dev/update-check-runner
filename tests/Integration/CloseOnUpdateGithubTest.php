@@ -100,7 +100,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             return $this->testPrsClosedGithub($retries);
         }
         if ($e) {
-            var_dump($e);
+            var_dump([$e->getMessage(), $e->getTraceAsString()]);
         }
         self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
     }
