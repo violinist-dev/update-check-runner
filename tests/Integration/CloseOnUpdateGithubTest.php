@@ -37,6 +37,9 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
     {
         sleep(random_int(15, 45));
         try {
+            $this->deleteBranch();
+        } catch (\Throwable $e) {}
+        try {
             $token = $this->token;
             $this->client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
             $client = $this->client;
