@@ -45,6 +45,7 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
     public function testPrsClosedGitlab(&$retries = 0)
     {
         sleep(random_int(15, 45));
+        $e = null;
         try {
             $url = $this->url;
             $token = $this->getGitlabToken($url);
@@ -81,6 +82,9 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         if ($retries < 20 && !$has_it) {
             $retries++;
             return $this->testPrsClosedGitlab($retries);
+        }
+        if ($e) {
+            var_dump([$e->getMessage(), $e->getTraceAsString()]);
         }
         self::assertTrue($has_it);
     }
