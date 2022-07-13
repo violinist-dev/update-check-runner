@@ -35,6 +35,10 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         ]);
         $url = getenv('BITBUCKET_PRIVATE_REPO');
         $slug = Slug::createFromUrl($url);
+        $this->branchName = $this->createBranchName();
+        try {
+            $this->deleteBranch($this->branchName);
+        } catch (\Throwable $e) {}
         $branch_name = $this->branchName;
         $client = new \GuzzleHttp\Client();
         $this->client = $client;
