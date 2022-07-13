@@ -22,6 +22,9 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
             return;
         }
         sleep(random_int(15, 45));
+        try {
+            $this->deleteBranch($this->branchName);
+        } catch (\Throwable $e) {}
         $provider = new Bitbucket([
             'clientId' => getenv('BITBUCKET_CLIENT_ID'),
             'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
