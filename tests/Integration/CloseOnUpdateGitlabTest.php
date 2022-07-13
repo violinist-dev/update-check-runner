@@ -45,11 +45,13 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
     public function testPrsClosedGitlab(&$retries = 0)
     {
         sleep(random_int(15, 45));
+        try {
+            $this->deleteBranch($this->branchName);
+        } catch (\Throwable $e) {}
         $e = null;
         try {
             $url = $this->url;
             $token = $this->getGitlabToken($url);
-            // We want to just, I guess, open all the PRs again?
             $client = $this->client;
             $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
             $this->handleAfterAuthenticate($client);
