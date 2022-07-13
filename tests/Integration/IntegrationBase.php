@@ -2,6 +2,8 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
+use GuzzleHttp\Psr7\Request;
+use Http\Adapter\Guzzle6\Client as HttpClient;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Process\Process;
@@ -113,6 +115,18 @@ abstract class IntegrationBase extends TestCase
         $json = @json_decode($process->getOutput());
         $this->assertFalse(empty($json));
         return $json;
+    }
+
+    protected function getGitlabToken($url)
+    {
+        $client = new HttpClient();
+        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN') . '&url=' . $url);
+        $response = $client->sendRequest($request);
+        $json = json_decode($response->getBody());
+        if (empty($json->token)) {
+            throw new \Exception('No token found for this test to run');
+        }
+        return $json->token;
     }
 
 }

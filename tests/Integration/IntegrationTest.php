@@ -8,8 +8,6 @@ use Github\Api\PullRequest;
 use Github\Client;
 use Github\ResultPager;
 use Gitlab\Client as GitlabClient;
-use GuzzleHttp\Psr7\Request;
-use Http\Adapter\Guzzle6\Client as HttpClient;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\ProjectData\ProjectData;
 use Violinist\Slug\Slug;
@@ -268,18 +266,6 @@ class IntegrationTest extends IntegrationBase
         }
         sleep(rand(1, 10));
         return $this->testUpdateAssigneesGitlab($count);
-    }
-
-    protected function getGitlabToken($url)
-    {
-        $client = new HttpClient();
-        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN') . '&url=' . $url);
-        $response = $client->sendRequest($request);
-        $json = json_decode($response->getBody());
-        if (empty($json->token)) {
-            throw new \Exception('No token found for this test to run');
-        }
-        return $json->token;
     }
 
     public function testWhyNot()
