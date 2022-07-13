@@ -37,6 +37,10 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
     {
         sleep(random_int(15, 45));
         try {
+            $this->deleteBranch($this->branchName);
+        } catch (\Throwable $e) {}
+        try {
+            $e = null;
             $token = $this->token;
             $this->client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
             $client = $this->client;
@@ -98,6 +102,9 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
         if ($retries < 20 && !$closed_with_success) {
             $retries++;
             return $this->testPrsClosedGithub($retries);
+        }
+        if ($e) {
+            var_dump([$e->getMessage(), $e->getTraceAsString()]);
         }
         self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
     }
