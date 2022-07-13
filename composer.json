@@ -18,7 +18,7 @@
     "ext-pcntl": "*",
     "ext-redis": "*",
     "ext-imagick": "*",
-    "eiriksm/cosy-composer": "dev-feat/close-outdated",
+    "eiriksm/cosy-composer": "dev-master",
     "symfony/dependency-injection": "^3.4",
     "php-http/guzzle6-adapter": "^1.1",
     "eiriksm/gitinfo": "^1.1",

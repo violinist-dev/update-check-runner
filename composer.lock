@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff5cfc2dd402f68e790a45fbfef0e26b",
+    "content-hash": "ec811e0153750491c6d1f02cce419a22",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -150,16 +150,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.2.16",
+            "version": "2.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6"
+                "reference": "a8ab5070fb99396e4710baee286478ad697724c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6",
-                "reference": "8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6",
+                "url": "https://api.github.com/repos/composer/composer/zipball/a8ab5070fb99396e4710baee286478ad697724c2",
+                "reference": "a8ab5070fb99396e4710baee286478ad697724c2",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +229,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.2.16"
+                "source": "https://github.com/composer/composer/tree/2.2.17"
             },
             "funding": [
                 {
@@ -245,7 +245,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-05T14:50:29+00:00"
+            "time": "2022-07-13T13:27:38+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -616,16 +616,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-feat/close-outdated",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "e59b64bb32a07884c8b8943a7d0b348c40abea51"
+                "reference": "ad547a85c973e96f983412bba295556d26bd0185"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/e59b64bb32a07884c8b8943a7d0b348c40abea51",
-                "reference": "e59b64bb32a07884c8b8943a7d0b348c40abea51",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/ad547a85c973e96f983412bba295556d26bd0185",
+                "reference": "ad547a85c973e96f983412bba295556d26bd0185",
                 "shasum": ""
             },
             "require": {
@@ -656,6 +656,7 @@
                 "phpunit/phpunit": "^6",
                 "squizlabs/php_codesniffer": "^3.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -676,9 +677,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/feat/close-outdated"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/master"
             },
-            "time": "2022-07-09T05:46:36+00:00"
+            "time": "2022-07-13T13:01:43+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3730,12 +3731,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "e458c8ad552d2e7fa5a78f7bca3351048ac5ffae"
+                "reference": "05a22f66af64cd619a8baa2bcf985990e9e05e67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/e458c8ad552d2e7fa5a78f7bca3351048ac5ffae",
-                "reference": "e458c8ad552d2e7fa5a78f7bca3351048ac5ffae",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/05a22f66af64cd619a8baa2bcf985990e9e05e67",
+                "reference": "05a22f66af64cd619a8baa2bcf985990e9e05e67",
                 "shasum": ""
             },
             "require": {
@@ -3778,7 +3779,7 @@
                 "issues": "https://github.com/violinist-dev/composer-updater/issues",
                 "source": "https://github.com/violinist-dev/composer-updater/tree/master"
             },
-            "time": "2022-07-08T14:09:42+00:00"
+            "time": "2022-07-10T05:21:59+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
