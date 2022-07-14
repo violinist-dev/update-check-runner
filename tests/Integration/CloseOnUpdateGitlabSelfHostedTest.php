@@ -13,7 +13,7 @@ class CloseOnUpdateGitlabSelfHostedTest extends CloseOnUpdateGitlabTest
 {
     protected $psrLogVersion = '100';
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->url = getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO');
