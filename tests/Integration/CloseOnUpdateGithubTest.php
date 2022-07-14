@@ -25,7 +25,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
         $this->client->api('git')->references()->remove($slug->getUserName(), $slug->getUserRepo(), sprintf('heads/%s', $branch_name));
     }
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->token = getenv('GITHUB_PRIVATE_USER_TOKEN');
