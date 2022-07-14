@@ -10,7 +10,7 @@ abstract class CloseOnUpdateBase extends IntegrationBase
     protected $branchName;
     protected $psrLogVersion = '100';
 
-    public function tearDown()
+    public function tearDown() : void
     {
         try {
             $this->deleteBranch($this->branchName);
