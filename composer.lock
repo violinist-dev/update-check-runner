@@ -56,6 +56,10 @@
                 "stream_filter_append",
                 "stream_filter_register"
             ],
+            "support": {
+                "issues": "https://github.com/clue/stream-filter/issues",
+                "source": "https://github.com/clue/stream-filter/tree/v1.6.0"
+            },
             "funding": [
                 {
                     "url": "https://clue.engineering/support",
@@ -123,6 +127,11 @@
                 "ssl",
                 "tls"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/ca-bundle/issues",
+                "source": "https://github.com/composer/ca-bundle/tree/1.3.2"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -141,16 +150,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.2.14",
+            "version": "2.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "8c7a2d200bb0e66d6fafeff2f9c9a27188e52842"
+                "reference": "a8ab5070fb99396e4710baee286478ad697724c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/8c7a2d200bb0e66d6fafeff2f9c9a27188e52842",
-                "reference": "8c7a2d200bb0e66d6fafeff2f9c9a27188e52842",
+                "url": "https://api.github.com/repos/composer/composer/zipball/a8ab5070fb99396e4710baee286478ad697724c2",
+                "reference": "a8ab5070fb99396e4710baee286478ad697724c2",
                 "shasum": ""
             },
             "require": {
@@ -217,6 +226,11 @@
                 "dependency",
                 "package"
             ],
+            "support": {
+                "irc": "ircs://irc.libera.chat:6697/composer",
+                "issues": "https://github.com/composer/composer/issues",
+                "source": "https://github.com/composer/composer/tree/2.2.17"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -231,7 +245,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-06T14:32:50+00:00"
+            "time": "2022-07-13T13:27:38+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -282,6 +296,10 @@
                 "composer",
                 "compression"
             ],
+            "support": {
+                "issues": "https://github.com/composer/metadata-minifier/issues",
+                "source": "https://github.com/composer/metadata-minifier/tree/1.0.0"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -349,6 +367,10 @@
                 "regex",
                 "regular expression"
             ],
+            "support": {
+                "issues": "https://github.com/composer/pcre/issues",
+                "source": "https://github.com/composer/pcre/tree/1.0.1"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -425,6 +447,11 @@
                 "validation",
                 "versioning"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/semver/issues",
+                "source": "https://github.com/composer/semver/tree/3.3.2"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -500,6 +527,11 @@
                 "spdx",
                 "validator"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/spdx-licenses/issues",
+                "source": "https://github.com/composer/spdx-licenses/tree/1.5.7"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -561,6 +593,11 @@
                 "Xdebug",
                 "performance"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/xdebug-handler/issues",
+                "source": "https://github.com/composer/xdebug-handler/tree/2.0.5"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -583,12 +620,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "265b550f558fd17ad4e12730a9556e369570db69"
+                "reference": "ad547a85c973e96f983412bba295556d26bd0185"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/265b550f558fd17ad4e12730a9556e369570db69",
-                "reference": "265b550f558fd17ad4e12730a9556e369570db69",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/ad547a85c973e96f983412bba295556d26bd0185",
+                "reference": "ad547a85c973e96f983412bba295556d26bd0185",
                 "shasum": ""
             },
             "require": {
@@ -611,7 +648,7 @@
                 "violinist-dev/slug-from-url": "^1",
                 "violinist-dev/symfony-cloud-security-checker": "^1",
                 "violinist-dev/violinist-config": "^1.3",
-                "violinist-dev/violinist-messages": "^1.3.1",
+                "violinist-dev/violinist-messages": "^1.4.0",
                 "wa72/simplelogger": "^1.0"
             },
             "require-dev": {
@@ -619,6 +656,7 @@
                 "phpunit/phpunit": "^6",
                 "squizlabs/php_codesniffer": "^3.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -637,7 +675,11 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2022-06-21T18:49:43+00:00"
+            "support": {
+                "issues": "https://github.com/eiriksm/cosy-composer/issues",
+                "source": "https://github.com/eiriksm/cosy-composer/tree/master"
+            },
+            "time": "2022-07-13T13:01:43+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -700,6 +742,10 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Array output for console commands",
+            "support": {
+                "issues": "https://github.com/eiriksm/symfony-console-array-output/issues",
+                "source": "https://github.com/eiriksm/symfony-console-array-output/tree/master"
+            },
             "time": "2018-02-26T15:46:09+00:00"
         },
         {
@@ -1019,6 +1065,10 @@
                 "json",
                 "schema"
             ],
+            "support": {
+                "issues": "https://github.com/justinrainbow/json-schema/issues",
+                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.12"
+            },
             "time": "2022-04-13T08:02:27+00:00"
         },
         {
@@ -1086,6 +1136,10 @@
                 "gist",
                 "github"
             ],
+            "support": {
+                "issues": "https://github.com/KnpLabs/php-github-api/issues",
+                "source": "https://github.com/KnpLabs/php-github-api/tree/master"
+            },
             "time": "2019-01-28T19:31:35+00:00"
         },
         {
@@ -1170,6 +1224,10 @@
                 "sftp",
                 "storage"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/flysystem/issues",
+                "source": "https://github.com/thephpleague/flysystem/tree/1.0.70"
+            },
             "funding": [
                 {
                     "url": "https://offset.earth/frankdejonge",
@@ -1240,6 +1298,10 @@
                 "api",
                 "gitlab"
             ],
+            "support": {
+                "issues": "https://github.com/GitLabPHP/Client/issues",
+                "source": "https://github.com/GitLabPHP/Client/tree/9.17.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -1385,6 +1447,10 @@
                 }
             ],
             "description": "Parse a URI and return its components",
+            "support": {
+                "issues": "https://github.com/peterpostmann/php-parse_uri/issues",
+                "source": "https://github.com/peterpostmann/php-parse_uri/tree/1.0.0"
+            },
             "time": "2017-11-17T15:27:54+00:00"
         },
         {
@@ -1441,6 +1507,10 @@
                 "httplug",
                 "plugin"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/cache-plugin/issues",
+                "source": "https://github.com/php-http/cache-plugin/tree/master"
+            },
             "time": "2019-01-23T16:51:58+00:00"
         },
         {
@@ -1502,6 +1572,10 @@
                 "http",
                 "httplug"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/client-common/issues",
+                "source": "https://github.com/php-http/client-common/tree/1.11.0"
+            },
             "time": "2021-07-11T14:33:59+00:00"
         },
         {
@@ -1566,6 +1640,10 @@
                 "message",
                 "psr7"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/discovery/issues",
+                "source": "https://github.com/php-http/discovery/tree/master"
+            },
             "time": "2019-02-23T07:42:53+00:00"
         },
         {
@@ -1682,6 +1760,10 @@
                 "client",
                 "http"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/httplug/issues",
+                "source": "https://github.com/php-http/httplug/tree/master"
+            },
             "time": "2016-08-31T08:30:17+00:00"
         },
         {
@@ -1754,6 +1836,10 @@
                 "message",
                 "psr-7"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/message/issues",
+                "source": "https://github.com/php-http/message/tree/master"
+            },
             "time": "2018-11-01T09:32:41+00:00"
         },
         {
@@ -1804,6 +1890,10 @@
                 "stream",
                 "uri"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/message-factory/issues",
+                "source": "https://github.com/php-http/message-factory/tree/master"
+            },
             "time": "2015-12-19T14:08:53+00:00"
         },
         {
@@ -1861,6 +1951,10 @@
                 "multipart stream",
                 "stream"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/multipart-stream-builder/issues",
+                "source": "https://github.com/php-http/multipart-stream-builder/tree/master"
+            },
             "time": "2017-05-21T17:45:25+00:00"
         },
         {
@@ -1911,6 +2005,10 @@
             "keywords": [
                 "promise"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/promise/issues",
+                "source": "https://github.com/php-http/promise/tree/master"
+            },
             "time": "2016-01-26T13:27:02+00:00"
         },
         {
@@ -1957,6 +2055,9 @@
                 "psr",
                 "psr-6"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/master"
+            },
             "time": "2016-08-06T20:24:11+00:00"
         },
         {
@@ -2006,6 +2107,10 @@
                 "container-interop",
                 "psr"
             ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/master"
+            },
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
@@ -2056,6 +2161,9 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
@@ -2103,6 +2211,9 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
             "time": "2021-05-03T11:20:27+00:00"
         },
         {
@@ -2205,6 +2316,10 @@
                 "promise",
                 "promises"
             ],
+            "support": {
+                "issues": "https://github.com/reactphp/promise/issues",
+                "source": "https://github.com/reactphp/promise/tree/v2.9.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/WyriHaximus",
@@ -2265,6 +2380,10 @@
                 "parser",
                 "validator"
             ],
+            "support": {
+                "issues": "https://github.com/Seldaek/jsonlint/issues",
+                "source": "https://github.com/Seldaek/jsonlint/tree/1.9.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -2319,6 +2438,10 @@
             "keywords": [
                 "phar"
             ],
+            "support": {
+                "issues": "https://github.com/Seldaek/phar-utils/issues",
+                "source": "https://github.com/Seldaek/phar-utils/tree/1.2.0"
+            },
             "time": "2021-12-10T11:20:11+00:00"
         },
         {
@@ -2386,6 +2509,9 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/console/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2451,6 +2577,9 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/debug/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2657,6 +2786,9 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/filesystem/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2715,6 +2847,9 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/finder/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2778,6 +2913,9 @@
                 "configuration",
                 "options"
             ],
+            "support": {
+                "source": "https://github.com/symfony/options-resolver/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2854,6 +2992,9 @@
                 "polyfill",
                 "portable"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.19.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3020,6 +3161,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.19.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3097,6 +3241,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.19.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3305,6 +3452,9 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v3.4.47"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3383,6 +3533,10 @@
             "keywords": [
                 "templating"
             ],
+            "support": {
+                "issues": "https://github.com/twigphp/Twig/issues",
+                "source": "https://github.com/twigphp/Twig/tree/1.x"
+            },
             "time": "2020-02-11T05:59:23+00:00"
         },
         {
@@ -3426,6 +3580,10 @@
                 }
             ],
             "description": "Handles the allow list for violinist",
+            "support": {
+                "issues": "https://github.com/violinist-dev/allow-list-handler/issues",
+                "source": "https://github.com/violinist-dev/allow-list-handler/tree/1.0.0"
+            },
             "time": "2021-11-09T06:25:59+00:00"
         },
         {
@@ -3468,6 +3626,10 @@
                 }
             ],
             "description": "Generates commit messages for violinist",
+            "support": {
+                "issues": "https://github.com/violinist-dev/commit-message-creator/issues",
+                "source": "https://github.com/violinist-dev/commit-message-creator/tree/1.2.0"
+            },
             "time": "2022-01-24T19:50:59+00:00"
         },
         {
@@ -3513,6 +3675,10 @@
                 "MIT"
             ],
             "description": "Fetch changelog for a given composer update",
+            "support": {
+                "issues": "https://github.com/violinist-dev/composer-changelog-fetcher/issues",
+                "source": "https://github.com/violinist-dev/composer-changelog-fetcher/tree/1.0.0"
+            },
             "time": "2022-03-18T06:45:35+00:00"
         },
         {
@@ -3553,6 +3719,10 @@
                     "email": "eirik@morland.no"
                 }
             ],
+            "support": {
+                "issues": "https://github.com/violinist-dev/composer-lock-data/issues",
+                "source": "https://github.com/violinist-dev/composer-lock-data/tree/master"
+            },
             "time": "2019-02-27T06:38:31+00:00"
         },
         {
@@ -3561,12 +3731,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "9354e2e68f4743d968a27dd224a920cea25eeaab"
+                "reference": "05a22f66af64cd619a8baa2bcf985990e9e05e67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/9354e2e68f4743d968a27dd224a920cea25eeaab",
-                "reference": "9354e2e68f4743d968a27dd224a920cea25eeaab",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/05a22f66af64cd619a8baa2bcf985990e9e05e67",
+                "reference": "05a22f66af64cd619a8baa2bcf985990e9e05e67",
                 "shasum": ""
             },
             "require": {
@@ -3580,6 +3750,7 @@
                 "satooshi/php-coveralls": "^2.0",
                 "squizlabs/php_codesniffer": "^3.3"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -3604,7 +3775,11 @@
                 }
             ],
             "description": "Updater package",
-            "time": "2022-04-17T11:18:00+00:00"
+            "support": {
+                "issues": "https://github.com/violinist-dev/composer-updater/issues",
+                "source": "https://github.com/violinist-dev/composer-updater/tree/master"
+            },
+            "time": "2022-07-10T05:21:59+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
@@ -3633,6 +3808,10 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Format changelog-like git logs",
+            "support": {
+                "issues": "https://github.com/violinist-dev/git-log-format/issues",
+                "source": "https://github.com/violinist-dev/git-log-format/tree/1.1.2"
+            },
             "time": "2021-12-09T08:00:21+00:00"
         },
         {
@@ -3672,6 +3851,10 @@
                     "email": "eirik@morland.no"
                 }
             ],
+            "support": {
+                "issues": "https://github.com/violinist-dev/process-factory/issues",
+                "source": "https://github.com/violinist-dev/process-factory/tree/master"
+            },
             "time": "2019-02-12T17:29:51+00:00"
         },
         {
@@ -3710,6 +3893,10 @@
                 }
             ],
             "description": "Project data object for storing project info when sending to workers.",
+            "support": {
+                "issues": "https://github.com/violinist-dev/project-data/issues",
+                "source": "https://github.com/violinist-dev/project-data/tree/1.1.4"
+            },
             "time": "2020-11-27T15:17:06+00:00"
         },
         {
@@ -3751,6 +3938,10 @@
                 }
             ],
             "description": "Get a slug from a URL",
+            "support": {
+                "issues": "https://github.com/violinist-dev/slug-from-url/issues",
+                "source": "https://github.com/violinist-dev/slug-from-url/tree/1.2.1"
+            },
             "time": "2019-05-16T13:52:59+00:00"
         },
         {
@@ -3791,6 +3982,10 @@
                     "email": "eirik@morland.no"
                 }
             ],
+            "support": {
+                "issues": "https://github.com/violinist-dev/symfony-cloud-security-checker/issues",
+                "source": "https://github.com/violinist-dev/symfony-cloud-security-checker/tree/master"
+            },
             "time": "2019-02-02T15:19:27+00:00"
         },
         {
@@ -3829,20 +4024,24 @@
                 }
             ],
             "description": "Get violinist config from composer.json",
+            "support": {
+                "issues": "https://github.com/violinist-dev/violinist-config/issues",
+                "source": "https://github.com/violinist-dev/violinist-config/tree/1.3.0"
+            },
             "time": "2022-06-08T06:22:11+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "b4ef8b0341d926c0369674f51a72bca8cd3fd2f7"
+                "reference": "34c87185860e6c9593ba6aa76c438bd05ce7640a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/b4ef8b0341d926c0369674f51a72bca8cd3fd2f7",
-                "reference": "b4ef8b0341d926c0369674f51a72bca8cd3fd2f7",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/34c87185860e6c9593ba6aa76c438bd05ce7640a",
+                "reference": "34c87185860e6c9593ba6aa76c438bd05ce7640a",
                 "shasum": ""
             },
             "require": {
@@ -3864,7 +4063,11 @@
                 "MIT"
             ],
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "time": "2022-03-28T10:54:08+00:00"
+            "support": {
+                "issues": "https://github.com/violinist-dev/violinist-messages/issues",
+                "source": "https://github.com/violinist-dev/violinist-messages/tree/1.4.0"
+            },
+            "time": "2022-06-28T12:40:00+00:00"
         },
         {
             "name": "wa72/simplelogger",
@@ -3911,6 +4114,10 @@
                 "logger",
                 "psr-3"
             ],
+            "support": {
+                "issues": "https://github.com/wasinger/simplelogger/issues",
+                "source": "https://github.com/wasinger/simplelogger/tree/master"
+            },
             "time": "2018-03-07T17:10:45+00:00"
         }
     ],
@@ -5523,5 +5730,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.2.0"
 }
