@@ -19,7 +19,7 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
      */
     protected $client;
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->url = getenv('GITLAB_PRIVATE_REPO');
