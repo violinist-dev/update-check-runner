@@ -101,6 +101,9 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
         $closed_with_success = self::hasPrClosedAndPrClosedSuccess($json);
         if ($retries < 20 && !$closed_with_success) {
             $retries++;
+            if ($e && strpos($e->getMessage(), 'You have exceeded a secondary rate limit') === 0) {
+                sleep(random_int(90, 120));
+            }
             return $this->testPrsClosedGithub($retries);
         }
         if ($e) {
