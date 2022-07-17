@@ -5,6 +5,7 @@ namespace Violinist\UpdateCheckRunner\Tests\Integration;
 use eiriksm\CosyComposer\Providers\Github;
 use eiriksm\CosyComposer\Providers\Gitlab;
 use Github\Api\PullRequest;
+use Github\AuthMethod;
 use Github\Client;
 use Github\ResultPager;
 use Gitlab\Client as GitlabClient;
@@ -75,7 +76,7 @@ class IntegrationTest extends IntegrationBase
             // Close all of the pull requests, so we can actually see that we update bundled.
             $client = new Client();
             $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
-            $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+            $client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
             $pager = new ResultPager($client);
             /** @var PullRequest $api */
             $api = $client->api('pr');
@@ -257,7 +258,8 @@ class IntegrationTest extends IntegrationBase
                 }
             }
             if ($has_assignee && $has_updated) {
-                return $this->assertTrue(true, 'Found the assignee');
+                $this->assertTrue(true, 'Found the assignee');
+                return;
             }
         } catch (\Throwable $e) {}
         $count++;
@@ -290,6 +292,9 @@ class IntegrationTest extends IntegrationBase
             // The reason should be something along these lines:
             // vendor/other-private-dep  9999999-dev  requires  psr/log (1.0.0)
             $matches = [];
+            if (empty($message->message)) {
+                continue;
+            }
             if (!preg_match('/\S+\s.*requires.*psr\/log.*1\.0\.0/', $message->message, $matches)) {
                 continue;
             }

@@ -2,9 +2,6 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
-use Violinist\Slug\Slug;
-
 abstract class CloseOnUpdateBase extends IntegrationBase
 {
     protected $branchName;

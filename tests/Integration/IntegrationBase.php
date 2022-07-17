@@ -3,7 +3,7 @@
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
 use GuzzleHttp\Psr7\Request;
-use Http\Adapter\Guzzle6\Client as HttpClient;
+use Http\Adapter\Guzzle7\Client as HttpClient;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Process\Process;

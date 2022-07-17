@@ -45,6 +45,7 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
     public function testPrsClosedGitlab(&$retries = 0)
     {
         sleep(random_int(15, 45));
+        $token = null;
         try {
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
@@ -70,9 +71,11 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
                 ]
             ]);
             /** @var MergeRequests $mr */
-            $mr = $client->api('mr');
+            $mr = $client->mergeRequests();
             $assignee = null;
-            $data = $mr->create($project_id, $branch_name, 'master', 'test pr', $assignee, null, 'test pr');
+            $data = $mr->create($project_id, $branch_name, 'master', 'test pr', [
+                'description' => 'test pr',
+            ]);
         } catch (\Throwable $e) {}
         // Now, let's run this stuff. It should certainly contain some closing action.
         $extra_params = [
