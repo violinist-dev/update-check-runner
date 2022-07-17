@@ -18,7 +18,9 @@ shared: &shared
           key: v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
               - ./vendor
-    - run: 
+    - run:
+        command: composer phpstan
+    - run:
         command: ./vendor/bin/phpunit
         no_output_timeout: 50m
 
