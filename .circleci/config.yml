@@ -7,7 +7,7 @@ shared: &shared
         version: 19.03.13
     - run:
         name: Install Docker client
-        command: then apk add --no-cache docker-cli
+        command: apk add --no-cache docker-cli
     - run: docker build -t update-check-runner . -f Dockerfile-$PHP_VERSION-composer-$COMPOSER_VERSION
     - restore_cache:
         keys:
