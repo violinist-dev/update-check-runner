@@ -9,7 +9,6 @@ ENV CI=1
 
 RUN composer install --no-dev --optimize-autoloader && \
     composer require composer/composer:^1 --update-with-dependencies \
-    && composer require bitbucket/client:^2 \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer
