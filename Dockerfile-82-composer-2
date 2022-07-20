@@ -12,6 +12,8 @@ RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs && \
     composer require composer/composer:^2 --ignore-platform-reqs --update-with-dependencies \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
-    && rm -rf /usr/local/bin/composer
+    && rm -rf /usr/local/bin/composer \
+    && cd vendor/guzzlehttp/guzzle \
+    && curl https://github.com/eiriksm/guzzle/commit/3e56013bb67966449e10e98f7bea2b49d7da3ef5.diff | patch -p1
 
 CMD ["php", "runner.php"]
