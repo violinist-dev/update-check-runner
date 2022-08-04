@@ -74,16 +74,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "fd5dd441932a7e10ca6e5b490e272d34c8430640"
+                "reference": "30897edbfb15e784fe55587b4f73ceefd3c4d98c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/fd5dd441932a7e10ca6e5b490e272d34c8430640",
-                "reference": "fd5dd441932a7e10ca6e5b490e272d34c8430640",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/30897edbfb15e784fe55587b4f73ceefd3c4d98c",
+                "reference": "30897edbfb15e784fe55587b4f73ceefd3c4d98c",
                 "shasum": ""
             },
             "require": {
@@ -127,11 +127,6 @@
                 "ssl",
                 "tls"
             ],
-            "support": {
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.3.2"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -146,7 +141,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:56:16+00:00"
+            "time": "2022-07-20T07:14:26+00:00"
         },
         {
             "name": "composer/composer",
@@ -620,12 +615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "c0ccb7b34d396f96e94d334096965b5211859969"
+                "reference": "f226bcc225456af6604b4ec07f3a8755d52c2f88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/c0ccb7b34d396f96e94d334096965b5211859969",
-                "reference": "c0ccb7b34d396f96e94d334096965b5211859969",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/f226bcc225456af6604b4ec07f3a8755d52c2f88",
+                "reference": "f226bcc225456af6604b4ec07f3a8755d52c2f88",
                 "shasum": ""
             },
             "require": {
@@ -674,7 +669,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2022-07-16T19:05:13+00:00"
+            "time": "2022-08-04T19:55:56+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -709,24 +704,24 @@
         },
         {
             "name": "eiriksm/symfony-console-array-output",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/symfony-console-array-output.git",
-                "reference": "4592fe211bd4a4c622c67de7b67f9f1e58ed959c"
+                "reference": "0c5c87a5148d0830d102a4f1810cb889f28f2b0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/symfony-console-array-output/zipball/4592fe211bd4a4c622c67de7b67f9f1e58ed959c",
-                "reference": "4592fe211bd4a4c622c67de7b67f9f1e58ed959c",
+                "url": "https://api.github.com/repos/eiriksm/symfony-console-array-output/zipball/0c5c87a5148d0830d102a4f1810cb889f28f2b0d",
+                "reference": "0c5c87a5148d0830d102a4f1810cb889f28f2b0d",
                 "shasum": ""
             },
             "require": {
-                "symfony/console": "^3.4"
+                "symfony/console": "^3.4||^4"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.5",
-                "satooshi/php-coveralls": "^2.0",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^6.5||^7||^8||^9",
                 "squizlabs/php_codesniffer": "^3.2"
             },
             "type": "library",
@@ -737,11 +732,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Array output for console commands",
-            "support": {
-                "issues": "https://github.com/eiriksm/symfony-console-array-output/issues",
-                "source": "https://github.com/eiriksm/symfony-console-array-output/tree/master"
-            },
-            "time": "2018-02-26T15:46:09+00:00"
+            "time": "2022-07-18T13:50:49+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -3468,21 +3459,22 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.42.5",
+            "version": "v2.12.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "87b2ea9d8f6fd014d0621ca089bb1b3769ea3f8e"
+                "reference": "18772e0190734944277ee97a02a9a6c6555fcd94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/87b2ea9d8f6fd014d0621ca089bb1b3769ea3f8e",
-                "reference": "87b2ea9d8f6fd014d0621ca089bb1b3769ea3f8e",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/18772e0190734944277ee97a02a9a6c6555fcd94",
+                "reference": "18772e0190734944277ee97a02a9a6c6555fcd94",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0",
-                "symfony/polyfill-ctype": "^1.8"
+                "php": "^7.0",
+                "symfony/polyfill-ctype": "^1.8",
+                "symfony/polyfill-mbstring": "^1.3"
             },
             "require-dev": {
                 "psr/container": "^1.0",
@@ -3491,7 +3483,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.42-dev"
+                    "dev-master": "2.12-dev"
                 }
             },
             "autoload": {
@@ -3528,11 +3520,7 @@
             "keywords": [
                 "templating"
             ],
-            "support": {
-                "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/1.x"
-            },
-            "time": "2020-02-11T05:59:23+00:00"
+            "time": "2020-02-11T15:31:23+00:00"
         },
         {
             "name": "violinist-dev/allow-list-handler",
@@ -3629,22 +3617,22 @@
         },
         {
             "name": "violinist-dev/composer-changelog-fetcher",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-changelog-fetcher.git",
-                "reference": "9c8bf90fecdd78508bbbc35531fc7cb9c473ca16"
+                "reference": "e5e3039d1ce55e2203775f7c72cf42a75f15d968"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/9c8bf90fecdd78508bbbc35531fc7cb9c473ca16",
-                "reference": "9c8bf90fecdd78508bbbc35531fc7cb9c473ca16",
+                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/e5e3039d1ce55e2203775f7c72cf42a75f15d968",
+                "reference": "e5e3039d1ce55e2203775f7c72cf42a75f15d968",
                 "shasum": ""
             },
             "require": {
                 "peterpostmann/parse_uri": "^1.0",
-                "symfony/console": "^3.4",
-                "symfony/dependency-injection": "^3.4",
+                "symfony/console": "^3.4||^4",
+                "symfony/dependency-injection": "^3.4||^4",
                 "violinist-dev/composer-lock-data": "^1.1",
                 "violinist-dev/git-log-format": "^1.1.2",
                 "violinist-dev/process-factory": "^1.0"
@@ -3670,11 +3658,7 @@
                 "MIT"
             ],
             "description": "Fetch changelog for a given composer update",
-            "support": {
-                "issues": "https://github.com/violinist-dev/composer-changelog-fetcher/issues",
-                "source": "https://github.com/violinist-dev/composer-changelog-fetcher/tree/1.0.0"
-            },
-            "time": "2022-03-18T06:45:35+00:00"
+            "time": "2022-07-18T13:55:56+00:00"
         },
         {
             "name": "violinist-dev/composer-lock-data",
@@ -4021,20 +4005,20 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "34c87185860e6c9593ba6aa76c438bd05ce7640a"
+                "reference": "bca35d1e01fb275ebbafa69345cb17b23373b578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/34c87185860e6c9593ba6aa76c438bd05ce7640a",
-                "reference": "34c87185860e6c9593ba6aa76c438bd05ce7640a",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/bca35d1e01fb275ebbafa69345cb17b23373b578",
+                "reference": "bca35d1e01fb275ebbafa69345cb17b23373b578",
                 "shasum": ""
             },
             "require": {
-                "twig/twig": "^1.23.1"
+                "twig/twig": "^2"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.0",
@@ -4052,11 +4036,7 @@
                 "MIT"
             ],
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "support": {
-                "issues": "https://github.com/violinist-dev/violinist-messages/issues",
-                "source": "https://github.com/violinist-dev/violinist-messages/tree/1.4.0"
-            },
-            "time": "2022-06-28T12:40:00+00:00"
+            "time": "2022-07-18T20:52:06+00:00"
         },
         {
             "name": "wa72/simplelogger",
