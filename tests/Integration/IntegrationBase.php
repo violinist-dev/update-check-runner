@@ -99,14 +99,22 @@ abstract class IntegrationBase extends TestCase
 
     protected function getProcessAndRunWithoutError($token, $url, $other_env = [])
     {
-        $env_part = sprintf('-e user_token=%s -e project_url=%s', $token, $url);
+        $command = [
+            'docker',
+            'run',
+            '-i',
+            '--rm',
+            '-e',
+            'user_token=' . $token,
+            '-e',
+            'project_url=' . $url,
+        ];
         foreach ($other_env as $var => $value) {
-            $env_part .= sprintf(' -e %s=%s', $var, $value);
+            $command[] = '-e';
+            $command[] = sprintf('%s=%s', $var, $value);
         }
-        $process = new Process(sprintf(
-            'docker run -i --rm %s update-check-runner',
-            $env_part
-        ), null, null, null, 600);
+        $command[] = 'update-check-runner';
+        $process = new Process($command, null, null, null, 600);
         $process->run();
         if ($process->getExitCode()) {
             var_export($process->getOutput());
