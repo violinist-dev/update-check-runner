@@ -111,7 +111,7 @@ abstract class IntegrationBase extends TestCase
         ];
         foreach ($other_env as $var => $value) {
             $command[] = '-e';
-            $command[] = sprintf('%s=%s', $var, $value);
+            $command[] = sprintf("%s=%s", $var, $value);
         }
         $command[] = 'update-check-runner';
         $process = new Process($command, null, null, null, 600);
@@ -128,7 +128,7 @@ abstract class IntegrationBase extends TestCase
     protected function getGitlabToken($url)
     {
         $client = new HttpClient();
-        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN') . '&url=' . $url);
+        $request = new Request('GET', $_SERVER['GITLAB_SUPER_SECRET_URL_FOR_TOKEN'] . '&url=' . $url);
         $response = $client->sendRequest($request);
         $json = json_decode($response->getBody());
         if (empty($json->token)) {

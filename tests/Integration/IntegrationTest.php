@@ -112,8 +112,8 @@ class IntegrationTest extends IntegrationBase
 
     public function testGitlabOutput()
     {
-        $url = getenv('GITLAB_PRIVATE_REPO');
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), getenv('GITLAB_PRIVATE_REPO'));
+        $url = $_SERVER['GITLAB_PRIVATE_REPO'];
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), $_SERVER['GITLAB_PRIVATE_REPO']);
         $this->assertStandardOutput($url, $json);
     }
 
@@ -272,10 +272,10 @@ class IntegrationTest extends IntegrationBase
 
     public function testWhyNot()
     {
-        $repo = getenv('GITLAB_REPO_GITHUB_DEP');
+        $repo = $_SERVER['GITLAB_REPO_GITHUB_DEP'];
         $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($repo), $repo, [
-            'tokens' => sprintf("'%s'", json_encode([
-                'github.com' => getenv('GITHUB_PRIVATE_USER_TOKEN'),
+            'tokens' => sprintf("%s", json_encode([
+                'github.com' => $_SERVER['GITHUB_PRIVATE_USER_TOKEN'],
             ])),
         ]);
         $has_reason = FALSE;
