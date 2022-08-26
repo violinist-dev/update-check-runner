@@ -7,8 +7,8 @@ class DefaultBranchTest extends IntegrationBase
 
     public function testDefaultBranch()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_DEFAULT_BRANCH_IN_CONFIG'));
-        $this->assertStandardOutput(getenv('GITHUB_DEFAULT_BRANCH_IN_CONFIG'), $json);
+        $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_DEFAULT_BRANCH_IN_CONFIG']);
+        $this->assertStandardOutput($_SERVER['GITHUB_DEFAULT_BRANCH_IN_CONFIG'], $json);
         $found_no_updates = false;
         foreach ($json as $value) {
             if ($value->message !== 'No updates found') {

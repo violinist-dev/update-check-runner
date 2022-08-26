@@ -2,6 +2,7 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
+use GuzzleHttp\Client;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\Slug\Slug;
 
@@ -23,26 +24,26 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
     public function testPrsClosedBitbucket(&$retries = 0)
     {
         sleep(random_int(15, 45));
-        $url = getenv('BITBUCKET_PRIVATE_REPO');
+        $url = $_SERVER['BITBUCKET_PRIVATE_REPO'];
         $this->url = $url;
         $slug = Slug::createFromUrl($url);
         try {
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
         $provider = new Bitbucket([
-            'clientId' => getenv('BITBUCKET_CLIENT_ID'),
-            'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
-            'redirectUri' => getenv('BITBUCKET_REDIRECT_URI'),
+            'clientId' => $_SERVER['BITBUCKET_CLIENT_ID'],
+            'clientSecret' => $_SERVER['BITBUCKET_CLIENT_SECRET'],
+            'redirectUri' => $_SERVER['BITBUCKET_REDIRECT_URI'],
         ]);
         $new_token = $provider->getAccessToken('refresh_token', [
-            'refresh_token' => getenv('BITBUCKET_REFRESH_TOKEN'),
+            'refresh_token' => $_SERVER['BITBUCKET_REFRESH_TOKEN'],
         ]);
         $this->branchName = $this->createBranchName();
         try {
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
         $branch_name = $this->branchName;
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
         $this->client = $client;
         $access_token = $new_token->getToken();
         $headers = [
