@@ -46,7 +46,7 @@ abstract class IntegrationBase extends TestCase
                 }
             }
         }
-        $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
+        $this->assertTrue(false, 'The composer version message was not found in the output.');
     }
 
     protected function assertPhpVersionLogged($json)

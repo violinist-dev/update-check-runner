@@ -21,8 +21,8 @@ class IntegrationTest extends IntegrationBase
      */
     public function testGithubOutput()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PRIVATE_REPO'));
-        $this->assertStandardOutput(getenv('GITHUB_PRIVATE_REPO'), $json);
+        $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_PRIVATE_REPO']);
+        $this->assertStandardOutput($_SERVER['GITHUB_PRIVATE_REPO'], $json);
         // Test for error messages of the type "PHP Warning".
         foreach ($json as $item) {
             if (strpos($item->message, 'PHP Warning') === 0) {
@@ -104,7 +104,7 @@ class IntegrationTest extends IntegrationBase
         } catch (\Throwable $e) {
             $count++;
             if ($count > 20) {
-                throw new \Exception('More than 20 retries to find bundled output');
+                throw new \Exception('More than 20 retries to find bundled output. Last exception message: ' . $e->getMessage());
             }
             $this->testBundledOutput($count);
         }
@@ -119,32 +119,32 @@ class IntegrationTest extends IntegrationBase
 
     public function testGitlabNestedGroupOutput()
     {
-        $url = getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP');
-        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), getenv('GITLAB_PRIVATE_REPO_NESTED_GROUP'));
+        $url = $_SERVER['GITLAB_PRIVATE_REPO_NESTED_GROUP'];
+        $json = $this->getProcessAndRunWithoutError($this->getGitlabToken($url), $_SERVER['GITLAB_PRIVATE_REPO_NESTED_GROUP']);
         $this->assertStandardOutput($url, $json);
     }
 
     public function testGitlabSelfhostedOutput()
     {
-        $url = getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO');
+        $url = $_SERVER['SELF_HOSTED_GITLAB_PRIVATE_REPO'];
         $token = $this->getGitlabToken($url);
         $this->runSelfHostedTest($token);
     }
 
     public function testGitlabSelfhostedOutputPat()
     {
-        $this->runSelfHostedTest(getenv('SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN'));
+        $this->runSelfHostedTest($_SERVER['SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN']);
     }
 
     protected function runSelfHostedTest($token, $retry = 0)
     {
         try {
-            $json = $this->getProcessAndRunWithoutError($token, getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'));
-            $this->assertStandardOutput(getenv('SELF_HOSTED_GITLAB_PRIVATE_REPO'), $json);
+            $json = $this->getProcessAndRunWithoutError($token, $_SERVER['SELF_HOSTED_GITLAB_PRIVATE_REPO']);
+            $this->assertStandardOutput($_SERVER['SELF_HOSTED_GITLAB_PRIVATE_REPO'], $json);
         } catch (\Throwable $e) {
             $retry++;
             if ($retry > 20) {
-                throw new \Exception('More than 20 retries for testing self hosted. Aborting');
+                throw new \Exception('More than 20 retries for testing self hosted. Aborting. Last exception was ' . $e->getMessage());
             }
             return $this->runSelfHostedTest($token, $retry);
         }
@@ -157,15 +157,15 @@ class IntegrationTest extends IntegrationBase
             return;
         }
         $provider = new Bitbucket([
-            'clientId' => getenv('BITBUCKET_CLIENT_ID'),
-            'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
-            'redirectUri' => getenv('BITBUCKET_REDIRECT_URI'),
+            'clientId' => $_SERVER['BITBUCKET_CLIENT_ID'],
+            'clientSecret' => $_SERVER['BITBUCKET_CLIENT_SECRET'],
+            'redirectUri' => $_SERVER['BITBUCKET_REDIRECT_URI'],
         ]);
         $new_token = $provider->getAccessToken('refresh_token', [
-            'refresh_token' => getenv('BITBUCKET_REFRESH_TOKEN'),
+            'refresh_token' => $_SERVER['BITBUCKET_REFRESH_TOKEN'],
         ]);
-        $json = $this->getProcessAndRunWithoutError($new_token->getToken(), getenv('BITBUCKET_PRIVATE_REPO'));
-        $this->assertStandardOutput(getenv('BITBUCKET_PRIVATE_REPO'), $json);
+        $json = $this->getProcessAndRunWithoutError($new_token->getToken(), $_SERVER['BITBUCKET_PRIVATE_REPO']);
+        $this->assertStandardOutput($_SERVER['BITBUCKET_PRIVATE_REPO'], $json);
     }
 
     public function testDrupalContribDrupal8()
@@ -174,8 +174,8 @@ class IntegrationTest extends IntegrationBase
             $this->assertTrue(true, 'Skipping Drupal 8 contrib test for version ' . phpversion());
             return;
         }
-        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'));
-        $this->assertStandardOutput(getenv('GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'), $json);
+        $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO']);
+        $this->assertStandardOutput($_SERVER['GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO'], $json);
         $found_sa = false;
         foreach ($json as $item) {
             if (strpos($item->message, 'security advisories for packages installed')) {
@@ -189,8 +189,8 @@ class IntegrationTest extends IntegrationBase
 
     public function testSecurityOnly()
     {
-        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_SECURITY_ONLY_REPO'));
-        $this->assertStandardOutput(getenv('GITHUB_SECURITY_ONLY_REPO'), $json);
+        $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_SECURITY_ONLY_REPO']);
+        $this->assertStandardOutput($_SERVER['GITHUB_SECURITY_ONLY_REPO'], $json);
         $found_update = false;
         $this->findMessage('Running composer update for package twig/twig', $json);
         foreach ($json as $item) {
@@ -211,15 +211,15 @@ class IntegrationTest extends IntegrationBase
             $project->setRoles(['agency']);
             $extra_params = [
                 'project' => sprintf("'%s'", json_encode(serialize($project))),
-                'fork_to' => getenv('GITHUB_FORK_TO'),
-                'token_url' => getenv('TOKEN_URL'),
-                'fork_user' => getenv('FORK_USER'),
-                'fork_mail' => getenv('FORK_MAIL'),
+                'fork_to' => $_SERVER['GITHUB_FORK_TO'],
+                'token_url' => $_SERVER['TOKEN_URL'],
+                'fork_user' => $_SERVER['FORK_USER'],
+                'fork_mail' => $_SERVER['FORK_MAIL'],
             ];
             // Close all PRs. Since this will run in parallel with many php versions, we might get the PR from
             // somewhere else. In fact, someone might close it after we open in here. So we need to check the API
             // for this specific one.
-            $url = getenv('GITLAB_ASSIGNEE_REPO');
+            $url = $_SERVER['GITLAB_ASSIGNEE_REPO'];
             $token = $this->getGitlabToken($url);
             $client = new GitlabClient();
             $client->authenticate($token, GitlabClient::AUTH_OAUTH_TOKEN);
@@ -264,7 +264,7 @@ class IntegrationTest extends IntegrationBase
         } catch (\Throwable $e) {}
         $count++;
         if ($count > 40) {
-            throw new \Exception('More than 20 retries for testing assignee on update. Aborting');
+            throw new \Exception('More than 20 retries for testing assignee on update. Aborting. Last exception message was ' . $e->getMessage());
         }
         sleep(rand(1, 10));
         return $this->testUpdateAssigneesGitlab($count);
@@ -278,7 +278,7 @@ class IntegrationTest extends IntegrationBase
                 'github.com' => $_SERVER['GITHUB_PRIVATE_USER_TOKEN'],
             ])),
         ]);
-        $has_reason = FALSE;
+        $has_reason = false;
         foreach ($json as $message) {
             if (empty($message->context)) {
                 continue;
@@ -314,9 +314,9 @@ class IntegrationTest extends IntegrationBase
         // First just make sure that all PRs all closed.
         $client = new Client();
         $provider = new Github($client);
-        $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
+        $token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
         $provider->authenticate($token, '');
-        $url = getenv('GITHUB_PRIVATE_REPO');
+        $url = $_SERVER['GITHUB_PRIVATE_REPO'];
         $slug = Slug::createFromUrl($url);
         $prs = $provider->getPrsNamed($slug);
         foreach ($prs as $pr) {
