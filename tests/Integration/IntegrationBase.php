@@ -35,10 +35,15 @@ abstract class IntegrationBase extends TestCase
 
     protected function assertComposerVersion($json)
     {
-        $expected_message = sprintf('Composer %d', getenv('COMPOSER_VERSION'));
+        $expected_messages = [
+            sprintf('Composer %d', $_SERVER['COMPOSER_VERSION']),
+            sprintf('Composer version %d', $_SERVER['COMPOSER_VERSION']),
+        ];
         foreach ($json as $item) {
-            if (strpos($item->message, $expected_message) === 0) {
-                return;
+            foreach ($expected_messages as $expected_message) {
+                if (strpos($item->message, $expected_message) === 0) {
+                    return;
+                }
             }
         }
         $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
@@ -48,7 +53,7 @@ abstract class IntegrationBase extends TestCase
     {
         foreach ($json as $item) {
             if (preg_match('/^PHP \d.\d.\d/', $item->message)) {
-                $this->assertEquals(false, strpos(str_replace('.', '', $item->message), getenv('PHP_VERSION')) === false);
+                $this->assertEquals(false, strpos(str_replace('.', '', $item->message), $_SERVER['PHP_VERSION']) === false);
                 return;
             }
         }
@@ -57,7 +62,7 @@ abstract class IntegrationBase extends TestCase
 
     protected function assertHashLogged($json)
     {
-        $expected_message = sprintf('Queue runner revision %s', substr(getenv('MY_COMMIT'), 0, 7));
+        $expected_message = sprintf('Queue runner revision %s', substr($_SERVER['MY_COMMIT'], 0, 7));
         foreach ($json as $item) {
             if ($item->message === $expected_message) {
                 return;

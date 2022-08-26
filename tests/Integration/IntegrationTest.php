@@ -33,12 +33,12 @@ class IntegrationTest extends IntegrationBase
 
     public function testConcurrentPrs()
     {
-        $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
-        $url = getenv('GITHUB_CONCURRENT_REPO');
+        $token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
+        $url = $_SERVER['GITHUB_CONCURRENT_REPO'];
         $extra = [
-            'fork_to' => getenv('GITHUB_FORK_TO'),
-            'fork_user' => getenv('FORK_USER'),
-            'fork_mail' => getenv('FORK_MAIL'),
+            'fork_to' => $_SERVER['GITHUB_FORK_TO'],
+            'fork_user' => $_SERVER['FORK_USER'],
+            'fork_mail' => $_SERVER['FORK_MAIL'],
         ];
         $json = $this->getProcessAndRunWithoutError($token, $url, $extra);
         $this->assertStandardOutput($url, $json);
@@ -48,18 +48,18 @@ class IntegrationTest extends IntegrationBase
     public function testGithubPublicOutput()
     {
         $project = new ProjectData();
-        $project->setNid(getenv('GITHUB_PUBLIC_PROJECT_NID'));
+        $project->setNid($_SERVER['GITHUB_PUBLIC_PROJECT_NID']);
         // First make sure we have created PRs for all of them.
         $extra_params = [
             'project' => sprintf("'%s'", json_encode(serialize($project))),
-            'fork_to' => getenv('GITHUB_FORK_TO'),
-            'token_url' => getenv('TOKEN_URL'),
-            'fork_user' => getenv('FORK_USER'),
-            'fork_mail' => getenv('FORK_MAIL'),
+            'fork_to' => $_SERVER['GITHUB_FORK_TO'],
+            'token_url' => $_SERVER['TOKEN_URL'],
+            'fork_user' => $_SERVER['FORK_USER'],
+            'fork_mail' => $_SERVER['FORK_MAIL'],
         ];
-        $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PUBLIC_REPO'), $extra_params);
+        $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_PUBLIC_REPO'], $extra_params);
         // Then make sure we are not pushing over and over again.
-        $json = $this->getProcessAndRunWithoutError(getenv('GITHUB_PRIVATE_USER_TOKEN'), getenv('GITHUB_PUBLIC_REPO'), $extra_params);
+        $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_PUBLIC_REPO'], $extra_params);
         $this->findMessage('Skipping psr/log because a pull request already exists', $json);
     }
 
@@ -75,13 +75,13 @@ class IntegrationTest extends IntegrationBase
             }
             // Close all of the pull requests, so we can actually see that we update bundled.
             $client = new Client();
-            $token = getenv('GITHUB_PRIVATE_USER_TOKEN');
+            $token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
             $client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
             $pager = new ResultPager($client);
             /** @var PullRequest $api */
             $api = $client->api('pr');
             $method = 'all';
-            $url = getenv('GITHUB_BUNDLED_REPO');
+            $url = $_SERVER['GITHUB_BUNDLED_REPO'];
             $slug = Slug::createFromUrl($url);
             $prs = $pager->fetchAll($api, $method, [$slug->getUserName(), $slug->getUserRepo()]);
             foreach ($prs as $pr) {
@@ -91,7 +91,7 @@ class IntegrationTest extends IntegrationBase
             }
 
             $json = $this->getProcessAndRunWithoutError($token, $url);
-            $this->assertStandardOutput(getenv('GITHUB_BUNDLED_REPO'), $json);
+            $this->assertStandardOutput($_SERVER['GITHUB_BUNDLED_REPO'], $json);
             // Check that the bundle thing ran.
             $found_bundle_command = false;
             foreach ($json as $item) {
