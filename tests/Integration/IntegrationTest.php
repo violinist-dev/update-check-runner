@@ -51,7 +51,7 @@ class IntegrationTest extends IntegrationBase
         $project->setNid($_SERVER['GITHUB_PUBLIC_PROJECT_NID']);
         // First make sure we have created PRs for all of them.
         $extra_params = [
-            'project' => sprintf("'%s'", json_encode(serialize($project))),
+            'project' => sprintf("%s", json_encode(serialize($project))),
             'fork_to' => $_SERVER['GITHUB_FORK_TO'],
             'token_url' => $_SERVER['TOKEN_URL'],
             'fork_user' => $_SERVER['FORK_USER'],
@@ -210,7 +210,7 @@ class IntegrationTest extends IntegrationBase
             $project = new ProjectData();
             $project->setRoles(['agency']);
             $extra_params = [
-                'project' => sprintf("'%s'", json_encode(serialize($project))),
+                'project' => sprintf("%s", json_encode(serialize($project))),
                 'fork_to' => $_SERVER['GITHUB_FORK_TO'],
                 'token_url' => $_SERVER['TOKEN_URL'],
                 'fork_user' => $_SERVER['FORK_USER'],
@@ -331,7 +331,7 @@ class IntegrationTest extends IntegrationBase
         $project = new ProjectData();
         $project->setUpdateAll(true);
         $json = $this->getProcessAndRunWithoutError($token, $url, [
-            'project' => sprintf("'%s'", json_encode(serialize($project))),
+            'project' => sprintf("%s", json_encode(serialize($project))),
         ]);
         // So here is a message I would only find if the "update all" sequence would not run:
         $message = 'Successfully ran command composer update for package psr/log';
