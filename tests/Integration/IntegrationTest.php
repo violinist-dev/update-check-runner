@@ -264,7 +264,11 @@ class IntegrationTest extends IntegrationBase
         } catch (\Throwable $e) {}
         $count++;
         if ($count > 40) {
-            throw new \Exception('More than 20 retries for testing assignee on update. Aborting. Last exception message was ' . $e->getMessage());
+            $message = 'unknown';
+            if (!empty($e) && $e instanceof \Exception) {
+                $message = $e->getMessage();
+            }
+            throw new \Exception('More than 20 retries for testing assignee on update. Aborting. Last exception message was ' . $message);
         }
         sleep(rand(1, 10));
         return $this->testUpdateAssigneesGitlab($count);
