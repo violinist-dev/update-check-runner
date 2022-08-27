@@ -302,7 +302,7 @@ class IntegrationTest extends IntegrationBase
             if (!preg_match('/\S+\s.*requires.*psr\/log.*1\.0\.0/', $message->message, $matches)) {
                 continue;
             }
-            $has_reason = TRUE;
+            $has_reason = true;
         }
         self::assertTrue($has_reason);
     }
