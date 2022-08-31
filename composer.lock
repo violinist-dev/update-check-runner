@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b66dc10dca908847801d72c4be367135",
+    "content-hash": "60c640edf5c67a0dd5ceee527ce6d2d7",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -778,16 +778,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-eiriksm-patch-3",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "d48b51125f95745be3f9f4f44a5406453579f915"
+                "reference": "89fcd6ce386541193f0181b80836adc8d0413a4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/d48b51125f95745be3f9f4f44a5406453579f915",
-                "reference": "d48b51125f95745be3f9f4f44a5406453579f915",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/89fcd6ce386541193f0181b80836adc8d0413a4c",
+                "reference": "89fcd6ce386541193f0181b80836adc8d0413a4c",
                 "shasum": ""
             },
             "require": {
@@ -823,6 +823,7 @@
                 "phpunit/phpunit": "^6||^7||^8",
                 "squizlabs/php_codesniffer": "^3.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "patches": {
@@ -843,9 +844,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/eiriksm-patch-3"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/main"
             },
-            "time": "2022-08-28T05:49:08+00:00"
+            "time": "2022-08-31T17:14:21+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
