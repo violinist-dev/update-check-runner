@@ -18,19 +18,23 @@
     "ext-pcntl": "*",
     "ext-redis": "*",
     "ext-imagick": "*",
-    "eiriksm/cosy-composer": "dev-master",
-    "symfony/dependency-injection": "^3.4",
-    "php-http/guzzle6-adapter": "^1.1",
+    "eiriksm/cosy-composer": "dev-main",
+    "symfony/dependency-injection": "^4.4",
     "eiriksm/gitinfo": "^1.1",
-    "symfony/dotenv": "^3"
+    "symfony/dotenv": "^5.4"
   },
   "autoload-dev": {
     "psr-4": {
       "Violinist\\UpdateCheckRunner\\Tests\\": "tests"
     }
   },
+  "scripts": {
+    "phpstan": "phpstan analyse tests runner.php"
+  },
   "require-dev": {
-    "phpunit/phpunit": "^6.5",
-    "stevenmaguire/oauth2-bitbucket": "^3.0"
+    "phpunit/phpunit": "^6.5||^7||^8",
+    "stevenmaguire/oauth2-bitbucket": "^3.0",
+    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan-phpunit": "^1.1"
   }
 }

@@ -2,14 +2,20 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
+use GuzzleHttp\Client;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\Slug\Slug;
 
 class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
 {
 
+    protected $headers;
+    protected $client;
+    protected $url;
+
     protected function deleteBranch($branch_name)
     {
+            $slug = Slug::createFromUrl($this->url);
             $this->client->request('DELETE', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches/%s', $slug->getUserName(), $slug->getUserRepo(), $branch_name), [
                 'headers' => $this->headers,
             ]);
@@ -17,30 +23,27 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
 
     public function testPrsClosedBitbucket(&$retries = 0)
     {
-        if (version_compare(phpversion(), "7.1.0", "<=")) {
-            $this->assertTrue(true, 'Skipping bitbucket test for version ' . phpversion());
-            return;
-        }
         sleep(random_int(15, 45));
+        $url = $_SERVER['BITBUCKET_PRIVATE_REPO'];
+        $this->url = $url;
+        $slug = Slug::createFromUrl($url);
         try {
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
         $provider = new Bitbucket([
-            'clientId' => getenv('BITBUCKET_CLIENT_ID'),
-            'clientSecret' => getenv('BITBUCKET_CLIENT_SECRET'),
-            'redirectUri' => getenv('BITBUCKET_REDIRECT_URI'),
+            'clientId' => $_SERVER['BITBUCKET_CLIENT_ID'],
+            'clientSecret' => $_SERVER['BITBUCKET_CLIENT_SECRET'],
+            'redirectUri' => $_SERVER['BITBUCKET_REDIRECT_URI'],
         ]);
         $new_token = $provider->getAccessToken('refresh_token', [
-            'refresh_token' => getenv('BITBUCKET_REFRESH_TOKEN'),
+            'refresh_token' => $_SERVER['BITBUCKET_REFRESH_TOKEN'],
         ]);
-        $url = getenv('BITBUCKET_PRIVATE_REPO');
-        $slug = Slug::createFromUrl($url);
         $this->branchName = $this->createBranchName();
         try {
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
         $branch_name = $this->branchName;
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
         $this->client = $client;
         $access_token = $new_token->getToken();
         $headers = [

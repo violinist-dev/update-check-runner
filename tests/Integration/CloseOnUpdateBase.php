@@ -2,15 +2,12 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
-use Violinist\Slug\Slug;
-
 abstract class CloseOnUpdateBase extends IntegrationBase
 {
     protected $branchName;
     protected $psrLogVersion = '100';
 
-    public function tearDown()
+    public function tearDown() : void
     {
         try {
             $this->deleteBranch($this->branchName);
@@ -19,7 +16,7 @@ abstract class CloseOnUpdateBase extends IntegrationBase
         }
     }
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->branchName = $this->createBranchName();

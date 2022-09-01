@@ -10,7 +10,7 @@ class CloseOnUpdateGithubPublicTest extends CloseOnUpdateGithubTest
 {
     protected $psrLogVersion = '101';
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->token = getenv('GITHUB_PRIVATE_USER_TOKEN');

@@ -3,7 +3,7 @@
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
 use GuzzleHttp\Psr7\Request;
-use Http\Adapter\Guzzle6\Client as HttpClient;
+use Http\Adapter\Guzzle7\Client as HttpClient;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Process\Process;
@@ -12,7 +12,7 @@ use Violinist\Slug\Slug;
 abstract class IntegrationBase extends TestCase
 {
 
-    public function setUp()
+    public function setUp() : void
     {
         try {
             $env = new Dotenv();
@@ -35,20 +35,25 @@ abstract class IntegrationBase extends TestCase
 
     protected function assertComposerVersion($json)
     {
-        $expected_message = sprintf('Composer %d', getenv('COMPOSER_VERSION'));
+        $expected_messages = [
+            sprintf('Composer %d', $_SERVER['COMPOSER_VERSION']),
+            sprintf('Composer version %d', $_SERVER['COMPOSER_VERSION']),
+        ];
         foreach ($json as $item) {
-            if (strpos($item->message, $expected_message) === 0) {
-                return;
+            foreach ($expected_messages as $expected_message) {
+                if (strpos($item->message, $expected_message) === 0) {
+                    return;
+                }
             }
         }
-        $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
+        $this->assertTrue(false, 'The composer version message was not found in the output.');
     }
 
     protected function assertPhpVersionLogged($json)
     {
         foreach ($json as $item) {
             if (preg_match('/^PHP \d.\d.\d/', $item->message)) {
-                $this->assertEquals(false, strpos(str_replace('.', '', $item->message), getenv('PHP_VERSION')) === false);
+                $this->assertEquals(false, strpos(str_replace('.', '', $item->message), $_SERVER['PHP_VERSION']) === false);
                 return;
             }
         }
@@ -57,7 +62,7 @@ abstract class IntegrationBase extends TestCase
 
     protected function assertHashLogged($json)
     {
-        $expected_message = sprintf('Queue runner revision %s', substr(getenv('MY_COMMIT'), 0, 7));
+        $expected_message = sprintf('Queue runner revision %s', substr($_SERVER['MY_COMMIT'], 0, 7));
         foreach ($json as $item) {
             if ($item->message === $expected_message) {
                 return;
@@ -99,14 +104,22 @@ abstract class IntegrationBase extends TestCase
 
     protected function getProcessAndRunWithoutError($token, $url, $other_env = [])
     {
-        $env_part = sprintf('-e user_token=%s -e project_url=%s', $token, $url);
+        $command = [
+            'docker',
+            'run',
+            '-i',
+            '--rm',
+            '-e',
+            'user_token=' . $token,
+            '-e',
+            'project_url=' . $url,
+        ];
         foreach ($other_env as $var => $value) {
-            $env_part .= sprintf(' -e %s=%s', $var, $value);
+            $command[] = '-e';
+            $command[] = sprintf("%s=%s", $var, $value);
         }
-        $process = new Process(sprintf(
-            'docker run -i --rm %s update-check-runner',
-            $env_part
-        ), null, null, null, 600);
+        $command[] = 'update-check-runner';
+        $process = new Process($command, null, null, null, 600);
         $process->run();
         if ($process->getExitCode()) {
             var_export($process->getOutput());
@@ -120,7 +133,7 @@ abstract class IntegrationBase extends TestCase
     protected function getGitlabToken($url)
     {
         $client = new HttpClient();
-        $request = new Request('GET', getenv('GITLAB_SUPER_SECRET_URL_FOR_TOKEN') . '&url=' . $url);
+        $request = new Request('GET', $_SERVER['GITLAB_SUPER_SECRET_URL_FOR_TOKEN'] . '&url=' . $url);
         $response = $client->sendRequest($request);
         $json = json_decode($response->getBody());
         if (empty($json->token)) {

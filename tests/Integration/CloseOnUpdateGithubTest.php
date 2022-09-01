@@ -5,6 +5,7 @@ namespace Violinist\UpdateCheckRunner\Tests\Integration;
 use Github\Api\GitData;
 use Github\Api\PullRequest;
 use Github\Api\Repo;
+use Github\AuthMethod;
 use Github\Client;
 use Violinist\Slug\Slug;
 
@@ -21,11 +22,13 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
     {
         $slug = Slug::createFromUrl($this->url);
         $token = $this->token;
-        $this->client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
-        $this->client->api('git')->references()->remove($slug->getUserName(), $slug->getUserRepo(), sprintf('heads/%s', $branch_name));
+        $this->client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
+        /** @var GitData $git */
+        $git = $this->client->api('git');
+        $git->references()->remove($slug->getUserName(), $slug->getUserRepo(), sprintf('heads/%s', $branch_name));
     }
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->token = getenv('GITHUB_PRIVATE_USER_TOKEN');
@@ -36,15 +39,15 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
     public function testPrsClosedGithub(&$retries = 0)
     {
         sleep(random_int(15, 45));
+        $slug = Slug::createFromUrl($this->url);
         try {
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {}
         try {
             $e = null;
             $token = $this->token;
-            $this->client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+            $this->client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
             $client = $this->client;
-            $slug = Slug::createFromUrl($this->url);
             /** @var Repo $repo */
             $repo = $client->api('repo');
             $info = $repo->show($slug->getUserName(), $slug->getUserRepo());
