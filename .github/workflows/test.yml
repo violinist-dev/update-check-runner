@@ -55,6 +55,7 @@ jobs:
         run: composer phpstan
 
       - name: Run tests
-        run: echo testing 
+        run: ./vendor/bin/phpunit 
         env:
           COMPOSER_VERSION: ${{ matrix.composer-version }}
+          PHP_VERSION: ${{ matrix.php-version }}
