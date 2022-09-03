@@ -46,10 +46,15 @@ jobs:
       - name: Install dependencies
         run: composer --verbose install
 
+      - name: Build test image
+        run: docker build -t update-check-runner . -f Dockerfile-$PHP_VERSION-composer-$COMPOSER_VERSION
+        env:
+          COMPOSER_VERSION: ${{ matrix.composer-version }}
+          PHP_VERSION: ${{ matrix.php-version }}
       - name: Run phpstan
         run: composer phpstan
 
       - name: Run tests
         run: echo testing 
         env:
-          COMPOSER_VERSION: ${{ matrix.composer }}
+          COMPOSER_VERSION: ${{ matrix.composer-version }}
