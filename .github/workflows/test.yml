@@ -55,7 +55,9 @@ jobs:
         run: composer phpstan
 
       - name: Run tests
-        run: ./vendor/bin/phpunit 
+        run: ./vendor/bin/phpunit
         env:
           COMPOSER_VERSION: ${{ matrix.composer-version }}
           PHP_VERSION: ${{ matrix.php-version }}
+          GITHUB_PRIVATE_USER_TOKEN: ${{ secrets.GH_PRIVATE_USER_TOKEN }}
+          GITHUB_PRIVATE_REPO: ${{ secrets.GH_PRIVATE_REPO }}
