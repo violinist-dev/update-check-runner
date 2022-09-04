@@ -12,9 +12,7 @@ shared: &shared
     - restore_cache:
         keys:
             - v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
-    - run: if [ $PHP_VERSION != "82" ]; then composer install --prefer-dist; fi
-    - run: if [ $PHP_VERSION = "82" ]; then composer install --ignore-platform-reqs --prefer-dist; fi
-    - run: if [ $PHP_VERSION = "82" ]; then rm -rf vendor/guzzlehttp && composer install --ignore-platform-reqs && cd vendor/guzzlehttp/guzzle && curl https://github.com/eiriksm/guzzle/commit/3e56013bb67966449e10e98f7bea2b49d7da3ef5.diff | patch -p1 ; fi
+    - run: composer install --prefer-dist
     - save_cache:
           key: v1-dependencies-{{ checksum "composer.lock" }}-{{ .Environment.CIRCLE_JOB }}
           paths:
