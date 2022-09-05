@@ -53,7 +53,7 @@ abstract class IntegrationBase extends TestCase
     {
         foreach ($json as $item) {
             if (preg_match('/^PHP \d.\d.\d/', $item->message)) {
-                $this->assertEquals(false, strpos(str_replace('.', '', $item->message), $_SERVER['PHP_VERSION']) === false);
+                $this->assertEquals(false, strpos($item->message, $_SERVER['PHP_VERSION']) === false);
                 return;
             }
         }
