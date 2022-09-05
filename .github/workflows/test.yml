@@ -82,3 +82,8 @@ jobs:
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
           FORK_USER: ${{ secrets.FORK_USER }}
           FORK_MAIL: ${{ secrets.FORK_MAIL }}
+          GITHUB_BUNDLED_REPO: ${{ secrets.GH_BUNDLED_REPO }}
+          GITHUB_SECURITY_ONLY_REPO: ${{ secrets.GH_SECURITY_ONLY_REPO }}
+          GITHUB_CONCURRENT_REPO: ${{ secrets.GH_CONCURRENT_REPO }}
+          GITLAB_ASSIGNEE_REPO: ${{ secrets.GITLAB_ASSIGNEE_REPO }}
+          GITHUB_REPO_ENV_REQUIRED: ${{ secrets.GH_REPO_ENV_REQUIRED }}
