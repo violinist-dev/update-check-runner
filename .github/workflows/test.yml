@@ -56,7 +56,7 @@ jobs:
 
       - run: |
           echo "::set-output name=COMMIT_SHA::$(git log --format=format:%H -n1)'"
-          id: log
+        id: log
 
       - name: Run tests
         run: ./vendor/bin/phpunit
@@ -75,3 +75,10 @@ jobs:
           BITBUCKET_REFRESH_TOKEN: ${{ secrets.BITBUCKET_REFRESH_TOKEN }}
           BITBUCKET_PRIVATE_REPO: ${{ secrets.BITBUCKET_PRIVATE_REPO }}
           GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO: ${{ secrets.GH_DRUPAL8_CONTRIB_PRIVATE_REPO }}
+          GITLAB_PRIVATE_REPO_NESTED_GROUP: ${{ secrets.GITLAB_PRIVATE_REPO_NESTED_GROUP }}
+          GITHUB_PUBLIC_REPO: ${{ secrets.GH_PUBLIC_REPO }}
+          GITHUB_PUBLIC_PROJECT_NID: ${{ secrets.GH_PUBLIC_PROJECT_NID }}
+          GITHUB_FORK_TO: ${{ secrets.GH_FORK_TO }}
+          TOKEN_URL: ${{ secrets.TOKEN_URL }}
+          FORK_USER: ${{ secrets.FORK_USER }}
+          FORK_MAIL: ${{ secrets.FORK_MAIL }}
