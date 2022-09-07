@@ -2,5 +2,5 @@
 
 The runner containers
 
-[![CircleCI](https://circleci.com/gh/violinist-dev/update-check-runner/tree/master.svg?style=svg)](https://circleci.com/gh/violinist-dev/update-check-runner/tree/master)
+[![Test](https://github.com/violinist-dev/update-check-runner/actions/workflows/test.yml/badge.svg)](https://github.com/violinist-dev/update-check-runner/actions/workflows/test.yml)
 [![Violinist enabled](https://img.shields.io/badge/violinist-enabled-brightgreen.svg)](https://violinist.io)
