@@ -1,0 +1,101 @@
+name: Test
+on:
+  schedule:
+    - cron: '0 0 * * *' # everyday at midnight 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: 'ubuntu-20.04'
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "7.2"
+          - "7.3"
+          - "7.4"
+          - "8.0"
+          - "8.1"
+          - "8.2"
+        composer-version:
+          - "1"
+          - "2"
+    steps:
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Update composer
+        run: composer --verbose self-update --${{ matrix.composer-version }}
+
+      - name: Dump composer verson
+        run: composer --version
+
+      - name: Validate composer.json
+        run: composer --verbose validate
+
+      - name: Install dependencies
+        run: composer --verbose install
+
+      - name: Build test image
+        run: docker build -t update-check-runner . -f Dockerfile-$(echo "$PHP_VERSION" | sed "s/\.//")-composer-$COMPOSER_VERSION
+        env:
+          COMPOSER_VERSION: ${{ matrix.composer-version }}
+          PHP_VERSION: ${{ matrix.php-version }}
+      - name: Run phpstan
+        run: composer phpstan
+
+      - run: |
+          echo "::set-output name=COMMIT_SHA::$(git log --format=format:%H -n1)'"
+        id: log
+
+      - name: Run tests
+        run: ./vendor/bin/phpunit
+        env:
+          COMPOSER_VERSION: ${{ matrix.composer-version }}
+          PHP_VERSION: ${{ matrix.php-version }}
+          GITHUB_PRIVATE_USER_TOKEN: ${{ secrets.GH_PRIVATE_USER_TOKEN }}
+          GITHUB_PRIVATE_REPO: ${{ secrets.GH_PRIVATE_REPO }}
+          GITLAB_PRIVATE_REPO: ${{ secrets.GITLAB_PRIVATE_REPO }}
+          MY_COMMIT: ${{ steps.log.outputs.COMMIT_SHA }}
+          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ secrets.SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN }}
+          SELF_HOSTED_GITLAB_PRIVATE_REPO: ${{ secrets.SELF_HOSTED_GITLAB_PRIVATE_REPO }}
+          BITBUCKET_CLIENT_ID: ${{ secrets.BITBUCKET_CLIENT_ID }}
+          BITBUCKET_CLIENT_SECRET: ${{ secrets.BITBUCKET_CLIENT_SECRET }}
+          BITBUCKET_REDIRECT_URI: ${{ secrets.BITBUCKET_REDIRECT_URI }}
+          BITBUCKET_REFRESH_TOKEN: ${{ secrets.BITBUCKET_REFRESH_TOKEN }}
+          BITBUCKET_PRIVATE_REPO: ${{ secrets.BITBUCKET_PRIVATE_REPO }}
+          GITHUB_DRUPAL8_CONTRIB_PRIVATE_REPO: ${{ secrets.GH_DRUPAL8_CONTRIB_PRIVATE_REPO }}
+          GITLAB_PRIVATE_REPO_NESTED_GROUP: ${{ secrets.GITLAB_PRIVATE_REPO_NESTED_GROUP }}
+          GITHUB_PUBLIC_REPO: ${{ secrets.GH_PUBLIC_REPO }}
+          GITHUB_PUBLIC_PROJECT_NID: ${{ secrets.GH_PUBLIC_PROJECT_NID }}
+          GITHUB_FORK_TO: ${{ secrets.GH_FORK_TO }}
+          TOKEN_URL: ${{ secrets.TOKEN_URL }}
+          FORK_USER: ${{ secrets.FORK_USER }}
+          FORK_MAIL: ${{ secrets.FORK_MAIL }}
+          GITHUB_BUNDLED_REPO: ${{ secrets.GH_BUNDLED_REPO }}
+          GITHUB_SECURITY_ONLY_REPO: ${{ secrets.GH_SECURITY_ONLY_REPO }}
+          GITHUB_CONCURRENT_REPO: ${{ secrets.GH_CONCURRENT_REPO }}
+          GITLAB_ASSIGNEE_REPO: ${{ secrets.GITLAB_ASSIGNEE_REPO }}
+          GITHUB_REPO_ENV_REQUIRED: ${{ secrets.GH_REPO_ENV_REQUIRED }}
+          GITLAB_REPO_GITHUB_DEP: ${{ secrets.GITLAB_REPO_GITHUB_DEP }}
+          SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN: ${{ secrets.SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN }}
+          GITHUB_DEFAULT_BRANCH_IN_CONFIG: ${{ secrets.GH_DEFAULT_BRANCH_IN_CONFIG }}
+          GITHUB_PRIVATE_UPDATE_ALL_REPO: ${{ secrets.GH_PRIVATE_UPDATE_ALL_REPO }}
+          GITHUB_PRIVATE_INDIRECT_WITH_DIRECT: ${{ secrets.GH_PRIVATE_INDIRECT_WITH_DIRECT }}
+          GITLAB_SUPER_SECRET_URL_FOR_TOKEN: ${{ secrets.GITLAB_SUPER_SECRET_URL_FOR_TOKEN }}
