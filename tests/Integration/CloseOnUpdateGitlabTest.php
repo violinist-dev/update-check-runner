@@ -82,8 +82,11 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
             'fork_user' => getenv('FORK_USER'),
             'fork_mail' => getenv('FORK_MAIL'),
         ];
-        $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
-        $has_it = self::hasPrClosedAndPrClosedSuccess($json);
+        $has_it = false;
+        try {
+            $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
+            $has_it = self::hasPrClosedAndPrClosedSuccess($json);
+        } catch (\Throwable $e) {}
         if ($retries < 20 && !$has_it) {
             $retries++;
             return $this->testPrsClosedGitlab($retries);
