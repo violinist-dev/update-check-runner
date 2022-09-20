@@ -299,16 +299,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "777d542e3af65f8e7a66a4d98ce7a697da339414"
+                "reference": "7d887621e69a0311eb50aed4a16f7044b2b385b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/777d542e3af65f8e7a66a4d98ce7a697da339414",
-                "reference": "777d542e3af65f8e7a66a4d98ce7a697da339414",
+                "url": "https://api.github.com/repos/composer/composer/zipball/7d887621e69a0311eb50aed4a16f7044b2b385b9",
+                "reference": "7d887621e69a0311eb50aed4a16f7044b2b385b9",
                 "shasum": ""
             },
             "require": {
@@ -338,7 +338,7 @@
                 "phpstan/phpstan-deprecation-rules": "^1",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1",
-                "phpstan/phpstan-symfony": "^1.1",
+                "phpstan/phpstan-symfony": "^1.2.10",
                 "symfony/phpunit-bridge": "^6.0"
             },
             "suggest": {
@@ -388,11 +388,6 @@
                 "dependency",
                 "package"
             ],
-            "support": {
-                "irc": "ircs://irc.libera.chat:6697/composer",
-                "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.4.1"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -407,7 +402,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-20T09:44:50+00:00"
+            "time": "2022-09-14T14:11:15+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -782,12 +777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "6be352a66af7b5f23ac5b0458a21409e5f8b4991"
+                "reference": "4a39a569b42dd9108c3b5fbd7c5a1e4d440aee5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/6be352a66af7b5f23ac5b0458a21409e5f8b4991",
-                "reference": "6be352a66af7b5f23ac5b0458a21409e5f8b4991",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4a39a569b42dd9108c3b5fbd7c5a1e4d440aee5c",
+                "reference": "4a39a569b42dd9108c3b5fbd7c5a1e4d440aee5c",
                 "shasum": ""
             },
             "require": {
@@ -842,7 +837,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2022-09-10T18:46:42+00:00"
+            "time": "2022-09-20T10:34:01+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
