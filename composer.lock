@@ -4845,22 +4845,23 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "bca35d1e01fb275ebbafa69345cb17b23373b578"
+                "reference": "a73fee81a3f2d3b4440a2c88bee6dd5a86149f96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/bca35d1e01fb275ebbafa69345cb17b23373b578",
-                "reference": "bca35d1e01fb275ebbafa69345cb17b23373b578",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/a73fee81a3f2d3b4440a2c88bee6dd5a86149f96",
+                "reference": "a73fee81a3f2d3b4440a2c88bee6dd5a86149f96",
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "^2"
             },
             "require-dev": {
+                "league/commonmark": "^1.0 || ^2.3",
                 "php-coveralls/php-coveralls": "^2.0",
                 "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0",
                 "squizlabs/php_codesniffer": "^3.4"
@@ -4878,9 +4879,9 @@
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
             "support": {
                 "issues": "https://github.com/violinist-dev/violinist-messages/issues",
-                "source": "https://github.com/violinist-dev/violinist-messages/tree/1.5.0"
+                "source": "https://github.com/violinist-dev/violinist-messages/tree/1.5.1"
             },
-            "time": "2022-07-18T20:52:06+00:00"
+            "time": "2022-11-17T18:59:51+00:00"
         },
         {
             "name": "wa72/simplelogger",
@@ -6644,5 +6645,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.3.0"
 }
