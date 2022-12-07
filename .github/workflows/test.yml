@@ -16,6 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        max-parallel: 2
         php-version:
           - "7.2"
           - "7.3"
