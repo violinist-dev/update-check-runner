@@ -14,7 +14,8 @@ jobs:
     name: Run tests
     runs-on: 'ubuntu-20.04'
     strategy:
-      fail-fast: false
+      fail-fast: true
+      max-parallel: 2
       matrix:
         php-version:
           - "7.2"
