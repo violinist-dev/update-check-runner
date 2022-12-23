@@ -61,8 +61,7 @@ jobs:
       - name: Run phpstan
         run: composer phpstan
 
-      - run: |
-          run: echo "{COMMIT_SHA}={$(git log --format=format:%H -n1)}" >> $GITHUB_OUTPUT
+      - run: echo "{COMMIT_SHA}={$(git log --format=format:%H -n1)}" >> $GITHUB_OUTPUT
         id: log
 
       - name: Run tests
