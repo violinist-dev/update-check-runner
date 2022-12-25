@@ -26,11 +26,6 @@ class UpdateIndirectWithDirectTest extends IntegrationBase
                 $found_message_indicating_branch_name = true;
             }
         }
-        var_dump([
-          $json,
-          $found_message_indicating_branch_name,
-          $found_message_indicating_mbstring_found
-        ]);
         self::assertTrue($found_message_indicating_branch_name && $found_message_indicating_mbstring_found);
     }
 
