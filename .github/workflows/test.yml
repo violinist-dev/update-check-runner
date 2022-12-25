@@ -63,7 +63,7 @@ jobs:
 
       - run: |
           git status
-          export MY_COMMIT=git log --format=format:%H -n1
+          export MY_COMMIT=$(git log --format=format:%H -n1)
           echo $MY_COMMIT
           echo "{COMMIT_SHA}={$MY_COMMIT}" >> $GITHUB_OUTPUT
         id: log
