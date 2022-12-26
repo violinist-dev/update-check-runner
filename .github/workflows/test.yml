@@ -62,7 +62,10 @@ jobs:
         run: composer phpstan
 
       - run: |
-          echo "::set-output name=COMMIT_SHA::$(git log --format=format:%H -n1)'"
+          git status
+          export MY_COMMIT=$(git log --format=format:%H -n1)
+          echo $MY_COMMIT
+          echo "COMMIT_SHA=$MY_COMMIT" >> $GITHUB_OUTPUT
         id: log
 
       - name: Run tests
