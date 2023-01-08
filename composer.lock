@@ -769,12 +769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "b2c69e9461702453adc5d9c08afb4233a954c293"
+                "reference": "9aa4926d95cc8c812bae4cdb69de0773a703e2c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/b2c69e9461702453adc5d9c08afb4233a954c293",
-                "reference": "b2c69e9461702453adc5d9c08afb4233a954c293",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/9aa4926d95cc8c812bae4cdb69de0773a703e2c8",
+                "reference": "9aa4926d95cc8c812bae4cdb69de0773a703e2c8",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +829,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2022-12-22T20:09:17+00:00"
+            "time": "2023-01-08T12:53:30+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -2925,16 +2925,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.16",
+            "version": "v5.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "8e9b9c8dfb33af6057c94e1b44846bee700dc5ef"
+                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8e9b9c8dfb33af6057c94e1b44846bee700dc5ef",
-                "reference": "8e9b9c8dfb33af6057c94e1b44846bee700dc5ef",
+                "url": "https://api.github.com/repos/symfony/console/zipball/58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
+                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
                 "shasum": ""
             },
             "require": {
@@ -3017,7 +3017,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-25T14:09:27+00:00"
+            "time": "2022-12-28T14:15:31+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -3303,16 +3303,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.4.11",
+            "version": "v5.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "7872a66f57caffa2916a584db1aa7f12adc76f8c"
+                "reference": "40c08632019838dfb3350f18cf5563b8080055fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/7872a66f57caffa2916a584db1aa7f12adc76f8c",
-                "reference": "7872a66f57caffa2916a584db1aa7f12adc76f8c",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/40c08632019838dfb3350f18cf5563b8080055fc",
+                "reference": "40c08632019838dfb3350f18cf5563b8080055fc",
                 "shasum": ""
             },
             "require": {
@@ -3345,9 +3345,6 @@
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.4.11"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3362,7 +3359,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-29T07:37:50+00:00"
+            "time": "2022-12-22T10:31:03+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -4203,16 +4200,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.4.15",
+            "version": "v5.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "571334ce9f687e3e6af72db4d3b2a9431e4fd9ed"
+                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/571334ce9f687e3e6af72db4d3b2a9431e4fd9ed",
-                "reference": "571334ce9f687e3e6af72db4d3b2a9431e4fd9ed",
+                "url": "https://api.github.com/repos/symfony/string/zipball/55733a8664b8853b003e70251c58bc8cb2d82a6b",
+                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b",
                 "shasum": ""
             },
             "require": {
@@ -4282,20 +4279,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-05T15:16:54+00:00"
+            "time": "2022-12-12T15:54:21+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v2.15.3",
+            "version": "v2.15.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "ab402673db8746cb3a4c46f3869d6253699f614a"
+                "reference": "3e059001d6d597dd50ea7c74dd2464b4adea48d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ab402673db8746cb3a4c46f3869d6253699f614a",
-                "reference": "ab402673db8746cb3a4c46f3869d6253699f614a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e059001d6d597dd50ea7c74dd2464b4adea48d3",
+                "reference": "3e059001d6d597dd50ea7c74dd2464b4adea48d3",
                 "shasum": ""
             },
             "require": {
@@ -4358,25 +4355,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-28T08:40:08+00:00"
+            "time": "2022-12-27T12:26:20+00:00"
         },
         {
             "name": "violinist-dev/allow-list-handler",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/allow-list-handler.git",
-                "reference": "2b6d73179f3e43427fe65fd0e7c7026630823539"
+                "reference": "b1214d3a9ec278f95532b815de9895334083d8ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/allow-list-handler/zipball/2b6d73179f3e43427fe65fd0e7c7026630823539",
-                "reference": "2b6d73179f3e43427fe65fd0e7c7026630823539",
+                "url": "https://api.github.com/repos/violinist-dev/allow-list-handler/zipball/b1214d3a9ec278f95532b815de9895334083d8ae",
+                "reference": "b1214d3a9ec278f95532b815de9895334083d8ae",
                 "shasum": ""
             },
             "require": {
                 "psr/log": "^1.1",
-                "violinist-dev/violinist-config": "^1.2.0"
+                "violinist-dev/violinist-config": "^1.2.0 || ^2.0"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.4",
@@ -4401,11 +4398,7 @@
                 }
             ],
             "description": "Handles the allow list for violinist",
-            "support": {
-                "issues": "https://github.com/violinist-dev/allow-list-handler/issues",
-                "source": "https://github.com/violinist-dev/allow-list-handler/tree/1.0.0"
-            },
-            "time": "2021-11-09T06:25:59+00:00"
+            "time": "2023-01-07T18:10:07+00:00"
         },
         {
             "name": "violinist-dev/commit-message-creator",
@@ -4807,20 +4800,20 @@
         },
         {
             "name": "violinist-dev/timeframe-handler",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/timeframe-handler.git",
-                "reference": "4d72dc31a590fab20a6be656c509201c009997ec"
+                "reference": "1e723a3dbdc538732282cd2c3eaf39c98aca7ad0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/timeframe-handler/zipball/4d72dc31a590fab20a6be656c509201c009997ec",
-                "reference": "4d72dc31a590fab20a6be656c509201c009997ec",
+                "url": "https://api.github.com/repos/violinist-dev/timeframe-handler/zipball/1e723a3dbdc538732282cd2c3eaf39c98aca7ad0",
+                "reference": "1e723a3dbdc538732282cd2c3eaf39c98aca7ad0",
                 "shasum": ""
             },
             "require": {
-                "violinist-dev/violinist-config": "^1.4"
+                "violinist-dev/violinist-config": "^1.4 || ^2.0"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.0",
@@ -4844,25 +4837,25 @@
                 }
             ],
             "description": "Timeframe handler for the timeframe config",
-            "time": "2022-08-11T06:20:01+00:00"
+            "time": "2023-01-07T18:04:46+00:00"
         },
         {
             "name": "violinist-dev/violinist-config",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "22e7b98fbd654c79b6d89fa3acd4ec90b0f32e3e"
+                "reference": "ec510d9cd5b700c3b42d18c7b8864b9479e75754"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/22e7b98fbd654c79b6d89fa3acd4ec90b0f32e3e",
-                "reference": "22e7b98fbd654c79b6d89fa3acd4ec90b0f32e3e",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/ec510d9cd5b700c3b42d18c7b8864b9479e75754",
+                "reference": "ec510d9cd5b700c3b42d18c7b8864b9479e75754",
                 "shasum": ""
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.4",
-                "phpunit/phpunit": "^6.5",
+                "phpunit/phpunit": "^8.0",
                 "squizlabs/php_codesniffer": "^3.4"
             },
             "type": "library",
@@ -4882,11 +4875,7 @@
                 }
             ],
             "description": "Get violinist config from composer.json",
-            "support": {
-                "issues": "https://github.com/violinist-dev/violinist-config/issues",
-                "source": "https://github.com/violinist-dev/violinist-config/tree/1.4.0"
-            },
-            "time": "2022-08-08T14:33:40+00:00"
+            "time": "2023-01-06T17:57:46+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
