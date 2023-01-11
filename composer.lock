@@ -769,12 +769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "551c1541545ad68481d8121bbfd6efa52258d4e0"
+                "reference": "4e1ae5759411a2bd8adb71a7249b7a2fb3b21baf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/551c1541545ad68481d8121bbfd6efa52258d4e0",
-                "reference": "551c1541545ad68481d8121bbfd6efa52258d4e0",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4e1ae5759411a2bd8adb71a7249b7a2fb3b21baf",
+                "reference": "4e1ae5759411a2bd8adb71a7249b7a2fb3b21baf",
                 "shasum": ""
             },
             "require": {
@@ -800,7 +800,7 @@
                 "violinist-dev/slug-from-url": "^1",
                 "violinist-dev/symfony-cloud-security-checker": "^2",
                 "violinist-dev/timeframe-handler": "^1.0",
-                "violinist-dev/violinist-config": "^1.3",
+                "violinist-dev/violinist-config": "^2.0",
                 "violinist-dev/violinist-messages": "^1.4.0",
                 "wa72/simplelogger": "^1.0"
             },
@@ -829,7 +829,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2023-01-08T20:32:13+00:00"
+            "time": "2023-01-11T00:11:48+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -4841,16 +4841,16 @@
         },
         {
             "name": "violinist-dev/violinist-config",
-            "version": "1.5.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "ec510d9cd5b700c3b42d18c7b8864b9479e75754"
+                "reference": "9d45736be6e15f1cf96170bdfe2795cb6425ed16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/ec510d9cd5b700c3b42d18c7b8864b9479e75754",
-                "reference": "ec510d9cd5b700c3b42d18c7b8864b9479e75754",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/9d45736be6e15f1cf96170bdfe2795cb6425ed16",
+                "reference": "9d45736be6e15f1cf96170bdfe2795cb6425ed16",
                 "shasum": ""
             },
             "require-dev": {
@@ -4875,7 +4875,7 @@
                 }
             ],
             "description": "Get violinist config from composer.json",
-            "time": "2023-01-06T17:57:46+00:00"
+            "time": "2023-01-07T18:00:10+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
