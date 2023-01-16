@@ -769,12 +769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "5c25deb8bf112e9bc983412cbc2aa6071f318e65"
+                "reference": "60ee431cea7d9caa54c876a78769be358336db92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/5c25deb8bf112e9bc983412cbc2aa6071f318e65",
-                "reference": "5c25deb8bf112e9bc983412cbc2aa6071f318e65",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/60ee431cea7d9caa54c876a78769be358336db92",
+                "reference": "60ee431cea7d9caa54c876a78769be358336db92",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +829,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2023-01-14T18:04:05+00:00"
+            "time": "2023-01-16T15:02:13+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
