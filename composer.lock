@@ -294,16 +294,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "923278ad13e1621946eb76ab2882655d2cc396a4"
+                "reference": "c76c013c555160410af47c03a0e173518e3f5796"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/923278ad13e1621946eb76ab2882655d2cc396a4",
-                "reference": "923278ad13e1621946eb76ab2882655d2cc396a4",
+                "url": "https://api.github.com/repos/composer/composer/zipball/c76c013c555160410af47c03a0e173518e3f5796",
+                "reference": "c76c013c555160410af47c03a0e173518e3f5796",
                 "shasum": ""
             },
             "require": {
@@ -398,7 +398,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-22T14:33:54+00:00"
+            "time": "2023-02-04T13:33:22+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -769,12 +769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "60ee431cea7d9caa54c876a78769be358336db92"
+                "reference": "f0e1309f1f6878fc7bb4f6e2a6f4108c0245c3fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/60ee431cea7d9caa54c876a78769be358336db92",
-                "reference": "60ee431cea7d9caa54c876a78769be358336db92",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/f0e1309f1f6878fc7bb4f6e2a6f4108c0245c3fd",
+                "reference": "f0e1309f1f6878fc7bb4f6e2a6f4108c0245c3fd",
                 "shasum": ""
             },
             "require": {
@@ -792,7 +792,7 @@
                 "symfony/process": "^5.4",
                 "violinist-dev/allow-list-handler": "^1.0",
                 "violinist-dev/commit-message-creator": "^1.2",
-                "violinist-dev/composer-changelog-fetcher": "^2.0",
+                "violinist-dev/composer-changelog-fetcher": "^2.1",
                 "violinist-dev/composer-updater": "dev-main",
                 "violinist-dev/git-log-format": "^1.1.2",
                 "violinist-dev/process-factory": "^2.0",
@@ -801,7 +801,7 @@
                 "violinist-dev/symfony-cloud-security-checker": "^2",
                 "violinist-dev/timeframe-handler": "^1.0",
                 "violinist-dev/violinist-config": "^2.0",
-                "violinist-dev/violinist-messages": "^1.4.0",
+                "violinist-dev/violinist-messages": "^1.6.0",
                 "wa72/simplelogger": "^1.0"
             },
             "require-dev": {
@@ -829,7 +829,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2023-01-16T15:02:13+00:00"
+            "time": "2023-02-06T18:50:43+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -2925,16 +2925,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f"
+                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
-                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/dccb8d251a9017d5994c988b034d3e18aaabf740",
+                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740",
                 "shasum": ""
             },
             "require": {
@@ -3017,7 +3017,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-28T14:15:31+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -3239,16 +3239,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.4.13",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51"
+                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ac09569844a9109a5966b9438fc29113ce77cf51",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/648bfaca6a494f3e22378123bcee2894045dc9d8",
+                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8",
                 "shasum": ""
             },
             "require": {
@@ -3296,20 +3296,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-21T19:53:16+00:00"
+            "time": "2023-01-14T19:14:44+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "40c08632019838dfb3350f18cf5563b8080055fc"
+                "reference": "6071aebf810ad13fe8200c224f36103abb37cf1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/40c08632019838dfb3350f18cf5563b8080055fc",
-                "reference": "40c08632019838dfb3350f18cf5563b8080055fc",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/6071aebf810ad13fe8200c224f36103abb37cf1f",
+                "reference": "6071aebf810ad13fe8200c224f36103abb37cf1f",
                 "shasum": ""
             },
             "require": {
@@ -3356,20 +3356,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-22T10:31:03+00:00"
+            "time": "2023-01-14T19:14:44+00:00"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v5.4.11",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "54f14e36aa73cb8f7261d7686691fd4d75ea2690"
+                "reference": "b03c99236445492f20c61666e8f7e5d388b078e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/54f14e36aa73cb8f7261d7686691fd4d75ea2690",
-                "reference": "54f14e36aa73cb8f7261d7686691fd4d75ea2690",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/b03c99236445492f20c61666e8f7e5d388b078e5",
+                "reference": "b03c99236445492f20c61666e8f7e5d388b078e5",
                 "shasum": ""
             },
             "require": {
@@ -3408,9 +3408,6 @@
                 "configuration",
                 "options"
             ],
-            "support": {
-                "source": "https://github.com/symfony/options-resolver/tree/v5.4.11"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3425,7 +3422,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-20T13:00:38+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -4052,16 +4049,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.11",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1"
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/6e75fe6874cbc7e4773d049616ab450eff537bf1",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
                 "shasum": ""
             },
             "require": {
@@ -4093,9 +4090,6 @@
             ],
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.11"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4110,7 +4104,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-27T16:58:25+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -4197,16 +4191,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b"
+                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/55733a8664b8853b003e70251c58bc8cb2d82a6b",
-                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b",
+                "url": "https://api.github.com/repos/symfony/string/zipball/0a01071610fd861cc160dfb7e2682ceec66064cb",
+                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb",
                 "shasum": ""
             },
             "require": {
@@ -4276,7 +4270,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-12T15:54:21+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "twig/twig",
@@ -4445,16 +4439,16 @@
         },
         {
             "name": "violinist-dev/composer-changelog-fetcher",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-changelog-fetcher.git",
-                "reference": "1911d1f3b0e44233126e07e44fa319db2678ea09"
+                "reference": "bcec83a9b954d858b502514cd5902f58f3e21a6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/1911d1f3b0e44233126e07e44fa319db2678ea09",
-                "reference": "1911d1f3b0e44233126e07e44fa319db2678ea09",
+                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/bcec83a9b954d858b502514cd5902f58f3e21a6c",
+                "reference": "bcec83a9b954d858b502514cd5902f58f3e21a6c",
                 "shasum": ""
             },
             "require": {
@@ -4486,11 +4480,7 @@
                 "MIT"
             ],
             "description": "Fetch changelog for a given composer update",
-            "support": {
-                "issues": "https://github.com/violinist-dev/composer-changelog-fetcher/issues",
-                "source": "https://github.com/violinist-dev/composer-changelog-fetcher/tree/2.0.1"
-            },
-            "time": "2022-08-21T12:47:38+00:00"
+            "time": "2023-02-06T12:10:15+00:00"
         },
         {
             "name": "violinist-dev/composer-lock-data",
@@ -4876,16 +4866,16 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "1.5.1",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "a73fee81a3f2d3b4440a2c88bee6dd5a86149f96"
+                "reference": "58c42790b694f79fd90d8569d81a906219051e5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/a73fee81a3f2d3b4440a2c88bee6dd5a86149f96",
-                "reference": "a73fee81a3f2d3b4440a2c88bee6dd5a86149f96",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/58c42790b694f79fd90d8569d81a906219051e5a",
+                "reference": "58c42790b694f79fd90d8569d81a906219051e5a",
                 "shasum": ""
             },
             "require": {
@@ -4908,11 +4898,7 @@
                 "MIT"
             ],
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
-            "support": {
-                "issues": "https://github.com/violinist-dev/violinist-messages/issues",
-                "source": "https://github.com/violinist-dev/violinist-messages/tree/1.5.1"
-            },
-            "time": "2022-11-17T18:59:51+00:00"
+            "time": "2023-01-28T18:50:30+00:00"
         },
         {
             "name": "wa72/simplelogger",
