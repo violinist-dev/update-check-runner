@@ -294,16 +294,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.5.2",
+            "version": "2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "c76c013c555160410af47c03a0e173518e3f5796"
+                "reference": "607a4c04006ce1d2b6fdfd5467bae3d7ad9ce5ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/c76c013c555160410af47c03a0e173518e3f5796",
-                "reference": "c76c013c555160410af47c03a0e173518e3f5796",
+                "url": "https://api.github.com/repos/composer/composer/zipball/607a4c04006ce1d2b6fdfd5467bae3d7ad9ce5ab",
+                "reference": "607a4c04006ce1d2b6fdfd5467bae3d7ad9ce5ab",
                 "shasum": ""
             },
             "require": {
@@ -398,7 +398,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-04T13:33:22+00:00"
+            "time": "2023-02-10T12:23:52+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -769,12 +769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "f0e1309f1f6878fc7bb4f6e2a6f4108c0245c3fd"
+                "reference": "1e056b7a90e260f63c6374f4e242e67bcba1e243"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/f0e1309f1f6878fc7bb4f6e2a6f4108c0245c3fd",
-                "reference": "f0e1309f1f6878fc7bb4f6e2a6f4108c0245c3fd",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/1e056b7a90e260f63c6374f4e242e67bcba1e243",
+                "reference": "1e056b7a90e260f63c6374f4e242e67bcba1e243",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +829,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2023-02-06T18:50:43+00:00"
+            "time": "2023-02-13T14:39:24+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -1891,38 +1891,44 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.14.3",
+            "version": "1.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "31d8ee46d0215108df16a8527c7438e96a4d7735"
+                "reference": "5cc428320191ac1d0b6520034c2dc0698628ced5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/31d8ee46d0215108df16a8527c7438e96a4d7735",
-                "reference": "31d8ee46d0215108df16a8527c7438e96a4d7735",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/5cc428320191ac1d0b6520034c2dc0698628ced5",
+                "reference": "5cc428320191ac1d0b6520034c2dc0698628ced5",
                 "shasum": ""
             },
             "require": {
+                "composer-plugin-api": "^1.0|^2.0",
                 "php": "^7.1 || ^8.0"
             },
             "conflict": {
                 "nyholm/psr7": "<1.0"
             },
+            "provide": {
+                "php-http/async-client-implementation": "*",
+                "php-http/client-implementation": "*",
+                "psr/http-client-implementation": "*",
+                "psr/http-factory-implementation": "*",
+                "psr/http-message-implementation": "*"
+            },
             "require-dev": {
+                "composer/composer": "^1.0.2|^2.0",
                 "graham-campbell/phpspec-skip-example-extension": "^5.0",
                 "php-http/httplug": "^1.0 || ^2.0",
                 "php-http/message-factory": "^1.0",
-                "phpspec/phpspec": "^5.1 || ^6.1"
+                "phpspec/phpspec": "^5.1 || ^6.1 || ^7.3",
+                "symfony/phpunit-bridge": "^6.2"
             },
-            "suggest": {
-                "php-http/message": "Allow to use Guzzle, Diactoros or Slim Framework factories"
-            },
-            "type": "library",
+            "type": "composer-plugin",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.9-dev"
-                }
+                "class": "Http\\Discovery\\Composer\\Plugin",
+                "plugin-optional": true
             },
             "autoload": {
                 "psr-4": {
@@ -1939,7 +1945,7 @@
                     "email": "mark.sagikazar@gmail.com"
                 }
             ],
-            "description": "Finds installed HTTPlug implementations and PSR-7 message factories",
+            "description": "Finds and installs PSR-7, PSR-17, PSR-18 and HTTPlug implementations",
             "homepage": "http://php-http.org",
             "keywords": [
                 "adapter",
@@ -1948,13 +1954,10 @@
                 "factory",
                 "http",
                 "message",
+                "psr17",
                 "psr7"
             ],
-            "support": {
-                "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.14.3"
-            },
-            "time": "2022-07-11T14:04:40+00:00"
+            "time": "2023-02-11T08:28:41+00:00"
         },
         {
             "name": "php-http/guzzle7-adapter",
