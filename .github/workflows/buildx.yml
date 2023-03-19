@@ -1,10 +1,11 @@
 name: buildx
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 10 * * *' # everyday at 10am
   push:
-   # branches: main
+   branches: main
 
 env:
   REGISTRY: ghcr.io
