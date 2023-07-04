@@ -54,6 +54,7 @@ jobs:
 
       - name: Build and push Docker image
         continue-on-error: true
+        id: buildx1
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           platforms: linux/amd64,linux/arm64
@@ -64,7 +65,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        if: ${{ failure() }}
+        if: steps.buildx1.outcome != 'success'
         with:
           platforms: linux/amd64,linux/arm64
           context: .
