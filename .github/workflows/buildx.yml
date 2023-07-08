@@ -63,6 +63,10 @@ jobs:
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Wait to retry
+        if: steps.buildx1.outcome != 'success'
+        run: |
+          sleep 60
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         if: steps.buildx1.outcome != 'success'
