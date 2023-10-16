@@ -467,16 +467,16 @@
         },
         {
             "name": "composer/pcre",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/pcre.git",
-                "reference": "3fdb2807b31a78a40ad89570e30ec77466c98717"
+                "reference": "b439557066cd445732fa57cbc8d905394b4db8a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/pcre/zipball/3fdb2807b31a78a40ad89570e30ec77466c98717",
-                "reference": "3fdb2807b31a78a40ad89570e30ec77466c98717",
+                "url": "https://api.github.com/repos/composer/pcre/zipball/b439557066cd445732fa57cbc8d905394b4db8a0",
+                "reference": "b439557066cd445732fa57cbc8d905394b4db8a0",
                 "shasum": ""
             },
             "require": {
@@ -530,7 +530,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-16T18:32:04+00:00"
+            "time": "2023-10-11T07:10:55+00:00"
         },
         {
             "name": "composer/semver",
@@ -760,12 +760,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "4f10cc97847f4f1697a6924d74be539e4f5712cf"
+                "reference": "122230dfd9bf731fdbefdcd1aadad2265e284ad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4f10cc97847f4f1697a6924d74be539e4f5712cf",
-                "reference": "4f10cc97847f4f1697a6924d74be539e4f5712cf",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/122230dfd9bf731fdbefdcd1aadad2265e284ad9",
+                "reference": "122230dfd9bf731fdbefdcd1aadad2265e284ad9",
                 "shasum": ""
             },
             "require": {
@@ -799,7 +799,7 @@
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^6||^7||^8",
+                "phpunit/phpunit": "^6||^7||^8||^9",
                 "squizlabs/php_codesniffer": "^3.2"
             },
             "type": "library",
@@ -820,7 +820,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2023-10-07T21:07:59+00:00"
+            "time": "2023-10-16T20:49:20+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -4742,16 +4742,16 @@
         },
         {
             "name": "violinist-dev/violinist-config",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "6fc48dd76f461991d766902719dad2cdedd7e301"
+                "reference": "ad4497361ac093ca42ade534839bb0722d27b608"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/6fc48dd76f461991d766902719dad2cdedd7e301",
-                "reference": "6fc48dd76f461991d766902719dad2cdedd7e301",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/ad4497361ac093ca42ade534839bb0722d27b608",
+                "reference": "ad4497361ac093ca42ade534839bb0722d27b608",
                 "shasum": ""
             },
             "require-dev": {
@@ -4776,7 +4776,7 @@
                 }
             ],
             "description": "Get violinist config from composer.json",
-            "time": "2023-03-17T08:50:46+00:00"
+            "time": "2023-10-16T20:07:29+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
