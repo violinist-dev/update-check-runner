@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60c640edf5c67a0dd5ceee527ce6d2d7",
+    "content-hash": "6c37e0173a44c046bf4bdb4166416b18",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -756,16 +756,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-main",
+            "version": "dev-feat/native-audit",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "513b7c261b2215467415151312d482ff8906fa9d"
+                "reference": "439a100514a558c94630954e73be79c5b517aa88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/513b7c261b2215467415151312d482ff8906fa9d",
-                "reference": "513b7c261b2215467415151312d482ff8906fa9d",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/439a100514a558c94630954e73be79c5b517aa88",
+                "reference": "439a100514a558c94630954e73be79c5b517aa88",
                 "shasum": ""
             },
             "require": {
@@ -799,7 +799,7 @@
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^6||^7||^8",
+                "phpunit/phpunit": "^6||^7||^8||^9",
                 "squizlabs/php_codesniffer": "^3.2"
             },
             "type": "library",
@@ -820,7 +820,11 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2023-09-06T12:43:17+00:00"
+            "support": {
+                "issues": "https://github.com/eiriksm/cosy-composer/issues",
+                "source": "https://github.com/eiriksm/cosy-composer/tree/feat/native-audit"
+            },
+            "time": "2023-10-17T08:59:53+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -6576,5 +6580,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.3.0"
 }

@@ -19,7 +19,7 @@
     "ext-pcntl": "*",
     "ext-redis": "*",
     "ext-imagick": "*",
-    "eiriksm/cosy-composer": "dev-main",
+    "eiriksm/cosy-composer": "dev-feat/native-audit",
     "symfony/dependency-injection": "^4.4",
     "eiriksm/gitinfo": "^1.1",
     "symfony/dotenv": "^5.4"
