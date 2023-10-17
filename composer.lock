@@ -760,12 +760,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "439a100514a558c94630954e73be79c5b517aa88"
+                "reference": "917d96ec5874def57c5fa1f1d456f7ae7cb5b254"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/439a100514a558c94630954e73be79c5b517aa88",
-                "reference": "439a100514a558c94630954e73be79c5b517aa88",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/917d96ec5874def57c5fa1f1d456f7ae7cb5b254",
+                "reference": "917d96ec5874def57c5fa1f1d456f7ae7cb5b254",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +824,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/feat/native-audit"
             },
-            "time": "2023-10-17T08:59:53+00:00"
+            "time": "2023-10-17T10:06:46+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -6580,5 +6580,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
