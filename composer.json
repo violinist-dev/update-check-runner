@@ -19,7 +19,7 @@
     "ext-pcntl": "*",
     "ext-redis": "*",
     "ext-imagick": "*",
-    "eiriksm/cosy-composer": "dev-main",
+    "eiriksm/cosy-composer": "dev-eiriksm-patch-3",
     "symfony/dependency-injection": "^4.4",
     "eiriksm/gitinfo": "^1.1",
     "symfony/dotenv": "^5.4"
@@ -37,5 +37,10 @@
     "stevenmaguire/oauth2-bitbucket": "^3.0",
     "phpstan/phpstan": "^1.8",
     "phpstan/phpstan-phpunit": "^1.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
   }
 }

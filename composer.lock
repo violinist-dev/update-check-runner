@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60c640edf5c67a0dd5ceee527ce6d2d7",
+    "content-hash": "b66dc10dca908847801d72c4be367135",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -756,16 +756,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-main",
+            "version": "dev-eiriksm-patch-3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "4f10cc97847f4f1697a6924d74be539e4f5712cf"
+                "reference": "bedb7fb0f0e3b4b497eabc13549c57a6e993b83d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4f10cc97847f4f1697a6924d74be539e4f5712cf",
-                "reference": "4f10cc97847f4f1697a6924d74be539e4f5712cf",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/bedb7fb0f0e3b4b497eabc13549c57a6e993b83d",
+                "reference": "bedb7fb0f0e3b4b497eabc13549c57a6e993b83d",
                 "shasum": ""
             },
             "require": {
@@ -799,7 +799,7 @@
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^6||^7||^8",
+                "phpunit/phpunit": "^6||^7||^8||^9",
                 "squizlabs/php_codesniffer": "^3.2"
             },
             "type": "library",
@@ -820,7 +820,11 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2023-10-07T21:07:59+00:00"
+            "support": {
+                "issues": "https://github.com/eiriksm/cosy-composer/issues",
+                "source": "https://github.com/eiriksm/cosy-composer/tree/eiriksm-patch-3"
+            },
+            "time": "2023-10-26T07:17:31+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -6560,5 +6564,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.6.0"
 }
