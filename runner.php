@@ -41,8 +41,6 @@ if (!empty($_SERVER['project_url'])) {
     $url = $_SERVER['project_url'];
 }
 $container = new ContainerBuilder();
-$container->register('app', \Composer\Console\Application::class);
-$container->register('output', \eiriksm\ArrayOutput\ArrayOutput::class);
 $container->register('logger', 'Wa72\SimpleLogger\ArrayLogger');
 $container->register('process.factory', 'eiriksm\CosyComposer\ProcessFactory');
 $container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
@@ -50,8 +48,6 @@ $container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
     ->addArgument(new Reference('process.factory'));
 $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
     ->addArgument($slug)
-    ->addArgument(new Reference('app'))
-    ->addArgument(new Reference('output'))
     ->addArgument(new Reference('command'))
     ->addMethodCall('setLogger', [new Reference('logger')])
     ->addMethodCall('setUrl', [$url]);
