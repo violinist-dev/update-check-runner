@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60c640edf5c67a0dd5ceee527ce6d2d7",
+    "content-hash": "1653dd48f27569ff7436748c2949f80e",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -6534,5 +6534,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.6.0"
 }
