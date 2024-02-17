@@ -751,12 +751,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "5bee65593aeb6e94b573bc3d64e36b1ee3fd4c79"
+                "reference": "82b6d2da32940b40e949589d40bae72e568ce18f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/5bee65593aeb6e94b573bc3d64e36b1ee3fd4c79",
-                "reference": "5bee65593aeb6e94b573bc3d64e36b1ee3fd4c79",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/82b6d2da32940b40e949589d40bae72e568ce18f",
+                "reference": "82b6d2da32940b40e949589d40bae72e568ce18f",
                 "shasum": ""
             },
             "require": {
@@ -775,7 +775,7 @@
                 "violinist-dev/allow-list-handler": "^1.0",
                 "violinist-dev/commit-message-creator": "^1.2",
                 "violinist-dev/composer-changelog-fetcher": "^2.1",
-                "violinist-dev/composer-updater": "dev-main",
+                "violinist-dev/composer-updater": "^1.0",
                 "violinist-dev/git-log-format": "^1.1.2",
                 "violinist-dev/process-factory": "^2.0",
                 "violinist-dev/project-data": "^1.1.1",
@@ -811,7 +811,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2024-02-16T13:28:56+00:00"
+            "time": "2024-02-17T14:16:38+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -4406,16 +4406,16 @@
         },
         {
             "name": "violinist-dev/composer-updater",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "189f76cd41b9f157ce48ee104673a8465e0ddb7d"
+                "reference": "730662bd7e9e84ff5e69b31ace45942120645bec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/189f76cd41b9f157ce48ee104673a8465e0ddb7d",
-                "reference": "189f76cd41b9f157ce48ee104673a8465e0ddb7d",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/730662bd7e9e84ff5e69b31ace45942120645bec",
+                "reference": "730662bd7e9e84ff5e69b31ace45942120645bec",
                 "shasum": ""
             },
             "require": {
@@ -4447,7 +4447,7 @@
                 }
             ],
             "description": "Updater package",
-            "time": "2023-10-19T12:32:40+00:00"
+            "time": "2024-02-17T13:26:46+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
