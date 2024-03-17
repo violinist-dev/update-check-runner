@@ -751,18 +751,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "3c133168b6c4b378975da8c9c889187d90588cdb"
+                "reference": "16655d4156c168202b02164618cdf104ab523d5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/3c133168b6c4b378975da8c9c889187d90588cdb",
-                "reference": "3c133168b6c4b378975da8c9c889187d90588cdb",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/16655d4156c168202b02164618cdf104ab523d5e",
+                "reference": "16655d4156c168202b02164618cdf104ab523d5e",
                 "shasum": ""
             },
             "require": {
                 "bitbucket/client": "^3",
                 "composer/composer": "^1||^2",
-                "eiriksm/symfony-console-array-output": "^1.0",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^7.4",
                 "http-interop/http-factory-guzzle": "^1.1",
@@ -811,7 +810,7 @@
                 "MIT"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2024-03-16T06:46:12+00:00"
+            "time": "2024-03-16T13:54:42+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -847,42 +846,6 @@
                 "source": "https://github.com/eiriksm/php-app-git-version/tree/master"
             },
             "time": "2017-11-14T13:14:50+00:00"
-        },
-        {
-            "name": "eiriksm/symfony-console-array-output",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/eiriksm/symfony-console-array-output.git",
-                "reference": "2f1a609d7ada192363182ec78ba62343ad0487fc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/symfony-console-array-output/zipball/2f1a609d7ada192363182ec78ba62343ad0487fc",
-                "reference": "2f1a609d7ada192363182ec78ba62343ad0487fc",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": "^3.4||^4||^5.4"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.0",
-                "phpunit/phpunit": "^6.5||^7||^8||^9",
-                "squizlabs/php_codesniffer": "^3.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "eiriksm\\ArrayOutput\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Array output for console commands",
-            "support": {
-                "issues": "https://github.com/eiriksm/symfony-console-array-output/issues",
-                "source": "https://github.com/eiriksm/symfony-console-array-output/tree/1.0.2"
-            },
-            "time": "2022-08-21T12:48:17+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
