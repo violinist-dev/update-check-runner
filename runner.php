@@ -22,7 +22,6 @@ foreach (['slug', 'fork_user', 'fork_mail', 'token_url', 'fork_to'] as $key) {
     $_SERVER[$key] = '';
 }
 
-$slug = $_SERVER['slug'];
 $user_token = $_SERVER['user_token'];
 $fork_to = $_SERVER['fork_to'];
 $fork_user = $_SERVER['fork_user'];
