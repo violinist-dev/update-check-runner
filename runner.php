@@ -22,7 +22,6 @@ foreach (['slug', 'fork_user', 'fork_mail', 'token_url', 'fork_to'] as $key) {
     $_SERVER[$key] = '';
 }
 
-$slug = $_SERVER['slug'];
 $user_token = $_SERVER['user_token'];
 $fork_to = $_SERVER['fork_to'];
 $fork_user = $_SERVER['fork_user'];
@@ -47,7 +46,6 @@ $container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
     ->addArgument(new Reference('logger'))
     ->addArgument(new Reference('process.factory'));
 $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
-    ->addArgument($slug)
     ->addArgument(new Reference('command'))
     ->addMethodCall('setLogger', [new Reference('logger')])
     ->addMethodCall('setUrl', [$url]);
