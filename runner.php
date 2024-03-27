@@ -46,7 +46,6 @@ $container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
     ->addArgument(new Reference('logger'))
     ->addArgument(new Reference('process.factory'));
 $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
-    ->addArgument($slug)
     ->addArgument(new Reference('command'))
     ->addMethodCall('setLogger', [new Reference('logger')])
     ->addMethodCall('setUrl', [$url]);
