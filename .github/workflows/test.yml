@@ -19,12 +19,12 @@ jobs:
       max-parallel: 2
       matrix:
         php-version:
-          - "7.2"
-          - "7.3"
-          - "7.4"
-          - "8.0"
-          - "8.1"
-          - "8.2"
+         # - "7.2"
+          #- "7.3"
+         # - "7.4"
+       #   - "8.0"
+    #      - "8.1"
+     #     - "8.2"
           - "8.3"
         composer-version:
           - "1"
@@ -54,6 +54,13 @@ jobs:
 
       - name: Install dependencies
         run: composer --verbose install
+
+      - name: login
+        uses: docker/login-action
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Build test image
         run: docker build -t update-check-runner . -f Dockerfile-$(echo "$PHP_VERSION" | sed "s/\.//")-composer-$COMPOSER_VERSION
