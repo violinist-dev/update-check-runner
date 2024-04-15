@@ -3,7 +3,7 @@ name: buildx
 on:
   workflow_dispatch:
   push:
-   branches: main
+   # branches: main
 
 env:
   REGISTRY: ghcr.io
@@ -60,7 +60,7 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: true
+          push: false
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -77,7 +77,7 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: true
+          push: false
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
