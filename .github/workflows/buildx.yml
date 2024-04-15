@@ -64,6 +64,9 @@ jobs:
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            PHP_VERSION=${{ matrix.php-version }}
+            COMPOSER_VERSION=${{ matrix.composer-version }}
       - name: Wait to retry
         if: steps.buildx1.outcome != 'success'
         run: |
@@ -78,6 +81,9 @@ jobs:
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            PHP_VERSION=${{ matrix.php-version }}
+            COMPOSER_VERSION=${{ matrix.composer-version }}
       -
         name: Clear
         if: always() && github.event_name != 'pull_request'
