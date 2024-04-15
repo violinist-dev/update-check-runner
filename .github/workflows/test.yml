@@ -12,6 +12,8 @@ on:
 
 jobs:
   test:
+    env:
+      REGISTRY: ghcr.io
     name: Run tests
     runs-on: 'ubuntu-20.04'
     strategy:
