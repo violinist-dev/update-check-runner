@@ -56,7 +56,7 @@ jobs:
         run: composer --verbose install
 
       - name: login
-        uses: docker/login-action
+        uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
