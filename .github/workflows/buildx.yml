@@ -44,7 +44,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_PACKAGES_TOKEN }}
+          password: ${{ secrets.GH_PACKAGES_TOKEN }}
           
       - name: Set docker file variable 
         id: file
