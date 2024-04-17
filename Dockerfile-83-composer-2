@@ -11,4 +11,10 @@ ARG PHP_VERSION
 
 COPY --from=built /usr/src/myapp/runner.phar /runner.phar
 
+RUN  rm -rf /usr/local/bin/composer \
+    && wget https://getcomposer.org/download/latest-${COMPOSER_VERSION}.x/composer.phar -O /tmp/composer \
+    && chmod 755 /tmp/composer \
+    && mv /tmp/composer /usr/local/bin/composer
+
+
 CMD ["/runner.phar"]
