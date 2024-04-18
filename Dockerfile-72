@@ -11,6 +11,9 @@ RUN composer install --no-dev --optimize-autoloader && \
     composer require composer/composer:^1 --update-with-dependencies \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
-    && rm -rf /usr/local/bin/composer
+    && rm -rf /usr/local/bin/composer \
+    && wget https://getcomposer.org/download/latest-1.x/composer.phar -O /tmp/composer \
+    && chmod 755 /tmp/composer \
+    && mv /tmp/composer /usr/local/bin/composer
 
 CMD ["php", "runner.php"]
