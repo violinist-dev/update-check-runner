@@ -19,7 +19,7 @@
     "ext-pcntl": "*",
     "ext-redis": "*",
     "ext-imagick": "*",
-    "eiriksm/cosy-composer": "dev-main",
+    "eiriksm/cosy-composer": "dev-eiriksm-patch-3",
     "symfony/dependency-injection": "^4.4",
     "eiriksm/gitinfo": "^1.1",
     "symfony/console": "v5.4.36",
