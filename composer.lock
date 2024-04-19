@@ -226,12 +226,14 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
+
                 "reference": "f1a90f137e88198c765d8d5c091de5288e83a66a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/f1a90f137e88198c765d8d5c091de5288e83a66a",
                 "reference": "f1a90f137e88198c765d8d5c091de5288e83a66a",
+
                 "shasum": ""
             },
             "require": {
@@ -245,7 +247,7 @@
                 "m4tthumphrey/php-gitlab-api": "^10",
                 "peterpostmann/parse_uri": "^1.0",
                 "php-http/guzzle7-adapter": "^1",
-                "symfony/process": "^5.4",
+                "symfony/process": "^5.4 || ^6",
                 "violinist-dev/allow-list-handler": "^1.0",
                 "violinist-dev/commit-message-creator": "^1.2",
                 "violinist-dev/composer-changelog-fetcher": "^2.1",
@@ -285,11 +287,13 @@
                 "AGPL-3.0-or-later"
             ],
             "description": "Library that runs updates for Violinist",
+
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/eiriksm-patch-3"
             },
             "time": "2024-04-16T17:20:26+00:00"
+
         },
         {
             "name": "eiriksm/gitinfo",
