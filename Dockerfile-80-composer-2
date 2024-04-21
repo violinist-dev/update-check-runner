@@ -8,10 +8,12 @@ ENV COMPOSER_VERSION=2
 ENV VIOLINIST=1
 ENV CI=1
 
-RUN composer install --no-dev --optimize-autoloader && \
-    composer require composer/composer:^2 --update-with-dependencies \
+RUN composer install --no-dev --optimize-autoloader \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
-    && rm -rf /usr/local/bin/composer
+    && rm -rf /usr/local/bin/composer \
+    && wget https://getcomposer.org/download/latest-2.x/composer.phar -O /tmp/composer \
+    && chmod 755 /tmp/composer \
+    && mv /tmp/composer /usr/local/bin/composer
 
 CMD ["php", "runner.php"]
