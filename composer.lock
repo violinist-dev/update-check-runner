@@ -746,12 +746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "189faeeaef941a6b47cf472b1e60d3d8f48b4168"
+                "reference": "ec8a9b43cfd08d8a0531cdd35e36398ef92b5340"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/189faeeaef941a6b47cf472b1e60d3d8f48b4168",
-                "reference": "189faeeaef941a6b47cf472b1e60d3d8f48b4168",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/ec8a9b43cfd08d8a0531cdd35e36398ef92b5340",
+                "reference": "ec8a9b43cfd08d8a0531cdd35e36398ef92b5340",
                 "shasum": ""
             },
             "require": {
@@ -765,7 +765,7 @@
                 "m4tthumphrey/php-gitlab-api": "^10",
                 "peterpostmann/parse_uri": "^1.0",
                 "php-http/guzzle7-adapter": "^1",
-                "symfony/process": "^5.4",
+                "symfony/process": "^5.4 || ^6",
                 "violinist-dev/allow-list-handler": "^1.0",
                 "violinist-dev/commit-message-creator": "^1.2",
                 "violinist-dev/composer-changelog-fetcher": "^2.1",
@@ -805,7 +805,7 @@
                 "AGPL-3.0-or-later"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2024-04-07T07:31:06+00:00"
+            "time": "2024-04-18T20:37:38+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -5134,16 +5134,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.66",
+            "version": "1.10.67",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd"
+                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/94779c987e4ebd620025d9e5fdd23323903950bd",
-                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/16ddbe776f10da6a95ebd25de7c1dbed397dc493",
+                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493",
                 "shasum": ""
             },
             "require": {
@@ -5179,13 +5179,9 @@
                 {
                     "url": "https://github.com/phpstan",
                     "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
-                    "type": "tidelift"
                 }
             ],
-            "time": "2024-03-28T16:17:31+00:00"
+            "time": "2024-04-16T07:22:02+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
