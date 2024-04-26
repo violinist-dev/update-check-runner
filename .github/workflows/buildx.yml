@@ -2,8 +2,12 @@ name: buildx
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
   push:
-   branches: main
+    branches: 
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -44,7 +48,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GH_PACKAGES_TOKEN }}
           
       - name: Set docker file variable 
         id: file
@@ -60,10 +64,13 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: true
+          push: always() && github.event_name != 'pull_request'
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            PHP_VERSION=${{ matrix.php-version }}
+            COMPOSER_VERSION=${{ matrix.composer-version }}
       - name: Wait to retry
         if: steps.buildx1.outcome != 'success'
         run: |
@@ -74,10 +81,13 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: true
+          push: always() && github.event_name != 'pull_request'
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            PHP_VERSION=${{ matrix.php-version }}
+            COMPOSER_VERSION=${{ matrix.composer-version }}
       -
         name: Clear
         if: always() && github.event_name != 'pull_request'

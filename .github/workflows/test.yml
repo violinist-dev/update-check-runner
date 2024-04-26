@@ -12,6 +12,8 @@ on:
 
 jobs:
   test:
+    env:
+      REGISTRY: ghcr.io
     name: Run tests
     runs-on: 'ubuntu-20.04'
     strategy:
@@ -55,8 +57,15 @@ jobs:
       - name: Install dependencies
         run: composer --verbose install
 
+      - name: login
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_PACKAGES_TOKEN }}
+
       - name: Build test image
-        run: docker build -t update-check-runner . -f Dockerfile-$(echo "$PHP_VERSION" | sed "s/\.//")-composer-$COMPOSER_VERSION
+        run: docker build --build-arg COMPOSER_VERSION=$COMPOSER_VERSION --build-arg PHP_VERSION=$PHP_VERSION -t update-check-runner . -f Dockerfile-$(echo "$PHP_VERSION" | sed "s/\.//")-composer-$COMPOSER_VERSION
         env:
           COMPOSER_VERSION: ${{ matrix.composer-version }}
           PHP_VERSION: ${{ matrix.php-version }}
