@@ -25,7 +25,7 @@ abstract class IntegrationBase extends TestCase
 
     protected function assertStandardOutput($url, $json)
     {
-        // $this->assertHashLogged($json);
+        $this->assertHashLogged($json);
         $this->assertPhpVersionLogged($json);
         $this->assertProjectStarting($url, $json);
         $this->assertRepoCloned($json);
