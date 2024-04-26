@@ -22,5 +22,4 @@ RUN composer install --no-dev --optimize-autoloader \
     && chmod 755 /tmp/composer \
     && mv /tmp/composer /usr/local/bin/composer
 
-
 CMD ["php", "runner.php"]
