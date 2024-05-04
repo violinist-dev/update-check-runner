@@ -66,9 +66,6 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
         $pre_run_messages[] = new Message('Licence key is not valid for any of the known public keys.', Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
     } else {
-        $pre_run_messages[] = new Message('Licence key is valid.', Message::COMMAND);
-        $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
-        $pre_run_messages[] = new Message('Public key: ' . $valid_public_key, Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
     }
@@ -131,7 +128,7 @@ catch (Exception $e) {
 }
 $json = [];
 // Prepend the pre-run messages we have stored.
-foreach ($pre_run_messages as $message) {
+foreach (array_reverse($pre_run_messages) as $message) {
     $output = array_merge([$message], $output);
 }
 foreach ($output as $type => $message) {
