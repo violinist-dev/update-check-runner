@@ -3749,12 +3749,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/licence-check.git",
-                "reference": "98fdc6ef53c1cbe4957579b84560546b470cfa14"
+                "reference": "6303658254a7f85f2410800ec7015eb86d6f0504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/licence-check/zipball/98fdc6ef53c1cbe4957579b84560546b470cfa14",
-                "reference": "98fdc6ef53c1cbe4957579b84560546b470cfa14",
+                "url": "https://api.github.com/repos/violinist-dev/licence-check/zipball/6303658254a7f85f2410800ec7015eb86d6f0504",
+                "reference": "6303658254a7f85f2410800ec7015eb86d6f0504",
                 "shasum": ""
             },
             "require": {
@@ -3781,7 +3781,7 @@
                 "issues": "https://github.com/violinist-dev/licence-check/issues",
                 "source": "https://github.com/violinist-dev/licence-check/tree/main"
             },
-            "time": "2024-05-04T17:40:40+00:00"
+            "time": "2024-05-04T19:15:03+00:00"
         },
         {
             "name": "violinist-dev/process-factory",
@@ -5754,7 +5754,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "eiriksm/cosy-composer": 20
+        "eiriksm/cosy-composer": 20,
+        "violinist-dev/licence-check": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
