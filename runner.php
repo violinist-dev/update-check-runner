@@ -12,6 +12,7 @@ use eiriksm\GitInfo\GitInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Dotenv\Dotenv;
+use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
 
@@ -39,6 +40,40 @@ if (!empty($_SERVER['project'])) {
 if (!empty($_SERVER['project_url'])) {
     $url = $_SERVER['project_url'];
 }
+
+$valid_public_keys = [
+    // Production key for violinist.io.
+    '7f21f9fdf700d388dda33e1463b541c7ccbdcbf9e35a120fbfbf97c0dccc2385',
+    // CI key for violinist.io.
+    '8e342a2dd1229474e5b3e0a9553e0af239acf42eabf5cf12c8bdb5dc864fbe7e',
+];
+
+$pre_run_messages = [];
+
+if (!empty($_SERVER['LICENCE_KEY'])) {
+    $pre_run_messages[] = new Message('Licence key found in environment. Checking validity.', Message::COMMAND);
+    $has_valid_key = false;
+    foreach ($valid_public_keys as $valid_public_key) {
+        $checker = new LicenceChecker($valid_public_key);
+        $checked = LicenceChecker::createFromLicenceAndKey($_SERVER['LICENCE_KEY'], $valid_public_key);
+        if ($checked->isValid()) {
+            $has_valid_key = true;
+            $pre_run_messages[] = new Message('Licence key is valid for public key ' . $valid_public_key, Message::COMMAND);
+            break;
+        }
+    }
+    if (!$has_valid_key) {
+        $pre_run_messages[] = new Message('Licence key is not valid for any of the known public keys.', Message::COMMAND);
+        $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
+    } else {
+        $pre_run_messages[] = new Message('Licence key is valid.', Message::COMMAND);
+        $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
+        $pre_run_messages[] = new Message('Public key: ' . $valid_public_key, Message::COMMAND);
+        $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
+        $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
+    }
+}
+
 $container = new ContainerBuilder();
 $container->register('logger', 'Wa72\SimpleLogger\ArrayLogger');
 $container->register('process.factory', 'eiriksm\CosyComposer\ProcessFactory');
@@ -95,6 +130,10 @@ catch (Exception $e) {
     $code = 1;
 }
 $json = [];
+// Prepend the pre-run messages we have stored.
+foreach ($pre_run_messages as $message) {
+    $output = array_merge([$message], $output);
+}
 foreach ($output as $type => $message) {
     if (empty($message)) {
         continue;
