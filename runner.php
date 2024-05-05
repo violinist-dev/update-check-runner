@@ -128,9 +128,7 @@ catch (Exception $e) {
 }
 $json = [];
 // Prepend the pre-run messages we have stored.
-foreach (array_reverse($pre_run_messages) as $message) {
-    $output = array_merge([$message], $output);
-}
+$output = array_merge($pre_run_messages, $output);
 foreach ($output as $type => $message) {
     if (empty($message)) {
         continue;
