@@ -49,13 +49,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GH_PACKAGES_TOKEN }}
-          
-      - name: Set docker file variable 
-        id: file
-        run: |
-          FILE=Dockerfile-$(echo "${{ matrix.php-version }}" | sed "s/\.//")-composer-${{ matrix.composer-version }}
-          echo $FILE
-          echo "FILE=$FILE" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
         continue-on-error: true
@@ -65,7 +58,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           context: .
           push: always() && github.event_name != 'pull_request'
-          file: ${{ steps.file.outputs.FILE }}
+          file: Dockerfile
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
@@ -82,7 +75,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           context: .
           push: always() && github.event_name != 'pull_request'
-          file: ${{ steps.file.outputs.FILE }}
+          file: Dockerfile
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
