@@ -10,8 +10,17 @@ class LicenceTest extends IntegrationBase
         $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_PRIVATE_REPO'], [
             'LICENCE_KEY' => 'derpy-derp',
         ]);
-        print_r($json);
         $this->assertStandardOutput($_SERVER['GITHUB_PRIVATE_REPO'], $json);
+        $this->findMessage('Licence key is not valid for any of the known public keys.');
+    }
+
+    public function testValidCiLicence()
+    {
+        $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_PRIVATE_REPO'], [
+            'LICENCE_KEY' => $_SERVER['VALID_CI_LICENCE'],
+        ]);
+        $this->assertStandardOutput($_SERVER['GITHUB_PRIVATE_REPO'], $json);
+        print_r($json);
     }
 
 }
