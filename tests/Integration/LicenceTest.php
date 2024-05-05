@@ -11,7 +11,7 @@ class LicenceTest extends IntegrationBase
             'LICENCE_KEY' => 'derpy-derp',
         ]);
         $this->assertStandardOutput($_SERVER['GITHUB_PRIVATE_REPO'], $json);
-        $this->findMessage('Licence key is not valid for any of the known public keys.');
+        $this->findMessage('Licence key is not valid for any of the known public keys.', $json);
     }
 
     public function testValidCiLicence()
