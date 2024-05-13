@@ -1,0 +1,4 @@
+{
+  "main": "runner.php",
+  "chmod": "0700"
+}
