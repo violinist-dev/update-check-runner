@@ -48,7 +48,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_PACKAGES_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Set docker file variable 
         id: file
@@ -64,7 +64,7 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: always() && github.event_name != 'pull_request'
+          push: ${{ github.event_name != 'pull_request' }}
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -81,7 +81,7 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: always() && github.event_name != 'pull_request'
+          push: ${{ github.event_name != 'pull_request' }}
           file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
