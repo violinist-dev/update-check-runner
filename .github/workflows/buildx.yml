@@ -50,6 +50,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GH_PACKAGES_TOKEN }}
 
+
       - name: Build and push Docker image
         continue-on-error: true
         id: buildx1
@@ -57,8 +58,8 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: always() && github.event_name != 'pull_request'
-          file: Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
@@ -74,8 +75,8 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          push: always() && github.event_name != 'pull_request'
-          file: Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          file: ${{ steps.file.outputs.FILE }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.php-version }}-multi-composer-${{ matrix.composer-version }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
