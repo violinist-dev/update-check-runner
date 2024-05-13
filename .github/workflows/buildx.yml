@@ -48,14 +48,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Set docker file variable 
-        id: file
-        run: |
-          FILE=Dockerfile-$(echo "${{ matrix.php-version }}" | sed "s/\.//")-composer-${{ matrix.composer-version }}
-          echo $FILE
-          echo "FILE=$FILE" >> $GITHUB_OUTPUT
+          password: ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Build and push Docker image
         continue-on-error: true
