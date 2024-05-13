@@ -50,7 +50,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GH_PACKAGES_TOKEN }}
 
-
       - name: Build and push Docker image
         continue-on-error: true
         id: buildx1
