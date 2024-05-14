@@ -25,4 +25,8 @@ RUN composer install --no-dev --optimize-autoloader \
 RUN /usr/local/bin/composer global require humbug/box && \
   /root/.composer/vendor/bin/box compile
 
-CMD ["php", "runner.php"]
+FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
+
+COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
+
+CMD ["php", "/app/runner.phar"]
