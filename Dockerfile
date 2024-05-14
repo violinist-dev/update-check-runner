@@ -14,7 +14,7 @@ ENV COMPOSER_VERSION=${COMPOSER_VERSION}
 ENV VIOLINIST=1
 ENV CI=1
 
-RUN composer install --no-dev --optimize-autoloader \
+RUN composer install \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer \
