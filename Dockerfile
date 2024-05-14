@@ -22,15 +22,7 @@ RUN composer install --no-dev --optimize-autoloader \
     && chmod 755 /tmp/composer \
     && mv /tmp/composer /usr/local/bin/composer
 
-COPY ./box.json /usr/src/myapp
-
-ARG COMPOSER_VERSION
-ARG PHP_VERSION
-
-FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
-
-RUN /usr/local/bin/composer22 global require humbug/box && \
-  cp /usr/local/bin/composer22 /usr/local/bin/composer && \
+RUN /usr/local/bin/composer global require humbug/box && \
   /root/.composer/vendor/bin/box compile
 
 CMD ["php", "runner.php"]
