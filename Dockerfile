@@ -29,4 +29,6 @@ FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
 
 COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
 
+COPY .git /app/.git
+
 CMD ["php", "/app/runner.phar"]
