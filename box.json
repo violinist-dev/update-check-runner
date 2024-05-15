@@ -1,4 +1,10 @@
 {
   "main": "runner.php",
-  "chmod": "0700"
+  "chmod": "0700",
+  "directories": [
+    "vendor/twig"
+  ],
+  "files": [
+    "vendor/twig/twig/src/TwigTest.php"
+  ]
 }
