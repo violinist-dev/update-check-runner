@@ -15,6 +15,7 @@ ENV VIOLINIST=1
 ENV CI=1
 
 RUN composer install \
+    && git log --format=format:%H -n1 > .version \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer \
@@ -29,7 +30,7 @@ FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
 
 COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
 
-COPY --from=build /usr/src/myapp/.git /app/
+COPY --from=build /usr/src/myapp/.version /app/
 
 COPY .git /app/.git
 
