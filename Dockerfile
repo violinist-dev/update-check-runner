@@ -34,6 +34,6 @@ COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
 
 COPY --from=build /usr/src/myapp/.version /app/
 
-RUN echo /app/.version
+RUN cat /app/.version
 
 CMD ["php", "/app/runner.phar"]
