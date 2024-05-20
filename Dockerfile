@@ -28,10 +28,12 @@ RUN /usr/local/bin/composer global require humbug/box && \
 
 FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
 
+WORKDIR /app
+
 COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
 
 COPY --from=build /usr/src/myapp/.version /app/
 
-COPY .git /app/.git
+RUN echo /app/.version
 
 CMD ["php", "/app/runner.phar"]
