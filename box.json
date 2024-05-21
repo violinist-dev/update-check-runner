@@ -14,6 +14,10 @@
           {
               "name": "composer.json",
               "in": "."
+          },
+          {
+              "name": ".version",
+              "in": "."
           }
   ]
 }
