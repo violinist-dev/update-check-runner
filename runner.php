@@ -105,7 +105,7 @@ if (!file_exists($cache_dir)) {
     mkdir($cache_dir);
 }
 $git = new GitInfo();
-if ($hash = $git->getShortHash()) {
+if (false && $hash = $git->getShortHash()) {
     $_SERVER['queue_runner_revision'] = $hash;
 } else {
     if (file_exists(__DIR__ . '/.version')) {
