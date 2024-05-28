@@ -15,7 +15,7 @@ ENV VIOLINIST=1
 ENV CI=1
 
 RUN composer install \
-    && git log --format=format:%H -n1 > .version \
+    && git log --format=format:%H -n1 > VERSION \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer \
@@ -32,8 +32,8 @@ WORKDIR /app
 
 COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
 
-COPY --from=build /usr/src/myapp/.version /app/
+COPY --from=build /usr/src/myapp/VERSION /app/
 
-RUN cat /app/.version
+RUN cat /app/VERSION 
 
 CMD ["php", "/app/runner.phar"]
