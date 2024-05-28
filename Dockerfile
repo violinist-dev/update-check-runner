@@ -15,7 +15,7 @@ ENV VIOLINIST=1
 ENV CI=1
 
 RUN composer install \
-    && git log --format=format:%H -n1 > VERSION \
+    && git log --pretty=%h -n1 HEAD > VERSION \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
     && rm -rf /usr/local/bin/composer \
