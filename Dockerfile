@@ -28,12 +28,19 @@ RUN /usr/local/bin/composer global require humbug/box && \
 
 FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
 
+ARG COMPOSER_VERSION
+ARG PHP_VERSION
+
+ENV COMPOSER_VERSION=${COMPOSER_VERSION}
+ENV VIOLINIST=1
+ENV CI=1
+
 WORKDIR /app
 
 COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
 
 COPY --from=build /usr/src/myapp/VERSION /app/
 
-RUN cat /app/VERSION 
+COPY --from=build /usr/local/bin/composer /usr/local/bin/composer
 
 CMD ["php", "/app/runner.phar"]
