@@ -21,10 +21,9 @@ RUN composer install \
     && rm -rf /usr/local/bin/composer \
     && wget https://getcomposer.org/download/latest-${COMPOSER_VERSION}.x/composer.phar -O /tmp/composer \
     && chmod 755 /tmp/composer \
-    && mv /tmp/composer /usr/local/bin/composer
-
-RUN /usr/local/bin/composer global require humbug/box && \
-  /root/.composer/vendor/bin/box compile
+    && mv /tmp/composer /usr/local/bin/composer \
+    && /usr/local/bin/composer global require humbug/box \
+    && /root/.composer/vendor/bin/box compile
 
 FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
 
