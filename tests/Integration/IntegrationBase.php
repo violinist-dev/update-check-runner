@@ -102,7 +102,7 @@ abstract class IntegrationBase extends TestCase
         $this->findMessage('composer install completed successfully', $json);
     }
 
-    protected function getProcessAndRunWithoutError($token, $url, $other_env = [])
+    protected function getProcessAndRun($token, $url, $other_env = [])
     {
         $command = [
             'docker',
@@ -121,6 +121,20 @@ abstract class IntegrationBase extends TestCase
         $command[] = 'update-check-runner';
         $process = new Process($command, null, null, null, 600);
         $process->run();
+        return $process;
+    }
+
+    protected function getProcessAndRunGetJson($token, $url, $other_env = [])
+    {
+        $process = $this->getProcessAndRun($token, $url, $other_env);
+        $json = @json_decode($process->getOutput());
+        $this->assertFalse(empty($json));
+        return $json;
+    }
+
+    protected function getProcessAndRunWithoutError($token, $url, $other_env = [])
+    {
+        $process = $this->getProcessAndRun($token, $url, $other_env);
         if ($process->getExitCode()) {
             var_export($process->getOutput());
         }
