@@ -128,6 +128,10 @@ abstract class IntegrationBase extends TestCase
     {
         $process = $this->getProcessAndRun($token, $url, $other_env);
         $json = @json_decode($process->getOutput());
+        if (empty($json)) {
+            var_export($process->getOutput());
+            var_export($process->getErrorOutput());
+        }
         $this->assertFalse(empty($json));
         return $json;
     }
