@@ -7,7 +7,7 @@ class Composer22Test extends IntegrationBase
 
     public function testComposer22Used()
     {
-        $json = $this->getProcessAndRunGetJson('dummy', 'dummy', [
+        $json = $this->getProcessAndRunGetJson('dummy', 'https://example.com', [
             'ALTERNATE_COMPOSER_PATH' => '/usr/local/bin/composer22',
         ]);
         foreach ($json as $item) {
