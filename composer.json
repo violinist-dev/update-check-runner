@@ -4,26 +4,12 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "ext-json": "*",
-    "ext-exif": "*",
-    "ext-gd": "*",
-    "ext-soap": "*",
-    "ext-mongodb": "*",
-    "ext-intl": "*",
-    "ext-mbstring": "*",
-    "ext-pdo_mysql": "*",
-    "ext-pdo_pgsql": "*",
-    "ext-zip": "*",
-    "ext-bcmath": "*",
-    "ext-bz2": "*",
-    "ext-pcntl": "*",
-    "ext-redis": "*",
-    "ext-imagick": "*",
     "eiriksm/cosy-composer": "dev-main",
     "symfony/dependency-injection": "^4.4",
     "eiriksm/gitinfo": "^1.1",
-    "symfony/console": "v5.4.36",
-    "symfony/dotenv": "^5.4"
+    "symfony/console": "v5.4.40",
+    "symfony/dotenv": "^5.4",
+    "violinist-dev/licence-check": "dev-main"
   },
   "autoload-dev": {
     "psr-4": {
