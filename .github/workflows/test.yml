@@ -15,7 +15,7 @@ jobs:
     env:
       REGISTRY: ghcr.io
     name: Run tests
-    runs-on: 'ubuntu-20.04'
+    runs-on: ubuntu-latest 
     strategy:
       fail-fast: true
       max-parallel: 2
