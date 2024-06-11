@@ -30,7 +30,6 @@ jobs:
           - "8.2"
           - "8.3"
         composer-version: 
-          - "1"
           - "2"
     steps:
       -
