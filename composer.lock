@@ -242,7 +242,7 @@
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^7.4",
                 "http-interop/http-factory-guzzle": "^1.1",
-                "knplabs/github-api": "^
+                "knplabs/github-api": "*",
                 "league/flysystem": "^1.0",
                 "m4tthumphrey/php-gitlab-api": "^10",
                 "peterpostmann/parse_uri": "^1.0",
