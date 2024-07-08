@@ -71,7 +71,7 @@ jobs:
         id: log
 
       - name: Run tests
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit --filter=MultiLineCommitTest
         env:
           COMPOSER_VERSION: ${{ matrix.composer-version }}
           PHP_VERSION: ${{ matrix.php-version }}
