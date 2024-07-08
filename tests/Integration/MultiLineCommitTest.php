@@ -11,5 +11,6 @@ class MultiLineCommitTest extends IntegrationBase
             'USE_NEW_COMMIT_MSG' => '1',
         ]);
         $this->assertStandardOutput($_SERVER['GITHUB_PRIVATE_REPO'], $json);
+        print_r($json);
     }
 }
