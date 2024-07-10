@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60d12e12907386939a1a877bee5ee0ef",
+    "content-hash": "766b2572771ba5c237d66a6a7c3f7958",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -222,16 +222,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-main",
+            "version": "dev-eiriksm-patch-4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "738c555e3636fe32395a7f555d47f6d8cdd4b0ce"
+                "reference": "e0a191ec9725353aa98f94383cebf45e15017a32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/738c555e3636fe32395a7f555d47f6d8cdd4b0ce",
-                "reference": "738c555e3636fe32395a7f555d47f6d8cdd4b0ce",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/e0a191ec9725353aa98f94383cebf45e15017a32",
+                "reference": "e0a191ec9725353aa98f94383cebf45e15017a32",
                 "shasum": ""
             },
             "require": {
@@ -285,7 +285,11 @@
                 "AGPL-3.0-or-later"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2024-07-03T07:17:03+00:00"
+            "support": {
+                "issues": "https://github.com/eiriksm/cosy-composer/issues",
+                "source": "https://github.com/eiriksm/cosy-composer/tree/eiriksm-patch-4"
+            },
+            "time": "2024-07-10T19:16:32+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -5760,5 +5764,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.6.0"
 }

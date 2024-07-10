@@ -4,7 +4,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "eiriksm/cosy-composer": "dev-main",
+    "eiriksm/cosy-composer": "dev-eiriksm-patch-4",
     "symfony/dependency-injection": "^4.4",
     "eiriksm/gitinfo": "^1.1",
     "symfony/console": "v5.4.41",
