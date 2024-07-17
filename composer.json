@@ -21,7 +21,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^6.5||^7||^8||^9",
-    "stevenmaguire/oauth2-bitbucket": "^3.0"
+    "stevenmaguire/oauth2-bitbucket": "^3.0",
+    "phpstan/phpstan-phpunit": "^1.4"
   },
   "config": {
     "allow-plugins": {
