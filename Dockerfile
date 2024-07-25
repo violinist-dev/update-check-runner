@@ -36,10 +36,10 @@ ENV CI=1
 
 WORKDIR /app
 
-COPY --from=build /usr/src/myapp/runner.phar /app/runner.phar
+COPY --from=build /usr/src/myapp/runner.phar /runner
 
-COPY --from=build /usr/src/myapp/VERSION /app/
+COPY --from=build /usr/src/myapp/VERSION /
 
 COPY --from=build /usr/local/bin/composer /usr/local/bin/composer
 
-CMD ["php", "/app/runner.phar"]
+CMD ["php", "/runner"]
