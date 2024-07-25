@@ -1,0 +1,23 @@
+{
+  "main": "runner.php",
+  "chmod": "0700",
+  "finder": [
+          {
+              "notName": "/LICENSE|.*\\.md|.*\\.dist|Makefile|composer\\.json|composer\\.lock/",
+              "exclude": [
+                  "doc",
+                  "test_old",
+                  "vendor-bin"
+              ],
+              "in": "vendor"
+          },
+          {
+              "name": "composer.json",
+              "in": "."
+          },
+          {
+              "name": "VERSION",
+              "in": "."
+          }
+  ]
+}
