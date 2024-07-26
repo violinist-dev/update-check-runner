@@ -7,7 +7,7 @@
     "eiriksm/cosy-composer": "dev-main",
     "symfony/dependency-injection": "^4.4",
     "eiriksm/gitinfo": "^1.1",
-    "symfony/console": "v5.4.41",
+    "symfony/console": "v5.4.42",
     "symfony/dotenv": "^5.4",
     "violinist-dev/licence-check": "dev-main"
   },
