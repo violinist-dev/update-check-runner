@@ -10,10 +10,7 @@ on:
 jobs:
   violinist:
     name: Run update checks and create PRs
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
+    permissions: write-all
     container:
       image: ghcr.io/violinist-dev/update-check-runner:7.2-multi-composer-1
       env:
