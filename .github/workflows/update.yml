@@ -18,4 +18,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update and PR
-        run: php runner.php
+        run: php /usr/src/myapp/runner.php
