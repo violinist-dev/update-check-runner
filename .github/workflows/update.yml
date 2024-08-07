@@ -13,6 +13,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      issues: write
     container:
       image: ghcr.io/violinist-dev/update-check-runner:7.2-multi-composer-1
       env:
