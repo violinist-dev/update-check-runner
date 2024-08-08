@@ -14,6 +14,8 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Dotenv\Dotenv;
 use violinist\LicenceCheck\LicenceChecker;
 
+error_reporting(E_ALL ^ E_DEPRECATED);
+
 require_once "vendor/autoload.php";
 
 foreach (['slug', 'fork_user', 'fork_mail', 'token_url', 'fork_to'] as $key) {
