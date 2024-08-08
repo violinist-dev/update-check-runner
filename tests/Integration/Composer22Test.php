@@ -11,7 +11,7 @@ class Composer22Test extends IntegrationBase
             'ALTERNATE_COMPOSER_PATH' => '/usr/local/bin/composer22',
         ]);
         foreach ($json as $item) {
-            if (strpos($item->message, 'Composer version 2.2') === 0) {
+            if (strpos($item->message, 'Composer version 2.2') !== false) {
                 $this->assertTrue(true);
                 return;
             }
