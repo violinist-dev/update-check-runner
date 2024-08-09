@@ -62,10 +62,7 @@ jobs:
           COMPOSER_VERSION: ${{ matrix.composer-version }}
           PHP_VERSION: ${{ matrix.php-version }}
       - name: Run phpstan
-        if: matrix.php-version != '8.4'
-        run: |
-          composer require --dev phpstan/phpstan-phpunit
-          composer phpstan
+        run: composer phpstan
 
       - run: |
           git status
