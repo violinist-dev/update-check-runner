@@ -144,6 +144,9 @@ abstract class IntegrationBase extends TestCase
         }
         $this->assertEquals(0, $process->getExitCode(), 'Docker did not exit with exit code 0');
         $json = @json_decode($process->getOutput());
+        if (empty($json)) {
+            print_r($process->getOutput());
+        }
         $this->assertFalse(empty($json));
         return $json;
     }
