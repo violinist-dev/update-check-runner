@@ -235,12 +235,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "d10e59812563a34561c1c3deacb151326130db00"
+                "reference": "4f04940cd70832562f7b7d4d8483cdbcd97be20b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/d10e59812563a34561c1c3deacb151326130db00",
-                "reference": "d10e59812563a34561c1c3deacb151326130db00",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4f04940cd70832562f7b7d4d8483cdbcd97be20b",
+                "reference": "4f04940cd70832562f7b7d4d8483cdbcd97be20b",
                 "shasum": ""
             },
             "require": {
@@ -298,7 +298,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/eiriksm-patch-4"
             },
-            "time": "2024-08-10T09:37:59+00:00"
+            "time": "2024-08-10T12:06:27+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
