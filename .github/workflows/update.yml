@@ -15,7 +15,7 @@ jobs:
       image: ghcr.io/violinist-dev/update-check-runner:7.2-multi-composer-1
       env:
         user_token: ${{ secrets.GH_PRIVATE_USER_TOKEN }}
-        project_url: ${{ github.repositoryUrl }}
+        project_url: ${{ secrets.GH_PRIVATE_REPO }}
     runs-on: ubuntu-latest
     steps:
       - name: Update and PR
