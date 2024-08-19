@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e315d724f2dab763ab402cb3364c3e6a",
+    "content-hash": "719e8c34478f3408985602b649ba33d6",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -222,16 +222,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-main",
+            "version": "dev-feat/opt-in-public-wrapper",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "3bc574cdf754ed69c4f9909647a405a65a8423f7"
+                "reference": "171f0e58e18f51beed21e352eb38191d9cf32d16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/3bc574cdf754ed69c4f9909647a405a65a8423f7",
-                "reference": "3bc574cdf754ed69c4f9909647a405a65a8423f7",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/171f0e58e18f51beed21e352eb38191d9cf32d16",
+                "reference": "171f0e58e18f51beed21e352eb38191d9cf32d16",
                 "shasum": ""
             },
             "require": {
@@ -246,6 +246,7 @@
                 "peterpostmann/parse_uri": "^1.0",
                 "php-http/guzzle7-adapter": "^1",
                 "symfony/process": "^5.4 || ^6",
+                "symfony/yaml": "^5.4 || ^6",
                 "violinist-dev/allow-list-handler": "^1.0",
                 "violinist-dev/commit-message-creator": "^2.0",
                 "violinist-dev/composer-changelog-fetcher": "^2.1",
@@ -262,7 +263,6 @@
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.1",
-                "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpunit/phpunit": "^6||^7||^8||^9",
                 "squizlabs/php_codesniffer": "^3.2"
@@ -285,7 +285,11 @@
                 "AGPL-3.0-or-later"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2024-07-18T07:16:49+00:00"
+            "support": {
+                "issues": "https://github.com/eiriksm/cosy-composer/issues",
+                "source": "https://github.com/eiriksm/cosy-composer/tree/feat/opt-in-public-wrapper"
+            },
+            "time": "2024-08-18T19:40:02+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3342,6 +3346,78 @@
             "time": "2024-07-20T18:38:32+00:00"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v6.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "52903de178d542850f6f341ba92995d3d63e60c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/52903de178d542850f6f341ba92995d3d63e60c9",
+                "reference": "52903de178d542850f6f341ba92995d3d63e60c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<5.4"
+            },
+            "require-dev": {
+                "symfony/console": "^5.4|^6.0|^7.0"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v6.4.8"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-05-31T14:49:08+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v3.10.3",
             "source": {
@@ -5686,5 +5762,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.6.0"
 }
