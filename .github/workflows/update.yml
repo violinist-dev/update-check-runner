@@ -19,4 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update and PR
-        run: php /usr/src/myapp/runner.php
+        run: |
+          cd /usr/src/myapp
+          composer require eiriksm/cosy-composer:dev-feat/opt-in-public-wrapper -W
+          php /usr/src/myapp/runner.php
