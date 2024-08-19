@@ -16,6 +16,9 @@ jobs:
       env:
         user_token: ${{ secrets.GH_PRIVATE_USER_TOKEN }}
         project_url: ${{ github.repositoryUrl }}
+      volumes:
+        - /__w/update-check-runner/update-check-runner/runner.php:/usr/src/myapp/runner.php
+
     runs-on: ubuntu-latest
     steps:
       - name: Update and PR
