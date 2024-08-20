@@ -88,7 +88,6 @@ $cosy->setGithubAuth($user_token, 'x-oauth-basic');
 $cosy->setUserToken($user_token);
 $cosy->setForkUser($fork_to);
 $cosy->setProject($project);
-$cosy->setGithubForkAuth($fork_user, $fork_mail);
 $cosy->setTokenUrl($token_url);
 $cosy->setTokens($tokens);
 $cosy
