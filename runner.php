@@ -16,7 +16,7 @@ use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
 
-foreach (['slug', 'fork_user', 'fork_mail', 'token_url', 'fork_to'] as $key) {
+foreach (['fork_user', 'fork_mail', 'token_url', 'fork_to'] as $key) {
     if (!empty($_SERVER[$key])) {
         continue;
     }
