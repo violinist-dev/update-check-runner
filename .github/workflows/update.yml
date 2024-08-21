@@ -21,7 +21,6 @@ jobs:
     steps:
       - name: Update and PR
         run: |
-          curl -sS -f -I -H "Authorization: token $user_token" https://api.github.com
           cd /usr/src/myapp
           composer require eiriksm/cosy-composer:dev-feat/opt-in-public-wrapper --update-with-dependencies
           php /usr/src/myapp/runner.php
