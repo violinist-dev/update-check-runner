@@ -22,5 +22,5 @@ jobs:
       - name: Update and PR
         run: |
           cd /usr/src/myapp
-          composer require eiriksm/cosy-composer:dev-feat/opt-in-public-wrapper --update-with-dependencies
+          composer require eiriksm/cosy-composer:dev-main --update-with-dependencies
           php /usr/src/myapp/runner.php
