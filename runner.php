@@ -16,7 +16,7 @@ use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
 
-foreach (['fork_user', 'fork_mail', 'token_url', 'fork_to'] as $key) {
+foreach (['token_url', 'fork_to'] as $key) {
     if (!empty($_SERVER[$key])) {
         continue;
     }
@@ -25,8 +25,6 @@ foreach (['fork_user', 'fork_mail', 'token_url', 'fork_to'] as $key) {
 
 $user_token = $_SERVER['user_token'];
 $fork_to = $_SERVER['fork_to'];
-$fork_user = $_SERVER['fork_user'];
-$fork_mail = $_SERVER['fork_mail'];
 $token_url = $_SERVER['token_url'];
 $project = null;
 $url = null;
@@ -88,7 +86,6 @@ $cosy->setGithubAuth($user_token, 'x-oauth-basic');
 $cosy->setUserToken($user_token);
 $cosy->setForkUser($fork_to);
 $cosy->setProject($project);
-$cosy->setGithubForkAuth($fork_user, $fork_mail);
 $cosy->setTokenUrl($token_url);
 $cosy->setTokens($tokens);
 $cosy
