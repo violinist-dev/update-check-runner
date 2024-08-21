@@ -16,6 +16,7 @@ class DefaultBranchTest extends IntegrationBase
             }
             $found_no_updates = true;
         }
+        var_dump($json);
         // There should for sure be updates. Just on the default branch of the repo, there are none.
         self::assertEquals(false, $found_no_updates);
         $this->findMessage('Successfully ran command composer update for package psr/log', $json);
