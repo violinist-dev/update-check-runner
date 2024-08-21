@@ -11,3 +11,6 @@ The runner containers
 ### 1. Obtain a personal access token
 
 - For GitHub visit [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
+- For Bitbucket visit [https://bitbucket.org/account/settings/app-passwords/new](https://bitbucket.org/account/settings/app-passwords/new)
+- For Gitlab visit [https://gitlab.com/-/user_settings/personal_access_tokens](https://gitlab.com/-/user_settings/personal_access_tokens)
+- For self hosted Gitlab visit [https://gitlab.example.com/-/user_settings/personal_access_tokens](https://gitlab.example.com/-/user_settings/personal_access_tokens) (replace with your own domain)
