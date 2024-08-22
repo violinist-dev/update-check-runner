@@ -1,6 +1,6 @@
 # update-check-runner
 
-The runner containers
+The containers that run updates for [violinist.io](https://violinist.io), a PHP/Composer depdency updater for Bitbucket / GitHub / Gitlab / self hosted Gitlab.
 
 [![Test](https://github.com/violinist-dev/update-check-runner/actions/workflows/test.yml/badge.svg)](https://github.com/violinist-dev/update-check-runner/actions/workflows/test.yml)
 [![Violinist enabled](https://img.shields.io/badge/violinist-enabled-brightgreen.svg)](https://violinist.io)
@@ -8,7 +8,7 @@ The runner containers
 
 ## Quick start
 
-tl;dr:
+tl;dr (example for gitlab, but similarly applies to GitHub, Bitbucket and self hosted Gitlab as well):
 
 ```bash
 docker run \
