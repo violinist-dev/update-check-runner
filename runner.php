@@ -16,27 +16,46 @@ use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
 
+// These are legacy variables, and should not be used.
+$legacy_to_new_variables = [
+    'user_token' => 'REPO_TOKEN',
+    'project_url' => 'PROJECT_URL',
+    'tokens' => 'TOKENS',
+    'project' => 'PROJECT_DATA',
+];
+foreach ($legacy_to_new_variables as $old => $new) {
+    if (!empty($_SERVER[$old])) {
+        $_SERVER[$new] = $_SERVER[$old];
+    }
+}
+
+// These are variables needed for the SaaS version, and only applies to runs
+// for public repos with a token without the repo scope. It also only applies to
+// github repos. These variables should therefore be considered internal, and
+// should not be used, and have no effect, for running the runner in a
+// self-hosted environment. For consistency though, we make sure the variables
+// are set, since we pass them to the runner class.
 foreach (['token_url', 'fork_to'] as $key) {
     if (!empty($_SERVER[$key])) {
         continue;
     }
     $_SERVER[$key] = '';
 }
-
-$user_token = $_SERVER['user_token'];
 $fork_to = $_SERVER['fork_to'];
 $token_url = $_SERVER['token_url'];
+
+$user_token = $_SERVER['REPO_TOKEN'];
 $project = null;
 $url = null;
 $tokens = [];
-if (!empty($_SERVER['tokens'])) {
-    $tokens = @json_decode($_SERVER['tokens'], true);
+if (!empty($_SERVER['TOKENS'])) {
+    $tokens = @json_decode($_SERVER['TOKENS'], true);
 }
-if (!empty($_SERVER['project'])) {
-    $project = @unserialize(@json_decode($_SERVER['project']));
+if (!empty($_SERVER['PROJECT_DATA'])) {
+    $project = @unserialize(@json_decode($_SERVER['PROJECT_DATA']));
 }
-if (!empty($_SERVER['project_url'])) {
-    $url = $_SERVER['project_url'];
+if (!empty($_SERVER['PROJECT_URL'])) {
+    $url = $_SERVER['PROJECT_URL'];
 }
 
 $valid_public_keys = [
