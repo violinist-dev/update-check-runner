@@ -26,11 +26,13 @@ Copy the URL of the repository you want to check for updates. For the purpose of
 ### 1. Obtain a personal access token
 
 - For GitHub visit [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
-- For Bitbucket visit [https://bitbucket.org/account/settings/app-passwords/new](https://bitbucket.org/account/settings/app-passwords/new)
+- For Bitbucket visit [https://bitbucket.org/account/settings/app-passwords/new](https://bitbucket.org/account/settings/app-passwords/new). Please note your argument to running updates must include your username (see notice below).
 - For Gitlab visit [https://gitlab.com/-/user_settings/personal_access_tokens](https://gitlab.com/-/user_settings/personal_access_tokens)
 - For self hosted Gitlab visit [https://gitlab.example.com/-/user_settings/personal_access_tokens](https://gitlab.example.com/-/user_settings/personal_access_tokens) (replace with your own domain)
 
 For the purpose of this quick start guide let's assume the token is `glpat-jjYgGb_1npvkiHTdnM` (this token is totally made up).
+
+> 🚨️ For bitbucket your token should include both your username and your application password separated with a colon (`:`). For example `user:p455w0r0`.
 
 ### 2. Obtain a license key from violinist.io
 
