@@ -101,7 +101,7 @@ $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
 
 /* @var \eiriksm\CosyComposer\CosyComposer $cosy */
 $cosy = $container->get('cosy');
-$cosy->setGithubAuth($user_token, 'x-oauth-basic');
+$cosy->setAuthentication($user_token);
 $cosy->setUserToken($user_token);
 $cosy->setForkUser($fork_to);
 $cosy->setProject($project);
@@ -116,10 +116,6 @@ $cosy
             uniqid()
         )
     );
-$cache_dir = $_SERVER['HOME'] . '/.cosy-cache';
-if (!file_exists($cache_dir)) {
-    mkdir($cache_dir);
-}
 $git = new GitInfo();
 if ($hash = $git->getShortHash()) {
     $_SERVER['queue_runner_revision'] = $hash;
@@ -128,20 +124,21 @@ if ($hash = $git->getShortHash()) {
         $_SERVER['queue_runner_revision'] = file_get_contents(__DIR__ . '/.version');
     }
 }
-$cosy->setCacheDir($cache_dir);
-$code = 0;
+
+// This is useful for overriding env vars in local development.
 try {
     $env = new Dotenv();
     $env->load(__DIR__ . '/.env');
-}
-catch (Throwable $e) {
+} catch (Throwable $e) {
     // We tried.
 }
+
+// Keep track of what status code we should exist with.
+$code = 0;
 try {
     $cosy->run();
     $output = $cosy->getOutput();
-}
-catch (Exception $e) {
+} catch (Exception $e) {
     $output = $cosy->getOutput();
     $output[] = new Message('Caught Exception: ' . $e->getMessage(), Message::ERROR);
     $code = 1;
