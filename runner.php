@@ -32,7 +32,6 @@ function create_output_and_exit($output, $code) {
     exit($code);
 }
 
-
 // These are legacy variables, and should not be used.
 $legacy_to_new_variables = [
     'user_token' => 'REPO_TOKEN',
