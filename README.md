@@ -1,6 +1,6 @@
 # update-check-runner
 
-The containers that run updates for [violinist.io](https://violinist.io), a PHP/Composer depdency updater for Bitbucket / GitHub / Gitlab / self hosted Gitlab.
+The containers that run updates for [violinist.io](https://violinist.io), a PHP / Composer depdency updater for Bitbucket / GitHub / Gitlab / self hosted Gitlab.
 
 [![Tests](https://github.com/violinist-dev/update-check-runner/actions/workflows/test.yml/badge.svg)](https://github.com/violinist-dev/update-check-runner/actions/workflows/test.yml)
 [![Violinist enabled](https://img.shields.io/badge/violinist-enabled-brightgreen.svg)](https://violinist.io)
@@ -62,3 +62,7 @@ docker run \
   -e "USER_TOKEN=glpat-jjYgGb_1npvkiHTdnM" \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
+
+# Licence
+
+Licenced under the commercial [violinist licence](https://github.com/violinist-dev/update-check-runner/blob/main/LICENSE)
