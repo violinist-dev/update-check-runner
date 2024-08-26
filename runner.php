@@ -17,6 +17,7 @@ use violinist\LicenceCheck\LicenceChecker;
 require_once "vendor/autoload.php";
 
 function create_output_and_exit($output, $code) {
+    $json = [];
     foreach ($output as $message) {
         if (empty($message)) {
             continue;
@@ -164,7 +165,7 @@ try {
     $output[] = new Message('Caught Exception: ' . $e->getMessage(), Message::ERROR);
     $code = 1;
 }
-$json = [];
+
 // Prepend the pre-run messages we have stored.
 $output = array_merge($pre_run_messages, $output);
 create_output_and_exit($output, $code);
