@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e315d724f2dab763ab402cb3364c3e6a",
+    "content-hash": "1f4d218cfc1f3e0889904a57b4e85b63",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -226,12 +226,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "dc8466d87312e0012d2a803421e921a09405cbcc"
+                "reference": "8473ff2bcf4d24bef6ad1dff9937855ebabac877"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/dc8466d87312e0012d2a803421e921a09405cbcc",
-                "reference": "dc8466d87312e0012d2a803421e921a09405cbcc",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/8473ff2bcf4d24bef6ad1dff9937855ebabac877",
+                "reference": "8473ff2bcf4d24bef6ad1dff9937855ebabac877",
                 "shasum": ""
             },
             "require": {
@@ -285,7 +285,7 @@
                 "AGPL-3.0-or-later"
             ],
             "description": "Library that runs updates for Violinist",
-            "time": "2024-08-22T12:38:36+00:00"
+            "time": "2024-08-26T20:45:54+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -5830,7 +5830,9 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-json": "*"
+    },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.6.0"
 }

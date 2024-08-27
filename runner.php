@@ -16,6 +16,23 @@ use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
 
+function create_output_and_exit($output, $code) {
+    $json = [];
+    foreach ($output as $message) {
+        if (empty($message)) {
+            continue;
+        }
+        $json[] = [
+            'message' => $message->getMessage(),
+            'context' => $message->getContext(),
+            'timestamp' => $message->getTimestamp(),
+            'type' => $message->getType(),
+        ];
+    }
+    print json_encode($json);
+    exit($code);
+}
+
 // These are legacy variables, and should not be used.
 $legacy_to_new_variables = [
     'user_token' => 'REPO_TOKEN',
@@ -86,6 +103,11 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
     }
+} else {
+    // Print exactly one message in the same format as we would have, had we run an actual update run.
+    $messages = [];
+    $messages[] = new Message('No licence key found in environment. Aborting update job');
+    create_output_and_exit($messages, 1);
 }
 
 $container = new ContainerBuilder();
@@ -143,19 +165,7 @@ try {
     $output[] = new Message('Caught Exception: ' . $e->getMessage(), Message::ERROR);
     $code = 1;
 }
-$json = [];
+
 // Prepend the pre-run messages we have stored.
 $output = array_merge($pre_run_messages, $output);
-foreach ($output as $type => $message) {
-    if (empty($message)) {
-        continue;
-    }
-    $json[] = [
-      'message' => $message->getMessage(),
-      'context' => $message->getContext(),
-      'timestamp' => $message->getTimestamp(),
-      'type' => $message->getType(),
-    ];
-}
-print json_encode($json);
-exit($code);
+create_output_and_exit($output, $code);
