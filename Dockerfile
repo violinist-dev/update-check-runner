@@ -14,7 +14,14 @@ ENV COMPOSER_VERSION=${COMPOSER_VERSION}
 ENV VIOLINIST=1
 ENV CI=1
 
-RUN composer install \
+
+# Used when we are doing the actual commits.
+ENV GIT_AUTHOR_NAME=violinist-bot
+ENV GIT_AUTHOR_EMAIL=violinistdevio@gmail.com
+ENV GIT_COMMITTER_NAME=violinist-bot
+ENV GIT_COMMITTER_EMAIL=violinistdevio@gmail.com
+
+RUN composer install --no-dev --optimize-autoloader \
     && git log --pretty=%h -n1 HEAD > VERSION \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \

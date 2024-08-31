@@ -12,8 +12,6 @@ on:
 
 jobs:
   test:
-    env:
-      REGISTRY: ghcr.io
     name: Run tests
     runs-on: ubuntu-latest 
     strategy:
@@ -36,7 +34,7 @@ jobs:
         run: echo "$MATRIX_CONTEXT"
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -54,13 +52,6 @@ jobs:
 
       - name: Install dependencies
         run: composer --verbose install
-
-      - name: login
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Build test image
         run: docker build --build-arg COMPOSER_VERSION=$COMPOSER_VERSION --build-arg PHP_VERSION=$PHP_VERSION -t update-check-runner .
