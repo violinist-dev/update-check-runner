@@ -63,6 +63,6 @@ docker run \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
 
-# Licence
+## Licence
 
 Licenced under the commercial [violinist licence](https://github.com/violinist-dev/update-check-runner/blob/main/LICENSE)
