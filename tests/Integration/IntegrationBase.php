@@ -64,7 +64,7 @@ abstract class IntegrationBase extends TestCase
     {
         $expected_message = sprintf('Queue runner revision %s', substr($_SERVER['MY_COMMIT'], 0, 7));
         foreach ($json as $item) {
-            if ($item->message === $expected_message) {
+            if (strpos($item->message, $expected_message) === 0) {
                 return;
             }
         }

@@ -142,8 +142,9 @@ $git = new GitInfo();
 if ($hash = $git->getShortHash()) {
     $_SERVER['queue_runner_revision'] = $hash;
 } else {
-    if (file_exists(__DIR__ . '/.version')) {
-        $_SERVER['queue_runner_revision'] = file_get_contents(__DIR__ . '/.version');
+    $file = __DIR__ . '/VERSION';
+    if (file_exists($file)) {
+        $_SERVER['queue_runner_revision'] = trim(file_get_contents($file));
     }
 }
 
