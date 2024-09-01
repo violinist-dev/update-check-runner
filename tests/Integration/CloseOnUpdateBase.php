@@ -39,6 +39,7 @@ abstract class CloseOnUpdateBase extends IntegrationBase
     {
         $pr_closed_found = false;
         $pr_closed_success_found = false;
+        print_r($json);
         foreach ($json as $item) {
             if (strpos($item->message, 'Trying to close PR number') !== false) {
                 $pr_closed_found = true;
