@@ -1,5 +1,5 @@
-ARG COMPOSER_VERSION
-ARG PHP_VERSION
+ARG COMPOSER_VERSION=2
+ARG PHP_VERSION=8.3
 
 FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi AS build
 MAINTAINER eiriksm <eirik@morland.no>
@@ -7,8 +7,8 @@ MAINTAINER eiriksm <eirik@morland.no>
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
-ARG COMPOSER_VERSION
-ARG PHP_VERSION
+ARG COMPOSER_VERSION=2
+ARG PHP_VERSION=8.3
 
 ENV COMPOSER_VERSION=${COMPOSER_VERSION}
 ENV VIOLINIST=1
@@ -28,8 +28,8 @@ RUN composer install --no-dev --optimize-autoloader \
 
 FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
 
-ARG COMPOSER_VERSION
-ARG PHP_VERSION
+ARG COMPOSER_VERSION=2
+ARG PHP_VERSION=8.3
 
 ENV COMPOSER_VERSION=${COMPOSER_VERSION}
 ENV VIOLINIST=1
