@@ -21,6 +21,4 @@ jobs:
     steps:
       - name: Update and PR
         run: |
-          cd /usr/src/myapp
-          composer require eiriksm/cosy-composer:dev-main --update-with-dependencies
-          php /usr/src/myapp/runner.php
+          php /runner
