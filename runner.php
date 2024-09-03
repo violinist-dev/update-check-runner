@@ -16,27 +16,63 @@ use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
 
+function create_output_and_exit($output, $code) {
+    $json = [];
+    foreach ($output as $message) {
+        if (empty($message)) {
+            continue;
+        }
+        $json[] = [
+            'message' => $message->getMessage(),
+            'context' => $message->getContext(),
+            'timestamp' => $message->getTimestamp(),
+            'type' => $message->getType(),
+        ];
+    }
+    print json_encode($json);
+    exit($code);
+}
+
+// These are legacy variables, and should not be used.
+$legacy_to_new_variables = [
+    'user_token' => 'REPO_TOKEN',
+    'project_url' => 'PROJECT_URL',
+    'tokens' => 'TOKENS',
+    'project' => 'PROJECT_DATA',
+];
+foreach ($legacy_to_new_variables as $old => $new) {
+    if (!empty($_SERVER[$old])) {
+        $_SERVER[$new] = $_SERVER[$old];
+    }
+}
+
+// These are variables needed for the SaaS version, and only applies to runs
+// for public repos with a token without the repo scope. It also only applies to
+// github repos. These variables should therefore be considered internal, and
+// should not be used, and have no effect, for running the runner in a
+// self-hosted environment. For consistency though, we make sure the variables
+// are set, since we pass them to the runner class.
 foreach (['token_url', 'fork_to'] as $key) {
     if (!empty($_SERVER[$key])) {
         continue;
     }
     $_SERVER[$key] = '';
 }
-
-$user_token = $_SERVER['user_token'];
 $fork_to = $_SERVER['fork_to'];
 $token_url = $_SERVER['token_url'];
+
+$user_token = $_SERVER['REPO_TOKEN'];
 $project = null;
 $url = null;
 $tokens = [];
-if (!empty($_SERVER['tokens'])) {
-    $tokens = @json_decode($_SERVER['tokens'], true);
+if (!empty($_SERVER['TOKENS'])) {
+    $tokens = @json_decode($_SERVER['TOKENS'], true);
 }
-if (!empty($_SERVER['project'])) {
-    $project = @unserialize(@json_decode($_SERVER['project']));
+if (!empty($_SERVER['PROJECT_DATA'])) {
+    $project = @unserialize(@json_decode($_SERVER['PROJECT_DATA']));
 }
-if (!empty($_SERVER['project_url'])) {
-    $url = $_SERVER['project_url'];
+if (!empty($_SERVER['PROJECT_URL'])) {
+    $url = $_SERVER['PROJECT_URL'];
 }
 
 $valid_public_keys = [
@@ -67,6 +103,11 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
     }
+} else {
+    // Print exactly one message in the same format as we would have, had we run an actual update run.
+    $messages = [];
+    $messages[] = new Message('No licence key found in environment. Aborting update job');
+    create_output_and_exit($messages, 1);
 }
 
 $container = new ContainerBuilder();
@@ -82,7 +123,7 @@ $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
 
 /* @var \eiriksm\CosyComposer\CosyComposer $cosy */
 $cosy = $container->get('cosy');
-$cosy->setGithubAuth($user_token, 'x-oauth-basic');
+$cosy->setAuthentication($user_token);
 $cosy->setUserToken($user_token);
 $cosy->setForkUser($fork_to);
 $cosy->setProject($project);
@@ -97,32 +138,30 @@ $cosy
             uniqid()
         )
     );
-$cache_dir = $_SERVER['HOME'] . '/.cosy-cache';
-if (!file_exists($cache_dir)) {
-    mkdir($cache_dir);
-}
 $git = new GitInfo();
 if ($hash = $git->getShortHash()) {
     $_SERVER['queue_runner_revision'] = $hash;
 } else {
-    if (file_exists(__DIR__ . '/.version')) {
-        $_SERVER['queue_runner_revision'] = file_get_contents(__DIR__ . '/.version');
+    $file = __DIR__ . '/VERSION';
+    if (file_exists($file)) {
+        $_SERVER['queue_runner_revision'] = trim(file_get_contents($file));
     }
 }
-$cosy->setCacheDir($cache_dir);
-$code = 0;
+
+// This is useful for overriding env vars in local development.
 try {
     $env = new Dotenv();
     $env->load(__DIR__ . '/.env');
-}
-catch (Throwable $e) {
+} catch (Throwable $e) {
     // We tried.
 }
+
+// Keep track of what status code we should exist with.
+$code = 0;
 try {
     $cosy->run();
     $output = $cosy->getOutput();
-}
-catch (Exception $e) {
+} catch (Exception $e) {
     $output = $cosy->getOutput();
     var_dump([
         $e->getMessage(),
@@ -131,19 +170,7 @@ catch (Exception $e) {
     $output[] = new Message('Caught Exception: ' . $e->getMessage() . ' with the stack trace ' . $e->getTraceAsString(), Message::ERROR);
     $code = 1;
 }
-$json = [];
+
 // Prepend the pre-run messages we have stored.
 $output = array_merge($pre_run_messages, $output);
-foreach ($output as $type => $message) {
-    if (empty($message)) {
-        continue;
-    }
-    $json[] = [
-      'message' => $message->getMessage(),
-      'context' => $message->getContext(),
-      'timestamp' => $message->getTimestamp(),
-      'type' => $message->getType(),
-    ];
-}
-print json_encode($json);
-exit($code);
+create_output_and_exit($output, $code);
