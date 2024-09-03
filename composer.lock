@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "481be07ed3fcbccfc0f9e95a55ae598c",
+    "content-hash": "69e941e173fadb937e76cb91d4b869d1",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -2536,6 +2536,9 @@
             ],
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/dependency-injection/tree/v4.4.49"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",

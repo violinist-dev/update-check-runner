@@ -1,0 +1,22 @@
+name: Test
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *' # every hour
+
+jobs:
+  violinist:
+    name: Run update checks and create PRs
+    permissions: write-all
+    container:
+      image: ghcr.io/violinist-dev/update-check-runner:7.3-multi-composer-2
+      env:
+        REPO_TOKEN: ${{ secrets.GH_PRIVATE_USER_TOKEN }}
+        PROJECT_URL: ${{ github.repositoryUrl }}
+        LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update and PR
+        run: |
+          php /runner
