@@ -16,6 +16,7 @@ jobs:
       env:
         user_token: ${{ github.token }}
         project_url: ${{ github.repositoryUrl }}
+        LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
 
     runs-on: ubuntu-latest
     steps:
