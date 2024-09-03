@@ -163,10 +163,6 @@ try {
     $output = $cosy->getOutput();
 } catch (Exception $e) {
     $output = $cosy->getOutput();
-    var_dump([
-        $e->getMessage(),
-        $e->getTraceAsString(),
-    ]);
     $output[] = new Message('Caught Exception: ' . $e->getMessage() . ' with the stack trace ' . $e->getTraceAsString(), Message::ERROR);
     $code = 1;
 }
