@@ -99,6 +99,7 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
     if (!$has_valid_key) {
         $pre_run_messages[] = new Message('Licence key is not valid for any of the known public keys.', Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
+        create_output_and_exit($pre_run_messages, 1);
     } else {
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
