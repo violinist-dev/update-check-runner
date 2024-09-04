@@ -7,9 +7,11 @@ class LicenceTest extends IntegrationBase
 
     public function testBadLicence()
     {
-        $json = $this->getProcessAndRunWithoutError($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_PRIVATE_REPO'], [
+        $process = $this->getProcessAndRun($_SERVER['GITHUB_PRIVATE_USER_TOKEN'], $_SERVER['GITHUB_PRIVATE_REPO'], [
             'LICENCE_KEY' => 'derpy-derp',
         ]);
+        $json = @json_decode($process->getOutput());
+        self::assertNotEmpty($json);
         $this->assertStandardOutput($_SERVER['GITHUB_PRIVATE_REPO'], $json);
         $this->findMessage('Licence key is not valid for any of the known public keys.', $json);
     }
