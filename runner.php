@@ -61,6 +61,21 @@ foreach (['token_url', 'fork_to'] as $key) {
 $fork_to = $_SERVER['fork_to'];
 $token_url = $_SERVER['token_url'];
 
+// Now make sure we have the couple of actual required variables.
+$required_variables = [
+    'REPO_TOKEN',
+    'PROJECT_URL',
+];
+$messages = [];
+foreach ($required_variables as $required_variable) {
+    if (empty($_SERVER[$required_variable])) {
+        $messages[] = new Message('Missing required environment variable ' . $required_variable, Message::ERROR);
+    }
+    if (!empty($messages)) {
+        create_output_and_exit($messages, 1);
+    }
+}
+
 $user_token = $_SERVER['REPO_TOKEN'];
 $project = null;
 $url = null;
