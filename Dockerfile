@@ -50,8 +50,6 @@ WORKDIR /app
 
 COPY --from=build /usr/src/myapp/runner.phar /app/runner
 
-COPY --from=build /usr/src/myapp/VERSION /app/vson
-
 COPY --from=build /usr/local/bin/composer /usr/local/bin/composer
 
 # If the command is ever updated, please remember to also update the corresponding
