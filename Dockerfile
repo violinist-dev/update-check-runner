@@ -48,12 +48,14 @@ ENV GIT_COMMITTER_EMAIL=violinistdevio@gmail.com
 
 WORKDIR /app
 
-COPY --from=build /usr/src/myapp/runner.phar /runner
+COPY --from=build /usr/src/myapp/runner.phar /app/runner
 
-COPY --from=build /usr/src/myapp/VERSION /
+COPY --from=build /usr/src/myapp/VERSION /app
 
 COPY --from=build /usr/local/bin/composer /usr/local/bin/composer
 
 # If the command is ever updated, please remember to also update the corresponding
-# section in the queue starter project.
+# section in the queue starter project, and probably in some CI templates or something as well.
+# For now we symlink old paths for backwards compatibility.
+RUN ln -s /app/runner /runner
 CMD ["php", "/runner"]
