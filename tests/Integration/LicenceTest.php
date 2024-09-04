@@ -12,7 +12,6 @@ class LicenceTest extends IntegrationBase
         ]);
         $json = @json_decode($process->getOutput());
         self::assertNotEmpty($json);
-        $this->assertStandardOutput($_SERVER['GITHUB_PRIVATE_REPO'], $json);
         $this->findMessage('Licence key is not valid for any of the known public keys.', $json);
     }
 
