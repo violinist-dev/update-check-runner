@@ -8,8 +8,11 @@ The containers that run updates for [violinist.io](https://violinist.io), a PHP 
 
 ## Quick start
 
-tl;dr (example for Gitlab, but similarly applies to GitHub, Bitbucket and self hosted Gitlab as well):
+tl;dr 
 
+<details>
+  <summary>Example for Gitlab</summary>
+  
 ```bash
 docker run \
   --pull=always \
@@ -18,6 +21,20 @@ docker run \
   -e "USER_TOKEN=glpat-jjYgGb_1npvkiHTdnM" \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
+
+<details>
+  <summary>Example for GitHub</summary>
+  
+```bash
+docker run \
+  --pull=always \
+  -e "LICENCE_KEY=my_key" \
+  -e "REPO_URL=https://github.com/user/repo" \
+  -e "USER_TOKEN=ghp_jYgGb_1npvkiHTdnM" \
+  ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
+```
+
+</details>
 
 ### 0. Find a repository to check for updates
 
