@@ -25,7 +25,7 @@ RUN composer install --no-dev --optimize-autoloader \
     && wget https://getcomposer.org/download/latest-${COMPOSER_VERSION}.x/composer.phar -O /tmp/composer \
     && chmod 755 /tmp/composer \
     && mv /tmp/composer /usr/local/bin/composer \
-    # Globally require humbog to compile a phar. We really don't need it as a dependency
+    # Globally require box to compile a phar. We really don't need it as a dependency
     # so we do this in the build step, which is executed in the tests anyway.
     && /usr/local/bin/composer global require humbug/box \
     && /root/.composer/vendor/bin/box compile
@@ -48,12 +48,12 @@ ENV GIT_COMMITTER_EMAIL=violinistdevio@gmail.com
 
 WORKDIR /app
 
-COPY --from=build /usr/src/myapp/runner.phar /app/runner
+COPY --from=build /usr/src/myapp/runner.phar /runner
 
-COPY --from=build /usr/src/myapp/VERSION /app
+COPY --from=build /usr/src/myapp/VERSION /
 
 COPY --from=build /usr/local/bin/composer /usr/local/bin/composer
 
 # If the command is ever updated, please remember to also update the corresponding
 # section in the queue starter project.
-CMD ["php", "/app/runner"]
+CMD ["php", "/runner"]
