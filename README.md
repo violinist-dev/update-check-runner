@@ -55,7 +55,7 @@ docker run \
 
 Copy the URL of the repository you want to check for updates. For the purpose of this quick start guide, let's assume this is `https://gitlab.com/user/repo`.
 
-### 1. Obtain a personal access token
+### 1. Obtain an access token / app password
 
 - For GitHub visit [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
 - For Bitbucket visit [https://bitbucket.org/account/settings/app-passwords/new](https://bitbucket.org/account/settings/app-passwords/new). Please note your argument to running updates must include your username (see notice below).
@@ -102,7 +102,7 @@ docker run \
 | Name | Required | Default value |
 | -- | -- | -- |
 | LICENCE_KEY | Yes | |
-| REPO_TOKEN | Yes| |
+| USER_TOKEN | Yes| |
 | REPO_URL | Yes | |
 
 ### Reference
