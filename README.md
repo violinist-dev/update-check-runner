@@ -93,6 +93,16 @@ docker run \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
 
+## FAQ
+
+<details>
+  <summary>What is the difference between self hosting and using violinist.io (the SaaS)</summary>
+  
+  - No formatting, storing or analysis of logs. You would have to implement this yourself if needed.
+  - No notifications (email or slack)
+  - No automatic discovery of PHP version. When your project upgrade to a new version, you must also change the PHP version of the update container
+</details>
+
 ## Licence
 
 Licenced under the commercial [violinist licence](https://github.com/violinist-dev/update-check-runner/blob/main/LICENSE)
