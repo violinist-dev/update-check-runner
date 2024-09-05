@@ -61,6 +61,21 @@ foreach (['token_url', 'fork_to'] as $key) {
 $fork_to = $_SERVER['fork_to'];
 $token_url = $_SERVER['token_url'];
 
+// Now make sure we have the couple of actual required variables.
+$required_variables = [
+    'REPO_TOKEN',
+    'PROJECT_URL',
+];
+$messages = [];
+foreach ($required_variables as $required_variable) {
+    if (empty($_SERVER[$required_variable])) {
+        $messages[] = new Message('Missing required environment variable ' . $required_variable, Message::ERROR);
+    }
+    if (!empty($messages)) {
+        create_output_and_exit($messages, 1);
+    }
+}
+
 $user_token = $_SERVER['REPO_TOKEN'];
 $project = null;
 $url = null;
@@ -99,6 +114,7 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
     if (!$has_valid_key) {
         $pre_run_messages[] = new Message('Licence key is not valid for any of the known public keys.', Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
+        create_output_and_exit($pre_run_messages, 1);
     } else {
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
@@ -142,8 +158,9 @@ $git = new GitInfo();
 if ($hash = $git->getShortHash()) {
     $_SERVER['queue_runner_revision'] = $hash;
 } else {
-    if (file_exists(__DIR__ . '/.version')) {
-        $_SERVER['queue_runner_revision'] = file_get_contents(__DIR__ . '/.version');
+    $file = __DIR__ . '/VERSION';
+    if (file_exists($file)) {
+        $_SERVER['queue_runner_revision'] = trim(file_get_contents($file));
     }
 }
 
@@ -162,7 +179,7 @@ try {
     $output = $cosy->getOutput();
 } catch (Exception $e) {
     $output = $cosy->getOutput();
-    $output[] = new Message('Caught Exception: ' . $e->getMessage(), Message::ERROR);
+    $output[] = new Message('Caught Exception: ' . $e->getMessage() . ' with the stack trace ' . $e->getTraceAsString(), Message::ERROR);
     $code = 1;
 }
 
