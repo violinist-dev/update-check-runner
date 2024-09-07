@@ -71,7 +71,7 @@ For the purpose of this quick start guide let's assume the token is `glpat-jjYgG
 You can do this in one of the following ways:
 
 - Use a license key somehow provided to you
-- Use a trial license from [https://violinist.io/trial](https://violinist.io/trial)
+- Use a trial license from [https://violinist.io/self-hosted-trial](https://violinist.io/self-hosted-trial)
 - Purchase a license on [https://violinist.io/purchase-licence](https://violinist.io/purchase-licence)
 
 For the purpose of this quick start guide, let's assume the license key is `fYtLakIxFEBdy1vB_SU3iaPrTRwVugFnj9AGxRYVsRSha-ju3m7qpFNHhwPn_C5vS38tDGW6jo_DOI7zZfcy5n6cu7_3ef8vU8HyfS6cyrR6Xq767XOcvqb1KKgoCKqo6_vyI02pWk6YgyU3gsrqgaS5pwcVo9aNY2AQbS1TZABJjwWRHCUqNrCK7pTd2TE6hA01rMQKTJUNmjlLjbYlYc4c3TQxS6iqYH8`
