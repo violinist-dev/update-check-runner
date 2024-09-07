@@ -56,4 +56,4 @@ COPY --from=build /usr/local/bin/composer /usr/local/bin/composer
 # section in the queue starter project, and probably in some CI templates or something as well.
 # For now we symlink old paths for backwards compatibility.
 RUN ln -s /app/runner /runner
-CMD ["php", "/runner"]
+CMD ["php", "/app/runner"]
