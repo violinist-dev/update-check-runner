@@ -109,16 +109,45 @@ docker run \
 
 #### LICENCE_KEY 
 
+The licence key either handed to you, obtained or purchased for running your own update runners.
 
+Please note the below key is an example, which is signed with an invalid private key.
+
+Example value: `fYtLakIxFEBdy1vB_SU3iaPrTRwVugFnj9AGxRYVsRSha-ju3m7qpFNHhwPn_C5vS38tDGW6jo_DOI7zZfcy5n6cu7_3ef8vU8HyfS6cyrR6Xq767XOcvqb1KKgoCKqo6_vyI02pWk6YgyU3gsrqgaS5pwcVo9aNY2AQbS1TZABJjwWRHCUqNrCK7pTd2TE6hA01rMQKTJUNmjlLjbYlYc4c3TQxS6iqYH8`
+
+#### USER_TOKEN
+
+A token valid for accessing the API, cloning the repo, pushing branches and creating pull requests on behalf of the user in question. Usually this will be a personal access token (PAT) or an app password.
+
+Example value: `ghp_eIgde31jggU3GIBB22fJbv2odcd0xy0e9jh8`
+
+#### REPO_URL
+
+The repository to run update checks on.
+
+Example value: `https://github.com/violinist-dev/update-check-runner`
 
 ## FAQ
 
 <details>
   <summary>What is the difference between self hosting and using violinist.io (the SaaS)</summary>
+
+  In practice, all the automation, convenience, logging and persistance you would have to need.
   
   - No formatting, storing or analysis of logs. You would have to implement this yourself if needed.
   - No notifications (email or slack)
   - No automatic discovery of PHP version. When your project upgrade to a new version, you must also change the PHP version of the update container
+  - No private keys per project or per organization
+</details>
+
+<details>
+  <summary>Can I use this to run updates for my clients or customers and charge money for it?</summary>
+
+  Yes. There are no restrictions on what you use the licence key for, and if you use it for commercial purposes or something else.
+
+  You are not allowed to provide the same service as violinist.io (sell licences to this software, or provide a SaaS based on this software). But please go ahead and purchase a licence and charge your customers multiples of that to provide the service you purchased.
+
+  Otherwise, we refer to the licence of this repo: [https://github.com/violinist-dev/update-check-runner/blob/main/LICENSE](https://github.com/violinist-dev/update-check-runner/blob/main/LICENSE)
 </details>
 
 ## Licence
