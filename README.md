@@ -19,7 +19,7 @@ Don't even have time for a quick start? Here are some examples:
 docker run \
   --pull=always \
   -e "LICENCE_KEY=my_key" \
-  -e "REPO_URL=https://gitlab.com/user/repo" \
+  -e "PROJECT_URL=https://gitlab.com/user/repo" \
   -e "USER_TOKEN=glpat-jjYgGb_1npvkiHTdnM" \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
@@ -32,7 +32,7 @@ docker run \
 docker run \
   --pull=always \
   -e "LICENCE_KEY=my_key" \
-  -e "REPO_URL=https://github.com/user/repo" \
+  -e "PROJECT_URL=https://github.com/user/repo" \
   -e "USER_TOKEN=ghp_jYgGb_1npvkiHTdnM" \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
@@ -45,7 +45,7 @@ docker run \
 docker run \
   --pull=always \
   -e "LICENCE_KEY=my_key" \
-  -e "REPO_URL=https://bitbucket.org/org/project/repo" \
+  -e "PROJECT_URL=https://bitbucket.org/org/project/repo" \
   -e "USER_TOKEN=myusername:app_p455w0rd" \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
@@ -90,7 +90,7 @@ Putting it all together with your noted arguments:
 docker run \
   --pull=always \
   -e "LICENCE_KEY=fYtLakIxFEBdy1vB_SU3iaPrTRwVugFnj9AGxRYVsRSha-ju3m7qpFNHhwPn_C5vS38tDGW6jo_DOI7zZfcy5n6cu7_3ef8vU8HyfS6cyrR6Xq767XOcvqb1KKgoCKqo6_vyI02pWk6YgyU3gsrqgaS5pwcVo9aNY2AQbS1TZABJjwWRHCUqNrCK7pTd2TE6hA01rMQKTJUNmjlLjbYlYc4c3TQxS6iqYH8" \
-  -e "REPO_URL=https://gitlab.com/user/repo" \
+  -e "PROJECT_URL=https://gitlab.com/user/repo" \
   -e "USER_TOKEN=glpat-jjYgGb_1npvkiHTdnM" \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
@@ -103,7 +103,7 @@ docker run \
 | -- | -- | -- |
 | LICENCE_KEY | Yes | |
 | USER_TOKEN | Yes| |
-| REPO_URL | Yes | |
+| PROJECT_URL | Yes | |
 
 ### Reference
 
@@ -121,7 +121,7 @@ A token valid for accessing the API, cloning the repo, pushing branches and crea
 
 Example value: `ghp_eIgde31jggU3GIBB22fJbv2odcd0xy0e9jh8`
 
-#### REPO_URL
+#### PROJECT_URL
 
 The repository to run update checks on.
 
