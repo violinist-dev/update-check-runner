@@ -64,7 +64,7 @@ abstract class IntegrationBase extends TestCase
     {
         $expected_message = sprintf('Queue runner revision %s', substr($_SERVER['MY_COMMIT'], 0, 7));
         foreach ($json as $item) {
-            if ($item->message === $expected_message) {
+            if (strpos($item->message, $expected_message) === 0) {
                 return;
             }
         }
@@ -114,6 +114,9 @@ abstract class IntegrationBase extends TestCase
             '-e',
             'project_url=' . $url,
         ];
+        if (empty($other_env['LICENCE_KEY'])) {
+            $other_env['LICENCE_KEY'] = getenv('VALID_CI_LICENCE');
+        }
         foreach ($other_env as $var => $value) {
             $command[] = '-e';
             $command[] = sprintf("%s=%s", $var, $value);
