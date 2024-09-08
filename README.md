@@ -62,7 +62,7 @@ Copy the URL of the repository you want to check for updates. For the purpose of
 - For Gitlab visit [https://gitlab.com/-/user_settings/personal_access_tokens](https://gitlab.com/-/user_settings/personal_access_tokens)
 - For self hosted Gitlab visit [https://gitlab.example.com/-/user_settings/personal_access_tokens](https://gitlab.example.com/-/user_settings/personal_access_tokens) (replace with your own domain)
 
-For the purpose of this quick start guide let's assume the token is `glpat-jjYgGb_1npvkiHTdnM` (this token is totally made up).
+For the purpose of this quick start guide let's assume the token is `glpat-jjYgGb_1npvkiHTdnM`.
 
 > 🚨️ For bitbucket your token should include both your username and your application password separated with a colon (`:`). For example `user:p455w0r0`.
 
@@ -104,6 +104,11 @@ docker run \
 | LICENCE_KEY | Yes | |
 | USER_TOKEN | Yes| |
 | PROJECT_URL | Yes | |
+| GIT_AUTHOR_NAME | No | violinist-bot |
+| GIT_AUTHOR_EMAIL | No | violinistdevio@gmail.com |
+| GIT_COMMITTER_NAME | No | violinist-bot |
+| GIT_COMMITTER_EMAIL | No | violinistdevio@gmail.com |
+
 
 ### Reference
 
