@@ -236,12 +236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "9521d2b9d49efdf02355b830b1ce4df664759c34"
+                "reference": "0a3ad859355c0aa9e0cf5ef2bf54ebb129540744"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/9521d2b9d49efdf02355b830b1ce4df664759c34",
-                "reference": "9521d2b9d49efdf02355b830b1ce4df664759c34",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/0a3ad859355c0aa9e0cf5ef2bf54ebb129540744",
+                "reference": "0a3ad859355c0aa9e0cf5ef2bf54ebb129540744",
                 "shasum": ""
             },
             "require": {
@@ -265,7 +265,6 @@
                 "violinist-dev/process-factory": "^2.0",
                 "violinist-dev/project-data": "^1.1.1",
                 "violinist-dev/slug-from-url": "^1",
-                "violinist-dev/symfony-cloud-security-checker": "^2",
                 "violinist-dev/timeframe-handler": "^1.0",
                 "violinist-dev/violinist-config": "^2.3",
                 "violinist-dev/violinist-messages": "^2.0",
@@ -300,7 +299,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/main"
             },
-            "time": "2024-09-05T08:13:57+00:00"
+            "time": "2024-09-10T18:52:31+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -2840,20 +2839,20 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.30.0",
+            "version": "v1.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "64647a7c30b2283f5d49b874d84a18fc22054b7a"
+                "reference": "b9123926e3b7bc2f98c02ad54f6a4b02b91a8abe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/64647a7c30b2283f5d49b874d84a18fc22054b7a",
-                "reference": "64647a7c30b2283f5d49b874d84a18fc22054b7a",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/b9123926e3b7bc2f98c02ad54f6a4b02b91a8abe",
+                "reference": "b9123926e3b7bc2f98c02ad54f6a4b02b91a8abe",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.2"
             },
             "suggest": {
                 "ext-intl": "For best performance"
@@ -2898,7 +2897,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.30.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.31.0"
             },
             "funding": [
                 {
@@ -2914,24 +2913,24 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T15:07:36+00:00"
+            "time": "2024-09-09T11:45:10+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.30.0",
+            "version": "v1.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "a95281b0be0d9ab48050ebd988b967875cdb9fdb"
+                "reference": "3833d7255cc303546435cb650316bff708a1c75c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/a95281b0be0d9ab48050ebd988b967875cdb9fdb",
-                "reference": "a95281b0be0d9ab48050ebd988b967875cdb9fdb",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/3833d7255cc303546435cb650316bff708a1c75c",
+                "reference": "3833d7255cc303546435cb650316bff708a1c75c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.2"
             },
             "suggest": {
                 "ext-intl": "For best performance"
@@ -2979,7 +2978,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.30.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.31.0"
             },
             "funding": [
                 {
@@ -2995,7 +2994,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T15:07:36+00:00"
+            "time": "2024-09-09T11:45:10+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3079,20 +3078,20 @@
         },
         {
             "name": "symfony/polyfill-php73",
-            "version": "v1.30.0",
+            "version": "v1.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php73.git",
-                "reference": "ec444d3f3f6505bb28d11afa41e75faadebc10a1"
+                "reference": "0f68c03565dcaaf25a890667542e8bd75fe7e5bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/ec444d3f3f6505bb28d11afa41e75faadebc10a1",
-                "reference": "ec444d3f3f6505bb28d11afa41e75faadebc10a1",
+                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/0f68c03565dcaaf25a890667542e8bd75fe7e5bb",
+                "reference": "0f68c03565dcaaf25a890667542e8bd75fe7e5bb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.2"
             },
             "type": "library",
             "extra": {
@@ -3135,7 +3134,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.30.0"
+                "source": "https://github.com/symfony/polyfill-php73/tree/v1.31.0"
             },
             "funding": [
                 {
@@ -3151,7 +3150,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T15:07:36+00:00"
+            "time": "2024-09-09T11:45:10+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -4132,52 +4131,6 @@
                 "source": "https://github.com/violinist-dev/slug-from-url/tree/1.2.1"
             },
             "time": "2019-05-16T13:52:59+00:00"
-        },
-        {
-            "name": "violinist-dev/symfony-cloud-security-checker",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/violinist-dev/symfony-cloud-security-checker.git",
-                "reference": "123e826b8a31b27dce8b808e05a66a5800210a86"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/symfony-cloud-security-checker/zipball/123e826b8a31b27dce8b808e05a66a5800210a86",
-                "reference": "123e826b8a31b27dce8b808e05a66a5800210a86",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/process": "^4.0 || ^5.4",
-                "violinist-dev/process-factory": "^2"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "^6.5 || ^7 || ^8 || ^9",
-                "squizlabs/php_codesniffer": "^3.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Violinist\\SymfonyCloudSecurityChecker\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Eirik S. Morland",
-                    "email": "eirik@morland.no"
-                }
-            ],
-            "description": "A wrapper for the symfony cli security checker",
-            "support": {
-                "issues": "https://github.com/violinist-dev/symfony-cloud-security-checker/issues",
-                "source": "https://github.com/violinist-dev/symfony-cloud-security-checker/tree/2.0.0"
-            },
-            "time": "2022-08-17T17:39:57+00:00"
         },
         {
             "name": "violinist-dev/timeframe-handler",
