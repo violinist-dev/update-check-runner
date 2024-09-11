@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69e941e173fadb937e76cb91d4b869d1",
+    "content-hash": "161f948fcfe65d18e3c595d3b6e6d405",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -236,12 +236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "d81c863b3f265371632625ddc5f1bd5542aa9e44"
+                "reference": "33521c3ed5ffbf56e14c11c89af7d518ead7ff98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/d81c863b3f265371632625ddc5f1bd5542aa9e44",
-                "reference": "d81c863b3f265371632625ddc5f1bd5542aa9e44",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/33521c3ed5ffbf56e14c11c89af7d518ead7ff98",
+                "reference": "33521c3ed5ffbf56e14c11c89af7d518ead7ff98",
                 "shasum": ""
             },
             "require": {
@@ -255,11 +255,11 @@
                 "m4tthumphrey/php-gitlab-api": "^10",
                 "peterpostmann/parse_uri": "^1.0",
                 "php-http/guzzle7-adapter": "^1",
-                "symfony/process": "^5.4 || ^6",
-                "symfony/yaml": "^5.4 || ^6",
+                "symfony/process": "^5.4 || ^6 || ^7",
+                "symfony/yaml": "^5.4 || ^6 || ^7",
                 "violinist-dev/allow-list-handler": "^1.0",
                 "violinist-dev/commit-message-creator": "^2.0",
-                "violinist-dev/composer-changelog-fetcher": "^4.0",
+                "violinist-dev/composer-changelog-fetcher": "^5.0",
                 "violinist-dev/composer-updater": "^2.0",
                 "violinist-dev/git-log-format": "^1.1.2",
                 "violinist-dev/process-factory": "^3.0",
@@ -299,7 +299,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/main"
             },
-            "time": "2024-09-11T06:34:51+00:00"
+            "time": "2024-09-11T14:17:52+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -2470,28 +2470,31 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v4.4.49",
+            "version": "v5.4.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "9065fe97dbd38a897e95ea254eb5ddfe1310f734"
+                "reference": "8c946c5c1d1692d5378cb722060969730cebc96d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/9065fe97dbd38a897e95ea254eb5ddfe1310f734",
-                "reference": "9065fe97dbd38a897e95ea254eb5ddfe1310f734",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/8c946c5c1d1692d5378cb722060969730cebc96d",
+                "reference": "8c946c5c1d1692d5378cb722060969730cebc96d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1.3",
-                "psr/container": "^1.0",
+                "php": ">=7.2.5",
+                "psr/container": "^1.1.1",
+                "symfony/deprecation-contracts": "^2.1|^3",
                 "symfony/polyfill-php80": "^1.16",
+                "symfony/polyfill-php81": "^1.22",
                 "symfony/service-contracts": "^1.1.6|^2"
             },
             "conflict": {
-                "symfony/config": "<4.3|>=5.0",
-                "symfony/finder": "<3.4",
-                "symfony/proxy-manager-bridge": "<3.4",
+                "ext-psr": "<1.1|>=2",
+                "symfony/config": "<5.3",
+                "symfony/finder": "<4.4",
+                "symfony/proxy-manager-bridge": "<4.4",
                 "symfony/yaml": "<4.4.26"
             },
             "provide": {
@@ -2499,9 +2502,9 @@
                 "symfony/service-implementation": "1.0|2.0"
             },
             "require-dev": {
-                "symfony/config": "^4.3",
-                "symfony/expression-language": "^3.4|^4.0|^5.0",
-                "symfony/yaml": "^4.4.26|^5.0"
+                "symfony/config": "^5.3|^6.0",
+                "symfony/expression-language": "^4.4|^5.0|^6.0",
+                "symfony/yaml": "^4.4.26|^5.0|^6.0"
             },
             "suggest": {
                 "symfony/config": "",
@@ -2536,7 +2539,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v4.4.49"
+                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.43"
             },
             "funding": [
                 {
@@ -2552,7 +2555,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-16T16:18:09+00:00"
+            "time": "2024-08-27T00:56:45+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3789,22 +3792,22 @@
         },
         {
             "name": "violinist-dev/composer-changelog-fetcher",
-            "version": "4.0.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-changelog-fetcher.git",
-                "reference": "7fb7705cb9f5daaa39df84a3839ebbeb6192b319"
+                "reference": "d5e7fbb2c529cbbf994be16f2b4276d150efd197"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/7fb7705cb9f5daaa39df84a3839ebbeb6192b319",
-                "reference": "7fb7705cb9f5daaa39df84a3839ebbeb6192b319",
+                "url": "https://api.github.com/repos/violinist-dev/composer-changelog-fetcher/zipball/d5e7fbb2c529cbbf994be16f2b4276d150efd197",
+                "reference": "d5e7fbb2c529cbbf994be16f2b4276d150efd197",
                 "shasum": ""
             },
             "require": {
                 "peterpostmann/parse_uri": "^1.0",
-                "symfony/console": "^3.4||^4||^5.4",
-                "symfony/dependency-injection": "^3.4||^4",
+                "symfony/console": "^5.0 || ^6.0 || ^7.0",
+                "symfony/dependency-injection": "^5.0 || ^6.0 || ^7.0",
                 "violinist-dev/composer-lock-data": "^1.1",
                 "violinist-dev/git-log-format": "^1.1.2",
                 "violinist-dev/process-factory": "^3.0"
@@ -3832,9 +3835,9 @@
             "description": "Fetch changelog for a given composer update",
             "support": {
                 "issues": "https://github.com/violinist-dev/composer-changelog-fetcher/issues",
-                "source": "https://github.com/violinist-dev/composer-changelog-fetcher/tree/4.0.0"
+                "source": "https://github.com/violinist-dev/composer-changelog-fetcher/tree/5.0.0"
             },
-            "time": "2024-09-10T18:59:18+00:00"
+            "time": "2024-09-11T13:14:56+00:00"
         },
         {
             "name": "violinist-dev/composer-lock-data",
@@ -3930,21 +3933,21 @@
         },
         {
             "name": "violinist-dev/git-log-format",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/git-log-format.git",
-                "reference": "98dad01c6e27b60bca457717b69b36f09b681e99"
+                "reference": "9957872108bb3f9f125ae327bd26515775462bec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/98dad01c6e27b60bca457717b69b36f09b681e99",
-                "reference": "98dad01c6e27b60bca457717b69b36f09b681e99",
+                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/9957872108bb3f9f125ae327bd26515775462bec",
+                "reference": "9957872108bb3f9f125ae327bd26515775462bec",
                 "shasum": ""
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^6",
+                "phpunit/phpunit": "^8 || ^9",
                 "squizlabs/php_codesniffer": "^3.4"
             },
             "type": "library",
@@ -3954,12 +3957,15 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "description": "Format changelog-like git logs",
             "support": {
                 "issues": "https://github.com/violinist-dev/git-log-format/issues",
-                "source": "https://github.com/violinist-dev/git-log-format/tree/1.1.2"
+                "source": "https://github.com/violinist-dev/git-log-format/tree/1.1.3"
             },
-            "time": "2021-12-09T08:00:21+00:00"
+            "time": "2024-09-11T15:40:23+00:00"
         },
         {
             "name": "violinist-dev/licence-check",
