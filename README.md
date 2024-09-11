@@ -108,6 +108,7 @@ docker run \
 | GIT_AUTHOR_EMAIL | No | violinistdevio@gmail.com |
 | GIT_COMMITTER_NAME | No | violinist-bot |
 | GIT_COMMITTER_EMAIL | No | violinistdevio@gmail.com |
+| ALTERNATE_COMPOSER_PATH | No | |
 
 
 ### Reference
