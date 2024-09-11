@@ -6,8 +6,8 @@
   "require": {
     "ext-json": "*",
     "eiriksm/cosy-composer": "dev-main",
-    "eiriksm/gitinfo": "^1.1",
-    "symfony/dependency-injection": "^4.4",
+    "eiriksm/gitinfo": "^4",
+    "symfony/dependency-injection": "^5.4",
     "symfony/dotenv": "^5.4",
     "violinist-dev/licence-check": "dev-main"
   },
