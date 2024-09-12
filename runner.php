@@ -102,7 +102,6 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
     $pre_run_messages[] = new Message('Licence key found in environment. Checking validity.', Message::COMMAND);
     $has_valid_key = false;
     foreach ($valid_public_keys as $valid_public_key) {
-        $checker = new LicenceChecker($valid_public_key);
         $checked = LicenceChecker::createFromLicenceAndKey($_SERVER['LICENCE_KEY'], $valid_public_key);
         if ($checked->isValid()) {
             $has_valid_key = true;
