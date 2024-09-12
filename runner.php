@@ -80,16 +80,13 @@ foreach ($required_variables as $required_variable) {
 
 $user_token = $_SERVER['REPO_TOKEN'];
 $project = null;
-$url = null;
+$url = $_SERVER['PROJECT_URL'];
 $tokens = [];
 if (!empty($_SERVER['TOKENS'])) {
     $tokens = @json_decode($_SERVER['TOKENS'], true);
 }
 if (!empty($_SERVER['PROJECT_DATA'])) {
     $project = @unserialize(@json_decode($_SERVER['PROJECT_DATA']));
-}
-if (!empty($_SERVER['PROJECT_URL'])) {
-    $url = $_SERVER['PROJECT_URL'];
 }
 
 $valid_public_keys = [
