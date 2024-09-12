@@ -12,6 +12,7 @@ use eiriksm\GitInfo\GitInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Dotenv\Dotenv;
+use violinist\LicenceCheck\Licence;
 use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
@@ -118,6 +119,12 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
         $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
         create_output_and_exit($pre_run_messages, 1);
     } else {
+        // Check if the licence is valid for the repository.
+        $licence = $checked->getPayload();
+        if (!$licence->isValidForRepository($url)) {
+            $pre_run_messages[] = new Message('Licence key is not valid for the repository ' . $url . '. The required URL prefix is ' . $licence->getData()[Licence::PREFIX_DATA_KEY], Message::COMMAND);
+            create_output_and_exit($pre_run_messages, 1);
+        }
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
     }
