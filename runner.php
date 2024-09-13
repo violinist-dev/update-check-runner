@@ -81,16 +81,13 @@ foreach ($required_variables as $required_variable) {
 
 $user_token = $_SERVER['REPO_TOKEN'];
 $project = null;
-$url = null;
+$url = $_SERVER['PROJECT_URL'];
 $tokens = [];
 if (!empty($_SERVER['TOKENS'])) {
     $tokens = @json_decode($_SERVER['TOKENS'], true);
 }
 if (!empty($_SERVER['PROJECT_DATA'])) {
     $project = @unserialize(@json_decode($_SERVER['PROJECT_DATA']));
-}
-if (!empty($_SERVER['PROJECT_URL'])) {
-    $url = $_SERVER['PROJECT_URL'];
 }
 
 $valid_public_keys = [
@@ -106,7 +103,6 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
     $pre_run_messages[] = new Message('Licence key found in environment. Checking validity.', Message::COMMAND);
     $has_valid_key = false;
     foreach ($valid_public_keys as $valid_public_key) {
-        $checker = new LicenceChecker($valid_public_key);
         $checked = LicenceChecker::createFromLicenceAndKey($_SERVER['LICENCE_KEY'], $valid_public_key);
         if ($checked->isValid()) {
             $has_valid_key = true;

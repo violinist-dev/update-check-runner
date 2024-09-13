@@ -3911,12 +3911,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/licence-check.git",
-                "reference": "6303658254a7f85f2410800ec7015eb86d6f0504"
+                "reference": "8822e54bf395820f99b7d572887f8c42d8dc11d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/licence-check/zipball/6303658254a7f85f2410800ec7015eb86d6f0504",
-                "reference": "6303658254a7f85f2410800ec7015eb86d6f0504",
+                "url": "https://api.github.com/repos/violinist-dev/licence-check/zipball/8822e54bf395820f99b7d572887f8c42d8dc11d1",
+                "reference": "8822e54bf395820f99b7d572887f8c42d8dc11d1",
                 "shasum": ""
             },
             "require": {
@@ -3928,8 +3928,11 @@
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "^8||^9"
+                "phpunit/phpunit": "^8||^9",
+                "slevomat/coding-standard": "^8.15",
+                "squizlabs/php_codesniffer": "^3.10"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3942,7 +3945,7 @@
                 "issues": "https://github.com/violinist-dev/licence-check/issues",
                 "source": "https://github.com/violinist-dev/licence-check/tree/main"
             },
-            "time": "2024-05-04T19:15:03+00:00"
+            "time": "2024-09-13T13:18:50+00:00"
         },
         {
             "name": "violinist-dev/process-factory",
