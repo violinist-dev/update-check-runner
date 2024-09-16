@@ -7,19 +7,6 @@ on:
   push: 
 
 jobs:
-  violinist:
-    name: Run update checks and create PRs
-    permissions: write-all
-    container:
-      image: ghcr.io/violinist-dev/update-check-runner:7.3-multi-composer-2
-      env:
-        REPO_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
-        PROJECT_URL: ${{ github.repositoryUrl }}
-        LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
+  update:
+    uses: violinist-dev/update-action/.github/workflows/update.yml@main
 
-    runs-on: ubuntu-latest
-    steps:
-      - id: foo
-        uses: violinist-dev/update-action@main
-        with:
-          token: test
