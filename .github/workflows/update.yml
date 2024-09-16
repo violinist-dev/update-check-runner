@@ -19,5 +19,6 @@ jobs:
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
       - name: Get the output
         run: |
-          echo ${{ steps.update.outputs.json }} > /tmp/output
-          jq < /tmp/output
+          cat << EOF
+          ${{ steps.update.outputs.json }}
+          EOF | jq
