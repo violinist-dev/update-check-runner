@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: violinist-dev/update-action@feat/out
+        id: update
         env:
-          REPO_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
+          USER_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
           PROJECT_URL: ${{ github.repositoryUrl }}
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
+      - name: Get the output
+        run: echo ${{ steps.update.outputs.json }} | jq
