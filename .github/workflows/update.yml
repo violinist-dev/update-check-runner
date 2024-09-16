@@ -11,3 +11,6 @@ jobs:
     uses: violinist-dev/update-action/.github/workflows/update.yml@main
     with:
       project_url: ${{ github.repositoryUrl }}
+    secrets:
+      user_token: ${{ secrets.PAT_UPDATE_JOB }}
+      licence_key: ${{ secrets.VALID_CI_LICENCE }}
