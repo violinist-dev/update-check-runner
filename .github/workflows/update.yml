@@ -19,6 +19,6 @@ jobs:
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
       - name: Get the output
         run: |
-          cat << EOF
+          jq << MY_SUPER_SPECIAL_DELIMETER_I_MEAN_WHO_KNOWS_WHATS_IN_PACKAGE_NAMES
           ${{ steps.update.outputs.json }}
-          EOF | jq
+          MY_SUPER_SPECIAL_DELIMETER_I_MEAN_WHO_KNOWS_WHATS_IN_PACKAGE_NAMES
