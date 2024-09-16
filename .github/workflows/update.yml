@@ -18,4 +18,6 @@ jobs:
           PROJECT_URL: ${{ github.repositoryUrl }}
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
       - name: Get the output
-        run: echo ${{ steps.update.outputs.json }} | jq
+        run: |
+          echo ${{ steps.update.outputs.json }} > /tmp/output
+          jq < /tmp/output
