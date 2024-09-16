@@ -11,7 +11,7 @@ jobs:
     name: Run update checks and create PRs
     runs-on: ubuntu-latest
     steps:
-      - uses: violinist-dev/update-action@main
+      - uses: violinist-dev/update-action@feat/out
         env:
           REPO_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
           PROJECT_URL: ${{ github.repositoryUrl }}
