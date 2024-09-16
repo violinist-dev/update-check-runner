@@ -9,4 +9,5 @@ on:
 jobs:
   update:
     uses: violinist-dev/update-action/.github/workflows/update.yml@main
-
+    with:
+      project_url: ${{ github.repositoryUrl }}
