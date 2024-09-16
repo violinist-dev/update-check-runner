@@ -5,22 +5,14 @@ on:
     - cron: '2 * * * *' # every hour
   # By using push as well, we make sure our PRs are updated when the main branch has new commits.
   push: 
-    branches: 
-     - main
 
 jobs:
   violinist:
     name: Run update checks and create PRs
-    permissions: write-all
-    container:
-      image: ghcr.io/violinist-dev/update-check-runner:7.3-multi-composer-2
-      env:
-        REPO_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
-        PROJECT_URL: ${{ github.repositoryUrl }}
-        LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
-
     runs-on: ubuntu-latest
     steps:
-      - name: Update and PR
-        run: |
-          php /runner
+      - uses: violinist-dev/update-action@main
+        env:
+          REPO_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
+          PROJECT_URL: ${{ github.repositoryUrl }}
+          LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
