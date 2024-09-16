@@ -5,6 +5,11 @@ on:
     - cron: '2 * * * *' # every hour
   # By using push as well, we make sure our PRs are updated when the main branch has new commits.
   push: 
+  
+env:
+  REPO_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
+  PROJECT_URL: ${{ github.repositoryUrl }}
+  LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
 
 jobs:
   update:
