@@ -236,12 +236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "d534fc545ba406a49f299da68b12389fed49fc6f"
+                "reference": "b331f39630c79077364624f2aa17e6dbe5bbbaee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/d534fc545ba406a49f299da68b12389fed49fc6f",
-                "reference": "d534fc545ba406a49f299da68b12389fed49fc6f",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/b331f39630c79077364624f2aa17e6dbe5bbbaee",
+                "reference": "b331f39630c79077364624f2aa17e6dbe5bbbaee",
                 "shasum": ""
             },
             "require": {
@@ -278,13 +278,6 @@
             },
             "default-branch": true,
             "type": "library",
-            "extra": {
-                "patches": {
-                    "phpunit/phpunit-mock-objects": {
-                        "Fix things on php 7.4": "./patches/mock-obj.patch"
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "eiriksm\\CosyComposer\\": "src"
@@ -299,7 +292,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/main"
             },
-            "time": "2024-09-11T20:34:42+00:00"
+            "time": "2024-09-19T04:34:37+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3823,16 +3816,16 @@
         },
         {
             "name": "violinist-dev/composer-updater",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/composer-updater.git",
-                "reference": "8ca437be9e2b6fedfb6664cd489b3172438fcbeb"
+                "reference": "ea91422502ea169420cf4f0d4d233a0d96958ad0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/8ca437be9e2b6fedfb6664cd489b3172438fcbeb",
-                "reference": "8ca437be9e2b6fedfb6664cd489b3172438fcbeb",
+                "url": "https://api.github.com/repos/violinist-dev/composer-updater/zipball/ea91422502ea169420cf4f0d4d233a0d96958ad0",
+                "reference": "ea91422502ea169420cf4f0d4d233a0d96958ad0",
                 "shasum": ""
             },
             "require": {
@@ -3865,9 +3858,9 @@
             "description": "Updater package",
             "support": {
                 "issues": "https://github.com/violinist-dev/composer-updater/issues",
-                "source": "https://github.com/violinist-dev/composer-updater/tree/2.0.0"
+                "source": "https://github.com/violinist-dev/composer-updater/tree/2.0.1"
             },
-            "time": "2024-09-10T18:07:18+00:00"
+            "time": "2024-09-18T19:19:34+00:00"
         },
         {
             "name": "violinist-dev/git-log-format",
