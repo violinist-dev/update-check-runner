@@ -13,7 +13,7 @@ Also available as standalone docker containers to self host the update running.
 Don't even have time for a quick start? Here are some examples:
 
 <details>
-  <summary>Example for Gitlab</summary>
+  <summary>Example for GitLab</summary>
   
 ```bash
 docker run \
@@ -136,7 +136,7 @@ Example value: `https://github.com/violinist-dev/update-check-runner`
 ## FAQ
 
 <details>
-  <summary>What is the difference between self hosting and using violinist.io (the SaaS)</summary>
+  <summary><strong>What is the difference between self hosting and using violinist.io (the SaaS)</strong></summary>
 
   In practice, all the automation, convenience, logging and persistance you would have to need.
   
@@ -147,7 +147,7 @@ Example value: `https://github.com/violinist-dev/update-check-runner`
 </details>
 
 <details>
-  <summary>Can I use this to run updates for my clients or customers and charge money for it?</summary>
+  <summary><strong>Can I use this to run updates for my clients or customers and charge money for it?</strong></summary>
 
   Yes. There are no restrictions on what you use the licence key for, and if you use it for commercial purposes or something else.
 
