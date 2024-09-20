@@ -133,6 +133,46 @@ The repository to run update checks on.
 
 Example value: `https://github.com/violinist-dev/update-check-runner`
 
+#### GIT_AUTHOR_NAME
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_AUTHOR_NAME is the human-readable name in the “author” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### GIT_AUTHOR_EMAIL
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_AUTHOR_EMAIL is the email for the “author” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### GIT_COMMITTER_NAME
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_COMMITTER_NAME sets the human name for the “committer” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### GIT_COMMITTER_EMAIL
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_COMMITTER_EMAIL is the email address for the “committer” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### ALTERNATE_COMPOSER_PATH
+
+An alternate path to use for the composer executable. For example, this is what you would use, should you want to use (or are forced to use) Composer 2.2 LTS instead of the latest version.
+
+You can only set this value to one of the following alternatives, otherwise it will be ignored:
+
+- `/usr/local/bin/composer22` (this will be the latest Composer 2.2 LTS release)
+
 ## FAQ
 
 <details>
