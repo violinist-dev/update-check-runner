@@ -21,6 +21,6 @@ jobs:
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
       - name: Fetch the output
         env:
-          OUTPUT: ${{ steps.update.outputs.json }}
+          JSON_OUTPUT: ${{ steps.update.outputs.json }}
         run: |
-          jq < $OUTPUT
+          jq < '$JSON_OUTPUT'
