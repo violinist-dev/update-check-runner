@@ -7,6 +7,7 @@ on:
   push: 
     branches: 
       - main
+      - feat/action-docker
 
 jobs:
   violinist:
@@ -18,3 +19,8 @@ jobs:
           USER_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
           PROJECT_URL: ${{ github.repositoryUrl }}
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
+      - name: Fetch the output
+        env:
+          OUTPUT: ${{ steps.update.outputs.json }}
+        run: |
+          jq < $OUTPUT
