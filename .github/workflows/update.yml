@@ -6,7 +6,7 @@ on:
   # By using push as well, we make sure our PRs are updated when the main branch has new commits.
   push: 
     branches: 
-       - main
+      - main
 
 jobs:
   violinist:
