@@ -24,4 +24,4 @@ jobs:
         env:
           JSON_OUTPUT: ${{ steps.update.outputs.json }}
         run: |
-          cat $JSON_OUTPUT | jq
+          jq < $JSON_OUTPUT
