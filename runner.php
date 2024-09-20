@@ -40,8 +40,9 @@ $legacy_to_new_variables = [
     'project_url' => 'PROJECT_URL',
     'tokens' => 'TOKENS',
     'project' => 'PROJECT_DATA',
-    // This one is considered an alias.
+    // These ones are considered aliases.
     'USER_TOKEN' => 'REPO_TOKEN',
+    'REPO_URL' => 'PROJECT_URL',
 ];
 foreach ($legacy_to_new_variables as $old => $new) {
     if (!empty($_SERVER[$old])) {
