@@ -5,21 +5,16 @@ on:
     - cron: '2 * * * *' # every hour
   # By using push as well, we make sure our PRs are updated when the main branch has new commits.
   push: 
+    branches: 
+       - main
 
 jobs:
   violinist:
     name: Run update checks and create PRs
     runs-on: ubuntu-latest
     steps:
-      - uses: violinist-dev/update-action@feat/out
-        id: update
+      - uses: violinist-dev/update-action@1.x
         env:
           USER_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
           PROJECT_URL: ${{ github.repositoryUrl }}
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
-      - name: Get the output
-        run: |
-          echo "wat" | jq
-          #jq << MY_SUPER_SPECIAL_DELIMETER_I_MEAN_WHO_KNOWS_WHATS_IN_PACKAGE_NAMES
-          #${{ steps.update.outputs.json }}
-          #MY_SUPER_SPECIAL_DELIMETER_I_MEAN_WHO_KNOWS_WHATS_IN_PACKAGE_NAMES
