@@ -132,6 +132,11 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
     create_output_and_exit($messages, 1);
 }
 
+$hostname = '';
+ if (!empty($_SERVER['violinist_hostname'])) {
+     $hostname = $_SERVER['violinist_hostname'];
+ }
+
 $container = new ContainerBuilder();
 $container->register('logger', 'Wa72\SimpleLogger\ArrayLogger');
 $container->register('process.factory', 'eiriksm\CosyComposer\ProcessFactory');
@@ -141,7 +146,8 @@ $container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
 $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
     ->addArgument(new Reference('command'))
     ->addMethodCall('setLogger', [new Reference('logger')])
-    ->addMethodCall('setUrl', [$url]);
+    ->addMethodCall('setUrl', [$url])
+    ->addMethodCall('setViolinistHostname', [$hostname]);
 
 /* @var \eiriksm\CosyComposer\CosyComposer $cosy */
 $cosy = $container->get('cosy');
