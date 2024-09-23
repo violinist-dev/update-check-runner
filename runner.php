@@ -17,7 +17,8 @@ use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
 
-function create_output_and_exit($output, $code) {
+function create_output_and_exit($output, $code)
+{
     $json = [];
     foreach ($output as $message) {
         if (empty($message)) {
@@ -133,9 +134,9 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
 }
 
 $hostname = '';
- if (!empty($_SERVER['violinist_hostname'])) {
-     $hostname = $_SERVER['violinist_hostname'];
- }
+if (!empty($_SERVER['violinist_hostname'])) {
+    $hostname = $_SERVER['violinist_hostname'];
+}
 
 $container = new ContainerBuilder();
 $container->register('logger', 'Wa72\SimpleLogger\ArrayLogger');

@@ -28,5 +28,4 @@ class UpdateIndirectWithDirectTest extends IntegrationBase
         }
         self::assertTrue($found_message_indicating_branch_name && $found_message_indicating_mbstring_found);
     }
-
 }

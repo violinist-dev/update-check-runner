@@ -3,12 +3,9 @@
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
 use eiriksm\CosyComposer\Providers\Github;
-use eiriksm\CosyComposer\Providers\Gitlab;
-use Github\Api\PullRequest;
 use Github\AuthMethod;
 use Github\Client;
 use Github\ResultPager;
-use Gitlab\Client as GitlabClient;
 use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\ProjectData\ProjectData;
 use Violinist\Slug\Slug;
@@ -78,7 +75,7 @@ class IntegrationTest extends IntegrationBase
             $token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
             $client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
             $pager = new ResultPager($client);
-            /** @var PullRequest $api */
+            /** @var \Github\Api\PullRequest $api */
             $api = $client->api('pr');
             $method = 'all';
             $url = $_SERVER['GITHUB_BUNDLED_REPO'];
@@ -270,5 +267,4 @@ class IntegrationTest extends IntegrationBase
         }
         $this->assertFalse($found_message, 'Could find the unexpected update separate message in a test run');
     }
-
 }
