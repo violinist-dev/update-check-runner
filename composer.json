@@ -5,6 +5,7 @@
   "prefer-stable": true,
   "require": {
     "ext-json": "*",
+    "cweagans/composer-patches": "^1.7",
     "eiriksm/cosy-composer": "dev-main",
     "eiriksm/gitinfo": "^4",
     "symfony/dependency-injection": "^5.4",
@@ -26,8 +27,16 @@
   },
   "config": {
     "allow-plugins": {
-      "php-http/discovery": true
+      "php-http/discovery": true,
+      "cweagans/composer-patches": true
     },
     "sort-packages": true
+  },
+  "extra": {
+    "patches": {
+      "bitbucket/client": {
+        "PHP 8.4 fixes (https://github.com/BitbucketPHP/Client/pull/86)": "./patches/bitbucket-client-php-8.4.patch"
+      }
+    }
   }
 }
