@@ -2,9 +2,6 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use Github\Api\GitData;
-use Github\Api\PullRequest;
-use Github\Api\Repo;
 use Github\AuthMethod;
 use Github\Client;
 use Violinist\Slug\Slug;
@@ -42,7 +39,8 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
         $slug = Slug::createFromUrl($this->url);
         try {
             $this->deleteBranch($this->branchName);
-        } catch (\Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
         try {
             $e = null;
             $token = $this->token;

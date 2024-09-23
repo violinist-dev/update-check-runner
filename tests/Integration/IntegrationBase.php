@@ -162,5 +162,4 @@ abstract class IntegrationBase extends TestCase
         }
         return $json->token;
     }
-
 }

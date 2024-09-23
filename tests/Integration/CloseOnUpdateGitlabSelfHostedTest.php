@@ -2,12 +2,7 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use Bitbucket\Client;
-use Bitbucket\HttpClient\Message\FileResource;
 use Gitlab\Client as GitlabClient;
-use Gitlab\ResultPager;
-use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
-use Violinist\Slug\Slug;
 
 class CloseOnUpdateGitlabSelfHostedTest extends CloseOnUpdateGitlabTest
 {

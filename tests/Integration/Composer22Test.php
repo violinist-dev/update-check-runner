@@ -18,5 +18,4 @@ class Composer22Test extends IntegrationBase
         }
         $this->assertTrue(false, 'The composer version message was not found in the output.');
     }
-
 }

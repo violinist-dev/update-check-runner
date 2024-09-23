@@ -29,7 +29,8 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         $slug = Slug::createFromUrl($url);
         try {
             $this->deleteBranch($this->branchName);
-        } catch (\Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
         $provider = new Bitbucket([
             'clientId' => $_SERVER['BITBUCKET_CLIENT_ID'],
             'clientSecret' => $_SERVER['BITBUCKET_CLIENT_SECRET'],
@@ -41,7 +42,8 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
         $this->branchName = $this->createBranchName();
         try {
             $this->deleteBranch($this->branchName);
-        } catch (\Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
         $branch_name = $this->branchName;
         $client = new Client();
         $this->client = $client;
@@ -76,7 +78,7 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
                     'source' => [
                         'branch' => [
                             'name' => $branch_name,
-                        ]
+                        ],
                     ],
                     'destination' => [
                         'branch' => [
@@ -87,7 +89,8 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
                 ],
                 'headers' => $headers,
             ]);
-        } catch (\Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
         $json = $this->getProcessAndRunWithoutError($new_token->getToken(), $url);
         $closed_with_success = self::hasPrClosedAndPrClosedSuccess($json);
         if ($retries < 20 && !$closed_with_success) {

@@ -2,13 +2,7 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use Bitbucket\Client;
-use Bitbucket\HttpClient\Message\FileResource;
-use Gitlab\Api\MergeRequests;
 use Gitlab\Client as GitlabClient;
-use Gitlab\ResultPager;
-use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
-use Violinist\Slug\Slug;
 
 class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
 {
@@ -48,7 +42,8 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $token = null;
         try {
             $this->deleteBranch($this->branchName);
-        } catch (\Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
         $e = null;
         try {
             $url = $this->url;
@@ -67,8 +62,8 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
                         'action' => 'create',
                         'file_path' => 'test.txt',
                         'content' => 'temp',
-                    ]
-                ]
+                    ],
+                ],
             ]);
             /** @var MergeRequests $mr */
             $mr = $client->mergeRequests();
@@ -76,7 +71,8 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
             $data = $mr->create($project_id, $branch_name, 'master', 'test pr', [
                 'description' => 'test pr',
             ]);
-        } catch (\Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
         // Now, let's run this stuff. It should certainly contain some closing action.
         $extra_params = [
             'fork_user' => getenv('FORK_USER'),
@@ -86,7 +82,8 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         try {
             $json = $this->getProcessAndRunWithoutError($token, $url, $extra_params);
             $has_it = self::hasPrClosedAndPrClosedSuccess($json);
-        } catch (\Throwable $e) {}
+        } catch (\Throwable $e) {
+        }
         if ($retries < 20 && !$has_it) {
             $retries++;
             return $this->testPrsClosedGitlab($retries);
