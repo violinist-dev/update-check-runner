@@ -37,6 +37,9 @@
     "patches": {
       "bitbucket/client": {
         "PHP 8.4 fixes (https://github.com/BitbucketPHP/Client/pull/86)": "./patches/bitbucket-client-php-8.4.patch"
+      },
+      "php-http/client-common": {
+        "PHP 8.4 fixes (https://github.com/php-http/client-common/pull/247)": "./patches/php-http-client-common-php-8.4.patch"
       }
     }
   }
