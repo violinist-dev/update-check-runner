@@ -15,7 +15,7 @@ ENV CI=1
 
 # The version of league/flysystem differs on PHP version lower than 8, and the
 # ones above 8.
-RUN composer require league/flysystem && composer install --no-dev --optimize-autoloader \
+RUN composer require league/flysystem league/mime-type-detection && composer install --no-dev --optimize-autoloader \
     # The version has the "compiled" suffix to indicate that it's... compiled.
     && git log --pretty=%h -n1 HEAD | echo "$(cat -)-compiled" > VERSION \
     # Make sure our php is always used.
