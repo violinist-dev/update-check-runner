@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0cd4b9bfe55e00d78199948ddd19ca8",
+    "content-hash": "69dd6c2ba9459658b178dc67a7be7847",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -766,16 +766,16 @@
         },
         {
             "name": "knplabs/github-api",
-            "version": "v3.14.1",
+            "version": "v3.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "71fec50e228737ec23c0b69801b85bf596fbdaca"
+                "reference": "d4b7a1c00e22c1ca32408ecdd4e33c674196b1bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/71fec50e228737ec23c0b69801b85bf596fbdaca",
-                "reference": "71fec50e228737ec23c0b69801b85bf596fbdaca",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/d4b7a1c00e22c1ca32408ecdd4e33c674196b1bc",
+                "reference": "d4b7a1c00e22c1ca32408ecdd4e33c674196b1bc",
                 "shasum": ""
             },
             "require": {
@@ -795,7 +795,7 @@
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^7.2",
-                "guzzlehttp/psr7": "^1.7",
+                "guzzlehttp/psr7": "^2.7",
                 "http-interop/http-factory-guzzle": "^1.0",
                 "php-http/mock-client": "^1.4.1",
                 "phpstan/extension-installer": "^1.0.5",
@@ -842,7 +842,7 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/php-github-api/issues",
-                "source": "https://github.com/KnpLabs/php-github-api/tree/v3.14.1"
+                "source": "https://github.com/KnpLabs/php-github-api/tree/v3.15.0"
             },
             "funding": [
                 {
@@ -850,7 +850,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-24T18:21:15+00:00"
+            "time": "2024-09-23T19:00:43+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1177,16 +1177,16 @@
         },
         {
             "name": "php-http/client-common",
-            "version": "2.7.1",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/client-common.git",
-                "reference": "1e19c059b0e4d5f717bf5d524d616165aeab0612"
+                "reference": "83263d4e43e7f3e91d20d105efec1e5198569cd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/client-common/zipball/1e19c059b0e4d5f717bf5d524d616165aeab0612",
-                "reference": "1e19c059b0e4d5f717bf5d524d616165aeab0612",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/83263d4e43e7f3e91d20d105efec1e5198569cd9",
+                "reference": "83263d4e43e7f3e91d20d105efec1e5198569cd9",
                 "shasum": ""
             },
             "require": {
@@ -1214,6 +1214,7 @@
                 "php-http/logger-plugin": "PSR-3 Logger plugin",
                 "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1240,9 +1241,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/client-common/issues",
-                "source": "https://github.com/php-http/client-common/tree/2.7.1"
+                "source": "https://github.com/php-http/client-common/tree/2.x"
             },
-            "time": "2023-11-30T10:31:25+00:00"
+            "time": "2024-09-23T13:34:27+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -1387,16 +1388,16 @@
         },
         {
             "name": "php-http/httplug",
-            "version": "2.x-dev",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/httplug.git",
-                "reference": "87779285e14780b0a85209bfed8abd9d5fe0322e"
+                "reference": "5cad731844891a4c282f3f3e1b582c46839d22f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/httplug/zipball/87779285e14780b0a85209bfed8abd9d5fe0322e",
-                "reference": "87779285e14780b0a85209bfed8abd9d5fe0322e",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/5cad731844891a4c282f3f3e1b582c46839d22f4",
+                "reference": "5cad731844891a4c282f3f3e1b582c46839d22f4",
                 "shasum": ""
             },
             "require": {
@@ -1409,7 +1410,6 @@
                 "friends-of-phpspec/phpspec-code-coverage": "^4.1 || ^5.0 || ^6.0",
                 "phpspec/phpspec": "^5.1 || ^6.0 || ^7.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1439,9 +1439,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/httplug/issues",
-                "source": "https://github.com/php-http/httplug/tree/2.x"
+                "source": "https://github.com/php-http/httplug/tree/2.4.1"
             },
-            "time": "2024-03-15T16:17:50+00:00"
+            "time": "2024-09-23T11:39:58+00:00"
         },
         {
             "name": "php-http/message",
@@ -6338,7 +6338,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "eiriksm/cosy-composer": 20,
-        "php-http/httplug": 20,
+        "php-http/client-common": 20,
         "violinist-dev/licence-check": 20
     },
     "prefer-stable": true,

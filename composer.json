@@ -8,7 +8,7 @@
     "cweagans/composer-patches": "^1.7",
     "eiriksm/cosy-composer": "dev-main",
     "eiriksm/gitinfo": "^4",
-    "php-http/httplug": "2.x-dev",
+    "php-http/client-common": "2.x-dev",
     "symfony/dependency-injection": "^5.4",
     "symfony/dotenv": "^5.4",
     "violinist-dev/licence-check": "dev-main"
@@ -38,12 +38,6 @@
     "patches": {
       "bitbucket/client": {
         "PHP 8.4 fixes (https://github.com/BitbucketPHP/Client/pull/86)": "./patches/bitbucket-client-php-8.4.patch"
-      },
-      "php-http/client-common": {
-        "PHP 8.4 fixes (https://github.com/php-http/client-common/pull/247)": "./patches/php-http-client-common-php-8.4.patch"
-      },
-      "knplabs/github-api": {
-        "PHP 8.4 fixes (https://github.com/KnpLabs/php-github-api/pull/1144)": "./patches/knplabs-github-api-php-8.4.patch"
       }
     }
   }
