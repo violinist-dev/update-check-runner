@@ -20,7 +20,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
         $slug = Slug::createFromUrl($this->url);
         $token = $this->token;
         $this->client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
-        /** @var GitData $git */
+        /** @var \Github\Api\GitData $git */
         $git = $this->client->api('git');
         $git->references()->remove($slug->getUserName(), $slug->getUserRepo(), sprintf('heads/%s', $branch_name));
     }
@@ -46,13 +46,13 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             $token = $this->token;
             $this->client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
             $client = $this->client;
-            /** @var Repo $repo */
+            /** @var \Github\Api\Repo $repo */
             $repo = $client->api('repo');
             $info = $repo->show($slug->getUserName(), $slug->getUserRepo());
             $default_branch = $info['default_branch'];
             $branch = $repo->branches($slug->getUserName(), $slug->getUserRepo(), $default_branch);
             $sha = $branch["commit"]["sha"];
-            /** @var GitData $api */
+            /** @var \Github\Api\GitData $api */
             $api = $client->api('git');
             $tree = [];
             $data = $api->blobs()->create($slug->getUserName(), $slug->getUserRepo(), [
@@ -87,7 +87,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             ]);
             $user_name = $slug->getUserName();
             $user_repo = $slug->getUserRepo();
-            /** @var PullRequest $prs */
+            /** @var \Github\Api\PullRequest $prs */
             $prs = $client->api('pull_request');
             $data = $prs->create($user_name, $user_repo, [
                 'base'  => $default_branch,

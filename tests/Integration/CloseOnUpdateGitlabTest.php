@@ -65,7 +65,7 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
                     ],
                 ],
             ]);
-            /** @var MergeRequests $mr */
+            /** @var \Gitlab\Api\MergeRequests $mr */
             $mr = $client->mergeRequests();
             $assignee = null;
             $data = $mr->create($project_id, $branch_name, 'master', 'test pr', [

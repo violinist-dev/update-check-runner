@@ -75,7 +75,7 @@ class IntegrationTest extends IntegrationBase
             $token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
             $client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
             $pager = new ResultPager($client);
-            /** @var PullRequest $api */
+            /** @var \Github\Api\PullRequest $api */
             $api = $client->api('pr');
             $method = 'all';
             $url = $_SERVER['GITHUB_BUNDLED_REPO'];
