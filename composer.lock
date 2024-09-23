@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d21bb561ef60ff1dd00a7ce093c84398",
+    "content-hash": "084db7fa9676ec8feb50c4043534f1fe",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -1387,16 +1387,16 @@
         },
         {
             "name": "php-http/httplug",
-            "version": "2.4.0",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/httplug.git",
-                "reference": "625ad742c360c8ac580fcc647a1541d29e257f67"
+                "reference": "87779285e14780b0a85209bfed8abd9d5fe0322e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/httplug/zipball/625ad742c360c8ac580fcc647a1541d29e257f67",
-                "reference": "625ad742c360c8ac580fcc647a1541d29e257f67",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/87779285e14780b0a85209bfed8abd9d5fe0322e",
+                "reference": "87779285e14780b0a85209bfed8abd9d5fe0322e",
                 "shasum": ""
             },
             "require": {
@@ -1409,6 +1409,7 @@
                 "friends-of-phpspec/phpspec-code-coverage": "^4.1 || ^5.0 || ^6.0",
                 "phpspec/phpspec": "^5.1 || ^6.0 || ^7.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1438,9 +1439,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/httplug/issues",
-                "source": "https://github.com/php-http/httplug/tree/2.4.0"
+                "source": "https://github.com/php-http/httplug/tree/2.x"
             },
-            "time": "2023-04-14T15:10:03+00:00"
+            "time": "2024-03-15T16:17:50+00:00"
         },
         {
             "name": "php-http/message",
@@ -6337,6 +6338,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "eiriksm/cosy-composer": 20,
+        "php-http/httplug": 20,
         "violinist-dev/licence-check": 20
     },
     "prefer-stable": true,
