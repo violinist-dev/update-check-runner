@@ -5,8 +5,10 @@
   "prefer-stable": true,
   "require": {
     "ext-json": "*",
+    "cweagans/composer-patches": "^1.7",
     "eiriksm/cosy-composer": "dev-main",
     "eiriksm/gitinfo": "^4",
+    "php-http/client-common": "2.x-dev",
     "symfony/dependency-injection": "^5.4",
     "symfony/dotenv": "^5.4",
     "violinist-dev/licence-check": "dev-main"
@@ -23,7 +25,7 @@
   "require-dev": {
     "phpstan/phpstan": "^1.8",
     "phpstan/phpstan-phpunit": "^1.1",
-    "phpunit/phpunit": "^6.5||^7||^8",
+    "phpunit/phpunit": "^9",
     "slevomat/coding-standard": "^8.15",
     "squizlabs/php_codesniffer": "^3.10",
     "stevenmaguire/oauth2-bitbucket": "^3.0"
@@ -31,8 +33,16 @@
   "config": {
     "allow-plugins": {
       "php-http/discovery": true,
+      "cweagans/composer-patches": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
     },
     "sort-packages": true
+  },
+  "extra": {
+    "patches": {
+      "bitbucket/client": {
+        "PHP 8.4 fixes (https://github.com/BitbucketPHP/Client/pull/86)": "./patches/bitbucket-client-php-8.4.patch"
+      }
+    }
   }
 }

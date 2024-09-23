@@ -1,0 +1,74 @@
+diff --git a/src/Client.php b/src/Client.php
+index 008ca9a..f158959 100644
+--- a/src/Client.php
++++ b/src/Client.php
+@@ -99,7 +99,7 @@ class Client
+      *
+      * @return void
+      */
+-    public function __construct(Builder $httpClientBuilder = null)
++    public function __construct(?Builder $httpClientBuilder = null)
+     {
+         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
+         $this->responseHistory = new History();
+@@ -207,7 +207,7 @@ public function workspaces(string $workspace): Workspaces
+      *
+      * @return void
+      */
+-    public function authenticate(string $method, string $token, string $password = null): void
++    public function authenticate(string $method, string $token, ?string $password = null): void
+     {
+         $this->getHttpClientBuilder()->removePlugin(Authentication::class);
+         $this->getHttpClientBuilder()->addPlugin(new Authentication($method, $token, $password));
+diff --git a/src/HttpClient/Builder.php b/src/HttpClient/Builder.php
+index a163060..12edd4a 100644
+--- a/src/HttpClient/Builder.php
++++ b/src/HttpClient/Builder.php
+@@ -90,9 +90,9 @@ final class Builder
+      * @return void
+      */
+     public function __construct(
+-        ClientInterface $httpClient = null,
+-        RequestFactoryInterface $requestFactory = null,
+-        StreamFactoryInterface $streamFactory = null
++        ?ClientInterface $httpClient = null,
++        ?RequestFactoryInterface $requestFactory = null,
++        ?StreamFactoryInterface $streamFactory = null
+     ) {
+         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
+         $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
+diff --git a/src/HttpClient/Plugin/Authentication.php b/src/HttpClient/Plugin/Authentication.php
+index 32aa7aa..ab4ad11 100644
+--- a/src/HttpClient/Plugin/Authentication.php
++++ b/src/HttpClient/Plugin/Authentication.php
+@@ -46,7 +46,7 @@ final class Authentication implements Plugin
+      *
+      * @return void
+      */
+-    public function __construct(string $method, string $token, string $password = null)
++    public function __construct(string $method, string $token, ?string $password = null)
+     {
+         $this->header = self::buildAuthorizationHeader($method, $token, $password);
+     }
+@@ -78,7 +78,7 @@ public function handleRequest(RequestInterface $request, callable $next, callabl
+      *
+      * @return string
+      */
+-    private static function buildAuthorizationHeader(string $method, string $token, string $password = null): string
++    private static function buildAuthorizationHeader(string $method, string $token, ?string $password = null): string
+     {
+         switch ($method) {
+             case Client::AUTH_HTTP_PASSWORD:
+diff --git a/src/ResultPager.php b/src/ResultPager.php
+index faf33be..abf0181 100644
+--- a/src/ResultPager.php
++++ b/src/ResultPager.php
+@@ -65,7 +65,7 @@ final class ResultPager implements ResultPagerInterface
+      *
+      * @return void
+      */
+-    public function __construct(Client $client, int $perPage = null)
++    public function __construct(Client $client, ?int $perPage = null)
+     {
+         if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
+             throw new ValueError(\sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 50, or null', self::class));
