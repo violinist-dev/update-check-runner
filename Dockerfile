@@ -57,5 +57,5 @@ COPY --from=build /usr/local/bin/composer /usr/local/bin/composer
 # If the command is ever updated, please remember to also update the corresponding
 # section in the queue starter project, and probably in some CI templates or something as well.
 # For now we symlink old paths for backwards compatibility.
-RUN ln -s /app/runner /runner && rm -f /usr/local/etc/php/conf.d/errors.ini
+RUN ln -s /app/runner /runner
 CMD ["php", "/app/runner"]
