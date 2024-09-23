@@ -1,14 +1,3 @@
-From b53c05b8c1cd48bd32141cd36d207ac24cc6101d Mon Sep 17 00:00:00 2001
-From: "Eirik S. Morland" <eirik@morland.no>
-Date: Mon, 23 Sep 2024 09:30:36 +0200
-Subject: [PATCH] Avoid deprecation warnings on PHP 8.4
-
----
- src/Client.php                           | 4 ++--
- src/HttpClient/Builder.php               | 6 +++---
- src/HttpClient/Plugin/Authentication.php | 4 ++--
- 3 files changed, 7 insertions(+), 7 deletions(-)
-
 diff --git a/src/Client.php b/src/Client.php
 index 008ca9a..f158959 100644
 --- a/src/Client.php
@@ -70,3 +59,16 @@ index 32aa7aa..ab4ad11 100644
      {
          switch ($method) {
              case Client::AUTH_HTTP_PASSWORD:
+diff --git a/src/ResultPager.php b/src/ResultPager.php
+index faf33be..abf0181 100644
+--- a/src/ResultPager.php
++++ b/src/ResultPager.php
+@@ -65,7 +65,7 @@ final class ResultPager implements ResultPagerInterface
+      *
+      * @return void
+      */
+-    public function __construct(Client $client, int $perPage = null)
++    public function __construct(Client $client, ?int $perPage = null)
+     {
+         if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
+             throw new ValueError(\sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 50, or null', self::class));
