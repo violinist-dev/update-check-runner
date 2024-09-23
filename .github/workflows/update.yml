@@ -6,21 +6,24 @@ on:
   # By using push as well, we make sure our PRs are updated when the main branch has new commits.
   push: 
     branches: 
-     - main
+      - main
 
 jobs:
   violinist:
     name: Run update checks and create PRs
-    permissions: write-all
-    container:
-      image: ghcr.io/violinist-dev/update-check-runner:7.3-multi-composer-2
-      env:
-        REPO_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
-        PROJECT_URL: ${{ github.repositoryUrl }}
-        LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
-
     runs-on: ubuntu-latest
     steps:
-      - name: Update and PR
+      - uses: violinist-dev/update-action@1.x
+        id: update
+        with: 
+          php_version: "7.3"
+        env:
+          USER_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
+          PROJECT_URL: ${{ github.repositoryUrl }}
+          LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
+      - name: Fetch the output
+        env:
+          JSON_OUTPUT: ${{ steps.update.outputs.json }}
         run: |
-          php /runner
+          echo "$JSON_OUTPUT" > /tmp/output
+          cat /tmp/output | jq

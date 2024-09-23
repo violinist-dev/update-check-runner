@@ -12,6 +12,7 @@ use eiriksm\GitInfo\GitInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Dotenv\Dotenv;
+use violinist\LicenceCheck\Licence;
 use violinist\LicenceCheck\LicenceChecker;
 
 require_once "vendor/autoload.php";
@@ -39,8 +40,9 @@ $legacy_to_new_variables = [
     'project_url' => 'PROJECT_URL',
     'tokens' => 'TOKENS',
     'project' => 'PROJECT_DATA',
-    // This one is considered an alias.
+    // These ones are considered aliases.
     'USER_TOKEN' => 'REPO_TOKEN',
+    'REPO_URL' => 'PROJECT_URL',
 ];
 foreach ($legacy_to_new_variables as $old => $new) {
     if (!empty($_SERVER[$old])) {
@@ -80,16 +82,13 @@ foreach ($required_variables as $required_variable) {
 
 $user_token = $_SERVER['REPO_TOKEN'];
 $project = null;
-$url = null;
+$url = $_SERVER['PROJECT_URL'];
 $tokens = [];
 if (!empty($_SERVER['TOKENS'])) {
     $tokens = @json_decode($_SERVER['TOKENS'], true);
 }
 if (!empty($_SERVER['PROJECT_DATA'])) {
     $project = @unserialize(@json_decode($_SERVER['PROJECT_DATA']));
-}
-if (!empty($_SERVER['PROJECT_URL'])) {
-    $url = $_SERVER['PROJECT_URL'];
 }
 
 $valid_public_keys = [
@@ -105,7 +104,6 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
     $pre_run_messages[] = new Message('Licence key found in environment. Checking validity.', Message::COMMAND);
     $has_valid_key = false;
     foreach ($valid_public_keys as $valid_public_key) {
-        $checker = new LicenceChecker($valid_public_key);
         $checked = LicenceChecker::createFromLicenceAndKey($_SERVER['LICENCE_KEY'], $valid_public_key);
         if ($checked->isValid()) {
             $has_valid_key = true;
@@ -118,6 +116,12 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
         $pre_run_messages[] = new Message('Licence key: ' . $_SERVER['LICENCE_KEY'], Message::COMMAND);
         create_output_and_exit($pre_run_messages, 1);
     } else {
+        // Check if the licence is valid for the repository.
+        $licence = $checked->getPayload();
+        if (!$licence->isValidForRepository($url)) {
+            $pre_run_messages[] = new Message('Licence key is not valid for the repository ' . $url . '. The required URL prefix is ' . $licence->getData()[Licence::PREFIX_DATA_KEY], Message::COMMAND);
+            create_output_and_exit($pre_run_messages, 1);
+        }
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
     }
@@ -128,6 +132,11 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
     create_output_and_exit($messages, 1);
 }
 
+$hostname = '';
+ if (!empty($_SERVER['violinist_hostname'])) {
+     $hostname = $_SERVER['violinist_hostname'];
+ }
+
 $container = new ContainerBuilder();
 $container->register('logger', 'Wa72\SimpleLogger\ArrayLogger');
 $container->register('process.factory', 'eiriksm\CosyComposer\ProcessFactory');
@@ -137,7 +146,8 @@ $container->register('command', 'eiriksm\CosyComposer\CommandExecuter')
 $container->register('cosy', 'eiriksm\CosyComposer\CosyComposer')
     ->addArgument(new Reference('command'))
     ->addMethodCall('setLogger', [new Reference('logger')])
-    ->addMethodCall('setUrl', [$url]);
+    ->addMethodCall('setUrl', [$url])
+    ->addMethodCall('setViolinistHostname', [$hostname]);
 
 /* @var \eiriksm\CosyComposer\CosyComposer $cosy */
 $cosy = $container->get('cosy');

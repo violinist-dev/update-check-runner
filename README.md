@@ -13,7 +13,7 @@ Also available as standalone docker containers to self host the update running.
 Don't even have time for a quick start? Here are some examples:
 
 <details>
-  <summary>Example for Gitlab</summary>
+  <summary>Example for GitLab</summary>
   
 ```bash
 docker run \
@@ -133,10 +133,50 @@ The repository to run update checks on.
 
 Example value: `https://github.com/violinist-dev/update-check-runner`
 
+#### GIT_AUTHOR_NAME
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_AUTHOR_NAME is the human-readable name in the “author” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### GIT_AUTHOR_EMAIL
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_AUTHOR_EMAIL is the email for the “author” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### GIT_COMMITTER_NAME
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_COMMITTER_NAME sets the human name for the “committer” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### GIT_COMMITTER_EMAIL
+
+An environment variable used for git commits. From the git documentation:
+
+> GIT_COMMITTER_EMAIL is the email address for the “committer” field.
+
+[See "10.8 Git Internals - Environment Variables" for more information](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables)
+
+#### ALTERNATE_COMPOSER_PATH
+
+An alternate path to use for the composer executable. For example, this is what you would use, should you want to use (or are forced to use) Composer 2.2 LTS instead of the latest version.
+
+You can only set this value to one of the following alternatives, otherwise it will be ignored:
+
+- `/usr/local/bin/composer22` (this will be the latest Composer 2.2 LTS release)
+
 ## FAQ
 
 <details>
-  <summary>What is the difference between self hosting and using violinist.io (the SaaS)</summary>
+  <summary><strong>What is the difference between self hosting and using violinist.io (the SaaS)</strong></summary>
 
   In practice, all the automation, convenience, logging and persistance you would have to need.
   
@@ -147,7 +187,7 @@ Example value: `https://github.com/violinist-dev/update-check-runner`
 </details>
 
 <details>
-  <summary>Can I use this to run updates for my clients or customers and charge money for it?</summary>
+  <summary><strong>Can I use this to run updates for my clients or customers and charge money for it?</strong></summary>
 
   Yes. There are no restrictions on what you use the licence key for, and if you use it for commercial purposes or something else.
 
