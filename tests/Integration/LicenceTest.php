@@ -34,5 +34,4 @@ class LicenceTest extends IntegrationBase
         self::assertNotEmpty($json);
         $this->findMessage('Licence key is not valid for any of the known public keys.', $json);
     }
-
 }

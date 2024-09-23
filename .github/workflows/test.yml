@@ -70,6 +70,9 @@ jobs:
           echo "COMMIT_SHA=$MY_COMMIT" >> $GITHUB_OUTPUT
         id: log
 
+      - name: Coding style
+        run: composer phpcs
+
       - name: Run tests
         run: ./vendor/bin/phpunit
         env:

@@ -21,5 +21,4 @@ class UpdateAllTest extends IntegrationBase
         }
         self::assertTrue($found_update_all_type);
     }
-
 }

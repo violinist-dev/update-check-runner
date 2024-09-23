@@ -2,9 +2,7 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
 use Violinist\ProjectData\ProjectData;
-use Violinist\Slug\Slug;
 
 class CloseOnUpdateGithubPublicTest extends CloseOnUpdateGithubTest
 {
