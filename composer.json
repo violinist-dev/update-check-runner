@@ -40,6 +40,9 @@
       },
       "php-http/client-common": {
         "PHP 8.4 fixes (https://github.com/php-http/client-common/pull/247)": "./patches/php-http-client-common-php-8.4.patch"
+      },
+      "knplabs/github-api": {
+        "PHP 8.4 fixes (https://github.com/KnpLabs/php-github-api/pull/1144)": "./patches/knplabs-github-api-php-8.4.patch"
       }
     }
   }

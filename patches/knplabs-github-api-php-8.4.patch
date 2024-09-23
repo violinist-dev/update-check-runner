@@ -1,0 +1,43 @@
+diff --git a/lib/Github/Client.php b/lib/Github/Client.php
+index 56d68d59cec..77fcc7b71a2 100644
+--- a/lib/Github/Client.php
++++ b/lib/Github/Client.php
+@@ -123,7 +123,7 @@ class Client
+      * @param string|null  $apiVersion
+      * @param string|null  $enterpriseUrl
+      */
+-    public function __construct(Builder $httpClientBuilder = null, $apiVersion = null, $enterpriseUrl = null)
++    public function __construct(?Builder $httpClientBuilder = null, $apiVersion = null, $enterpriseUrl = null)
+     {
+         $this->responseHistory = new History();
+         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
+diff --git a/lib/Github/HttpClient/Builder.php b/lib/Github/HttpClient/Builder.php
+index a8713de13bc..c77f1ac83d8 100644
+--- a/lib/Github/HttpClient/Builder.php
++++ b/lib/Github/HttpClient/Builder.php
+@@ -78,9 +78,9 @@ class Builder
+      * @param StreamFactoryInterface|null  $streamFactory
+      */
+     public function __construct(
+-        ClientInterface $httpClient = null,
+-        RequestFactoryInterface $requestFactory = null,
+-        StreamFactoryInterface $streamFactory = null
++        ?ClientInterface $httpClient = null,
++        ?RequestFactoryInterface $requestFactory = null,
++        ?StreamFactoryInterface $streamFactory = null
+     ) {
+         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
+         $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
+diff --git a/lib/Github/ResultPager.php b/lib/Github/ResultPager.php
+index a1d94785ca6..d7f67c861b6 100644
+--- a/lib/Github/ResultPager.php
++++ b/lib/Github/ResultPager.php
+@@ -59,7 +59,7 @@ class ResultPager implements ResultPagerInterface
+      *
+      * @return void
+      */
+-    public function __construct(Client $client, int $perPage = null)
++    public function __construct(?Client $client, ?int $perPage = null)
+     {
+         if (null !== $perPage && ($perPage < 1 || $perPage > 100)) {
+             throw new ValueError(sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 100, or null', self::class));
