@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "514f94be010578766ee5015cdf1a45c2",
+    "content-hash": "132a9a4e87324dc285a98c44296bf092",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -1177,16 +1177,16 @@
         },
         {
             "name": "php-http/client-common",
-            "version": "2.x-dev",
+            "version": "2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/client-common.git",
-                "reference": "83263d4e43e7f3e91d20d105efec1e5198569cd9"
+                "reference": "0cfe9858ab9d3b213041b947c881d5b19ceeca46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/client-common/zipball/83263d4e43e7f3e91d20d105efec1e5198569cd9",
-                "reference": "83263d4e43e7f3e91d20d105efec1e5198569cd9",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/0cfe9858ab9d3b213041b947c881d5b19ceeca46",
+                "reference": "0cfe9858ab9d3b213041b947c881d5b19ceeca46",
                 "shasum": ""
             },
             "require": {
@@ -1214,7 +1214,6 @@
                 "php-http/logger-plugin": "PSR-3 Logger plugin",
                 "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1241,9 +1240,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/client-common/issues",
-                "source": "https://github.com/php-http/client-common/tree/2.x"
+                "source": "https://github.com/php-http/client-common/tree/2.7.2"
             },
-            "time": "2024-09-23T13:34:27+00:00"
+            "time": "2024-09-24T06:21:48+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -6608,7 +6607,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "eiriksm/cosy-composer": 20,
-        "php-http/client-common": 20,
         "violinist-dev/licence-check": 20
     },
     "prefer-stable": true,
