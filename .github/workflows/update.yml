@@ -19,6 +19,7 @@ jobs:
           USER_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
           PROJECT_URL: ${{ github.repositoryUrl }}
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
+          GIT_COMMITTER_NAME: "eirik test"
       - name: Fetch the output
         env:
           JSON_OUTPUT: ${{ steps.update.outputs.json }}
