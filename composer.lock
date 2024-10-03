@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6dac43ff5ad399852f49e768a77409a",
+    "content-hash": "2cf259f1e8a4faceed5cca2a6fdaeb7f",
     "packages": [
         {
             "name": "bitbucket/client",

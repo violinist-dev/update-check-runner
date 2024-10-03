@@ -11,6 +11,19 @@ index 3f5d1962..1e2f2ba1 100644
      {
          $parameters = [];
  
+diff --git a/src/Api/Repositories.php b/src/Api/Repositories.php
+index 096f69a2..43d466f6 100644
+--- a/src/Api/Repositories.php
++++ b/src/Api/Repositories.php
+@@ -419,7 +419,7 @@ public function postCommitBuildStatus($project_id, string $sha, string $state, a
+      *
+      * @return mixed
+      */
+-    public function compare($project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, string $fromProjectId = null)
++    public function compare($project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, ?string $fromProjectId = null)
+     {
+         $params = [
+             'from' => $fromShaOrMaster,
 diff --git a/src/Client.php b/src/Client.php
 index 4082f1ac..cd24dcb1 100644
 --- a/src/Client.php
