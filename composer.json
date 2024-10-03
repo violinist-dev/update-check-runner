@@ -41,6 +41,9 @@
     "patches": {
       "bitbucket/client": {
         "PHP 8.4 fixes (https://github.com/BitbucketPHP/Client/pull/86)": "./patches/bitbucket-client-php-8.4.patch"
+      },
+      "m4tthumphrey/php-gitlab-api": {
+        "PHP 8.4 fixes (https://github.com/GitLabPHP/Client/pull/819)": "./patches/819-2.diff"
       }
     }
   }
