@@ -1,0 +1,102 @@
+diff --git a/src/Api/Projects.php b/src/Api/Projects.php
+index 3f5d1962..1e2f2ba1 100644
+--- a/src/Api/Projects.php
++++ b/src/Api/Projects.php
+@@ -466,7 +466,7 @@ public function pipelineTestReportSummary($project_id, int $pipeline_id)
+      *
+      * @return mixed
+      */
+-    public function createPipeline($project_id, string $commit_ref, array $variables = null)
++    public function createPipeline($project_id, string $commit_ref, ?array $variables = null)
+     {
+         $parameters = [];
+ 
+diff --git a/src/Api/Repositories.php b/src/Api/Repositories.php
+index 096f69a2..43d466f6 100644
+--- a/src/Api/Repositories.php
++++ b/src/Api/Repositories.php
+@@ -419,7 +419,7 @@ public function postCommitBuildStatus($project_id, string $sha, string $state, a
+      *
+      * @return mixed
+      */
+-    public function compare($project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, string $fromProjectId = null)
++    public function compare($project_id, string $fromShaOrMaster, string $toShaOrMaster, bool $straight = false, ?string $fromProjectId = null)
+     {
+         $params = [
+             'from' => $fromShaOrMaster,
+diff --git a/src/Client.php b/src/Client.php
+index 4082f1ac..cd24dcb1 100644
+--- a/src/Client.php
++++ b/src/Client.php
+@@ -123,7 +123,7 @@ class Client
+      *
+      * @return void
+      */
+-    public function __construct(Builder $httpClientBuilder = null)
++    public function __construct(?Builder $httpClientBuilder = null)
+     {
+         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
+         $this->responseHistory = new History();
+@@ -425,7 +425,7 @@ public function wiki(): Wiki
+      *
+      * @return void
+      */
+-    public function authenticate(string $token, string $authMethod, string $sudo = null): void
++    public function authenticate(string $token, string $authMethod, ?string $sudo = null): void
+     {
+         $this->getHttpClientBuilder()->removePlugin(Authentication::class);
+         $this->getHttpClientBuilder()->addPlugin(new Authentication($authMethod, $token, $sudo));
+diff --git a/src/HttpClient/Builder.php b/src/HttpClient/Builder.php
+index 594b92cd..00fe2b4d 100644
+--- a/src/HttpClient/Builder.php
++++ b/src/HttpClient/Builder.php
+@@ -100,10 +100,10 @@ final class Builder
+      * @return void
+      */
+     public function __construct(
+-        ClientInterface $httpClient = null,
+-        RequestFactoryInterface $requestFactory = null,
+-        StreamFactoryInterface $streamFactory = null,
+-        UriFactoryInterface $uriFactory = null
++        ?ClientInterface $httpClient = null,
++        ?RequestFactoryInterface $requestFactory = null,
++        ?StreamFactoryInterface $streamFactory = null,
++        ?UriFactoryInterface $uriFactory = null
+     ) {
+         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
+         $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
+diff --git a/src/HttpClient/Plugin/Authentication.php b/src/HttpClient/Plugin/Authentication.php
+index 2160f5cd..39cd0b79 100644
+--- a/src/HttpClient/Plugin/Authentication.php
++++ b/src/HttpClient/Plugin/Authentication.php
+@@ -43,7 +43,7 @@ final class Authentication implements Plugin
+      *
+      * @return void
+      */
+-    public function __construct(string $method, string $token, string $sudo = null)
++    public function __construct(string $method, string $token, ?string $sudo = null)
+     {
+         $this->headers = self::buildHeaders($method, $token, $sudo);
+     }
+@@ -77,7 +77,7 @@ public function handleRequest(RequestInterface $request, callable $next, callabl
+      *
+      * @return array<string,string>
+      */
+-    private static function buildHeaders(string $method, string $token, string $sudo = null): array
++    private static function buildHeaders(string $method, string $token, ?string $sudo = null): array
+     {
+         $headers = [];
+ 
+diff --git a/src/ResultPager.php b/src/ResultPager.php
+index 5c22d795..d0618302 100644
+--- a/src/ResultPager.php
++++ b/src/ResultPager.php
+@@ -66,7 +66,7 @@ final class ResultPager implements ResultPagerInterface
+      *
+      * @return void
+      */
+-    public function __construct(Client $client, int $perPage = null)
++    public function __construct(Client $client, ?int $perPage = null)
+     {
+         if (null !== $perPage && ($perPage < 1 || $perPage > 100)) {
+             throw new ValueError(\sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 100, or null', self::class));
