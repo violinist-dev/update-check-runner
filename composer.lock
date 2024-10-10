@@ -284,12 +284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "908d5aa6e918f8d310f653c4e256f09b358a69dd"
+                "reference": "81035b628916d0a7c0ced76a4d9cceb611778e68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/908d5aa6e918f8d310f653c4e256f09b358a69dd",
-                "reference": "908d5aa6e918f8d310f653c4e256f09b358a69dd",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/81035b628916d0a7c0ced76a4d9cceb611778e68",
+                "reference": "81035b628916d0a7c0ced76a4d9cceb611778e68",
                 "shasum": ""
             },
             "require": {
@@ -313,6 +313,7 @@
                 "violinist-dev/process-factory": "^3.0",
                 "violinist-dev/project-data": "^1.1.1",
                 "violinist-dev/slug-from-url": "^1",
+                "violinist-dev/symfony-cloud-security-checker": "^3",
                 "violinist-dev/timeframe-handler": "^1.0",
                 "violinist-dev/violinist-config": "^2.3",
                 "violinist-dev/violinist-messages": "^2.0",
@@ -341,7 +342,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/main"
             },
-            "time": "2024-09-30T12:57:19+00:00"
+            "time": "2024-10-10T11:11:00+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -1244,16 +1245,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.19.4",
+            "version": "1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "0700efda8d7526335132360167315fdab3aeb599"
+                "reference": "82fe4c73ef3363caed49ff8dd1539ba06044910d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/0700efda8d7526335132360167315fdab3aeb599",
-                "reference": "0700efda8d7526335132360167315fdab3aeb599",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/82fe4c73ef3363caed49ff8dd1539ba06044910d",
+                "reference": "82fe4c73ef3363caed49ff8dd1539ba06044910d",
                 "shasum": ""
             },
             "require": {
@@ -1317,9 +1318,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.19.4"
+                "source": "https://github.com/php-http/discovery/tree/1.20.0"
             },
-            "time": "2024-03-29T13:00:05+00:00"
+            "time": "2024-10-02T11:20:13+00:00"
         },
         {
             "name": "php-http/guzzle7-adapter",
@@ -1442,16 +1443,16 @@
         },
         {
             "name": "php-http/message",
-            "version": "1.16.1",
+            "version": "1.16.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "5997f3289332c699fa2545c427826272498a2088"
+                "reference": "06dd5e8562f84e641bf929bfe699ee0f5ce8080a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/5997f3289332c699fa2545c427826272498a2088",
-                "reference": "5997f3289332c699fa2545c427826272498a2088",
+                "url": "https://api.github.com/repos/php-http/message/zipball/06dd5e8562f84e641bf929bfe699ee0f5ce8080a",
+                "reference": "06dd5e8562f84e641bf929bfe699ee0f5ce8080a",
                 "shasum": ""
             },
             "require": {
@@ -1505,9 +1506,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/message/issues",
-                "source": "https://github.com/php-http/message/tree/1.16.1"
+                "source": "https://github.com/php-http/message/tree/1.16.2"
             },
-            "time": "2024-03-07T13:22:09+00:00"
+            "time": "2024-10-02T11:34:13+00:00"
         },
         {
             "name": "php-http/message-factory",
@@ -4121,6 +4122,52 @@
                 "source": "https://github.com/violinist-dev/slug-from-url/tree/1.2.1"
             },
             "time": "2019-05-16T13:52:59+00:00"
+        },
+        {
+            "name": "violinist-dev/symfony-cloud-security-checker",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/violinist-dev/symfony-cloud-security-checker.git",
+                "reference": "1a45ebd47c92f4228f24cf729821b53e7a8bbd6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/violinist-dev/symfony-cloud-security-checker/zipball/1a45ebd47c92f4228f24cf729821b53e7a8bbd6a",
+                "reference": "1a45ebd47c92f4228f24cf729821b53e7a8bbd6a",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/process": "^5.4 || ^6 || ^7",
+                "violinist-dev/process-factory": "^3"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^6.5 || ^7 || ^8 || ^9",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Violinist\\SymfonyCloudSecurityChecker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eirik S. Morland",
+                    "email": "eirik@morland.no"
+                }
+            ],
+            "description": "A wrapper for the symfony cli security checker",
+            "support": {
+                "issues": "https://github.com/violinist-dev/symfony-cloud-security-checker/issues",
+                "source": "https://github.com/violinist-dev/symfony-cloud-security-checker/tree/3.0.0"
+            },
+            "time": "2024-10-10T10:49:32+00:00"
         },
         {
             "name": "violinist-dev/timeframe-handler",
