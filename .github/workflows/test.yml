@@ -37,6 +37,8 @@ jobs:
           - "2"
     steps:
       - run: |
+          apt-get update
+          apt-get install bash curl -y
           curl gitlab -v
       - name: Dump matrix context
         env:
