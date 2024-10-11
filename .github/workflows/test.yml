@@ -14,12 +14,13 @@ jobs:
   test:
     name: Run tests
     runs-on: ubuntu-latest
-    container: ubuntu:24.04
     services:
       gitlab:
         image: gitlab/gitlab-ee
+        ports:
+          - 80:2200
         env:
-          GITLAB_OMNIBUS_CONFIG: "external_url 'http://gitlab'; gitlab_rails['lfs_enabled'] = true; gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
+          GITLAB_OMNIBUS_CONFIG: "gitlab_rails['lfs_enabled'] = true; gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
     strategy:
       fail-fast: true
       max-parallel: 2
@@ -39,7 +40,7 @@ jobs:
       - run: |
           apt-get update
           apt-get install bash curl -y
-          curl --user 'root:MySuperSecretAndSecurePassw0rd!' gitlab/api/v4/users -v
+          curl --user 'root:MySuperSecretAndSecurePassw0rd!' localhost:2200/api/v4/users -v
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
