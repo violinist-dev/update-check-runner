@@ -19,7 +19,7 @@ jobs:
       gitlab:
         image: gitlab/gitlab-ee
         env:
-          GITLAB_OMNIBUS_CONFIG: "external_url 'http://gitlab'; gitlab_rails['lfs_enabled'] = true;"
+          GITLAB_OMNIBUS_CONFIG: "external_url 'http://gitlab'; gitlab_rails['lfs_enabled'] = true; gitlab_rails['initial_root_password'] = 'secret';"
     strategy:
       fail-fast: true
       max-parallel: 2
