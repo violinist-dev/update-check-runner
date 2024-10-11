@@ -14,6 +14,7 @@ jobs:
   test:
     name: Run tests
     runs-on: ubuntu-latest
+    container: ubuntu:24.04
     services:
       gitlab:
         image: gitlab/gitlab-ee
