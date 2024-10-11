@@ -33,6 +33,8 @@ jobs:
         composer-version:
           - "2"
     steps:
+      - run: |
+          curl gitlab -v
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
