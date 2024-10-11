@@ -39,6 +39,8 @@ jobs:
     steps:
       - run: |
           curl --user 'root:MySuperSecretAndSecurePassw0rd!' localhost:2200/api/v4/users -v
+          echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!' > auth.txt
+          curl --data "@auth.txt" --request POST "http://localhost:2200/oauth/token"
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
