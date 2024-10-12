@@ -20,7 +20,7 @@ jobs:
         ports:
           - 2200:80
         env:
-          GITLAB_OMNIBUS_CONFIG: "gitlab_rails['lfs_enabled'] = true; gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
+          GITLAB_OMNIBUS_CONFIG: "gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
     strategy:
       fail-fast: true
       max-parallel: 2
