@@ -100,7 +100,7 @@ jobs:
           GITHUB_PRIVATE_REPO: ${{ secrets.GH_PRIVATE_REPO }}
           GITLAB_PRIVATE_REPO: ${{ secrets.GITLAB_PRIVATE_REPO }}
           MY_COMMIT: ${{ steps.log.outputs.COMMIT_SHA }}
-          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ secrets.SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN }}
+          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.token }}
           SELF_HOSTED_GITLAB_PRIVATE_REPO: http://localhost:2200/root/new_project
           BITBUCKET_CLIENT_ID: ${{ secrets.BITBUCKET_CLIENT_ID }}
           BITBUCKET_CLIENT_SECRET: ${{ secrets.BITBUCKET_CLIENT_SECRET }}
