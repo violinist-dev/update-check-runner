@@ -157,7 +157,7 @@ abstract class IntegrationBase extends TestCase
     protected function getGitlabToken($url)
     {
         if (strpos($url, 'localhost')) {
-            return $_SERVER[''];
+            return $_SERVER['SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN'];
         }
         $client = new HttpClient();
         $request = new Request('GET', $_SERVER['GITLAB_SUPER_SECRET_URL_FOR_TOKEN'] . '&url=' . $url);
