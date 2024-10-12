@@ -91,6 +91,9 @@ jobs:
         env:
           COMPOSER_VERSION: ${{ matrix.composer-version }}
           PHP_VERSION: ${{ matrix.php-version }}
+      - run: |
+          docker run --entrypoint="" update-check-runner ip a
+          docker run --entrypoint="" update-check-runner cat /etc/hosts
       - name: Run phpstan
         run: composer phpstan
 
