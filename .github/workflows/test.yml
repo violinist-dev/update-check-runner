@@ -39,7 +39,13 @@ jobs:
     steps:
       - run: |
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!' > auth.txt
-          curl --data "@auth.txt" --request POST "http://localhost:2200/oauth/token" | jq '.access_token'
+          export token=$(curl --data "@auth.txt" --request POST "http://localhost:2200/oauth/token" | jq '.access_token')
+          echo $token
+          curl --request POST --header "PRIVATE-TOKEN: $token" \
+            --header "Content-Type: application/json" --data '{
+            "path": "new_project"}' \
+            --url "https://localhost:2200/api/v4/projects/"
+     
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
