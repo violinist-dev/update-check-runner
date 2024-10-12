@@ -48,6 +48,11 @@ jobs:
           mkdir /temp/test
           cd /tmp/test
           composer require psr/log 1.0.0
+          git init
+          git add composer.*
+          git commit -m init
+          git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
+          git push -u origin --all
           echo "token=$token" >> "$GITHUB_OUTPUT"
         id: setup
      
