@@ -156,7 +156,7 @@ abstract class IntegrationBase extends TestCase
 
     protected function getGitlabToken($url)
     {
-        if (strpos($url, 'host.docker.internal')) {
+        if (strpos($url, '172.17.0.1')) {
             return $_SERVER['SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN'];
         }
         $client = new HttpClient();
