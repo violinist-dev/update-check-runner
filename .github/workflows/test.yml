@@ -45,7 +45,7 @@ jobs:
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
           export token=$(curl --data "@auth.txt" --request POST "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo $token
-          curl --request POST --header "Authorization: Bearer $token" \
+          curl -s --request POST --header "Authorization: Bearer $token" \
             --header "Content-Type: application/json" --data '{
             "path": "new_project"}' \
             --url "http://localhost:2200/api/v4/projects/"
@@ -57,7 +57,6 @@ jobs:
           git commit -m init
           git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
           git push -u origin --all
-          curl --header "Authorization: Bearer $token" "http://localhost:2200/api/v4/user"
           export pat=$(curl --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
           --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo $pat
