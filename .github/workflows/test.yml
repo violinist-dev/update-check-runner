@@ -57,7 +57,7 @@ jobs:
           git commit -m init
           git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
           git push -u origin --all
-          curl --header "PRIVATE-TOKEN: $token" "http://localhost:2200/api/v4/user"
+          curl --header "Authorization: Bearer $token" "http://localhost:2200/api/v4/user"
           echo "token=$token" >> "$GITHUB_OUTPUT"
         id: setup
      
