@@ -44,7 +44,7 @@ jobs:
           curl --request POST --header "PRIVATE-TOKEN: $token" \
             --header "Content-Type: application/json" --data '{
             "path": "new_project"}' \
-            --url "https://localhost:2200/api/v4/projects/"
+            --url "http://localhost:2200/api/v4/projects/"
      
       - name: Dump matrix context
         env:
