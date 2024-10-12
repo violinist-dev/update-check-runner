@@ -38,7 +38,7 @@ jobs:
           - "2"
     steps:
       - run: |
-          echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!' > auth.txt
+          echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
           export token=$(curl --data "@auth.txt" --request POST "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo $token
           curl --request POST --header "Authorization: Bearer $token" \
