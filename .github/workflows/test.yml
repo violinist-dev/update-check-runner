@@ -55,8 +55,9 @@ jobs:
           git init
           git add composer.*
           git commit -m init
+          git checkout -b main
           git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
-          git push -u origin --all
+          git push -u origin main
           export pat=$(curl --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
           --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo $pat
@@ -120,7 +121,7 @@ jobs:
           GITLAB_PRIVATE_REPO: ${{ secrets.GITLAB_PRIVATE_REPO }}
           MY_COMMIT: ${{ steps.log.outputs.COMMIT_SHA }}
           SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.token }}
-          SELF_HOSTED_GITLAB_PRIVATE_REPO: http://172.17.0.1:2200/root/new_project
+          SELF_HOSTED_GITLAB_PRIVATE_REPO: http://172.17.0.1:2200/root/new-project.git
           BITBUCKET_CLIENT_ID: ${{ secrets.BITBUCKET_CLIENT_ID }}
           BITBUCKET_CLIENT_SECRET: ${{ secrets.BITBUCKET_CLIENT_SECRET }}
           BITBUCKET_REDIRECT_URI: ${{ secrets.BITBUCKET_REDIRECT_URI }}
