@@ -45,7 +45,7 @@ jobs:
             --header "Content-Type: application/json" --data '{
             "path": "new_project"}' \
             --url "http://localhost:2200/api/v4/projects/"
-          mkdir /temp/test
+          mkdir /tmp/test
           cd /tmp/test
           composer require psr/log 1.0.0
           git init
