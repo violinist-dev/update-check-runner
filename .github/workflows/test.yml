@@ -58,9 +58,11 @@ jobs:
           git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
           git push -u origin --all
           curl --header "Authorization: Bearer $token" "http://localhost:2200/api/v4/user"
-          curl --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
-          --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/1/personal_access_tokens"
+          export pat=$(curl --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
+          --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
+          echo $pat
           echo "token=$token" >> "$GITHUB_OUTPUT"
+          echo "pat=$pat" >> "$GITHUB_OUTPUT"
         id: setup
      
       - name: Dump matrix context
@@ -139,7 +141,7 @@ jobs:
           GITLAB_ASSIGNEE_REPO: ${{ secrets.GITLAB_ASSIGNEE_REPO }}
           GITHUB_REPO_ENV_REQUIRED: ${{ secrets.GH_REPO_ENV_REQUIRED }}
           GITLAB_REPO_GITHUB_DEP: ${{ secrets.GITLAB_REPO_GITHUB_DEP }}
-          SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN: ${{ secrets.SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN }}
+          SELF_HOSTED_GITLAB_PERSONAL_ACCESS_TOKEN: ${{ steps.setup.outputs.pat }}
           GITHUB_DEFAULT_BRANCH_IN_CONFIG: ${{ secrets.GH_DEFAULT_BRANCH_IN_CONFIG }}
           GITHUB_PRIVATE_UPDATE_ALL_REPO: ${{ secrets.GH_PRIVATE_UPDATE_ALL_REPO }}
           GITHUB_PRIVATE_INDIRECT_WITH_DIRECT: ${{ secrets.GH_PRIVATE_INDIRECT_WITH_DIRECT }}
