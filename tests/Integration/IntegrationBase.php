@@ -156,6 +156,11 @@ abstract class IntegrationBase extends TestCase
 
     protected function getGitlabToken($url)
     {
+        if (strpos($url, '172.17.0.1')) {
+            // This does not need refreshing as we just created it.
+            // This IP indicates we are running in CI.
+            return $_SERVER['SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN'];
+        }
         $client = new HttpClient();
         $request = new Request('GET', $_SERVER['GITLAB_SUPER_SECRET_URL_FOR_TOKEN'] . '&url=' . $url);
         $response = $client->sendRequest($request);
