@@ -53,11 +53,11 @@ jobs:
           cd /tmp/test
           composer require psr/log 1.0.0
           git init
+          git checkout -m master
           git add composer.*
           git commit -m init
-          git checkout -b main
           git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
-          git push -u origin main
+          git push -u origin master
           export pat=$(curl --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
           --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo $pat
