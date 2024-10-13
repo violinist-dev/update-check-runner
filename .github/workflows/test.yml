@@ -41,7 +41,8 @@ jobs:
         composer-version:
           - "2"
     steps:
-      - run: |
+      - name: Configure the GitLab instance
+        run: |
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
           export token=$(curl --data "@auth.txt" --request POST "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo $token
@@ -95,9 +96,6 @@ jobs:
         env:
           COMPOSER_VERSION: ${{ matrix.composer-version }}
           PHP_VERSION: ${{ matrix.php-version }}
-      - run: |
-          docker run --entrypoint="" update-check-runner ip a
-          docker run --entrypoint="" update-check-runner cat /etc/hosts
       - name: Run phpstan
         run: composer phpstan
 
