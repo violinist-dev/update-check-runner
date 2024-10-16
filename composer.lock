@@ -346,20 +346,20 @@
         },
         {
             "name": "eiriksm/gitinfo",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/php-app-git-version.git",
-                "reference": "96292e59ec165177a30149a703746ff6ab28985d"
+                "reference": "6264affbf86dae8453221855106c752f02b68070"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/php-app-git-version/zipball/96292e59ec165177a30149a703746ff6ab28985d",
-                "reference": "96292e59ec165177a30149a703746ff6ab28985d",
+                "url": "https://api.github.com/repos/eiriksm/php-app-git-version/zipball/6264affbf86dae8453221855106c752f02b68070",
+                "reference": "6264affbf86dae8453221855106c752f02b68070",
                 "shasum": ""
             },
             "require": {
-                "symfony/process": "^3 || ^4 || ^5 || ^6"
+                "symfony/process": "^3 || ^4 || ^5 || ^6 || ^7"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.1",
@@ -378,9 +378,9 @@
             "description": "Get some git info about your application",
             "support": {
                 "issues": "https://github.com/eiriksm/php-app-git-version/issues",
-                "source": "https://github.com/eiriksm/php-app-git-version/tree/4.1.1"
+                "source": "https://github.com/eiriksm/php-app-git-version/tree/4.1.2"
             },
-            "time": "2023-07-22T20:43:13+00:00"
+            "time": "2024-10-16T18:09:44+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
