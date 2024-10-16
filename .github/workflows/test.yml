@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       gitlab:
-        image: gitlab/gitlab-ee
+        image: gitlab/gitlab-ce
         ports:
           - 2200:80
         env:
