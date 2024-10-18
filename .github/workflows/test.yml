@@ -72,7 +72,7 @@ jobs:
           # https://docs.gitlab.com/ee/api/user_tokens.html
           # Todo: Would be nice to instead create a regular user and not use the root 
           # user here.
-          export pat=$(curl --request --fail POST --header "Authorization: Bearer $token" --data "name=mytoken" \
+          export pat=$(curl --request POST --fail --header "Authorization: Bearer $token" --data "name=mytoken" \
           --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo "token=$token" >> "$GITHUB_OUTPUT"
           echo "pat=$pat" >> "$GITHUB_OUTPUT"
