@@ -49,7 +49,7 @@ jobs:
           # Get an oauth token to use in subsequent calls:
           # https://docs.gitlab.com/ee/api/oauth2.html#resource-owner-password-credentials-flow
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
-          export token=$(curl --data "@auth.txt" --request POST "http://localhost:2200/oauth/token" | jq -r '.access_token')
+          export token=$(curl --data "@auth.txt" --request --fail POST "http://localhost:2200/oauth/token" | jq -r '.access_token')
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
           curl -s --request POST --header "Authorization: Bearer $token" \
