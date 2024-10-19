@@ -19,7 +19,7 @@ jobs:
       GIT_AUTHOR_EMAIL: violinistdevio@gmail.com
       GIT_COMMITTER_NAME: violinist-bot
       GIT_COMMITTER_EMAIL: violinistdevio@gmail.com
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       gitlab:
         image: gitlab/gitlab-ce:17.4.2-ce.0
@@ -53,7 +53,7 @@ jobs:
           echo "Token retrieved"
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
-          curl -s --request POST --fail --header "Authorization: Bearer $token" \
+          curl --request POST --fail --header "Authorization: Bearer $token" \
             --header "Content-Type: application/json" --data '{
             "path": "new_project"}' \
             --url "http://localhost:2200/api/v4/projects/"
