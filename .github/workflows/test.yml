@@ -49,11 +49,11 @@ jobs:
           # Get an oauth token to use in subsequent calls:
           # https://docs.gitlab.com/ee/api/oauth2.html#resource-owner-password-credentials-flow
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
-          export token=$(curl --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
+          export token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo "Token retrieved"
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
-          curl --request POST --fail --header "Authorization: Bearer $token" \
+          curl --retry 12 --retry-all-errors --request POST --fail --header "Authorization: Bearer $token" \
             --header "Content-Type: application/json" --data '{
             "path": "new_project"}' \
             --url "http://localhost:2200/api/v4/projects/"
@@ -68,12 +68,19 @@ jobs:
           # We could theoretically use the oauth token here as well, but
           # the tests will do that anyway.
           git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
-          git push -u origin master
+          RETRIES_NO=5
+          RETRY_DELAY=3
+          for i in $(seq 1 $RETRIES_NO); do
+            git push -u origin master && break
+            [[ $i -eq $RETRIES_NO ]] && echo "Failed to execute git cmd after $RETRIES_NO retries" && exit 1
+            echo "retrying after $RETRY_DELAY"
+            sleep ${RETRY_DELAY}
+          done
           # One of the tests is with a PAT. So create one:
           # https://docs.gitlab.com/ee/api/user_tokens.html
           # Todo: Would be nice to instead create a regular user and not use the root 
           # user here.
-          export pat=$(curl --request POST --fail --header "Authorization: Bearer $token" --data "name=mytoken" \
+          export pat=$(curl --retry 12 --retry-all-errors --request POST --fail --header "Authorization: Bearer $token" --data "name=mytoken" \
           --data "scopes[]=api&scopes[]=write_repository" --url "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo "token=$token" >> "$GITHUB_OUTPUT"
           echo "pat=$pat" >> "$GITHUB_OUTPUT"
