@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-24.04
     services:
       gitlab:
-        image: gitlab/gitlab-ce:17.4.2-ce.0
+        image: gitlab/gitlab-ce
         ports:
           - 2200:80
         env:
