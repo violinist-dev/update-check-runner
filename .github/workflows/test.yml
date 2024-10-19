@@ -49,7 +49,8 @@ jobs:
           # Get an oauth token to use in subsequent calls:
           # https://docs.gitlab.com/ee/api/oauth2.html#resource-owner-password-credentials-flow
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
-          export token=$(curl --data "@auth.txt" --request --fail POST "http://localhost:2200/oauth/token" | jq -r '.access_token')
+          export token=$(curl --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
+          echo "Token retrieved"
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
           curl -s --request POST --fail --header "Authorization: Bearer $token" \
@@ -73,7 +74,7 @@ jobs:
           # Todo: Would be nice to instead create a regular user and not use the root 
           # user here.
           export pat=$(curl --request POST --fail --header "Authorization: Bearer $token" --data "name=mytoken" \
-          --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
+          --data "scopes[]=api&scopes[]=write_repository" --url "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo "token=$token" >> "$GITHUB_OUTPUT"
           echo "pat=$pat" >> "$GITHUB_OUTPUT"
         id: setup
