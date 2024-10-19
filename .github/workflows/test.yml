@@ -68,7 +68,14 @@ jobs:
           # We could theoretically use the oauth token here as well, but
           # the tests will do that anyway.
           git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
-          git push -u origin master
+          RETRIES_NO=5
+          RETRY_DELAY=3
+          for i in $(seq 1 $RETRIES_NO); do
+            git push -u origin master && break
+            [[ $i -eq $RETRIES_NO ]] && echo "Failed to execute git cmd after $RETRIES_NO retries" && exit 1
+            echo "retrying after $RETRY_DELAY"
+            sleep ${RETRY_DELAY}
+          done
           # One of the tests is with a PAT. So create one:
           # https://docs.gitlab.com/ee/api/user_tokens.html
           # Todo: Would be nice to instead create a regular user and not use the root 
