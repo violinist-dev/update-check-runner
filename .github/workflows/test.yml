@@ -46,17 +46,32 @@ jobs:
     steps:
       - name: Configure the GitLab instance
         run: |
+          attempt_counter=0
+          max_attempts=60
+
+          while true; do
+            echo "Waiting for the site to be up"
+            echo "Attempt number ${attempt_counter}"
+            if [ ${attempt_counter} -eq ${max_attempts} ];then
+              echo "Max attempts reached"
+            exit 1
+            fi
+            # Run a cURL request and check if the status is 200.
+            status=$(curl -o /dev/null -sL -w "%{http_code}\n" http://localhost:2200)
+            if [ "$status" -eq 200 ]; then
+              echo "Status is 200"
+              break
+            fi
+            echo $status
+
+            attempt_counter=$(($attempt_counter+1))
+            sleep 5
+          done
           # Get an oauth token to use in subsequent calls:
           # https://docs.gitlab.com/ee/api/oauth2.html#resource-owner-password-credentials-flow
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
           export token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo "Token retrieved"
-          # Create a project with the newly created token:
-          #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
-          curl --retry 12 --retry-all-errors --request POST --fail --header "Authorization: Bearer $token" \
-            --header "Content-Type: application/json" --data '{
-            "path": "new_project"}' \
-            --url "http://localhost:2200/api/v4/projects/"
           # Create a super simple composer project and push to our new repo.
           mkdir /tmp/test
           cd /tmp/test
