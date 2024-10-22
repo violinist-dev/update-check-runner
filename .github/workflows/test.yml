@@ -46,6 +46,7 @@ jobs:
     steps:
       - name: Configure the GitLab instance
         run: |
+          ./vendor/bin/wait-for-listen 2200
           attempt_counter=0
           max_attempts=60
 
