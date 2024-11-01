@@ -80,10 +80,10 @@ jobs:
             echo "Attempt number ${attempt_counter}"
             if [ ${attempt_counter} -eq ${max_attempts} ];then
               echo "Max attempts reached"
-            exit 1
+              exit 1
             fi
             # Run a cURL request and check if the status is 200.
-            status=$(curl -o /dev/null -sL -w "%{http_code}\n" http://localhost:2200)
+            status=$(curl -o /dev/null --retry 3 --retry-all-errors -sL -w "%{http_code}\n" http://localhost:2200)
             if [ "$status" -eq 200 ]; then
               echo "Status is 200"
               break
