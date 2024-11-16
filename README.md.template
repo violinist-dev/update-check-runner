@@ -175,76 +175,7 @@ You can only set this value to one of the following alternatives, otherwise it w
 
 ## Extensions
 
-| Name | 7.3 | 8.0 | 8.1 | 8.2 | 8.3 | 8.4 |
-| --- | --- | --- | --- | --- | --- | --- |
-| apcu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| bcmath | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| bz2 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| calendar | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Core | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| ctype | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| curl | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| date | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| decimal | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| dom | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| exif | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| fileinfo | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| filter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| ftp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| gd | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| gmp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| hash | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| iconv | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| imagick | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| imap | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| intl | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| json | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| ldap | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| libxml | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| mailparse | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| mbstring | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| memcached | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| mongodb | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| msgpack | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| mysqli | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| mysqlnd | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| OAuth | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| openssl | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pcntl | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pcre | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| PDO | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pdo_mysql | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pdo_pgsql | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pdo_sqlite | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pdo_sqlsrv | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Phar | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| posix | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| rdkafka | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| readline | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| redis | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| Reflection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| session | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| SimpleXML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| soap | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| sockets | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| sodium | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| SPL | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| sqlite3 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| sqlsrv | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| standard | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| tokenizer | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| uuid | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| xml | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| xmlreader | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| xmlrpc | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| xmlwriter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| xsl | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| yaml | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Zend OPcache | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| zip | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| zlib | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| random | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-
+INSERT_TABLE_HERE
 
 ## FAQ
 
