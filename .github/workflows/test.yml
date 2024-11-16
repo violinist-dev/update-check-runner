@@ -125,7 +125,6 @@ jobs:
           --data "scopes[]=api&scopes[]=write_repository" --url "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo "token=$token" >> "$GITHUB_OUTPUT"
           echo "pat=$pat" >> "$GITHUB_OUTPUT"
-          rm auth.txt
         id: setup
 
       - name: Build test image
@@ -148,6 +147,7 @@ jobs:
 
       - name: Dump modules and ensure no diff
         run: |
+          rm auth.txt
           docker run --rm update-check-runner php -m > module-list/${{ matrix.php-version }}.txt
           git status
 
