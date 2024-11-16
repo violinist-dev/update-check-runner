@@ -145,6 +145,11 @@ jobs:
       - name: Coding style
         run: composer phpcs
 
+      - name: Dump modules and ensure no diff
+        run: |
+          docker run --rm update-check-runner php -m > module-list/${{ matrix.php-version }}.txt
+          git status
+
       - name: Run tests
         run: ./vendor/bin/phpunit
         env:
