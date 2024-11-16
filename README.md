@@ -175,7 +175,12 @@ You can only set this value to one of the following alternatives, otherwise it w
 
 ## Extensions
 
-| Name | 7.3 | 8.0 | 8.1 | 8.2 | 8.3 | 8.4 |
+The following PHP extensions are available in the containers (long table, click to expand):
+
+<details>
+  <summary>Click to expand</summary>
+
+  | Name | 7.3 | 8.0 | 8.1 | 8.2 | 8.3 | 8.4 |
 | --- | --- | --- | --- | --- | --- | --- |
 | apcu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | bcmath | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -245,6 +250,8 @@ You can only set this value to one of the following alternatives, otherwise it w
 | zip | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | zlib | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
+
+</details>
 
 ## FAQ
 

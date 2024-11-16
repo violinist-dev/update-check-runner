@@ -175,7 +175,14 @@ You can only set this value to one of the following alternatives, otherwise it w
 
 ## Extensions
 
-INSERT_TABLE_HERE
+The following PHP extensions are available in the containers (long table, click to expand):
+
+<details>
+  <summary>Click to expand</summary>
+
+  INSERT_TABLE_HERE
+
+</details>
 
 ## FAQ
 
