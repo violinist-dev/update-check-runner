@@ -150,6 +150,12 @@ jobs:
           rm auth.txt
           docker run --rm update-check-runner php -m > module-list/${{ matrix.php-version }}.txt
           git status
+          cat module-list/${{ matrix.php-version }}.txt
+          if [ $(git status -s | wc -c) -ne 0 ]; then
+            echo "Working tree is not clean:"
+            git status
+            exit 1
+          fi
 
       - name: Run tests
         run: ./vendor/bin/phpunit
