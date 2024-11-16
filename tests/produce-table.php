@@ -37,6 +37,8 @@ foreach ($file_list as $file) {
         $php_versions[$version][$line] = true;
     }
 }
+ksort($php_versions);
+ksort($extensions, SORT_NATURAL | SORT_FLAG_CASE);
 
 // Now let's produce the table.
 $header = '| Name |';

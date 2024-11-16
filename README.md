@@ -219,6 +219,7 @@ You can only set this value to one of the following alternatives, otherwise it w
 | pdo_sqlsrv | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Phar | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | posix | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| random | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | rdkafka | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | readline | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | redis | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
@@ -243,7 +244,6 @@ You can only set this value to one of the following alternatives, otherwise it w
 | Zend OPcache | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | zip | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | zlib | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| random | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
 
 
 ## FAQ
