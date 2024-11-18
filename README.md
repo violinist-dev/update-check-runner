@@ -227,7 +227,7 @@ The following PHP extensions are available in the containers (long table, click 
 | random | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | rdkafka | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | readline | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| redis | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| redis | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Reflection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | session | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | SimpleXML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
