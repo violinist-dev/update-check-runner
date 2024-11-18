@@ -43,6 +43,7 @@ posix
 random
 rdkafka
 readline
+redis
 Reflection
 session
 SimpleXML
