@@ -197,6 +197,7 @@ The following PHP extensions are available in the containers (long table, click 
 | filter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | ftp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | gd | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| gettext | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | gmp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | hash | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | iconv | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
