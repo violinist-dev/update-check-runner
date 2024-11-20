@@ -1,6 +1,6 @@
 # update-check-runner
 
-The containers that run updates for [violinist.io](https://violinist.io), a PHP / Composer depdency updater for Bitbucket / GitHub / GitLab / Self Hosted GitLab.
+The containers that run updates for [violinist.io](https://violinist.io), a PHP / Composer dependency updater for Bitbucket / GitHub / GitLab / Self Hosted GitLab.
 
 Also available as standalone docker containers to self host the update running.
 
