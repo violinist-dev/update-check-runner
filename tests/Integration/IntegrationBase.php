@@ -77,14 +77,14 @@ abstract class IntegrationBase extends TestCase
         $this->assertTrue(false, 'The message ' . $expected_message . ' was not found in the output.');
     }
 
-    protected function findMessage($message, $json)
+    public static function findMessage(string $message, array $json) : \stdClass
     {
         foreach ($json as $item) {
             if ($item->message === $message) {
                 return $item;
             }
         }
-        $this->assertTrue(false, 'The message ' . $message . ' was not found in the output.');
+        throw new \Exception('The message ' . $message . ' was not found in the output.');
     }
 
     protected function assertProjectStarting($url, $json)
@@ -127,7 +127,7 @@ abstract class IntegrationBase extends TestCase
         return $process;
     }
 
-    protected function getProcessAndRunGetJson($token, $url, $other_env = [])
+    protected function getProcessAndRunGetJson($token, $url, $other_env = []) : array
     {
         $process = $this->getProcessAndRun($token, $url, $other_env);
         $json = @json_decode($process->getOutput());
@@ -139,7 +139,7 @@ abstract class IntegrationBase extends TestCase
         return $json;
     }
 
-    protected function getProcessAndRunWithoutError($token, $url, $other_env = [])
+    protected function getProcessAndRunWithoutError($token, $url, $other_env = []) : array
     {
         $process = $this->getProcessAndRun($token, $url, $other_env);
         if ($process->getExitCode()) {
@@ -154,7 +154,7 @@ abstract class IntegrationBase extends TestCase
         return $json;
     }
 
-    protected function getGitlabToken($url)
+    protected function getGitlabToken(string $url) : string
     {
         if (strpos($url, '172.17.0.1')) {
             // This does not need refreshing as we just created it.

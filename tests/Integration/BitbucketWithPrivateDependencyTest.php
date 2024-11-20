@@ -8,6 +8,6 @@ class BitbucketWithPrivateDependencyTest extends IntegrationBase
     {
         $repo = $_SERVER['BITBUCKET_WITH_PRIVATE_DEP'];
         $json = $this->getProcessAndRunWithoutError($_SERVER['BITBUCKET_APP_PASSWORD'], $repo);
-        $this->findMessage($json, 'composer install completed successfully');
+        self::findMessage('composer install completed successfully', $json);
     }
 }
