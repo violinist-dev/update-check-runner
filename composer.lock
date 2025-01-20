@@ -284,12 +284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "840b8493ece5d36ebf474aa83dfc8e30d1fc0061"
+                "reference": "b63c4f4f92a506f0b8e33d30af6043e1c90fc10d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/840b8493ece5d36ebf474aa83dfc8e30d1fc0061",
-                "reference": "840b8493ece5d36ebf474aa83dfc8e30d1fc0061",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/b63c4f4f92a506f0b8e33d30af6043e1c90fc10d",
+                "reference": "b63c4f4f92a506f0b8e33d30af6043e1c90fc10d",
                 "shasum": ""
             },
             "require": {
@@ -343,7 +343,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/main"
             },
-            "time": "2024-12-14T11:22:11+00:00"
+            "time": "2025-01-20T08:58:17+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -2553,12 +2553,12 @@
             },
             "type": "library",
             "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/contracts",
+                    "name": "symfony/contracts"
+                },
                 "branch-alias": {
                     "dev-main": "2.5-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
@@ -3380,12 +3380,12 @@
             },
             "type": "library",
             "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/contracts",
+                    "name": "symfony/contracts"
+                },
                 "branch-alias": {
                     "dev-main": "2.5-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
