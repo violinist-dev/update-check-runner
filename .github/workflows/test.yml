@@ -72,6 +72,12 @@ jobs:
       - name: Configure the GitLab instance
         run: |
           ./vendor/bin/wait-for-listen 2200
+          # From time to time it goes up and down again. Let's verify 
+          # 3 times.
+          sleep 1
+          ./vendor/bin/wait-for-listen 2200
+          sleep 1
+          ./vendor/bin/wait-for-listen 2200
           attempt_counter=0
           max_attempts=60
 
