@@ -284,12 +284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "814a72ecd64ca86150629ee5803108f7bd6fe6c0"
+                "reference": "4fdd9aa62bec3682317e95dc1ca59f2659fb1b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/814a72ecd64ca86150629ee5803108f7bd6fe6c0",
-                "reference": "814a72ecd64ca86150629ee5803108f7bd6fe6c0",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4fdd9aa62bec3682317e95dc1ca59f2659fb1b9d",
+                "reference": "4fdd9aa62bec3682317e95dc1ca59f2659fb1b9d",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +316,7 @@
                 "violinist-dev/slug-from-url": "^1",
                 "violinist-dev/symfony-cloud-security-checker": "^3",
                 "violinist-dev/timeframe-handler": "^1.0",
-                "violinist-dev/violinist-config": "^2.4",
+                "violinist-dev/violinist-config": "^2.5.0",
                 "violinist-dev/violinist-messages": "^2.0",
                 "wa72/simplelogger": "^1.0"
             },
@@ -343,7 +343,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/main"
             },
-            "time": "2025-01-20T17:18:23+00:00"
+            "time": "2025-02-16T15:27:22+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -4262,21 +4262,25 @@
         },
         {
             "name": "violinist-dev/violinist-config",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "03c4fe30d2349c4e6152f90dd5d8695945fa2e1b"
+                "reference": "17197aea5a13de84c3f3202791f94471960d811b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/03c4fe30d2349c4e6152f90dd5d8695945fa2e1b",
-                "reference": "03c4fe30d2349c4e6152f90dd5d8695945fa2e1b",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/17197aea5a13de84c3f3202791f94471960d811b",
+                "reference": "17197aea5a13de84c3f3202791f94471960d811b",
                 "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.4",
-                "phpunit/phpunit": "^8.0",
+                "phpunit/phpunit": "^8.0 || ^9.0 || ^10.0",
+                "slevomat/coding-standard": "^8.15",
                 "squizlabs/php_codesniffer": "^3.4"
             },
             "type": "library",
@@ -4298,9 +4302,9 @@
             "description": "Get violinist config from composer.json",
             "support": {
                 "issues": "https://github.com/violinist-dev/violinist-config/issues",
-                "source": "https://github.com/violinist-dev/violinist-config/tree/2.4.0"
+                "source": "https://github.com/violinist-dev/violinist-config/tree/2.5.0"
             },
-            "time": "2024-10-11T13:50:58+00:00"
+            "time": "2025-02-16T14:46:42+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
