@@ -3954,12 +3954,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/licence-check.git",
-                "reference": "8822e54bf395820f99b7d572887f8c42d8dc11d1"
+                "reference": "c607e6296d98470e638a7045dbc7cf0e2eed7857"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/licence-check/zipball/8822e54bf395820f99b7d572887f8c42d8dc11d1",
-                "reference": "8822e54bf395820f99b7d572887f8c42d8dc11d1",
+                "url": "https://api.github.com/repos/violinist-dev/licence-check/zipball/c607e6296d98470e638a7045dbc7cf0e2eed7857",
+                "reference": "c607e6296d98470e638a7045dbc7cf0e2eed7857",
                 "shasum": ""
             },
             "require": {
@@ -3988,7 +3988,7 @@
                 "issues": "https://github.com/violinist-dev/licence-check/issues",
                 "source": "https://github.com/violinist-dev/licence-check/tree/main"
             },
-            "time": "2024-09-13T13:18:50+00:00"
+            "time": "2025-02-24T17:13:21+00:00"
         },
         {
             "name": "violinist-dev/process-factory",
