@@ -185,7 +185,7 @@ try {
     // We tried.
 }
 
-// Keep track of what status code we should exist with.
+// Keep track of what status code we should exit with.
 $code = 0;
 try {
     $cosy->run();
