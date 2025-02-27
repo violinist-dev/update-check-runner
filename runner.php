@@ -100,6 +100,7 @@ $valid_public_keys = [
 ];
 
 $pre_run_messages = [];
+$allow_assignees = false;
 
 if (!empty($_SERVER['LICENCE_KEY'])) {
     $pre_run_messages[] = new Message('Licence key found in environment. Checking validity.', Message::COMMAND);
@@ -124,7 +125,14 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
             create_output_and_exit($pre_run_messages, 1);
         }
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
-        $pre_run_messages[] = new Message('Licence key data: ' . json_encode($checked->getPayload()->getData()), Message::COMMAND);
+        $data = $checked->getPayload()->getData();
+        $pre_run_messages[] = new Message('Licence key data: ' . json_encode($data), Message::COMMAND);
+        if (empty($data['is_saas'])) {
+            // This means the licence is not for the SaaS version, which means
+            // its for the self hosted version. Which means we should allow the
+            // assignees.
+            $allow_assignees = true;
+        }
     }
 } else {
     // Print exactly one message in the same format as we would have, had we run an actual update run.
@@ -156,6 +164,7 @@ $cosy->setAuthentication($user_token);
 $cosy->setUserToken($user_token);
 $cosy->setForkUser($fork_to);
 $cosy->setProject($project);
+$cosy->setAssigneesAllowed($allow_assignees);
 $cosy->setTokenUrl($token_url);
 $cosy->setTokens($tokens);
 $cosy
