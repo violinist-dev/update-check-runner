@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfd4ed155ff1fb20fc3e922606fedbc8",
+    "content-hash": "c016544325bae186ce93b334cc10ce52",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -280,16 +280,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-main",
+            "version": "dev-fix/refactor-up",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "042030b59dc94d4eaf98c4129a118b5b274cc044"
+                "reference": "8c7bc708021e0d251a26dcb5f7c56d54adb28c16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/042030b59dc94d4eaf98c4129a118b5b274cc044",
-                "reference": "042030b59dc94d4eaf98c4129a118b5b274cc044",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/8c7bc708021e0d251a26dcb5f7c56d54adb28c16",
+                "reference": "8c7bc708021e0d251a26dcb5f7c56d54adb28c16",
                 "shasum": ""
             },
             "require": {
@@ -327,7 +327,6 @@
                 "slevomat/coding-standard": "^8.15",
                 "squizlabs/php_codesniffer": "^3.2"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -341,9 +340,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/main"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/fix/refactor-up"
             },
-            "time": "2025-03-03T08:18:14+00:00"
+            "time": "2025-03-06T18:26:09+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
