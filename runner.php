@@ -163,7 +163,9 @@ $cosy = $container->get('cosy');
 $cosy->setAuthentication($user_token);
 $cosy->setUserToken($user_token);
 $cosy->setForkUser($fork_to);
-$cosy->setProject($project);
+if ($project instanceof \Violinist\ProjectData\ProjectData) {
+    $cosy->setProject($project);
+}
 $cosy->setAssigneesAllowed($allow_assignees);
 $cosy->setTokenUrl($token_url);
 $cosy->setTokens($tokens);
