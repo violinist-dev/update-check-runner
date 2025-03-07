@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfd4ed155ff1fb20fc3e922606fedbc8",
+    "content-hash": "3ba320208f5a8cad34f72bb6a710d3b0",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -280,16 +280,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-main",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "042030b59dc94d4eaf98c4129a118b5b274cc044"
+                "reference": "fe1fa68bfafba82fbb72d82cdcaa89bbeb6ca3db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/042030b59dc94d4eaf98c4129a118b5b274cc044",
-                "reference": "042030b59dc94d4eaf98c4129a118b5b274cc044",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/fe1fa68bfafba82fbb72d82cdcaa89bbeb6ca3db",
+                "reference": "fe1fa68bfafba82fbb72d82cdcaa89bbeb6ca3db",
                 "shasum": ""
             },
             "require": {
@@ -327,7 +327,6 @@
                 "slevomat/coding-standard": "^8.15",
                 "squizlabs/php_codesniffer": "^3.2"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -341,9 +340,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/main"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/1.0.2"
             },
-            "time": "2025-03-03T08:18:14+00:00"
+            "time": "2025-03-07T07:13:57+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -6749,7 +6748,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "eiriksm/cosy-composer": 20,
         "violinist-dev/licence-check": 20
     },
     "prefer-stable": true,
@@ -6757,6 +6755,6 @@
     "platform": {
         "ext-json": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
