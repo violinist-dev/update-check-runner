@@ -280,16 +280,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "1.1.3",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "403cf63a603c6799ca8532d0026c0265a5d3132a"
+                "reference": "b1490fe3e75922598c8cf14666dad11e750ff30e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/403cf63a603c6799ca8532d0026c0265a5d3132a",
-                "reference": "403cf63a603c6799ca8532d0026c0265a5d3132a",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/b1490fe3e75922598c8cf14666dad11e750ff30e",
+                "reference": "b1490fe3e75922598c8cf14666dad11e750ff30e",
                 "shasum": ""
             },
             "require": {
@@ -317,7 +317,7 @@
                 "violinist-dev/symfony-cloud-security-checker": "^3",
                 "violinist-dev/timeframe-handler": "^1.0",
                 "violinist-dev/violinist-config": "^2.5.0",
-                "violinist-dev/violinist-messages": "^2.0",
+                "violinist-dev/violinist-messages": "^2.0.1",
                 "wa72/simplelogger": "^1.0"
             },
             "require-dev": {
@@ -340,9 +340,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/1.1.3"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/1.1.5"
             },
-            "time": "2025-03-26T17:27:18+00:00"
+            "time": "2025-03-27T17:40:55+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -384,16 +384,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.9.2",
+            "version": "7.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d281ed313b989f213357e3be1a179f02196ac99b"
+                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d281ed313b989f213357e3be1a179f02196ac99b",
-                "reference": "d281ed313b989f213357e3be1a179f02196ac99b",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
+                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
                 "shasum": ""
             },
             "require": {
@@ -490,7 +490,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.9.2"
+                "source": "https://github.com/guzzle/guzzle/tree/7.9.3"
             },
             "funding": [
                 {
@@ -506,20 +506,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-24T11:22:20+00:00"
+            "time": "2025-03-27T13:37:11+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.0.4",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455"
+                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
-                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/7c69f28996b0a6920945dd20b3857e499d9ca96c",
+                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c",
                 "shasum": ""
             },
             "require": {
@@ -573,7 +573,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.0.4"
+                "source": "https://github.com/guzzle/promises/tree/2.2.0"
             },
             "funding": [
                 {
@@ -589,20 +589,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-17T10:06:22+00:00"
+            "time": "2025-03-27T13:27:01+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.7.0",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "a70f5c95fb43bc83f07c9c948baa0dc1829bf201"
+                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/a70f5c95fb43bc83f07c9c948baa0dc1829bf201",
-                "reference": "a70f5c95fb43bc83f07c9c948baa0dc1829bf201",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/c2270caaabe631b3b44c85f99e5a04bbb8060d16",
+                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.7.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.7.1"
             },
             "funding": [
                 {
@@ -705,7 +705,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-18T11:15:46+00:00"
+            "time": "2025-03-27T12:30:47+00:00"
         },
         {
             "name": "http-interop/http-factory-guzzle",
@@ -4307,16 +4307,16 @@
         },
         {
             "name": "violinist-dev/violinist-messages",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-messages.git",
-                "reference": "94ea0ec24c60cc80e808fcd9232e5d868c82333f"
+                "reference": "98fcea3dfd0e03165280a4448c157f073e942b42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/94ea0ec24c60cc80e808fcd9232e5d868c82333f",
-                "reference": "94ea0ec24c60cc80e808fcd9232e5d868c82333f",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-messages/zipball/98fcea3dfd0e03165280a4448c157f073e942b42",
+                "reference": "98fcea3dfd0e03165280a4448c157f073e942b42",
                 "shasum": ""
             },
             "require": {
@@ -4341,9 +4341,9 @@
             "description": "Template(s) for the pull requests that violinist.io sends on updates.",
             "support": {
                 "issues": "https://github.com/violinist-dev/violinist-messages/issues",
-                "source": "https://github.com/violinist-dev/violinist-messages/tree/2.0.0"
+                "source": "https://github.com/violinist-dev/violinist-messages/tree/2.0.1"
             },
-            "time": "2024-07-17T18:59:10+00:00"
+            "time": "2025-03-07T20:03:34+00:00"
         },
         {
             "name": "wa72/simplelogger",
