@@ -280,16 +280,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "1.1.7",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "d3bad2488ab148c4ec61dd419b949f6a1ddaa4d7"
+                "reference": "7010816ad64d701774fef3fec304f2623b5cdc33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/d3bad2488ab148c4ec61dd419b949f6a1ddaa4d7",
-                "reference": "d3bad2488ab148c4ec61dd419b949f6a1ddaa4d7",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/7010816ad64d701774fef3fec304f2623b5cdc33",
+                "reference": "7010816ad64d701774fef3fec304f2623b5cdc33",
                 "shasum": ""
             },
             "require": {
@@ -340,9 +340,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/1.1.7"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/1.2.0"
             },
-            "time": "2025-03-28T14:35:18+00:00"
+            "time": "2025-03-30T20:02:30+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -3725,16 +3725,16 @@
         },
         {
             "name": "violinist-dev/commit-message-creator",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/commit-message-creator.git",
-                "reference": "2fd27e38e0b095b2546edbedb48e13d0992a8137"
+                "reference": "b1cc746f40846b36c4228e0a7ca2117481c249fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/commit-message-creator/zipball/2fd27e38e0b095b2546edbedb48e13d0992a8137",
-                "reference": "2fd27e38e0b095b2546edbedb48e13d0992a8137",
+                "url": "https://api.github.com/repos/violinist-dev/commit-message-creator/zipball/b1cc746f40846b36c4228e0a7ca2117481c249fd",
+                "reference": "b1cc746f40846b36c4228e0a7ca2117481c249fd",
                 "shasum": ""
             },
             "require": {
@@ -3765,9 +3765,9 @@
             "description": "Generates commit messages for violinist",
             "support": {
                 "issues": "https://github.com/violinist-dev/commit-message-creator/issues",
-                "source": "https://github.com/violinist-dev/commit-message-creator/tree/2.0.0"
+                "source": "https://github.com/violinist-dev/commit-message-creator/tree/2.1.0"
             },
-            "time": "2024-07-17T19:55:19+00:00"
+            "time": "2025-03-29T20:37:20+00:00"
         },
         {
             "name": "violinist-dev/composer-changelog-fetcher",
@@ -4261,16 +4261,16 @@
         },
         {
             "name": "violinist-dev/violinist-config",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "b12daee18b3305bc4e43784a0b1b86a83f21820a"
+                "reference": "20e7769e29d85fa09851f31ca49f178250a04fd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/b12daee18b3305bc4e43784a0b1b86a83f21820a",
-                "reference": "b12daee18b3305bc4e43784a0b1b86a83f21820a",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/20e7769e29d85fa09851f31ca49f178250a04fd9",
+                "reference": "20e7769e29d85fa09851f31ca49f178250a04fd9",
                 "shasum": ""
             },
             "require": {
@@ -4301,9 +4301,9 @@
             "description": "Get violinist config from composer.json",
             "support": {
                 "issues": "https://github.com/violinist-dev/violinist-config/issues",
-                "source": "https://github.com/violinist-dev/violinist-config/tree/2.6.0"
+                "source": "https://github.com/violinist-dev/violinist-config/tree/2.7.0"
             },
-            "time": "2025-03-11T19:37:29+00:00"
+            "time": "2025-03-29T19:41:28+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
