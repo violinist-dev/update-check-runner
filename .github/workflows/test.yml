@@ -203,3 +203,4 @@ jobs:
           VALID_CI_LICENCE: ${{ secrets.VALID_CI_LICENCE }}
           BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
           BITBUCKET_WITH_PRIVATE_DEP: ${{ secrets.BITBUCKET_WITH_PRIVATE_DEP }}
+          GITHUB_GROUP_REPO: ${{ secrets.GH_GROUP_REPO }}
