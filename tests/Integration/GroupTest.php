@@ -2,12 +2,9 @@
 
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
-use eiriksm\CosyComposer\Providers\Github;
 use Github\AuthMethod;
 use Github\Client;
 use Github\ResultPager;
-use Stevenmaguire\OAuth2\Client\Provider\Bitbucket;
-use Violinist\ProjectData\ProjectData;
 use Violinist\Slug\Slug;
 
 class GroupTest extends IntegrationBase
