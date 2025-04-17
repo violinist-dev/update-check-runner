@@ -4261,16 +4261,16 @@
         },
         {
             "name": "violinist-dev/violinist-config",
-            "version": "2.8.1",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "21c0e841691895201c52803c4b2dbed056cdcf17"
+                "reference": "1b3ee776aa71c13a77c9b61595752783fb6d58a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/21c0e841691895201c52803c4b2dbed056cdcf17",
-                "reference": "21c0e841691895201c52803c4b2dbed056cdcf17",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/1b3ee776aa71c13a77c9b61595752783fb6d58a2",
+                "reference": "1b3ee776aa71c13a77c9b61595752783fb6d58a2",
                 "shasum": ""
             },
             "require": {
@@ -4278,6 +4278,7 @@
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.4",
+                "phpstan/phpstan": "^1.0",
                 "phpunit/phpunit": "^8.0 || ^9.0 || ^10.0",
                 "slevomat/coding-standard": "^8.15",
                 "squizlabs/php_codesniffer": "^3.4"
@@ -4301,9 +4302,9 @@
             "description": "Get violinist config from composer.json",
             "support": {
                 "issues": "https://github.com/violinist-dev/violinist-config/issues",
-                "source": "https://github.com/violinist-dev/violinist-config/tree/2.8.1"
+                "source": "https://github.com/violinist-dev/violinist-config/tree/2.8.2"
             },
-            "time": "2025-04-13T06:39:08+00:00"
+            "time": "2025-04-17T11:15:28+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
@@ -6755,6 +6756,6 @@
     "platform": {
         "ext-json": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
