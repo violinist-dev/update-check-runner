@@ -39,6 +39,9 @@
     "sort-packages": true
   },
   "extra": {
+    "violinist": {
+      "extends": "update-check-runner-violinist.json"
+    },
     "patches": {
       "bitbucket/client": {
         "PHP 8.4 fixes (https://github.com/BitbucketPHP/Client/pull/86)": "./patches/bitbucket-client-php-8.4.patch"

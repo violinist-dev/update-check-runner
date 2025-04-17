@@ -1,0 +1,7 @@
+{
+  "check_only_direct_dependencies": 0,
+  "always_allow_direct_dependencies": 1,
+  "allow_list" : [
+    "violinist-dev/*"
+  ]
+}
