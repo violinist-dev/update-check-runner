@@ -28,8 +28,8 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
     public function setUp() : void
     {
         parent::setUp();
-        $this->token = getenv('GITHUB_PRIVATE_USER_TOKEN');
-        $this->url = getenv('GITHUB_PRIVATE_REPO');
+        $this->token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
+        $this->url = $_SERVER['GITHUB_PRIVATE_REPO'];
         $this->client = new Client();
     }
 
@@ -73,7 +73,10 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
                 ],
             ]);
             $data = $api->commits()->create($slug->getUserName(), $slug->getUserRepo(), [
-                'message' => 'temp commit',
+                'message' => 'temp commit
+------
+update_data:
+  package: psr/log',
                 'tree' => $data["sha"],
                 'parents' => [
                     $sha,
