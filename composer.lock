@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0c6d034c9c7778f569f629f4e8f138c",
+    "content-hash": "71507d3edc54b1053afe6c721498629e",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -280,16 +280,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "1.3.9",
+            "version": "dev-feat/named-prs-better",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "630a86edb17240b461b8e2a4e1516c20c5ba3fd6"
+                "reference": "4a343ea15a88129d244e16aee928cec0e516e9a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/630a86edb17240b461b8e2a4e1516c20c5ba3fd6",
-                "reference": "630a86edb17240b461b8e2a4e1516c20c5ba3fd6",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/4a343ea15a88129d244e16aee928cec0e516e9a6",
+                "reference": "4a343ea15a88129d244e16aee928cec0e516e9a6",
                 "shasum": ""
             },
             "require": {
@@ -340,9 +340,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/1.3.9"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/feat/named-prs-better"
             },
-            "time": "2025-04-25T18:14:05+00:00"
+            "time": "2025-07-22T11:14:10+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -6757,6 +6757,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "eiriksm/cosy-composer": 20,
         "violinist-dev/licence-check": 20
     },
     "prefer-stable": true,
@@ -6764,6 +6765,6 @@
     "platform": {
         "ext-json": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
