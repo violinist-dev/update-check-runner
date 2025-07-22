@@ -30,6 +30,14 @@ abstract class CloseOnUpdateBase extends IntegrationBase
         return sprintf('psrlog%s%s%s', $this->psrLogVersion, random_int(500, 1500), $id);
     }
 
+    public static function getValidTempCommitMessage()
+    {
+        return 'temp commit
+------
+update_data:
+  package: psr/log';
+    }
+
     protected function deleteBranch($branch_name)
     {
         // Empty default implementation.

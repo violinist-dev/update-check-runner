@@ -73,10 +73,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
                 ],
             ]);
             $data = $api->commits()->create($slug->getUserName(), $slug->getUserRepo(), [
-                'message' => 'temp commit
-------
-update_data:
-  package: psr/log',
+                'message' => self::getValidTempCommitMessage(),
                 'tree' => $data["sha"],
                 'parents' => [
                     $sha,
