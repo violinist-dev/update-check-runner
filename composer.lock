@@ -284,12 +284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "daf9490954bde045b10b051ad7d510d9792fa6d3"
+                "reference": "db42eb74260bfecbeab7822eef8517dd8ead3c07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/daf9490954bde045b10b051ad7d510d9792fa6d3",
-                "reference": "daf9490954bde045b10b051ad7d510d9792fa6d3",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/db42eb74260bfecbeab7822eef8517dd8ead3c07",
+                "reference": "db42eb74260bfecbeab7822eef8517dd8ead3c07",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +342,7 @@
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
                 "source": "https://github.com/eiriksm/cosy-composer/tree/feat/named-prs-better"
             },
-            "time": "2025-07-22T20:46:25+00:00"
+            "time": "2025-07-22T21:22:01+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
