@@ -1,6 +1,7 @@
 {
   "name": "violinist-dev/update-check-runner",
   "description": "Runner for update checks",
+  "license": "proprietary",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
