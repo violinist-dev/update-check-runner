@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71507d3edc54b1053afe6c721498629e",
+    "content-hash": "3985b0f410f570072338eec0670f2f9d",
     "packages": [
         {
             "name": "bitbucket/client",
@@ -280,16 +280,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "dev-feat/named-prs-better",
+            "version": "1.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "40f33ec8ec6670f594fb2926d89353358d25292a"
+                "reference": "546dff1233ae4c16dddc1fdafa6ac4990ab90602"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/40f33ec8ec6670f594fb2926d89353358d25292a",
-                "reference": "40f33ec8ec6670f594fb2926d89353358d25292a",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/546dff1233ae4c16dddc1fdafa6ac4990ab90602",
+                "reference": "546dff1233ae4c16dddc1fdafa6ac4990ab90602",
                 "shasum": ""
             },
             "require": {
@@ -340,9 +340,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/feat/named-prs-better"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/1.3.10"
             },
-            "time": "2025-07-23T08:07:45+00:00"
+            "time": "2025-07-23T11:10:37+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
@@ -6757,7 +6757,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "eiriksm/cosy-composer": 20,
         "violinist-dev/licence-check": 20
     },
     "prefer-stable": true,
