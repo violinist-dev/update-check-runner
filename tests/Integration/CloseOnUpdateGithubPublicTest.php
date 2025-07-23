@@ -11,8 +11,8 @@ class CloseOnUpdateGithubPublicTest extends CloseOnUpdateGithubTest
     public function setUp() : void
     {
         parent::setUp();
-        $this->token = getenv('GITHUB_PRIVATE_USER_TOKEN');
-        $this->url = getenv('GITHUB_PUBLIC_REPO');
+        $this->token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
+        $this->url = $_SERVER['GITHUB_PUBLIC_REPO'];
     }
 
     protected function getExtraParams()

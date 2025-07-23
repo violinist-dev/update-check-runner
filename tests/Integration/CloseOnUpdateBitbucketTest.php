@@ -68,6 +68,7 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
             $data = $client->request('POST', sprintf('https://api.bitbucket.org/2.0/repositories/%s/%s/src?branch=%s', $slug->getUserName(), $slug->getUserRepo(), $branch_name), [
                 'form_params' => [
                     'branch' => $branch_name,
+                    'message' => self::getValidTempCommitMessage(),
                     'test.txt' => 'almost empty file',
                 ],
                 'headers' => $headers,
