@@ -192,6 +192,7 @@ The following PHP extensions are available in the containers (long table, click 
 | date | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | decimal | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | dom | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ds | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exif | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | fileinfo | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | filter | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -240,6 +241,7 @@ The following PHP extensions are available in the containers (long table, click 
 | sqlite3 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | sqlsrv | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 | standard | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| swoole | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 | tokenizer | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | uri | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | uuid | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |

@@ -9,6 +9,7 @@ curl
 date
 decimal
 dom
+ds
 exif
 fileinfo
 filter
@@ -55,6 +56,7 @@ SPL
 sqlite3
 sqlsrv
 standard
+swoole
 tokenizer
 uuid
 xml
