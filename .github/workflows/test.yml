@@ -111,6 +111,12 @@ jobs:
           echo "User created, trying to create a PAT"
           export pat=$(curl --fail --retry 12 --retry-all-errors --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
             --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/2/personal_access_tokens" | jq -r '.token')
+          # Create a project with the newly created token:
+          #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
+          curl -v --retry 12 --retry-all-errors --fail --request POST --header "PRIVATE-TOKEN: $pat" \
+            --header "Content-Type: application/json" --data '{
+            "path": "new-project"}' \
+            --url "http://localhost:2200/api/v4/projects/"
           # Create a super simple composer project and push to our new repo.
           mkdir /tmp/test
           cd /tmp/test
@@ -119,7 +125,7 @@ jobs:
           git branch -m master
           git add composer.*
           git commit -m init
-          git remote add origin http://violinist-bot:$pat@localhost:2200/root/new-project
+          git remote add origin http://violinist-bot:$pat@localhost:2200/violinist-bot/new-project
           RETRIES_NO=5
           RETRY_DELAY=3
           for i in $(seq 1 $RETRIES_NO); do
