@@ -184,7 +184,7 @@ jobs:
           GITHUB_PRIVATE_REPO: ${{ secrets.GH_PRIVATE_REPO }}
           GITLAB_PRIVATE_REPO: ${{ secrets.GITLAB_PRIVATE_REPO }}
           MY_COMMIT: ${{ steps.log.outputs.COMMIT_SHA }}
-          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.token }}
+          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.pat }}
           SELF_HOSTED_GITLAB_PRIVATE_REPO: http://172.17.0.1:2200/violinist-bot/new-project
           BITBUCKET_CLIENT_ID: ${{ secrets.BITBUCKET_CLIENT_ID }}
           BITBUCKET_CLIENT_SECRET: ${{ secrets.BITBUCKET_CLIENT_SECRET }}
