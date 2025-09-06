@@ -111,6 +111,9 @@ jobs:
           echo "User created, trying to create a PAT"
           export pat=$(curl --fail --retry 12 --retry-all-errors --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
             --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/2/personal_access_tokens" | jq -r '.token')
+          echo 'grant_type=password&username=violinist-bot&password=0BaHbL8Zp&scope=api%20write_repository' > auth.txt
+          export user_token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
+          echo "User Token retrieved"
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
           curl -v --retry 12 --retry-all-errors --fail --request POST --header "PRIVATE-TOKEN: $pat" \
@@ -136,6 +139,7 @@ jobs:
           done
           echo "token=$token" >> "$GITHUB_OUTPUT"
           echo "pat=$pat" >> "$GITHUB_OUTPUT"
+          echo "user_token=$user_token" >> "$GITHUB_OUTPUT"
         id: setup
         env:
           GIT_AUTHOR_NAME: violinist-bot
@@ -184,7 +188,7 @@ jobs:
           GITHUB_PRIVATE_REPO: ${{ secrets.GH_PRIVATE_REPO }}
           GITLAB_PRIVATE_REPO: ${{ secrets.GITLAB_PRIVATE_REPO }}
           MY_COMMIT: ${{ steps.log.outputs.COMMIT_SHA }}
-          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.pat }}
+          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.user_token }}
           SELF_HOSTED_GITLAB_PRIVATE_REPO: http://172.17.0.1:2200/violinist-bot/new-project
           BITBUCKET_CLIENT_ID: ${{ secrets.BITBUCKET_CLIENT_ID }}
           BITBUCKET_CLIENT_SECRET: ${{ secrets.BITBUCKET_CLIENT_SECRET }}
