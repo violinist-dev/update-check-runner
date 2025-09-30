@@ -3977,13 +3977,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/violinist-dev/licence-check.git",
-                "reference": "c607e6296d98470e638a7045dbc7cf0e2eed7857"
+                "url": "https://github.com/violinist-dev/license-check.git",
+                "reference": "19166affe618bbc1ca815d571af384b67822004f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/licence-check/zipball/c607e6296d98470e638a7045dbc7cf0e2eed7857",
-                "reference": "c607e6296d98470e638a7045dbc7cf0e2eed7857",
+                "url": "https://api.github.com/repos/violinist-dev/license-check/zipball/19166affe618bbc1ca815d571af384b67822004f",
+                "reference": "19166affe618bbc1ca815d571af384b67822004f",
                 "shasum": ""
             },
             "require": {
@@ -4009,10 +4009,10 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "License check for self hosted violinist",
             "support": {
-                "issues": "https://github.com/violinist-dev/licence-check/issues",
-                "source": "https://github.com/violinist-dev/licence-check/tree/main"
+                "issues": "https://github.com/violinist-dev/license-check/issues",
+                "source": "https://github.com/violinist-dev/license-check/tree/main"
             },
-            "time": "2025-02-24T17:13:21+00:00"
+            "time": "2025-09-29T05:15:35+00:00"
         },
         {
             "name": "violinist-dev/process-factory",
