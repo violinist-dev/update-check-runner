@@ -4286,16 +4286,16 @@
         },
         {
             "name": "violinist-dev/violinist-config",
-            "version": "2.9.1",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/violinist-config.git",
-                "reference": "7e35be7665ad761df4071db610f1ba865c93d88b"
+                "reference": "3771daccaaa8e9e3f53e89221b9d1e03415a6c02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/7e35be7665ad761df4071db610f1ba865c93d88b",
-                "reference": "7e35be7665ad761df4071db610f1ba865c93d88b",
+                "url": "https://api.github.com/repos/violinist-dev/violinist-config/zipball/3771daccaaa8e9e3f53e89221b9d1e03415a6c02",
+                "reference": "3771daccaaa8e9e3f53e89221b9d1e03415a6c02",
                 "shasum": ""
             },
             "require": {
@@ -4327,9 +4327,9 @@
             "description": "Get violinist config from composer.json",
             "support": {
                 "issues": "https://github.com/violinist-dev/violinist-config/issues",
-                "source": "https://github.com/violinist-dev/violinist-config/tree/2.9.1"
+                "source": "https://github.com/violinist-dev/violinist-config/tree/2.9.2"
             },
-            "time": "2025-05-05T10:18:30+00:00"
+            "time": "2025-11-23T18:04:01+00:00"
         },
         {
             "name": "violinist-dev/violinist-messages",
@@ -6824,7 +6824,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
