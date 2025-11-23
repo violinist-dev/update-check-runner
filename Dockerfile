@@ -30,9 +30,6 @@ RUN composer require league/flysystem league/mime-type-detection && composer ins
     # Globally require box to compile a phar. We really don't need it as a dependency
     # so we do this in the build step, which is executed in the tests anyway.
     && /usr/local/bin/composer global require humbug/box \
-    && cd /root/.composer/vendor/humbug/box \
-    && patch -p1 < /usr/src/myapp/patches/box-85.patch \
-    && cd /usr/src/myapp \
     && /root/.composer/vendor/bin/box compile
 
 FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
