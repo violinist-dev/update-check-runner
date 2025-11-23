@@ -20,7 +20,7 @@ RUN composer require league/flysystem league/mime-type-detection && composer ins
     && git log --pretty=%h -n1 HEAD | echo "$(cat -)-compiled" > VERSION \
     # Make sure our php is always used.
     && ln -s /usr/local/bin/php vendor/bin/php \
-    # The composer of the PHP base will be just the lowest supported. At the time of 
+    # The composer of the PHP base will be just the lowest supported. At the time of
     # writing this is coincidentally also the highest (we only support Composer version 2)
     # but this has very recently changed, and will probably change again in the future.
     && rm -rf /usr/local/bin/composer \
@@ -30,6 +30,9 @@ RUN composer require league/flysystem league/mime-type-detection && composer ins
     # Globally require box to compile a phar. We really don't need it as a dependency
     # so we do this in the build step, which is executed in the tests anyway.
     && /usr/local/bin/composer global require humbug/box \
+    && cd /root/.composer/vendor/humbug/box \
+    && patch -p1 < /usr/src/myapp/patches/box-85.patch \
+    && cd /usr/src/myapp \
     && /root/.composer/vendor/bin/box compile
 
 FROM ghcr.io/violinist-dev/php-base:${PHP_VERSION}-multi
