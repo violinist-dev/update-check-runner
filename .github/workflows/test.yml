@@ -73,7 +73,7 @@ jobs:
       - name: Configure the GitLab instance
         run: |
           ./vendor/bin/wait-for-listen 2200
-          # From time to time it goes up and down again. Let's verify 
+          # From time to time it goes up and down again. Let's verify
           # 3 times.
           sleep 1
           ./vendor/bin/wait-for-listen 2200
@@ -105,10 +105,48 @@ jobs:
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
           export token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo "Token retrieved"
-          curl -v --fail --request POST --retry 12 --retry-all-errors --header "Authorization: Bearer $token" \
-            --header "Content-Type: application/json" --data '{"email": "test@test.com","password":"0BaHbL8Zp","username":"violinist-bot","name":"violinist-bot","skip_confirmation":true}' \
-            --url http://localhost:2200/api/v4/users
-          echo "User created, trying to create a PAT"
+          # Check if user exists before creating, with retry logic
+          user_attempts=0
+          max_user_attempts=5
+          while true; do
+            # First, check if the user already exists
+            user_check_status=$(curl -s -o /dev/null -w "%{http_code}" --header "Authorization: Bearer $token" \
+              "http://localhost:2200/api/v4/users?username=violinist-bot")
+
+            if [ "$user_check_status" -eq 200 ]; then
+              # User exists, check if we got a result
+              user_exists=$(curl -s --header "Authorization: Bearer $token" \
+                "http://localhost:2200/api/v4/users?username=violinist-bot" | jq -r 'length')
+              if [ "$user_exists" -gt 0 ]; then
+                echo "User violinist-bot already exists"
+                break
+              fi
+            fi
+
+            # User doesn't exist, try to create
+            user_status=$(curl -v --request POST --retry 12 --retry-all-errors --header "Authorization: Bearer $token" \
+              --header "Content-Type: application/json" --data '{"email": "test@test.com","password":"0BaHbL8Zp","username":"violinist-bot","name":"violinist-bot","skip_confirmation":true}' \
+              --url http://localhost:2200/api/v4/users -o /dev/null -w "%{http_code}")
+
+            if [ "$user_status" -eq 201 ]; then
+              echo "User created successfully"
+              break
+            fi
+
+            if [ "$user_status" -eq 409 ]; then
+              echo "User already exists (409)"
+              break
+            fi
+
+            user_attempts=$(($user_attempts+1))
+            if [ ${user_attempts} -ge ${max_user_attempts} ]; then
+              echo "Failed to create user, last status: ${user_status}"
+              exit 1
+            fi
+            echo "User create retry ${user_attempts}/${max_user_attempts}"
+            sleep 5
+          done
+          echo "User ready, trying to create a PAT"
           export pat=$(curl --fail --retry 12 --retry-all-errors --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
             --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/2/personal_access_tokens" | jq -r '.token')
           echo 'grant_type=password&username=violinist-bot&password=0BaHbL8Zp&scope=api%20write_repository' > auth.txt
@@ -116,10 +154,38 @@ jobs:
           echo "User Token retrieved"
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
-          curl -v --retry 12 --retry-all-errors --fail --request POST --header "PRIVATE-TOKEN: $pat" \
-            --header "Content-Type: application/json" --data '{
-            "path": "new-project"}' \
-            --url "http://localhost:2200/api/v4/projects/"
+          project_attempts=0
+          max_project_attempts=5
+          while true; do
+            project_response=$(mktemp)
+            project_status=$(curl -v --request POST --header "PRIVATE-TOKEN: $pat" \
+              --header "Content-Type: application/json" --data '{
+              "path": "new-project"}' \
+              --url "http://localhost:2200/api/v4/projects/" -o "$project_response" -w "%{http_code}")
+            echo "Project creation attempt response: $(cat $project_response)"
+            if [ "$project_status" -eq 201 ]; then
+              echo "Project created successfully"
+              rm -f "$project_response"
+              break
+            fi
+            if [ "$project_status" -eq 409 ] || [ "$project_status" -eq 400 ]; then
+              project_exists=$(curl -s -o /dev/null -w "%{http_code}" --header "PRIVATE-TOKEN: $pat" \
+                "http://localhost:2200/api/v4/projects/violinist-bot%2Fnew-project")
+              if [ "$project_exists" -eq 200 ]; then
+                echo "Project already exists (status: ${project_status})"
+                rm -f "$project_response"
+                break
+              fi
+            fi
+            project_attempts=$(($project_attempts+1))
+            if [ ${project_attempts} -ge ${max_project_attempts} ]; then
+              echo "Failed to create project, last status: ${project_status}"
+              rm -f "$project_response"
+              exit 1
+            fi
+            echo "Project create retry ${project_attempts}/${max_project_attempts}"
+            sleep 5
+          done
           # Create a super simple composer project and push to our new repo.
           mkdir /tmp/test
           cd /tmp/test
