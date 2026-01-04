@@ -157,25 +157,30 @@ jobs:
           project_attempts=0
           max_project_attempts=5
           while true; do
+            project_response=$(mktemp)
             project_status=$(curl -v --request POST --header "PRIVATE-TOKEN: $pat" \
               --header "Content-Type: application/json" --data '{
               "path": "new-project"}' \
-              --url "http://localhost:2200/api/v4/projects/" -o /dev/null -w "%{http_code}")
+              --url "http://localhost:2200/api/v4/projects/" -o "$project_response" -w "%{http_code}")
+            echo "Project creation attempt response: $(cat $project_response)"
             if [ "$project_status" -eq 201 ]; then
               echo "Project created successfully"
+              rm -f "$project_response"
               break
             fi
-            if [ "$project_status" -eq 409 ]; then
+            if [ "$project_status" -eq 409 ] || [ "$project_status" -eq 400 ]; then
               project_exists=$(curl -s -o /dev/null -w "%{http_code}" --header "PRIVATE-TOKEN: $pat" \
                 "http://localhost:2200/api/v4/projects/violinist-bot%2Fnew-project")
               if [ "$project_exists" -eq 200 ]; then
-                echo "Project already exists (409)"
+                echo "Project already exists (status: ${project_status})"
+                rm -f "$project_response"
                 break
               fi
             fi
             project_attempts=$(($project_attempts+1))
             if [ ${project_attempts} -ge ${max_project_attempts} ]; then
               echo "Failed to create project, last status: ${project_status}"
+              rm -f "$project_response"
               exit 1
             fi
             echo "Project create retry ${project_attempts}/${max_project_attempts}"
