@@ -202,6 +202,7 @@ The following PHP extensions are available in the containers (long table, click 
 | gmp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | hash | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | iconv | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| igbinary | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | imagick | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | imap | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | intl | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
