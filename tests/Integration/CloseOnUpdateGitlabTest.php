@@ -56,6 +56,8 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
             $client->repositories()->createCommit($project_id, [
                 'branch' => $branch_name,
                 'start_branch' => 'master',
+                'author_email' => 'test@test.com',
+                'author_name'  => 'violinist-bot',
                 'commit_message' => self::getValidTempCommitMessage(),
                 'actions' => [
                     [
