@@ -28,7 +28,7 @@ jobs:
         env:
           # This password is lifted directly from the GitLab docker docs:
           # https://docs.gitlab.com/ee/install/docker/installation.html#install-gitlab-by-using-docker-swarm-mode
-          GITLAB_OMNIBUS_CONFIG: "gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
+          GITLAB_OMNIBUS_CONFIG: "external_url 'http://localhost'; gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
     strategy:
       fail-fast: true
       max-parallel: 2
