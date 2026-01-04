@@ -105,9 +105,13 @@ jobs:
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
           export token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo "Token retrieved"
-          curl -v --fail --request POST --retry 12 --retry-all-errors --header "Authorization: Bearer $token" \
+          user_status=$(curl -v --request POST --retry 12 --retry-all-errors --header "Authorization: Bearer $token" \
             --header "Content-Type: application/json" --data '{"email": "test@test.com","password":"0BaHbL8Zp","username":"violinist-bot","name":"violinist-bot","skip_confirmation":true}' \
-            --url http://localhost:2200/api/v4/users
+            --url http://localhost:2200/api/v4/users -o /dev/null -w "%{http_code}")
+          if [ "$user_status" -ne 201 ] && [ "$user_status" -ne 409 ]; then
+            echo "Unexpected user creation status: $user_status"
+            exit 1
+          fi
           echo "User created, trying to create a PAT"
           export pat=$(curl --fail --retry 12 --retry-all-errors --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
             --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/2/personal_access_tokens" | jq -r '.token')
@@ -116,10 +120,31 @@ jobs:
           echo "User Token retrieved"
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
-          curl -v --retry 12 --retry-all-errors --fail --request POST --header "PRIVATE-TOKEN: $pat" \
-            --header "Content-Type: application/json" --data '{
-            "path": "new-project"}' \
-            --url "http://localhost:2200/api/v4/projects/"
+          project_attempts=0
+          max_project_attempts=12
+          while true; do
+            project_status=$(curl -v --request POST --header "PRIVATE-TOKEN: $pat" \
+              --header "Content-Type: application/json" --data '{
+              "path": "new-project"}' \
+              --url "http://localhost:2200/api/v4/projects/" -o /dev/null -w "%{http_code}")
+            if [ "$project_status" -eq 201 ]; then
+              break
+            fi
+            if [ "$project_status" -eq 409 ]; then
+              project_exists=$(curl -s -o /dev/null -w "%{http_code}" --header "PRIVATE-TOKEN: $pat" \
+                "http://localhost:2200/api/v4/projects/violinist-bot%2Fnew-project")
+              if [ "$project_exists" -eq 200 ]; then
+                break
+              fi
+            fi
+            project_attempts=$(($project_attempts+1))
+            if [ ${project_attempts} -ge ${max_project_attempts} ]; then
+              echo "Failed to create project, last status: ${project_status}"
+              exit 1
+            fi
+            echo "Project create retry ${project_attempts}/${max_project_attempts}"
+            sleep 5
+          done
           # Create a super simple composer project and push to our new repo.
           mkdir /tmp/test
           cd /tmp/test
