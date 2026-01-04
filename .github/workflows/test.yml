@@ -22,13 +22,13 @@ jobs:
     runs-on: ubuntu-24.04
     services:
       gitlab:
-        image: gitlab/gitlab-ce:18.2.4-ce.0
+        image: gitlab/gitlab-ce:latest
         ports:
           - 2200:80
         env:
           # This password is lifted directly from the GitLab docker docs:
           # https://docs.gitlab.com/ee/install/docker/installation.html#install-gitlab-by-using-docker-swarm-mode
-          GITLAB_OMNIBUS_CONFIG: "gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
+          GITLAB_OMNIBUS_CONFIG: "external_url 'http://localhost'; gitlab_rails['initial_root_password'] = 'MySuperSecretAndSecurePassw0rd!';"
     strategy:
       fail-fast: true
       max-parallel: 2
@@ -105,6 +105,21 @@ jobs:
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
           export token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
           echo "Token retrieved"
+          curl -v --fail --request POST --retry 12 --retry-all-errors --header "Authorization: Bearer $token" \
+            --header "Content-Type: application/json" --data '{"email": "test@test.com","password":"0BaHbL8Zp","username":"violinist-bot","name":"violinist-bot","skip_confirmation":true}' \
+            --url http://localhost:2200/api/v4/users
+          echo "User created, trying to create a PAT"
+          export pat=$(curl --fail --retry 12 --retry-all-errors --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
+            --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/2/personal_access_tokens" | jq -r '.token')
+          echo 'grant_type=password&username=violinist-bot&password=0BaHbL8Zp&scope=api%20write_repository' > auth.txt
+          export user_token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
+          echo "User Token retrieved"
+          # Create a project with the newly created token:
+          #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
+          curl -v --retry 12 --retry-all-errors --fail --request POST --header "PRIVATE-TOKEN: $pat" \
+            --header "Content-Type: application/json" --data '{
+            "path": "new-project"}' \
+            --url "http://localhost:2200/api/v4/projects/"
           # Create a super simple composer project and push to our new repo.
           mkdir /tmp/test
           cd /tmp/test
@@ -113,9 +128,7 @@ jobs:
           git branch -m master
           git add composer.*
           git commit -m init
-          # We could theoretically use the oauth token here as well, but
-          # the tests will do that anyway.
-          git remote add origin http://root:MySuperSecretAndSecurePassw0rd!@localhost:2200/root/new-project
+          git remote add origin http://violinist-bot:$pat@localhost:2200/violinist-bot/new-project
           RETRIES_NO=5
           RETRY_DELAY=3
           for i in $(seq 1 $RETRIES_NO); do
@@ -124,15 +137,15 @@ jobs:
             echo "retrying after $RETRY_DELAY"
             sleep ${RETRY_DELAY}
           done
-          # One of the tests is with a PAT. So create one:
-          # https://docs.gitlab.com/ee/api/user_tokens.html
-          # Todo: Would be nice to instead create a regular user and not use the root 
-          # user here.
-          export pat=$(curl --retry 12 --retry-all-errors --request POST --fail --header "Authorization: Bearer $token" --data "name=mytoken" \
-          --data "scopes[]=api&scopes[]=write_repository" --url "http://localhost:2200/api/v4/users/1/personal_access_tokens" | jq -r '.token')
           echo "token=$token" >> "$GITHUB_OUTPUT"
           echo "pat=$pat" >> "$GITHUB_OUTPUT"
+          echo "user_token=$user_token" >> "$GITHUB_OUTPUT"
         id: setup
+        env:
+          GIT_AUTHOR_NAME: violinist-bot
+          GIT_AUTHOR_EMAIL: test@test.com
+          GIT_COMMITTER_NAME: violinist-bot
+          GIT_COMMITTER_EMAIL: test@test.com
 
       - name: Build test image
         run: docker build --build-arg COMPOSER_VERSION=$COMPOSER_VERSION --build-arg PHP_VERSION=$PHP_VERSION -t update-check-runner .
@@ -175,8 +188,8 @@ jobs:
           GITHUB_PRIVATE_REPO: ${{ secrets.GH_PRIVATE_REPO }}
           GITLAB_PRIVATE_REPO: ${{ secrets.GITLAB_PRIVATE_REPO }}
           MY_COMMIT: ${{ steps.log.outputs.COMMIT_SHA }}
-          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.token }}
-          SELF_HOSTED_GITLAB_PRIVATE_REPO: http://172.17.0.1:2200/root/new-project
+          SELF_HOSTED_GITLAB_PRIVATE_USER_TOKEN: ${{ steps.setup.outputs.user_token }}
+          SELF_HOSTED_GITLAB_PRIVATE_REPO: http://172.17.0.1:2200/violinist-bot/new-project
           BITBUCKET_CLIENT_ID: ${{ secrets.BITBUCKET_CLIENT_ID }}
           BITBUCKET_CLIENT_SECRET: ${{ secrets.BITBUCKET_CLIENT_SECRET }}
           BITBUCKET_REDIRECT_URI: ${{ secrets.BITBUCKET_REDIRECT_URI }}
