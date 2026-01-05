@@ -124,9 +124,10 @@ jobs:
             fi
 
             # User doesn't exist, try to create
-            user_status=$(curl -v --request POST --retry 12 --retry-all-errors --header "Authorization: Bearer $token" \
+            user_response=$(mktemp)
+            user_status=$(curl -v --request POST --header "Authorization: Bearer $token" \
               --header "Content-Type: application/json" --data '{"email": "test@test.com","password":"0BaHbL8Zp","username":"violinist-bot","name":"violinist-bot","skip_confirmation":true}' \
-              --url http://localhost:2200/api/v4/users -o /dev/null -w "%{http_code}")
+              --url http://localhost:2200/api/v4/users -o "$user_response" -w "%{http_code}")
 
             if [ "$user_status" -eq 201 ]; then
               echo "User created successfully"
