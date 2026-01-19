@@ -125,6 +125,15 @@ if (!empty($_SERVER['LICENCE_KEY'])) {
             create_output_and_exit($pre_run_messages, 1);
         }
         $pre_run_messages[] = new Message('Licence key expiry: ' . date('c', $checked->getPayload()->getExpiry()), Message::COMMAND);
+        $expiry = $checked->getPayload()->getExpiry();
+        if ($expiry < time()) {
+            $pre_run_messages[] = new Message('Licence key has expired.', Message::ERROR);
+            create_output_and_exit($pre_run_messages, 1);
+        }
+        $one_month_from_now = time() + (30 * 24 * 60 * 60);
+        if ($expiry < $one_month_from_now) {
+            $pre_run_messages[] = new Message('WARNING: Licence key expires in less than 30 days.');
+        }
         $data = $checked->getPayload()->getData();
         $pre_run_messages[] = new Message('Licence key data: ' . json_encode($data), Message::COMMAND);
         if (empty($data['is_saas'])) {
