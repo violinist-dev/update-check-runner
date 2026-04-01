@@ -42,9 +42,11 @@ jobs:
           - "8.3"
           - "8.4"
           - "8.5"
-        composer-version:
-          - "2"
-          - "preview"
+        composer:
+          - version: "2"
+            self-update: "2"
+          - version: "2"
+            self-update: "preview"
     steps:
       - name: Dump matrix context
         env:
@@ -60,7 +62,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Update composer
-        run: composer --verbose self-update --${{ matrix.composer-version }}
+        run: composer --verbose self-update --${{ matrix.composer.self-update }}
 
       - name: Dump composer verson
         run: composer --version
@@ -216,9 +218,10 @@ jobs:
           GIT_COMMITTER_EMAIL: test@test.com
 
       - name: Build test image
-        run: docker build --build-arg COMPOSER_VERSION=$COMPOSER_VERSION --build-arg PHP_VERSION=$PHP_VERSION -t update-check-runner .
+        run: docker build --build-arg COMPOSER_VERSION=$COMPOSER_VERSION --build-arg COMPOSER_SELF_UPDATE=$COMPOSER_SELF_UPDATE --build-arg PHP_VERSION=$PHP_VERSION -t update-check-runner .
         env:
-          COMPOSER_VERSION: ${{ matrix.composer-version }}
+          COMPOSER_VERSION: ${{ matrix.composer.version }}
+          COMPOSER_SELF_UPDATE: ${{ matrix.composer.self-update }}
           PHP_VERSION: ${{ matrix.php-version }}
       - name: Run phpstan
         run: composer phpstan
@@ -250,7 +253,8 @@ jobs:
       - name: Run tests
         run: ./vendor/bin/phpunit
         env:
-          COMPOSER_VERSION: ${{ matrix.composer-version }}
+          COMPOSER_VERSION: ${{ matrix.composer.version }}
+          COMPOSER_SELF_UPDATE: ${{ matrix.composer.self-update }}
           PHP_VERSION: ${{ matrix.php-version }}
           GITHUB_PRIVATE_USER_TOKEN: ${{ secrets.GH_PRIVATE_USER_TOKEN }}
           GITHUB_PRIVATE_REPO: ${{ secrets.GH_PRIVATE_REPO }}
