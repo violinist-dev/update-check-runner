@@ -44,6 +44,7 @@ jobs:
           - "8.5"
         composer-version:
           - "2"
+          - "2.10RC1"
     steps:
       - name: Dump matrix context
         env:
