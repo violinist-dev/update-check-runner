@@ -21,6 +21,7 @@ jobs:
           USER_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
           PROJECT_URL: ${{ github.repositoryUrl }}
           LICENCE_KEY: ${{ secrets.VALID_CI_LICENCE }}
+          USE_CLOSE_NO_LONGER_RELEVANT: 1
       - name: Fetch the output
         env:
           JSON_OUTPUT: ${{ steps.update.outputs.json }}
