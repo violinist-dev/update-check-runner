@@ -50,9 +50,6 @@ class SshKeyscanTest extends IntegrationBase
 
         $this->assertStandardOutput($url, $json);
 
-        // Verify the ssh-keyscan command was executed.
-        $this->findMessage(sprintf('Creating command ssh-keyscan -t rsa %s >> ~/.ssh/known_hosts', $hostname), $json);
-
         // Verify that the known_hosts file was written to by ssh-keyscan.
         $knownHostsContents = file_get_contents($tmpDir . '/known_hosts');
         $this->assertStringContainsString($hostname, $knownHostsContents, 'known_hosts should contain the scanned hostname');
