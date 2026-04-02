@@ -53,9 +53,9 @@ class SshKeyscanTest extends IntegrationBase
         // Verify the ssh-keyscan command was executed.
         $this->findMessage(sprintf('Creating command ssh-keyscan -t rsa %s >> ~/.ssh/known_hosts', $hostname), $json);
 
-        // Verify that the keyscan output was captured in the Docker stderr,
-        // which confirms ssh-keyscan actually ran and contacted the host.
-        $this->assertStringContainsString($hostname, $process->getErrorOutput(), 'ssh-keyscan stderr should reference the scanned hostname');
+        // Verify that the known_hosts file was written to by ssh-keyscan.
+        $knownHostsContents = file_get_contents($tmpDir . '/known_hosts');
+        $this->assertStringContainsString($hostname, $knownHostsContents, 'known_hosts should contain the scanned hostname');
 
         // Clean up.
         @unlink($tmpDir . '/known_hosts');
