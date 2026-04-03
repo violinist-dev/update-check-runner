@@ -106,8 +106,23 @@ jobs:
           # Get an oauth token to use in subsequent calls:
           # https://docs.gitlab.com/ee/api/oauth2.html#resource-owner-password-credentials-flow
           echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
-          export token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
-          echo "Token retrieved"
+          token_attempts=0
+          max_token_attempts=10
+          while true; do
+            token_response=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST -s "http://localhost:2200/oauth/token")
+            export token=$(echo "$token_response" | jq -r '.access_token' 2>/dev/null)
+            if [ -n "$token" ] && [ "$token" != "null" ]; then
+              echo "Token retrieved"
+              break
+            fi
+            token_attempts=$(($token_attempts+1))
+            if [ ${token_attempts} -ge ${max_token_attempts} ]; then
+              echo "Failed to retrieve token after ${max_token_attempts} attempts. Last response: ${token_response}"
+              exit 1
+            fi
+            echo "Token retrieval retry ${token_attempts}/${max_token_attempts}"
+            sleep 5
+          done
           # Check if user exists before creating, with retry logic
           user_attempts=0
           max_user_attempts=5
@@ -151,11 +166,42 @@ jobs:
             sleep 5
           done
           echo "User ready, trying to create a PAT"
-          export pat=$(curl --fail --retry 12 --retry-all-errors --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
-            --data "scopes[]=api&scopes[]=write_repository" "http://localhost:2200/api/v4/users/2/personal_access_tokens" | jq -r '.token')
+          pat_attempts=0
+          max_pat_attempts=10
+          while true; do
+            pat_response=$(curl --retry 12 --retry-all-errors --request POST --header "Authorization: Bearer $token" --data "name=mytoken" \
+              --data "scopes[]=api&scopes[]=write_repository" -s "http://localhost:2200/api/v4/users/2/personal_access_tokens")
+            export pat=$(echo "$pat_response" | jq -r '.token' 2>/dev/null)
+            if [ -n "$pat" ] && [ "$pat" != "null" ]; then
+              echo "PAT retrieved"
+              break
+            fi
+            pat_attempts=$(($pat_attempts+1))
+            if [ ${pat_attempts} -ge ${max_pat_attempts} ]; then
+              echo "Failed to retrieve PAT after ${max_pat_attempts} attempts. Last response: ${pat_response}"
+              exit 1
+            fi
+            echo "PAT retrieval retry ${pat_attempts}/${max_pat_attempts}"
+            sleep 5
+          done
           echo 'grant_type=password&username=violinist-bot&password=0BaHbL8Zp&scope=api%20write_repository' > auth.txt
-          export user_token=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST --fail "http://localhost:2200/oauth/token" | jq -r '.access_token')
-          echo "User Token retrieved"
+          user_token_attempts=0
+          max_user_token_attempts=10
+          while true; do
+            user_token_response=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST -s "http://localhost:2200/oauth/token")
+            export user_token=$(echo "$user_token_response" | jq -r '.access_token' 2>/dev/null)
+            if [ -n "$user_token" ] && [ "$user_token" != "null" ]; then
+              echo "User Token retrieved"
+              break
+            fi
+            user_token_attempts=$(($user_token_attempts+1))
+            if [ ${user_token_attempts} -ge ${max_user_token_attempts} ]; then
+              echo "Failed to retrieve user token after ${max_user_token_attempts} attempts. Last response: ${user_token_response}"
+              exit 1
+            fi
+            echo "User token retrieval retry ${user_token_attempts}/${max_user_token_attempts}"
+            sleep 5
+          done
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
           project_attempts=0
