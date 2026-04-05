@@ -3942,16 +3942,16 @@
         },
         {
             "name": "violinist-dev/git-log-format",
-            "version": "1.1.3",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/git-log-format.git",
-                "reference": "9957872108bb3f9f125ae327bd26515775462bec"
+                "reference": "31d1c31197bdbc5a85f608fcd057f015fb1b985f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/9957872108bb3f9f125ae327bd26515775462bec",
-                "reference": "9957872108bb3f9f125ae327bd26515775462bec",
+                "url": "https://api.github.com/repos/violinist-dev/git-log-format/zipball/31d1c31197bdbc5a85f608fcd057f015fb1b985f",
+                "reference": "31d1c31197bdbc5a85f608fcd057f015fb1b985f",
                 "shasum": ""
             },
             "require-dev": {
@@ -3972,9 +3972,9 @@
             "description": "Format changelog-like git logs",
             "support": {
                 "issues": "https://github.com/violinist-dev/git-log-format/issues",
-                "source": "https://github.com/violinist-dev/git-log-format/tree/1.1.3"
+                "source": "https://github.com/violinist-dev/git-log-format/tree/1.2.0"
             },
-            "time": "2024-09-11T15:40:23+00:00"
+            "time": "2026-04-05T05:40:01+00:00"
         },
         {
             "name": "violinist-dev/licence-check",
