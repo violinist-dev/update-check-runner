@@ -205,6 +205,12 @@ try {
     // We tried.
 }
 
+// Make sure USE_CLOSE_NO_LONGER_RELEVANT is available via getenv(), since the
+// library checks it with getenv() but it may only be set in $_SERVER.
+if (!empty($_SERVER['USE_CLOSE_NO_LONGER_RELEVANT'])) {
+    putenv('USE_CLOSE_NO_LONGER_RELEVANT=' . $_SERVER['USE_CLOSE_NO_LONGER_RELEVANT']);
+}
+
 // Keep track of what status code we should exit with.
 $code = 0;
 try {
