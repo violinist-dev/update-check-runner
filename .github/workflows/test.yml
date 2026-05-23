@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-24.04
     services:
       gitlab:
-        image: gitlab/gitlab-ce:18.11.3-ce.0
+        image: gitlab/gitlab-ce:latest
         ports:
           - 2200:80
         env:
@@ -103,24 +103,27 @@ jobs:
             attempt_counter=$(($attempt_counter+1))
             sleep 5
           done
-          # Get an oauth token to use in subsequent calls:
-          # https://docs.gitlab.com/ee/api/oauth2.html#resource-owner-password-credentials-flow
-          echo 'grant_type=password&username=root&password=MySuperSecretAndSecurePassw0rd!&scope=api%20write_repository' > auth.txt
+          # Create a root personal access token using gitlab-rails runner.
+          # The ROPC OAuth flow (grant_type=password) was removed in GitLab 19.0.
+          GITLAB_CONTAINER=$(docker ps -q --filter "publish=2200" | head -1)
           token_attempts=0
           max_token_attempts=10
           while true; do
-            token_response=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST -s "http://localhost:2200/oauth/token")
-            export token=$(echo "$token_response" | jq -r '.access_token' 2>/dev/null)
-            if [ -n "$token" ] && [ "$token" != "null" ]; then
-              echo "Token retrieved"
+            export token=$(docker exec "$GITLAB_CONTAINER" gitlab-rails runner "
+              user = User.find_by_username('root')
+              token = user.personal_access_tokens.create!(name: 'ci-root', scopes: ['api', 'write_repository'], expires_at: 1.day.from_now)
+              puts token.token
+            " 2>/dev/null | tail -1)
+            if [ -n "$token" ] && [ ${#token} -gt 10 ]; then
+              echo "Root PAT created"
               break
             fi
             token_attempts=$(($token_attempts+1))
             if [ ${token_attempts} -ge ${max_token_attempts} ]; then
-              echo "Failed to retrieve token after ${max_token_attempts} attempts. Last response: ${token_response}"
+              echo "Failed to create root PAT after ${max_token_attempts} attempts"
               exit 1
             fi
-            echo "Token retrieval retry ${token_attempts}/${max_token_attempts}"
+            echo "Root PAT creation retry ${token_attempts}/${max_token_attempts}"
             sleep 5
           done
           # Check if user exists before creating, with retry logic
@@ -184,24 +187,8 @@ jobs:
             echo "PAT retrieval retry ${pat_attempts}/${max_pat_attempts}"
             sleep 5
           done
-          echo 'grant_type=password&username=violinist-bot&password=0BaHbL8Zp&scope=api%20write_repository' > auth.txt
-          user_token_attempts=0
-          max_user_token_attempts=10
-          while true; do
-            user_token_response=$(curl --retry 12 --retry-all-errors --data "@auth.txt" --request POST -s "http://localhost:2200/oauth/token")
-            export user_token=$(echo "$user_token_response" | jq -r '.access_token' 2>/dev/null)
-            if [ -n "$user_token" ] && [ "$user_token" != "null" ]; then
-              echo "User Token retrieved"
-              break
-            fi
-            user_token_attempts=$(($user_token_attempts+1))
-            if [ ${user_token_attempts} -ge ${max_user_token_attempts} ]; then
-              echo "Failed to retrieve user token after ${max_user_token_attempts} attempts. Last response: ${user_token_response}"
-              exit 1
-            fi
-            echo "User token retrieval retry ${user_token_attempts}/${max_user_token_attempts}"
-            sleep 5
-          done
+          # Use the PAT as the user token (the ROPC OAuth flow was removed in GitLab 19.0).
+          export user_token=$pat
           # Create a project with the newly created token:
           #  https://docs.gitlab.com/ee/api/projects.html#create-a-project
           project_attempts=0
@@ -284,7 +271,7 @@ jobs:
 
       - name: Dump modules and ensure no diff
         run: |
-          rm auth.txt
+          rm -f auth.txt
           docker run --rm update-check-runner php -m > module-list/${{ matrix.php-version }}.txt
           git status
           cat module-list/${{ matrix.php-version }}.txt
