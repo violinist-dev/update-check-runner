@@ -84,3 +84,11 @@ jobs:
         if: always() && github.event_name != 'pull_request'
         run: |
           rm -f ${HOME}/.docker/config.json
+
+  webhook:
+    needs: buildx
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify webhook
+        run: curl -sS -o /dev/null -w "%{http_code}" "${{ secrets.WEBHOOK_URL }}"
