@@ -36,6 +36,11 @@
       "cweagans/composer-patches": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
     },
+    "policy": {
+      "advisories": {
+        "block": false
+      }
+    },
     "sort-packages": true
   },
   "extra": {
