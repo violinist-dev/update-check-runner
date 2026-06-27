@@ -58,7 +58,7 @@ Copy the URL of the repository you want to check for updates. For the purpose of
 ### 1. Obtain an access token
 
 - For GitHub visit [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
-- For Bitbucket visit [https://bitbucket.org/account/settings/api-tokens](https://bitbucket.org/account/settings/api-tokens).
+- For Bitbucket visit [https://id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens).
 - For Gitlab visit [https://gitlab.com/-/user_settings/personal_access_tokens](https://gitlab.com/-/user_settings/personal_access_tokens)
 - For self hosted Gitlab visit [https://gitlab.example.com/-/user_settings/personal_access_tokens](https://gitlab.example.com/-/user_settings/personal_access_tokens) (replace with your own domain)
 
