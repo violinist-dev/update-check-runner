@@ -4116,16 +4116,16 @@
         },
         {
             "name": "violinist-dev/repo-and-token-to-clone-url",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/violinist-dev/repo-and-token-to-clone-url.git",
-                "reference": "3671fd195f3b481c074769ca876414c683b28fee"
+                "reference": "2e69e9ddb505c28e5044dbd76fa7edec82eebe24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/violinist-dev/repo-and-token-to-clone-url/zipball/3671fd195f3b481c074769ca876414c683b28fee",
-                "reference": "3671fd195f3b481c074769ca876414c683b28fee",
+                "url": "https://api.github.com/repos/violinist-dev/repo-and-token-to-clone-url/zipball/2e69e9ddb505c28e5044dbd76fa7edec82eebe24",
+                "reference": "2e69e9ddb505c28e5044dbd76fa7edec82eebe24",
                 "shasum": ""
             },
             "require": {
@@ -4157,9 +4157,9 @@
             "description": "Given a repo and a token, what URL can you use to clone via https",
             "support": {
                 "issues": "https://github.com/violinist-dev/repo-and-token-to-clone-url/issues",
-                "source": "https://github.com/violinist-dev/repo-and-token-to-clone-url/tree/1.0.2"
+                "source": "https://github.com/violinist-dev/repo-and-token-to-clone-url/tree/1.1.0"
             },
-            "time": "2026-06-24T19:05:52+00:00"
+            "time": "2026-06-27T15:00:09+00:00"
         },
         {
             "name": "violinist-dev/slug-from-url",
