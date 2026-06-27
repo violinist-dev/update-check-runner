@@ -46,7 +46,7 @@ docker run \
   --pull=always \
   -e "LICENCE_KEY=my_key" \
   -e "PROJECT_URL=https://bitbucket.org/org/project/repo" \
-  -e "USER_TOKEN=myusername:app_p455w0rd" \
+  -e "USER_TOKEN=you@example.com:ATATT3xFfGF0T_aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890=A1B2C3D4" \
   ghcr.io/violinist-dev/update-check-runner:8.3-multi-composer-2
 ```
 </details>
@@ -63,6 +63,8 @@ Copy the URL of the repository you want to check for updates. For the purpose of
 - For self hosted Gitlab visit [https://gitlab.example.com/-/user_settings/personal_access_tokens](https://gitlab.example.com/-/user_settings/personal_access_tokens) (replace with your own domain)
 
 For the purpose of this quick start guide let's assume the token is `glpat-jjYgGb_1npvkiHTdnM`.
+
+> 🚨️ For Bitbucket your token should include both your email and your API token separated with a colon (`:`). For example `you@example.com:ATATT3xFfGF0T_aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890=A1B2C3D4`.
 
 ### 2. Obtain a license key from violinist.io
 
