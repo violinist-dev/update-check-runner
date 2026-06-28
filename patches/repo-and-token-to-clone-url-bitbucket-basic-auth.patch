@@ -1,0 +1,37 @@
+--- a/src/ToCloneUrl.php
++++ b/src/ToCloneUrl.php
+@@ -101,25 +101,18 @@ final class ToCloneUrl
+     private static function replaceForBitbucket(string $authToken, string $path)
+     {
+         // Split on the first colon to separate an optional username/email
+         // prefix from the actual token value.
+         $colonPos = strpos($authToken, ':');
+         if ($colonPos !== false) {
+             $prefix = substr($authToken, 0, $colonPos);
+             $token  = substr($authToken, $colonPos + 1);
+         } else {
+             $prefix = null;
+             $token  = $authToken;
+         }
+
+-        // Atlassian API tokens start with ATAT and require a specific username
+-        // in the URL, regardless of any username/email prefix supplied by the caller.
+-        if (strpos($token, 'ATAT') === 0) {
+-            $repo_path = sprintf(
+-                'https://x-bitbucket-api-token-auth:%s@bitbucket.org%s',
+-                $token,
+-                $path
+-            );
+-        } elseif ($prefix !== null) {
+-            // Username or email prefix with a regular token: use as user:pass.
+-            // Encode the prefix so that email addresses (containing "@") are
+-            // safe to embed in a URL.
++        if ($prefix !== null) {
++            // Username or email prefix: use as user:pass via HTTP Basic Auth.
++            // Encode the prefix so that email addresses (containing "@") are
++            // safe to embed in a URL. This covers Atlassian API tokens
++            // (ATATT...) supplied as email:token pairs, which is the format
++            // Bitbucket requires since app passwords were deprecated (CHANGE-3222).
+             $repo_path = sprintf(
+                 'https://%s:%s@bitbucket.org%s',
+                 rawurlencode($prefix),

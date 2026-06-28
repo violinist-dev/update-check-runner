@@ -53,6 +53,9 @@
       },
       "m4tthumphrey/php-gitlab-api": {
         "PHP 8.4 fixes (https://github.com/GitLabPHP/Client/pull/819)": "./patches/819-2.diff"
+      },
+      "violinist-dev/repo-and-token-to-clone-url": {
+        "Use HTTP Basic Auth for Bitbucket API tokens instead of x-bitbucket-api-token-auth (CHANGE-3222)": "./patches/repo-and-token-to-clone-url-bitbucket-basic-auth.patch"
       }
     }
   }
