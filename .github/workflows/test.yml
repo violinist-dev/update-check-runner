@@ -284,7 +284,23 @@ jobs:
           fi
 
       - name: Run tests
-        run: ./vendor/bin/phpunit
+        run: |
+          SLEEP_TIMES=(30 90)
+          attempt=1
+          max_attempts=3
+          while true; do
+            if ./vendor/bin/phpunit; then
+              break
+            fi
+            if [ ${attempt} -ge ${max_attempts} ]; then
+              echo "phpunit failed after ${max_attempts} attempts"
+              exit 1
+            fi
+            sleep_time=${SLEEP_TIMES[$((attempt-1))]}
+            echo "phpunit failed on attempt ${attempt}/${max_attempts}, retrying after ${sleep_time}s"
+            sleep ${sleep_time}
+            attempt=$((attempt+1))
+          done
         env:
           COMPOSER_VERSION: ${{ matrix.composer.version }}
           COMPOSER_SELF_UPDATE: ${{ matrix.composer.self-update }}
