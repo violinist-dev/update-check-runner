@@ -23,7 +23,7 @@ jobs:
       GIT_AUTHOR_EMAIL: violinistdevio@gmail.com
       GIT_COMMITTER_NAME: violinist-bot
       GIT_COMMITTER_EMAIL: violinistdevio@gmail.com
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     services:
       gitlab:
         image: gitlab/gitlab-ce:latest
