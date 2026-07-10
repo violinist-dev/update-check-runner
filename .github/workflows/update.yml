@@ -17,7 +17,7 @@ jobs:
     name: Run update checks and create PRs
     runs-on: ubuntu-latest
     steps:
-      - uses: violinist-dev/update-action@1.x
+      - uses: violinist-dev/update-action@c95a90b15fcd095303ac7ec34723a0094542a84a # 1.x
         id: update
         with: 
           php_version: "7.3"
