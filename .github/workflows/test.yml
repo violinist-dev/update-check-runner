@@ -37,6 +37,7 @@ jobs:
       fail-fast: true
       max-parallel: 2
       matrix:
+        php-version:
           - "7.4"
           - "8.0"
           - "8.1"
