@@ -20,6 +20,7 @@ gettext
 gmp
 hash
 iconv
+igbinary
 imagick
 imap
 intl
