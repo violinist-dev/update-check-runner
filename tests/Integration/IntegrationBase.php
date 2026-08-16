@@ -131,27 +131,31 @@ abstract class IntegrationBase extends TestCase
     {
         $process = $this->getProcessAndRun($token, $url, $other_env);
         $json = @json_decode($process->getOutput());
-        if (empty($json)) {
-            var_export($process->getOutput());
-            var_export($process->getErrorOutput());
-        }
-        $this->assertFalse(empty($json));
+        $this->assertFalse(empty($json), $this->buildJsonDecodeFailureMessage($process));
         return $json;
     }
 
     protected function getProcessAndRunWithoutError($token, $url, $other_env = []) : array
     {
         $process = $this->getProcessAndRun($token, $url, $other_env);
-        if ($process->getExitCode()) {
-            var_export($process->getOutput());
-        }
-        $this->assertEquals(0, $process->getExitCode(), 'Docker did not exit with exit code 0');
+        $this->assertEquals(0, $process->getExitCode(), sprintf(
+            "Docker did not exit with exit code 0. Exit code: %d\nStdout:\n%s\nStderr:\n%s",
+            $process->getExitCode(),
+            $process->getOutput(),
+            $process->getErrorOutput()
+        ));
         $json = @json_decode($process->getOutput());
-        if (empty($json)) {
-            print_r($process->getOutput());
-        }
-        $this->assertFalse(empty($json));
+        $this->assertFalse(empty($json), $this->buildJsonDecodeFailureMessage($process));
         return $json;
+    }
+
+    private function buildJsonDecodeFailureMessage(Process $process) : string
+    {
+        return sprintf(
+            "The process output could not be decoded as JSON.\nStdout:\n%s\nStderr:\n%s",
+            $process->getOutput(),
+            $process->getErrorOutput()
+        );
     }
 
     protected function getGitlabToken(string $url) : string
