@@ -276,16 +276,16 @@
         },
         {
             "name": "eiriksm/cosy-composer",
-            "version": "1.4.11",
+            "version": "1.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eiriksm/cosy-composer.git",
-                "reference": "080d61de49d7d25c7b7bcf4c1068ca814c254216"
+                "reference": "d2d3b6a0560286755483f3311cc4ac35b1abaa77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/080d61de49d7d25c7b7bcf4c1068ca814c254216",
-                "reference": "080d61de49d7d25c7b7bcf4c1068ca814c254216",
+                "url": "https://api.github.com/repos/eiriksm/cosy-composer/zipball/d2d3b6a0560286755483f3311cc4ac35b1abaa77",
+                "reference": "d2d3b6a0560286755483f3311cc4ac35b1abaa77",
                 "shasum": ""
             },
             "require": {
@@ -337,9 +337,9 @@
             "description": "Library that runs updates for Violinist",
             "support": {
                 "issues": "https://github.com/eiriksm/cosy-composer/issues",
-                "source": "https://github.com/eiriksm/cosy-composer/tree/1.4.11"
+                "source": "https://github.com/eiriksm/cosy-composer/tree/1.4.12"
             },
-            "time": "2026-09-20T15:03:05+00:00"
+            "time": "2026-09-20T18:54:52+00:00"
         },
         {
             "name": "eiriksm/gitinfo",
