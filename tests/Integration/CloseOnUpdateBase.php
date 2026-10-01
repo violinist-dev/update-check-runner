@@ -57,4 +57,15 @@ update_data:
         }
         return $pr_closed_found && $pr_closed_success_found;
     }
+
+    public static function hasBranchDeletedSuccess($json, $branch_name)
+    {
+        $expected_message = sprintf('Successfully deleted branch %s after closing PR', $branch_name);
+        foreach ($json as $item) {
+            if (strpos($item->message, $expected_message) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
