@@ -72,6 +72,9 @@ jobs:
         run: composer --version
 
       - name: Validate composer.json
+        # The lock is generated with Composer 2.11 (preview), which computes the
+        # content-hash differently than 2.10 stable. Remove once 2.11 is stable.
+        continue-on-error: ${{ matrix.composer.self-update != 'preview' }}
         run: composer --verbose validate
 
       - name: Install dependencies
