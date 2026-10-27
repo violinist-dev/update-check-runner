@@ -21,6 +21,24 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
             ]);
     }
 
+    protected function assertBranchDeleted($branch_name) : void
+    {
+        $slug = Slug::createFromUrl($this->url);
+        $response = $this->client->request('GET', sprintf(
+            'https://api.bitbucket.org/2.0/repositories/%s/%s/refs/branches/%s',
+            $slug->getUserName(),
+            $slug->getUserRepo(),
+            rawurlencode($branch_name)
+        ), [
+            'headers' => $this->headers,
+            'http_errors' => false,
+        ]);
+        self::assertSame(404, $response->getStatusCode(), sprintf(
+            'Expected branch %s to have been deleted',
+            $branch_name
+        ));
+    }
+
     public function testPrsClosedBitbucket(&$retries = 0)
     {
         sleep(random_int(15, 45));
@@ -102,5 +120,10 @@ class CloseOnUpdateBitbucketTest extends CloseOnUpdateBase
             var_dump([$e->getMessage(), $e->getTraceAsString()]);
         }
         self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
+        self::assertTrue(
+            self::hasBranchDeletedSuccess($json, $this->branchName),
+            'The runner did not report that the superseded branch was deleted'
+        );
+        $this->assertBranchDeleted($this->branchName);
     }
 }
