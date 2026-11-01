@@ -15,14 +15,40 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
      */
     protected $client;
 
+    protected function getBranchSlug() : Slug
+    {
+        return Slug::createFromUrl($this->url);
+    }
+
+    protected function getPullRequestHead() : string
+    {
+        return $this->branchName;
+    }
+
     protected function deleteBranch($branch_name)
     {
-        $slug = Slug::createFromUrl($this->url);
+        $slug = $this->getBranchSlug();
         $token = $this->token;
         $this->client->authenticate($token, null, AuthMethod::ACCESS_TOKEN);
         /** @var \Github\Api\GitData $git */
         $git = $this->client->api('git');
         $git->references()->remove($slug->getUserName(), $slug->getUserRepo(), sprintf('heads/%s', $branch_name));
+    }
+
+    protected function assertBranchDeleted($branch_name) : void
+    {
+        $slug = $this->getBranchSlug();
+        /** @var \Github\Api\GitData $git */
+        $git = $this->client->api('git');
+        try {
+            $git->references()->show($slug->getUserName(), $slug->getUserRepo(), sprintf('heads/%s', $branch_name));
+        } catch (\Throwable $e) {
+            if ((int) $e->getCode() === 404) {
+                return;
+            }
+            throw $e;
+        }
+        self::fail(sprintf('Expected branch %s to have been deleted', $branch_name));
     }
 
     public function setUp() : void
@@ -37,6 +63,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
     {
         sleep(random_int(15, 45));
         $slug = Slug::createFromUrl($this->url);
+        $branch_slug = $this->getBranchSlug();
         try {
             $this->deleteBranch($this->branchName);
         } catch (\Throwable $e) {
@@ -50,12 +77,12 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             $repo = $client->api('repo');
             $info = $repo->show($slug->getUserName(), $slug->getUserRepo());
             $default_branch = $info['default_branch'];
-            $branch = $repo->branches($slug->getUserName(), $slug->getUserRepo(), $default_branch);
+            $branch = $repo->branches($branch_slug->getUserName(), $branch_slug->getUserRepo(), $default_branch);
             $sha = $branch["commit"]["sha"];
             /** @var \Github\Api\GitData $api */
             $api = $client->api('git');
             $tree = [];
-            $data = $api->blobs()->create($slug->getUserName(), $slug->getUserRepo(), [
+            $data = $api->blobs()->create($branch_slug->getUserName(), $branch_slug->getUserRepo(), [
                 'content' => 'temp file',
                 'encoding' => 'utf-8',
             ]);
@@ -65,14 +92,14 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
                 'type' => 'blob',
                 'path' => 'test.txt',
             ];
-            $data = $api->trees()->create($slug->getUserName(), $slug->getUserRepo(), [
+            $data = $api->trees()->create($branch_slug->getUserName(), $branch_slug->getUserRepo(), [
                 'tree' => $tree,
                 'base_tree' => $sha,
                 'parents' => [
                     $sha,
                 ],
             ]);
-            $data = $api->commits()->create($slug->getUserName(), $slug->getUserRepo(), [
+            $data = $api->commits()->create($branch_slug->getUserName(), $branch_slug->getUserRepo(), [
                 'message' => self::getValidTempCommitMessage(),
                 'tree' => $data["sha"],
                 'parents' => [
@@ -80,7 +107,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
                 ],
             ]);
             $branch_name = $this->branchName;
-            $data = $api->references()->create($slug->getUserName(), $slug->getUserRepo(), [
+            $data = $api->references()->create($branch_slug->getUserName(), $branch_slug->getUserRepo(), [
                 'ref' => 'refs/heads/' . $branch_name,
                 'sha' => $data['sha'],
                 'force' => true,
@@ -91,7 +118,7 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             $prs = $client->api('pull_request');
             $data = $prs->create($user_name, $user_repo, [
                 'base'  => $default_branch,
-                'head'  => $branch_name,
+                'head'  => $this->getPullRequestHead(),
                 'title' => 'test temp pr',
                 'body'  => 'test temp pr',
             ]);
@@ -111,6 +138,11 @@ class CloseOnUpdateGithubTest extends CloseOnUpdateBase
             var_dump([$e->getMessage(), $e->getTraceAsString()]);
         }
         self::assertTrue($closed_with_success, 'PR was not both attempted and succeeded with being closed');
+        self::assertTrue(
+            self::hasBranchDeletedSuccess($json, $this->branchName),
+            'The runner did not report that the superseded branch was deleted'
+        );
+        $this->assertBranchDeleted($this->branchName);
     }
 
     protected function getExtraParams()
