@@ -25,6 +25,19 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
         $this->client->repositories()->deleteBranch($this->getProjectId(), $branch_name);
     }
 
+    protected function assertBranchDeleted($branch_name) : void
+    {
+        try {
+            $this->client->repositories()->branch($this->getProjectId(), $branch_name);
+        } catch (\Throwable $e) {
+            if ((int) $e->getCode() === 404) {
+                return;
+            }
+            throw $e;
+        }
+        self::fail(sprintf('Expected branch %s to have been deleted', $branch_name));
+    }
+
     protected function handleAfterAuthenticate(GitlabClient $client)
     {
     }
@@ -94,5 +107,10 @@ class CloseOnUpdateGitlabTest extends CloseOnUpdateBase
             var_dump([$e->getMessage(), $e->getTraceAsString()]);
         }
         self::assertTrue($has_it);
+        self::assertTrue(
+            self::hasBranchDeletedSuccess($json, $this->branchName),
+            'The runner did not report that the superseded branch was deleted'
+        );
+        $this->assertBranchDeleted($this->branchName);
     }
 }
