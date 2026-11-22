@@ -20,7 +20,7 @@ jobs:
       - uses: violinist-dev/update-action@c95a90b15fcd095303ac7ec34723a0094542a84a # 1.x
         id: update
         with: 
-          php_version: "7.3"
+          php_version: "7.4"
         env:
           USER_TOKEN: ${{ secrets.PAT_UPDATE_JOB }}
           PROJECT_URL: ${{ github.repositoryUrl }}
