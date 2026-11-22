@@ -1,8 +1,30 @@
-diff --git a/src/Api/Projects.php b/src/Api/Projects.php
-index 3f5d1962..1e2f2ba1 100644
---- a/src/Api/Projects.php
-+++ b/src/Api/Projects.php
-@@ -466,7 +466,7 @@ public function pipelineTestReportSummary($project_id, int $pipeline_id)
+diff --git i/src/Api/Groups.php w/src/Api/Groups.php
+index 5a97e0c..e742d11 100644
+--- i/src/Api/Groups.php
++++ w/src/Api/Groups.php
+@@ -91,7 +91,7 @@ class Groups extends AbstractApi
+      *
+      * @return mixed
+      */
+-    public function create(string $name, string $path, string $description = null, string $visibility = 'private', bool $lfs_enabled = null, bool $request_access_enabled = null, int $parent_id = null, int $shared_runners_minutes_limit = null)
++    public function create(string $name, string $path, ?string $description = null, string $visibility = 'private', ?bool $lfs_enabled = null, ?bool $request_access_enabled = null, ?int $parent_id = null, ?int $shared_runners_minutes_limit = null)
+     {
+         $params = [
+             'name' => $name,
+@@ -917,7 +917,7 @@ class Groups extends AbstractApi
+      *
+      * @return mixed
+      */
+-    public function deployTokens($group_id, bool $active = null)
++    public function deployTokens($group_id, ?bool $active = null)
+     {
+         return $this->get('groups/'.self::encodePath($group_id).'/deploy_tokens', (null !== $active) ? ['active' => $active] : []);
+     }
+diff --git i/src/Api/Projects.php w/src/Api/Projects.php
+index 3f5d196..9eb799a 100644
+--- i/src/Api/Projects.php
++++ w/src/Api/Projects.php
+@@ -466,7 +466,7 @@ class Projects extends AbstractApi
       *
       * @return mixed
       */
@@ -11,11 +33,38 @@ index 3f5d1962..1e2f2ba1 100644
      {
          $parameters = [];
  
-diff --git a/src/Api/Repositories.php b/src/Api/Repositories.php
-index 096f69a2..43d466f6 100644
---- a/src/Api/Repositories.php
-+++ b/src/Api/Repositories.php
-@@ -419,7 +419,7 @@ public function postCommitBuildStatus($project_id, string $sha, string $state, a
+@@ -588,7 +588,7 @@ class Projects extends AbstractApi
+      *
+      * @return mixed
+      */
+-    public function addMember($project_id, int $user_id, int $access_level, string $expires_at = null)
++    public function addMember($project_id, int $user_id, int $access_level, ?string $expires_at = null)
+     {
+         $params = [
+             'user_id' => $user_id,
+@@ -609,7 +609,7 @@ class Projects extends AbstractApi
+      *
+      * @return mixed
+      */
+-    public function saveMember($project_id, int $user_id, int $access_level, string $expires_at = null)
++    public function saveMember($project_id, int $user_id, int $access_level, ?string $expires_at = null)
+     {
+         $params = [
+             'access_level' => $access_level,
+@@ -868,7 +868,7 @@ class Projects extends AbstractApi
+      *
+      * @return mixed
+      */
+-    public function deployTokens($project_id, bool $active = null)
++    public function deployTokens($project_id, ?bool $active = null)
+     {
+         return $this->get($this->getProjectPath($project_id, 'deploy_tokens'), (null !== $active) ? ['active' => $active] : []);
+     }
+diff --git i/src/Api/Repositories.php w/src/Api/Repositories.php
+index 096f69a..43d466f 100644
+--- i/src/Api/Repositories.php
++++ w/src/Api/Repositories.php
+@@ -419,7 +419,7 @@ class Repositories extends AbstractApi
       *
       * @return mixed
       */
@@ -24,10 +73,10 @@ index 096f69a2..43d466f6 100644
      {
          $params = [
              'from' => $fromShaOrMaster,
-diff --git a/src/Client.php b/src/Client.php
-index 4082f1ac..cd24dcb1 100644
---- a/src/Client.php
-+++ b/src/Client.php
+diff --git i/src/Client.php w/src/Client.php
+index 4082f1a..cd24dcb 100644
+--- i/src/Client.php
++++ w/src/Client.php
 @@ -123,7 +123,7 @@ class Client
       *
       * @return void
@@ -37,7 +86,7 @@ index 4082f1ac..cd24dcb1 100644
      {
          $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
          $this->responseHistory = new History();
-@@ -425,7 +425,7 @@ public function wiki(): Wiki
+@@ -425,7 +425,7 @@ class Client
       *
       * @return void
       */
@@ -46,10 +95,10 @@ index 4082f1ac..cd24dcb1 100644
      {
          $this->getHttpClientBuilder()->removePlugin(Authentication::class);
          $this->getHttpClientBuilder()->addPlugin(new Authentication($authMethod, $token, $sudo));
-diff --git a/src/HttpClient/Builder.php b/src/HttpClient/Builder.php
-index 594b92cd..00fe2b4d 100644
---- a/src/HttpClient/Builder.php
-+++ b/src/HttpClient/Builder.php
+diff --git i/src/HttpClient/Builder.php w/src/HttpClient/Builder.php
+index 594b92c..00fe2b4 100644
+--- i/src/HttpClient/Builder.php
++++ w/src/HttpClient/Builder.php
 @@ -100,10 +100,10 @@ final class Builder
       * @return void
       */
@@ -65,10 +114,10 @@ index 594b92cd..00fe2b4d 100644
      ) {
          $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
          $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
-diff --git a/src/HttpClient/Plugin/Authentication.php b/src/HttpClient/Plugin/Authentication.php
-index 2160f5cd..39cd0b79 100644
---- a/src/HttpClient/Plugin/Authentication.php
-+++ b/src/HttpClient/Plugin/Authentication.php
+diff --git i/src/HttpClient/Plugin/Authentication.php w/src/HttpClient/Plugin/Authentication.php
+index 2160f5c..39cd0b7 100644
+--- i/src/HttpClient/Plugin/Authentication.php
++++ w/src/HttpClient/Plugin/Authentication.php
 @@ -43,7 +43,7 @@ final class Authentication implements Plugin
       *
       * @return void
@@ -78,7 +127,7 @@ index 2160f5cd..39cd0b79 100644
      {
          $this->headers = self::buildHeaders($method, $token, $sudo);
      }
-@@ -77,7 +77,7 @@ public function handleRequest(RequestInterface $request, callable $next, callabl
+@@ -77,7 +77,7 @@ final class Authentication implements Plugin
       *
       * @return array<string,string>
       */
@@ -87,10 +136,10 @@ index 2160f5cd..39cd0b79 100644
      {
          $headers = [];
  
-diff --git a/src/ResultPager.php b/src/ResultPager.php
-index 5c22d795..d0618302 100644
---- a/src/ResultPager.php
-+++ b/src/ResultPager.php
+diff --git i/src/ResultPager.php w/src/ResultPager.php
+index 5c22d79..d061830 100644
+--- i/src/ResultPager.php
++++ w/src/ResultPager.php
 @@ -66,7 +66,7 @@ final class ResultPager implements ResultPagerInterface
       *
       * @return void
