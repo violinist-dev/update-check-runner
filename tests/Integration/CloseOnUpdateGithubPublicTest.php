@@ -3,6 +3,7 @@
 namespace Violinist\UpdateCheckRunner\Tests\Integration;
 
 use Violinist\ProjectData\ProjectData;
+use Violinist\Slug\Slug;
 
 class CloseOnUpdateGithubPublicTest extends CloseOnUpdateGithubTest
 {
@@ -13,6 +14,18 @@ class CloseOnUpdateGithubPublicTest extends CloseOnUpdateGithubTest
         parent::setUp();
         $this->token = $_SERVER['GITHUB_PRIVATE_USER_TOKEN'];
         $this->url = $_SERVER['GITHUB_PUBLIC_REPO'];
+    }
+
+    protected function getBranchSlug() : Slug
+    {
+        $slug = parent::getBranchSlug();
+        $slug->setUserName(getenv('GITHUB_FORK_TO'));
+        return $slug;
+    }
+
+    protected function getPullRequestHead() : string
+    {
+        return sprintf('%s:%s', getenv('GITHUB_FORK_TO'), $this->branchName);
     }
 
     protected function getExtraParams()
